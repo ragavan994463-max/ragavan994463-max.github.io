@@ -3,1040 +3,2018 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Raghavan — AI, Python, autonomous systems and software engineering portfolio.">
+
+<meta name="description"
+content="RAGHAVAN — Software engineer, Python developer, systems builder and technology enthusiast.">
+
 <meta name="theme-color" content="#05070d">
-<title>Raghavan | AI Engineering OS</title>
+
+<title>RAGHAVAN | Engineering Portfolio</title>
 
 <style>
+
+/* =========================================================
+   RAGHAVAN — ENGINEERING PORTFOLIO
+   SINGLE FILE • HTML + CSS + JAVASCRIPT
+   ========================================================= */
+
 :root{
---bg:#05070d;
---bg2:#090e18;
---panel:rgba(255,255,255,.055);
---panel2:rgba(255,255,255,.09);
---border:rgba(255,255,255,.11);
---text:#f7f9ff;
---muted:#9da8bc;
---blue:#7c8cff;
---cyan:#5ee7df;
---green:#67e8a5;
---purple:#b58cff;
---red:#ff718c;
---radius:24px;
---max:1200px;
---shadow:0 25px 80px rgba(0,0,0,.45);
+    --bg:#05070d;
+    --bg2:#090d17;
+    --panel:rgba(255,255,255,.055);
+    --panel2:rgba(255,255,255,.09);
+    --border:rgba(255,255,255,.11);
+
+    --text:#f7f9ff;
+    --muted:#9da8bc;
+
+    --blue:#7c8cff;
+    --cyan:#5ee7df;
+    --green:#67e8a5;
+    --purple:#b58cff;
+    --orange:#ffb86b;
+    --red:#ff718c;
+
+    --radius:24px;
+    --max:1200px;
+
+    --shadow:
+        0 25px 80px rgba(0,0,0,.45);
+
+    --transition:
+        .3s cubic-bezier(.2,.8,.2,1);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
 html{
-scroll-behavior:smooth;
-scroll-padding-top:80px;
+    scroll-behavior:smooth;
+    scroll-padding-top:85px;
 }
 
 body{
-min-height:100vh;
-background:
-radial-gradient(circle at 10% 10%,rgba(124,140,255,.15),transparent 30%),
-radial-gradient(circle at 90% 20%,rgba(94,231,223,.10),transparent 28%),
-linear-gradient(180deg,var(--bg),var(--bg2));
-color:var(--text);
-font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-line-height:1.6;
-overflow-x:hidden;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(124,140,255,.14),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(94,231,223,.09),
+            transparent 28%
+        ),
+        linear-gradient(
+            180deg,
+            var(--bg),
+            var(--bg2)
+        );
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    line-height:1.6;
 }
 
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-button{cursor:pointer}
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+::selection{
+    background:rgba(94,231,223,.25);
+    color:white;
+}
+
+/* =========================================================
+   BACKGROUND SYSTEM
+   ========================================================= */
+
+.background-grid{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    pointer-events:none;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:45px 45px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 90%
+        );
+}
+
+.glow{
+    position:fixed;
+    width:350px;
+    height:350px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.07;
+
+    pointer-events:none;
+
+    z-index:-9;
+}
+
+.glow.one{
+    top:5%;
+    left:-170px;
+    background:var(--blue);
+}
+
+.glow.two{
+    top:45%;
+    right:-170px;
+    background:var(--cyan);
+}
+
+.glow.three{
+    bottom:-180px;
+    left:35%;
+    background:var(--purple);
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 .container{
-width:min(92%,var(--max));
-margin:auto;
-}
-
-.grid{
-position:fixed;
-inset:0;
-z-index:-5;
-pointer-events:none;
-opacity:.65;
-background-image:
-linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-background-size:45px 45px;
-mask-image:linear-gradient(to bottom,black,transparent 92%);
-}
-
-.orb{
-position:fixed;
-width:330px;
-height:330px;
-border-radius:50%;
-filter:blur(110px);
-opacity:.08;
-pointer-events:none;
-z-index:-4;
-}
-
-.orb.one{top:5%;left:-160px;background:var(--blue)}
-.orb.two{top:50%;right:-160px;background:var(--cyan)}
-.orb.three{bottom:-170px;left:35%;background:var(--purple)}
-
-.navbar{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-z-index:1000;
-background:rgba(5,7,13,.75);
-backdrop-filter:blur(20px);
--webkit-backdrop-filter:blur(20px);
-border-bottom:1px solid var(--border);
-}
-
-.nav{
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.logo{
-font-size:1.1rem;
-font-weight:900;
-letter-spacing:-.04em;
-}
-
-.logo span{color:var(--cyan)}
-
-.nav-links{
-display:flex;
-gap:22px;
-}
-
-.nav-links a{
-color:var(--muted);
-font-size:.82rem;
-transition:.25s;
-}
-
-.nav-links a:hover{color:white}
-
-.menu{
-display:none;
-border:1px solid var(--border);
-background:var(--panel);
-color:white;
-padding:8px 11px;
-border-radius:10px;
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-padding:125px 0 80px;
-}
-
-.hero-content{max-width:900px}
-
-.status{
-display:inline-flex;
-align-items:center;
-gap:9px;
-padding:7px 13px;
-border:1px solid rgba(103,232,165,.22);
-border-radius:999px;
-background:rgba(103,232,165,.06);
-color:#a9f7c9;
-font-size:.75rem;
-margin-bottom:24px;
-}
-
-.status-dot{
-width:8px;
-height:8px;
-border-radius:50%;
-background:var(--green);
-box-shadow:0 0 15px var(--green);
-animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-0%,100%{opacity:.5;transform:scale(.8)}
-50%{opacity:1;transform:scale(1.2)}
-}
-
-.hero h1{
-font-size:clamp(3rem,9vw,7rem);
-line-height:.95;
-letter-spacing:-.07em;
-margin-bottom:25px;
-}
-
-.gradient{
-background:linear-gradient(110deg,var(--blue),var(--cyan),var(--purple));
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-max-width:720px;
-color:var(--muted);
-font-size:clamp(1rem,2vw,1.2rem);
-margin-bottom:32px;
-}
-
-.actions{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:13px 19px;
-border-radius:14px;
-border:1px solid var(--border);
-background:var(--panel);
-color:white;
-transition:.25s;
-}
-
-.btn:hover{
-transform:translateY(-3px);
-background:var(--panel2);
-}
-
-.btn.primary{
-background:linear-gradient(135deg,rgba(124,140,255,.85),rgba(94,231,223,.55));
-border-color:transparent;
-}
-
-section{padding:105px 0}
-
-.section-label{
-color:var(--cyan);
-font-size:.72rem;
-text-transform:uppercase;
-letter-spacing:.18em;
-font-weight:800;
-margin-bottom:12px;
-}
-
-.section-title{
-font-size:clamp(2rem,5vw,3.5rem);
-letter-spacing:-.05em;
-margin-bottom:18px;
-}
-
-.section-text{
-max-width:720px;
-color:var(--muted);
-margin-bottom:38px;
-}
-
-/* TERMINAL */
-
-.terminal{
-border:1px solid var(--border);
-border-radius:24px;
-overflow:hidden;
-background:rgba(0,0,0,.35);
-box-shadow:var(--shadow);
-}
-
-.terminal-head{
-height:48px;
-display:flex;
-align-items:center;
-gap:8px;
-padding:0 16px;
-border-bottom:1px solid var(--border);
-background:rgba(255,255,255,.035);
-}
-
-.dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:rgba(255,255,255,.3);
-}
-
-.terminal-title{
-margin-left:8px;
-font-size:.75rem;
-color:var(--muted);
-}
-
-.terminal-body{
-padding:22px;
-font-family:
-ui-monospace,
-SFMono-Regular,
-Menlo,
-Monaco,
-Consolas,
-monospace;
-font-size:.82rem;
-}
-
-.terminal-output{
-min-height:210px;
-white-space:pre-wrap;
-color:#dce3f4;
-}
-
-.prompt{
-color:var(--green);
-}
-
-.terminal-input-row{
-display:flex;
-align-items:center;
-gap:9px;
-border-top:1px solid var(--border);
-padding-top:16px;
-}
-
-.terminal-input{
-flex:1;
-min-width:0;
-background:transparent;
-border:0;
-outline:0;
-color:white;
-font-family:inherit;
-}
-
-/* SYSTEM CARDS */
-
-.dashboard{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
-
-.metric{
-padding:22px;
-border:1px solid var(--border);
-background:var(--panel);
-border-radius:20px;
-transition:.3s;
-}
-
-.metric:hover{
-transform:translateY(-5px);
-background:var(--panel2);
-}
-
-.metric-icon{
-font-size:1.3rem;
-margin-bottom:14px;
-}
-
-.metric-value{
-font-size:1.8rem;
-font-weight:900;
-letter-spacing:-.05em;
-}
-
-.metric-name{
-color:var(--muted);
-font-size:.78rem;
-}
-
-/* PROJECT */
-
-.flagship{
-padding:32px;
-border:1px solid rgba(124,140,255,.22);
-border-radius:28px;
-background:
-radial-gradient(circle at 100% 0,rgba(124,140,255,.14),transparent 40%),
-var(--panel);
-box-shadow:var(--shadow);
-}
-
-.flagship-tag{
-display:inline-block;
-padding:6px 10px;
-border-radius:999px;
-background:rgba(124,140,255,.12);
-color:#b7c0ff;
-font-size:.68rem;
-margin-bottom:18px;
-}
-
-.flagship h3{
-font-size:clamp(1.8rem,5vw,3rem);
-letter-spacing:-.05em;
-margin-bottom:12px;
-}
-
-.flagship p{
-color:var(--muted);
-max-width:780px;
-margin-bottom:30px;
-}
-
-/* ARCHITECTURE */
-
-.architecture{
-position:relative;
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:10px;
-}
-
-.arch-node{
-position:relative;
-min-height:125px;
-padding:15px 10px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-border:1px solid var(--border);
-border-radius:18px;
-background:rgba(0,0,0,.25);
-transition:.3s;
-overflow:hidden;
-}
-
-.arch-node::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(135deg,rgba(124,140,255,.12),transparent);
-opacity:0;
-transition:.3s;
-}
-
-.arch-node:hover{
-transform:translateY(-7px) scale(1.02);
-border-color:rgba(94,231,223,.45);
-}
-
-.arch-node:hover::before{opacity:1}
-
-.arch-number{
-color:var(--cyan);
-font-size:.65rem;
-font-weight:900;
-margin-bottom:7px;
-}
-
-.arch-node b{font-size:.8rem}
-.arch-node span{font-size:.66rem;color:var(--muted);margin-top:5px}
-
-.arch-info{
-margin-top:20px;
-padding:18px;
-border:1px solid var(--border);
-border-radius:16px;
-background:rgba(0,0,0,.2);
-color:var(--muted);
-min-height:62px;
-}
-
-/* SKILLS */
-
-.skills{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-}
-
-.skill{
-padding:20px;
-border:1px solid var(--border);
-border-radius:18px;
-background:var(--panel);
-transition:.3s;
-}
-
-.skill:hover{
-transform:translateY(-5px);
-border-color:rgba(124,140,255,.35);
-}
-
-.skill strong{
-display:block;
-margin-bottom:7px;
-}
-
-.skill small{color:var(--muted)}
-
-/* GITHUB */
-
-.github-panel{
-border:1px solid var(--border);
-border-radius:24px;
-background:var(--panel);
-overflow:hidden;
-}
-
-.github-top{
-padding:25px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-border-bottom:1px solid var(--border);
-}
-
-.github-title{
-font-weight:900;
-font-size:1.1rem;
-}
-
-.github-status{
-font-size:.72rem;
-color:var(--green);
-}
-
-.repo-grid{
-padding:20px;
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:14px;
-}
-
-.repo{
-padding:20px;
-border:1px solid var(--border);
-border-radius:18px;
-background:rgba(0,0,0,.18);
-transition:.3s;
-}
-
-.repo:hover{
-transform:translateY(-5px);
-background:var(--panel2);
-}
-
-.repo-name{
-font-weight:800;
-margin-bottom:7px;
-}
-
-.repo-desc{
-font-size:.78rem;
-color:var(--muted);
-margin-bottom:15px;
-}
-
-.repo-meta{
-display:flex;
-gap:12px;
-font-size:.68rem;
-color:var(--muted);
-}
-
-/* COMMUNITY */
-
-.community{
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:18px;
-}
-
-.card{
-padding:28px;
-border:1px solid var(--border);
-border-radius:22px;
-background:var(--panel);
-}
-
-.member{
-display:flex;
-align-items:center;
-gap:15px;
-padding:15px 0;
-border-bottom:1px solid rgba(255,255,255,.07);
-}
-
-.member:last-child{border-bottom:0}
-
-.avatar{
-width:45px;
-height:45px;
-display:grid;
-place-items:center;
-border-radius:50%;
-background:linear-gradient(135deg,var(--blue),var(--cyan));
-font-weight:900;
-}
-
-.member small{
-display:block;
-color:var(--muted);
-}
-
-/* CONTACT */
-
-.contact{
-text-align:center;
-padding:55px 25px;
-border:1px solid var(--border);
-border-radius:28px;
-background:
-radial-gradient(circle at 50% 0,rgba(124,140,255,.13),transparent 50%),
-var(--panel);
-}
-
-.contact p{
-color:var(--muted);
-margin:15px auto 28px;
-max-width:600px;
-}
-
-.contact-info{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:10px;
-margin-bottom:25px;
-}
-
-.contact-chip{
-padding:10px 14px;
-border:1px solid var(--border);
-border-radius:12px;
-background:rgba(0,0,0,.2);
-font-size:.78rem;
-}
-
-/* FOOTER */
-
-footer{
-padding:35px 0;
-border-top:1px solid var(--border);
-color:var(--muted);
-font-size:.78rem;
-}
-
-.footer-inner{
-display:flex;
-justify-content:space-between;
-gap:20px;
-}
-
-/* REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(24px);
-transition:opacity .7s ease,transform .7s ease;
-}
-
-.reveal.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-/* TOAST */
-
-.toast{
-position:fixed;
-left:50%;
-bottom:25px;
-transform:translate(-50%,20px);
-padding:12px 18px;
-border:1px solid var(--border);
-border-radius:14px;
-background:rgba(10,14,24,.92);
-backdrop-filter:blur(15px);
-color:white;
-font-size:.78rem;
-opacity:0;
-pointer-events:none;
-transition:.3s;
-z-index:2000;
-}
-
-.toast.show{
-opacity:1;
-transform:translate(-50%,0);
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.dashboard{
-grid-template-columns:repeat(2,1fr);
-}
-
-.skills{
-grid-template-columns:repeat(2,1fr);
-}
-
-.architecture{
-grid-template-columns:repeat(3,1fr);
-}
-
-.community{
-grid-template-columns:1fr;
-}
-
-.repo-grid{
-grid-template-columns:1fr;
-}
-}
-
-@media(max-width:650px){
-
-.nav-links{
-display:none;
-}
-
-.menu{
-display:block;
-}
-
-.hero{
-min-height:auto;
-padding-top:130px;
-}
-
-.hero h1{
-font-size:clamp(3rem,16vw,5rem);
+    width:min(92%,var(--max));
+    margin:auto;
 }
 
 section{
-padding:75px 0;
+    padding:110px 0;
 }
 
-.dashboard,
-.skills{
-grid-template-columns:1fr;
+.section-label{
+    margin-bottom:12px;
+
+    color:var(--cyan);
+
+    font-size:.7rem;
+    font-weight:900;
+
+    text-transform:uppercase;
+    letter-spacing:.18em;
 }
 
-.architecture{
-grid-template-columns:repeat(2,1fr);
+.section-title{
+    margin-bottom:18px;
+
+    font-size:
+        clamp(
+            2rem,
+            5vw,
+            3.6rem
+        );
+
+    line-height:1.05;
+    letter-spacing:-.055em;
 }
+
+.section-text{
+    max-width:760px;
+
+    margin-bottom:38px;
+
+    color:var(--muted);
+
+    font-size:1rem;
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:
+        rgba(5,7,13,.72);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.nav{
+    min-height:74px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.logo{
+    font-size:1.05rem;
+    font-weight:950;
+
+    letter-spacing:-.05em;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.nav-links a{
+    position:relative;
+
+    color:var(--muted);
+
+    font-size:.8rem;
+
+    transition:var(--transition);
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    transition:var(--transition);
+}
+
+.nav-links a:hover{
+    color:white;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+.menu{
+    display:none;
+
+    border:
+        1px solid var(--border);
+
+    background:var(--panel);
+
+    color:white;
+
+    padding:8px 11px;
+
+    border-radius:10px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        140px 0
+        80px;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    margin-bottom:25px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(94,231,223,.22);
+
+    border-radius:999px;
+
+    background:
+        rgba(94,231,223,.055);
+
+    color:#b9fff9;
+
+    font-size:.72rem;
+    font-weight:800;
+}
+
+.badge-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 15px
+        var(--green);
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:.45;
+        transform:scale(.8);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.2);
+    }
+
+}
+
+.hero h1{
+    margin-bottom:25px;
+
+    font-size:
+        clamp(
+            3.2rem,
+            9vw,
+            7.4rem
+        );
+
+    line-height:.9;
+
+    letter-spacing:-.075em;
+}
+
+.gradient{
+    background:
+        linear-gradient(
+            110deg,
+            var(--blue),
+            var(--cyan),
+            var(--purple)
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    max-width:760px;
+
+    margin-bottom:32px;
+
+    color:var(--muted);
+
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.2rem
+        );
+}
+
+.actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    padding:
+        13px 19px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    background:var(--panel);
+
+    color:white;
+
+    transition:var(--transition);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+
+    background:var(--panel2);
+
+    border-color:
+        rgba(94,231,223,.3);
+}
+
+.btn.primary{
+    background:
+        linear-gradient(
+            135deg,
+            rgba(124,140,255,.9),
+            rgba(94,231,223,.55)
+        );
+
+    border-color:transparent;
+}
+
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
+.about-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.15fr
+        .85fr;
+
+    gap:18px;
+}
+
+.panel{
+    padding:30px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    background:var(--panel);
+
+    box-shadow:
+        0 20px 70px
+        rgba(0,0,0,.15);
+
+    transition:var(--transition);
+}
+
+.panel:hover{
+    transform:translateY(-4px);
+
+    border-color:
+        rgba(124,140,255,.25);
+}
+
+.about-main p{
+    color:var(--muted);
+
+    margin-bottom:18px;
+}
+
+.about-highlight{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-top:25px;
+}
+
+.highlight{
+    padding:17px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    background:
+        rgba(0,0,0,.18);
+}
+
+.highlight strong{
+    display:block;
+
+    margin-bottom:4px;
+
+    font-size:.85rem;
+}
+
+.highlight span{
+    color:var(--muted);
+
+    font-size:.72rem;
+}
+
+/* =========================================================
+   EXPERTISE
+   ========================================================= */
+
+.expertise-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:14px;
+}
+
+.expertise{
+    position:relative;
+
+    min-height:180px;
+
+    padding:22px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    background:var(--panel);
+
+    overflow:hidden;
+
+    transition:var(--transition);
+}
+
+.expertise::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(124,140,255,.13),
+            transparent 45%
+        );
+
+    opacity:0;
+
+    transition:var(--transition);
+}
+
+.expertise:hover{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(124,140,255,.35);
+}
+
+.expertise:hover::before{
+    opacity:1;
+}
+
+.expertise-icon{
+    font-size:1.5rem;
+
+    margin-bottom:17px;
+}
+
+.expertise strong{
+    display:block;
+
+    margin-bottom:7px;
+
+    font-size:.95rem;
+}
+
+.expertise small{
+    color:var(--muted);
+
+    font-size:.75rem;
+}
+
+/* =========================================================
+   FLAGSHIP PROJECT
+   ========================================================= */
 
 .flagship{
-padding:22px;
+    position:relative;
+
+    padding:35px;
+
+    border:
+        1px solid
+        rgba(124,140,255,.25);
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(124,140,255,.14),
+            transparent 40%
+        ),
+        var(--panel);
+
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
 }
 
-.github-top{
-align-items:flex-start;
-flex-direction:column;
+.flagship::after{
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    right:-100px;
+    bottom:-120px;
+
+    border-radius:50%;
+
+    background:
+        rgba(94,231,223,.08);
+
+    filter:blur(60px);
+
+    pointer-events:none;
+}
+
+.project-tag{
+    display:inline-block;
+
+    margin-bottom:18px;
+
+    padding:
+        6px 10px;
+
+    border-radius:999px;
+
+    background:
+        rgba(124,140,255,.12);
+
+    color:#bcc4ff;
+
+    font-size:.67rem;
+    font-weight:800;
+}
+
+.flagship h3{
+    margin-bottom:12px;
+
+    font-size:
+        clamp(
+            1.9rem,
+            5vw,
+            3.2rem
+        );
+
+    letter-spacing:-.055em;
+}
+
+.flagship-description{
+    max-width:800px;
+
+    margin-bottom:32px;
+
+    color:var(--muted);
+}
+
+.project-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+
+    margin-bottom:30px;
+}
+
+.tag{
+    padding:
+        7px 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:999px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    color:#c8d0df;
+
+    font-size:.68rem;
+}
+
+/* =========================================================
+   ARCHITECTURE
+   ========================================================= */
+
+.architecture{
+    display:grid;
+
+    grid-template-columns:
+        repeat(6,1fr);
+
+    gap:10px;
+}
+
+.arch-node{
+    min-height:135px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    padding:15px 10px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        rgba(0,0,0,.25);
+
+    color:white;
+
+    text-align:center;
+
+    transition:var(--transition);
+}
+
+.arch-node:hover,
+.arch-node.active{
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(94,231,223,.5);
+
+    background:
+        rgba(94,231,223,.055);
+}
+
+.arch-number{
+    margin-bottom:7px;
+
+    color:var(--cyan);
+
+    font-size:.64rem;
+    font-weight:900;
+}
+
+.arch-node b{
+    font-size:.78rem;
+}
+
+.arch-node span:last-child{
+    margin-top:5px;
+
+    color:var(--muted);
+
+    font-size:.64rem;
+}
+
+.arch-info{
+    min-height:70px;
+
+    margin-top:18px;
+
+    padding:18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:17px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    color:var(--muted);
+
+    font-size:.82rem;
+}
+
+/* =========================================================
+   PROJECT DETAILS
+   ========================================================= */
+
+.project-details{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:14px;
+
+    margin-top:18px;
+}
+
+.project-detail{
+    padding:20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        rgba(0,0,0,.18);
+}
+
+.project-detail strong{
+    display:block;
+
+    margin-bottom:7px;
+}
+
+.project-detail span{
+    color:var(--muted);
+
+    font-size:.75rem;
+}
+
+/* =========================================================
+   GITHUB
+   ========================================================= */
+
+.github-panel{
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
+
+    background:var(--panel);
+}
+
+.github-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:20px;
+
+    padding:25px;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.github-name{
+    font-size:1.05rem;
+    font-weight:900;
+}
+
+.github-user{
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:.74rem;
+}
+
+.github-status{
+    color:var(--green);
+
+    font-size:.7rem;
+    font-weight:800;
+}
+
+.repo-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+
+    padding:20px;
+}
+
+.repo{
+    padding:21px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:
+        rgba(0,0,0,.18);
+
+    transition:var(--transition);
+}
+
+.repo:hover{
+    transform:translateY(-5px);
+
+    background:var(--panel2);
+}
+
+.repo-name{
+    margin-bottom:7px;
+
+    font-weight:850;
+}
+
+.repo-description{
+    margin-bottom:15px;
+
+    color:var(--muted);
+
+    font-size:.76rem;
+}
+
+.repo-meta{
+    display:flex;
+    gap:12px;
+
+    margin-bottom:17px;
+
+    color:var(--muted);
+
+    font-size:.67rem;
+}
+
+/* =========================================================
+   CYBERSECURITY COMMUNITY
+   ========================================================= */
+
+.community-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap:18px;
+}
+
+.community-card{
+    padding:28px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:22px;
+
+    background:var(--panel);
+}
+
+.community-card h3{
+    margin-bottom:15px;
+
+    font-size:1.2rem;
+}
+
+.community-card p{
+    color:var(--muted);
+}
+
+.principles{
+    display:grid;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.principle{
+    padding:15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:15px;
+
+    background:
+        rgba(0,0,0,.18);
+}
+
+.principle strong{
+    display:block;
+
+    margin-bottom:3px;
+
+    font-size:.78rem;
+}
+
+.principle span{
+    color:var(--muted);
+
+    font-size:.7rem;
+}
+
+.member{
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    padding:15px 0;
+
+    border-bottom:
+        1px solid
+        rgba(255,255,255,.07);
+}
+
+.member:last-child{
+    border-bottom:0;
+}
+
+.avatar{
+    width:44px;
+    height:44px;
+
+    display:grid;
+    place-items:center;
+
+    flex:none;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    font-weight:900;
+}
+
+.member small{
+    display:block;
+
+    color:var(--muted);
+
+    font-size:.7rem;
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact{
+    padding:
+        60px 25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at 50% 0,
+            rgba(124,140,255,.14),
+            transparent 52%
+        ),
+        var(--panel);
+
+    text-align:center;
+}
+
+.contact p{
+    max-width:650px;
+
+    margin:
+        15px auto 28px;
+
+    color:var(--muted);
+}
+
+.contact-links{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:25px;
+}
+
+.contact-chip{
+    padding:
+        10px 14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:
+        rgba(0,0,0,.2);
+
+    font-size:.76rem;
+
+    transition:var(--transition);
+}
+
+.contact-chip:hover{
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(94,231,223,.35);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    padding:35px 0;
+
+    border-top:
+        1px solid var(--border);
+
+    color:var(--muted);
+
+    font-size:.75rem;
 }
 
 .footer-inner{
-flex-direction:column;
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
 }
 
-.terminal-body{
-padding:17px;
-font-size:.75rem;
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s ease;
 }
+
+.reveal.visible{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translate(-50%,20px);
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    background:
+        rgba(10,14,24,.94);
+
+    backdrop-filter:blur(15px);
+
+    color:white;
+
+    font-size:.75rem;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    z-index:3000;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .expertise-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .architecture{
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .about-grid,
+    .community-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .nav-links{
+        display:none;
+
+        position:absolute;
+
+        top:74px;
+        left:0;
+
+        width:100%;
+
+        padding:18px;
+
+        flex-direction:column;
+
+        background:
+            rgba(5,7,13,.96);
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:auto;
+
+        padding:
+            135px 0 85px;
+    }
+
+    section{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:
+            clamp(
+                3.1rem,
+                16vw,
+                5rem
+            );
+    }
+
+    .expertise-grid,
+    .project-details{
+        grid-template-columns:1fr;
+    }
+
+    .architecture{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .repo-grid{
+        grid-template-columns:1fr;
+    }
+
+    .github-header{
+        align-items:flex-start;
+        flex-direction:column;
+    }
+
+    .flagship{
+        padding:23px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
 }
 
 @media(prefers-reduced-motion:reduce){
 
-*{
-animation:none!important;
-transition:none!important;
-scroll-behavior:auto!important;
+    *,
+    *::before,
+    *::after{
+        animation:none!important;
+        transition:none!important;
+        scroll-behavior:auto!important;
+    }
+
 }
-}
+
 </style>
 </head>
 
 <body>
 
-<div class="grid"></div>
-<div class="orb one"></div>
-<div class="orb two"></div>
-<div class="orb three"></div>
+<div class="background-grid"></div>
+
+<div class="glow one"></div>
+<div class="glow two"></div>
+<div class="glow three"></div>
+
+
+<!-- =====================================================
+     NAVIGATION
+     ===================================================== -->
 
 <header class="navbar">
+
 <div class="container nav">
 
 <a href="#home" class="logo">
 R<span>:</span>RAGHAVAN
 </a>
 
-<nav class="nav-links">
-<a href="#ai">AI OS</a>
+<nav class="nav-links" id="navLinks">
+
+<a href="#about">About</a>
+<a href="#expertise">Expertise</a>
 <a href="#project">Kaggriculture</a>
 <a href="#github">GitHub</a>
-<a href="#skills">Skills</a>
-<a href="#community">Community</a>
+<a href="#community">Cyber Community</a>
 <a href="#contact">Contact</a>
+
 </nav>
 
-<button class="menu" id="menuButton">☰</button>
+<button
+class="menu"
+id="menuButton"
+aria-label="Open navigation"
+>
+☰
+</button>
 
 </div>
+
 </header>
+
 
 <main>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
 <section id="home" class="hero">
+
 <div class="container">
+
 <div class="hero-content reveal">
 
-<div class="status">
-<span class="status-dot"></span>
-RAGHAVAN AI ENGINEERING OS • ONLINE
+<div class="hero-badge">
+
+<span class="badge-dot"></span>
+
+RAGHAVAN • SOFTWARE & TECHNOLOGY
+
 </div>
 
 <h1>
+
 Building
-<span class="gradient">intelligent</span>
-systems.
+
+<span class="gradient">
+systems
+</span>
+
+that matter.
+
 </h1>
 
 <p>
-AI-focused developer building Python systems,
-autonomous-agent architectures, software
-engineering projects and experimental intelligent
-systems.
+
+I am <strong>RAGHAVAN</strong>, a technology-focused
+developer interested in Python, software engineering,
+intelligent systems, automation, architecture and
+building ambitious real-world projects.
+
 </p>
 
 <div class="actions">
 
-<a class="btn primary" href="#project">
-Explore Kaggriculture
-</a>
-
-<a class="btn" href="#ai">
-Open Terminal
-</a>
-
-</div>
-
-</div>
-</div>
-</section>
-
-
-<!-- TERMINAL -->
-
-<section id="ai">
-<div class="container">
-
-<div class="reveal">
-<div class="section-label">01 / AI Interface</div>
-<h2 class="section-title">Raghavan Terminal</h2>
-<p class="section-text">
-Explore the portfolio through a command-driven
-interface.
-</p>
-</div>
-
-<div class="terminal reveal">
-
-<div class="terminal-head">
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="terminal-title">raghavan@ai-os:~</span>
-</div>
-
-<div class="terminal-body">
-
-<div id="terminalOutput" class="terminal-output">
-RAGHAVAN AI ENGINEERING OS
-
-System initialized.
-Knowledge modules loaded.
-
-Type "help" to view commands.
-</div>
-
-<div class="terminal-input-row">
-
-<span class="prompt">visitor@raghavan:~$</span>
-
-<input
-id="terminalInput"
-class="terminal-input"
-autocomplete="off"
-spellcheck="false"
-placeholder="type a command..."
+<a
+class="btn primary"
+href="#project"
 >
+Explore Kaggriculture →
+</a>
+
+<a
+class="btn"
+href="#about"
+>
+Know Raghavan
+</a>
 
 </div>
 
 </div>
-</div>
 
 </div>
+
 </section>
 
 
-<!-- DASHBOARD -->
+<!-- =====================================================
+     ABOUT
+     ===================================================== -->
 
-<section>
+<section id="about">
+
 <div class="container">
 
 <div class="reveal">
-<div class="section-label">02 / System Telemetry</div>
-<h2 class="section-title">Engineering Dashboard</h2>
+
+<div class="section-label">
+01 / About
+</div>
+
+<h2 class="section-title">
+Engineering mindset.
+</h2>
+
 <p class="section-text">
-A compact view of the technologies and systems
-forming my current engineering profile.
+A portfolio built around what I create, what I learn
+and the engineering problems I want to solve.
 </p>
-</div>
-
-<div class="dashboard">
-
-<div class="metric reveal">
-<div class="metric-icon">🐍</div>
-<div class="metric-value">Python</div>
-<div class="metric-name">Primary Language</div>
-</div>
-
-<div class="metric reveal">
-<div class="metric-icon">🧠</div>
-<div class="metric-value">AI</div>
-<div class="metric-name">Intelligent Systems</div>
-</div>
-
-<div class="metric reveal">
-<div class="metric-icon">🤖</div>
-<div class="metric-value">Agents</div>
-<div class="metric-name">Autonomous Architecture</div>
-</div>
-
-<div class="metric reveal">
-<div class="metric-icon">⚙️</div>
-<div class="metric-value">Systems</div>
-<div class="metric-name">Software Engineering</div>
-</div>
 
 </div>
 
+
+<div class="about-grid">
+
+
+<div class="panel about-main reveal">
+
+<h3>
+Hello, I'm RAGHAVAN.
+</h3>
+
+<br>
+
+<p>
+I enjoy building software from the ground up,
+experimenting with technologies and turning ideas
+into working systems.
+</p>
+
+<p>
+My interests span Python development, automation,
+machine learning, autonomous systems, software
+architecture, GitHub workflows and responsible
+cybersecurity learning.
+</p>
+
+<p>
+Rather than focusing on one narrow technology,
+I continuously expand my engineering toolkit and
+try to understand how complete systems work together.
+</p>
+
+
+<div class="about-highlight">
+
+<div class="highlight">
+<strong>Build</strong>
+<span>Projects and practical systems</span>
 </div>
+
+<div class="highlight">
+<strong>Learn</strong>
+<span>Technology through experimentation</span>
+</div>
+
+<div class="highlight">
+<strong>Engineer</strong>
+<span>Modular and maintainable architecture</span>
+</div>
+
+<div class="highlight">
+<strong>Collaborate</strong>
+<span>GitHub and team-based development</span>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="panel reveal">
+
+<div class="section-label">
+Current Direction
+</div>
+
+<h3>
+From ideas → systems
+</h3>
+
+<br>
+
+<p style="color:var(--muted)">
+My goal is to keep developing stronger engineering
+skills while creating increasingly sophisticated
+projects.
+</p>
+
+<br>
+
+<div class="principles">
+
+<div class="principle">
+<strong>01 • Curiosity</strong>
+<span>Understand how things work.</span>
+</div>
+
+<div class="principle">
+<strong>02 • Engineering</strong>
+<span>Turn concepts into usable software.</span>
+</div>
+
+<div class="principle">
+<strong>03 • Experimentation</strong>
+<span>Test ideas and improve them.</span>
+</div>
+
+<div class="principle">
+<strong>04 • Responsibility</strong>
+<span>Build and learn technology ethically.</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- KAGGRICULTURE -->
+<!-- =====================================================
+     EXPERTISE
+     ===================================================== -->
+
+<section id="expertise">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+02 / Expertise
+</div>
+
+<h2 class="section-title">
+Engineering capabilities.
+</h2>
+
+<p class="section-text">
+A broad technical profile covering development,
+systems, automation and emerging technologies.
+</p>
+
+</div>
+
+
+<div class="expertise-grid">
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🐍</div>
+<strong>Python Development</strong>
+<small>
+Application development, scripting, automation
+and backend-oriented engineering.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🧠</div>
+<strong>Machine Learning</strong>
+<small>
+Learning systems, prediction pipelines and
+experimental intelligent applications.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🤖</div>
+<strong>Autonomous Systems</strong>
+<small>
+Decision-making architectures and systems
+designed to operate through feedback.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">⚙️</div>
+<strong>System Architecture</strong>
+<small>
+Modular structures, components, interfaces
+and scalable engineering concepts.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🔧</div>
+<strong>Automation</strong>
+<small>
+Reducing repetitive work through scripts,
+tools and engineering workflows.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🌐</div>
+<strong>Web Development</strong>
+<small>
+Modern responsive interfaces and interactive
+browser-based experiences.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">📦</div>
+<strong>Git & GitHub</strong>
+<small>
+Version control, repository organization,
+branches and collaborative development.
+</small>
+</div>
+
+
+<div class="expertise reveal">
+<div class="expertise-icon">🛡️</div>
+<strong>Ethical Cybersecurity</strong>
+<small>
+Security learning, responsible experimentation
+and defensive technology awareness.
+</small>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     KAGGRICULTURE
+     ===================================================== -->
 
 <section id="project">
+
 <div class="container">
 
 <div class="reveal">
-<div class="section-label">03 / Flagship Intelligence System</div>
-<h2 class="section-title">Crop Coders Kaggriculture</h2>
-<p class="section-text">
-The primary project showcased on this portfolio.
-</p>
+
+<div class="section-label">
+03 / Featured Project
 </div>
+
+<h2 class="section-title">
+Crop Coders — Kaggriculture.
+</h2>
+
+<p class="section-text">
+The flagship engineering project currently
+featured on this portfolio.
+</p>
+
+</div>
+
 
 <article class="flagship reveal">
 
-<span class="flagship-tag">
+
+<span class="project-tag">
 CROP CODERS • KAGGRICULTURE
 </span>
 
-<h3>Autonomous Farming Intelligence</h3>
 
-<p>
-A modular architecture for intelligent farming
-decision-making, combining observation,
-prediction, constraints, strategy, action and
-feedback-driven improvement.
+<h3>
+Autonomous Farming Intelligence
+</h3>
+
+
+<p class="flagship-description">
+
+A modular farming-agent architecture designed
+around observation, prediction, constraints,
+strategy, action and feedback. The project focuses
+on engineering a complete decision system rather
+than a single isolated model.
+
 </p>
+
+
+<div class="project-meta">
+
+<span class="tag">Python</span>
+<span class="tag">Machine Learning</span>
+<span class="tag">Agents</span>
+<span class="tag">Simulation</span>
+<span class="tag">Decision Systems</span>
+<span class="tag">Modular Architecture</span>
+
+</div>
+
 
 <div class="architecture">
 
-<button class="arch-node" data-arch="environment">
+
+<button
+class="arch-node"
+data-arch="environment"
+>
 <span class="arch-number">01</span>
 <b>Environment</b>
 <span>Observe state</span>
 </button>
 
-<button class="arch-node" data-arch="prediction">
+
+<button
+class="arch-node"
+data-arch="prediction"
+>
 <span class="arch-number">02</span>
 <b>Prediction</b>
 <span>Estimate future</span>
 </button>
 
-<button class="arch-node" data-arch="constraints">
+
+<button
+class="arch-node"
+data-arch="constraints"
+>
 <span class="arch-number">03</span>
 <b>Constraints</b>
 <span>Guard decisions</span>
 </button>
 
-<button class="arch-node" data-arch="decision">
+
+<button
+class="arch-node"
+data-arch="decision"
+>
 <span class="arch-number">04</span>
 <b>Decision</b>
 <span>Select strategy</span>
 </button>
 
-<button class="arch-node" data-arch="action">
+
+<button
+class="arch-node"
+data-arch="action"
+>
 <span class="arch-number">05</span>
 <b>Action</b>
 <span>Execute policy</span>
 </button>
 
-<button class="arch-node" data-arch="feedback">
+
+<button
+class="arch-node"
+data-arch="feedback"
+>
 <span class="arch-number">06</span>
 <b>Feedback</b>
-<span>Learn and improve</span>
+<span>Improve system</span>
 </button>
 
+
 </div>
 
-<div id="architectureInfo" class="arch-info">
+
+<div
+id="architectureInfo"
+class="arch-info"
+>
 Select an architecture component to inspect it.
 </div>
+
+
+<div class="project-details">
+
+
+<div class="project-detail">
+<strong>Architecture</strong>
+<span>
+Independent modular components designed
+to connect into a larger system.
+</span>
+</div>
+
+
+<div class="project-detail">
+<strong>Engineering Focus</strong>
+<span>
+Decision-making, planning, feedback and
+system-level intelligence.
+</span>
+</div>
+
+
+<div class="project-detail">
+<strong>Development</strong>
+<span>
+Continuously evolving through experimentation,
+testing and iteration.
+</span>
+</div>
+
+
+</div>
+
+
+<br>
+
+
+<div class="actions">
+
+<a
+class="btn primary"
+href="https://github.com/ragavan994463-max/kaggriculture-agent"
+target="_blank"
+rel="noopener noreferrer"
+>
+View Project on GitHub →
+</a>
+
+<a
+class="btn"
+href="#github"
+>
+Project Explorer
+</a>
+
+</div>
+
 
 </article>
 
 </div>
+
 </section>
 
 
-<!-- GITHUB -->
+<!-- =====================================================
+     GITHUB
+     ===================================================== -->
 
 <section id="github">
+
 <div class="container">
 
 <div class="reveal">
-<div class="section-label">04 / Repository Intelligence</div>
-<h2 class="section-title">GitHub Project Explorer</h2>
-<p class="section-text">
-A portfolio-native repository interface. Your
-flagship Kaggriculture project is highlighted first.
-</p>
+
+<div class="section-label">
+04 / GitHub
 </div>
+
+<h2 class="section-title">
+My engineering workspace.
+</h2>
+
+<p class="section-text">
+Explore the projects, repositories and development
+work behind my engineering journey.
+</p>
+
+</div>
+
 
 <div class="github-panel reveal">
 
-<div class="github-top">
+
+<div class="github-header">
 
 <div>
-<div class="github-title">Raghavan GitHub</div>
-<div style="color:var(--muted);font-size:.75rem;margin-top:4px">
+
+<div class="github-name">
+RAGHAVAN — GitHub
+</div>
+
+<div class="github-user">
 ragavan994463-max
 </div>
+
 </div>
+
 
 <div class="github-status">
-● REPOSITORY LINK READY
+● REPOSITORY LINKS ACTIVE
 </div>
 
 </div>
 
-<div id="repoGrid" class="repo-grid">
+
+<div class="repo-grid">
+
 
 <div class="repo">
 
@@ -1044,18 +2022,18 @@ ragavan994463-max
 Crop Coders — Kaggriculture
 </div>
 
-<div class="repo-desc">
+<div class="repo-description">
+
 Autonomous farming-agent architecture and
 intelligent decision system.
+
 </div>
 
 <div class="repo-meta">
 <span>Python</span>
-<span>AI</span>
 <span>Agents</span>
+<span>Systems</span>
 </div>
-
-<br>
 
 <a
 class="btn"
@@ -1072,20 +2050,21 @@ Open Repository →
 <div class="repo">
 
 <div class="repo-name">
-GitHub Profile
+RAGHAVAN GitHub Profile
 </div>
 
-<div class="repo-desc">
+<div class="repo-description">
+
 Explore repositories, contributions and future
 engineering projects.
+
 </div>
 
 <div class="repo-meta">
 <span>GitHub</span>
 <span>Open Source</span>
+<span>Engineering</span>
 </div>
-
-<br>
 
 <a
 class="btn"
@@ -1093,173 +2072,203 @@ href="https://github.com/ragavan994463-max"
 target="_blank"
 rel="noopener noreferrer"
 >
-View GitHub →
+View Profile →
 </a>
 
 </div>
 
-</div>
+
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- SKILLS -->
-
-<section id="skills">
-<div class="container">
-
-<div class="reveal">
-<div class="section-label">05 / Engineering DNA</div>
-<h2 class="section-title">Technical Capabilities</h2>
-<p class="section-text">
-Core technologies and engineering areas.
-</p>
-</div>
-
-<div class="skills">
-
-<div class="skill reveal">
-<strong>Python</strong>
-<small>Core development and automation</small>
-</div>
-
-<div class="skill reveal">
-<strong>Artificial Intelligence</strong>
-<small>Intelligent system development</small>
-</div>
-
-<div class="skill reveal">
-<strong>Machine Learning</strong>
-<small>Prediction and learning systems</small>
-</div>
-
-<div class="skill reveal">
-<strong>Agent Architecture</strong>
-<small>Autonomous decision systems</small>
-</div>
-
-<div class="skill reveal">
-<strong>Reinforcement Learning</strong>
-<small>Learning through interaction</small>
-</div>
-
-<div class="skill reveal">
-<strong>System Design</strong>
-<small>Modular architecture</small>
-</div>
-
-<div class="skill reveal">
-<strong>Git & GitHub</strong>
-<small>Version control and collaboration</small>
-</div>
-
-<div class="skill reveal">
-<strong>Automation</strong>
-<small>Engineering workflow automation</small>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- COMMUNITY -->
+<!-- =====================================================
+     CYBERSECURITY COMMUNITY
+     ===================================================== -->
 
 <section id="community">
+
 <div class="container">
 
 <div class="reveal">
-<div class="section-label">06 / Community Network</div>
-<h2 class="section-title">Hacking Community</h2>
-<p class="section-text">
-A new technical community focused on learning,
-building, experimentation and responsible
-technology.
-</p>
+
+<div class="section-label">
+05 / Community
 </div>
 
-<div class="community">
+<h2 class="section-title">
+Ethical cybersecurity community.
+</h2>
 
-<div class="card reveal">
+<p class="section-text">
 
-<h3>Core Team</h3>
+A technology community centered around learning,
+responsible experimentation, security awareness
+and collaboration.
+
+</p>
+
+</div>
+
+
+<div class="community-grid">
+
+
+<div class="community-card reveal">
+
+<h3>
+Community Mission
+</h3>
+
+<p>
+
+Learn cybersecurity responsibly, understand how
+technology works, build useful security knowledge
+and collaborate without harming systems or people.
+
+</p>
+
+
+<div class="principles">
+
+
+<div class="principle">
+<strong>🔐 Learn</strong>
+<span>
+Understand security concepts and defensive practices.
+</span>
+</div>
+
+
+<div class="principle">
+<strong>🧪 Experiment</strong>
+<span>
+Use controlled environments and authorized systems.
+</span>
+</div>
+
+
+<div class="principle">
+<strong>🛡️ Defend</strong>
+<span>
+Promote safer software and stronger security awareness.
+</span>
+</div>
+
+
+<div class="principle">
+<strong>🤝 Collaborate</strong>
+<span>
+Share knowledge and build with the community.
+</span>
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="community-card reveal">
+
+<h3>
+Core Team
+</h3>
+
 
 <div class="member">
 
-<div class="avatar">S</div>
+<div class="avatar">
+S
+</div>
 
 <div>
 <strong>Shanmugam</strong>
-<small>Creator</small>
+<small>
+Community Creator
+</small>
 </div>
 
 </div>
+
 
 <div class="member">
 
-<div class="avatar">R</div>
+<div class="avatar">
+R
+</div>
 
 <div>
-<strong>Raghavan</strong>
-<small>Technical Leader</small>
+<strong>RAGHAVAN</strong>
+<small>
+Technical Leader
+</small>
 </div>
 
 </div>
 
-</div>
-
-
-<div class="card reveal">
-
-<h3>Community Mission</h3>
-
-<p style="color:var(--muted);margin-top:15px">
-Learn technology.
-Build projects.
-Experiment responsibly.
-Collaborate with others.
-</p>
 
 <br>
 
-<a class="btn primary" href="#contact">
-Connect
-</a>
+
+<p>
+Technology should be explored with curiosity,
+discipline and responsibility.
+</p>
+
+</div>
+
 
 </div>
 
 </div>
 
-</div>
 </section>
 
 
-<!-- CONTACT -->
+<!-- =====================================================
+     CONTACT
+     ===================================================== -->
 
 <section id="contact">
+
 <div class="container">
 
 <div class="contact reveal">
 
-<div class="section-label">07 / Connection</div>
+
+<div class="section-label">
+06 / Contact
+</div>
+
 
 <h2 class="section-title">
-Let's Build Something Intelligent.
+Let's build something.
 </h2>
 
+
 <p>
-For professional networking, collaboration and
-technical opportunities.
+
+For professional networking, collaboration,
+projects and technology opportunities.
+
 </p>
 
-<div class="contact-info">
 
-<a class="contact-chip" href="tel:+919626638296">
+<div class="contact-links">
+
+<a
+class="contact-chip"
+href="tel:+919626638296"
+>
 📞 9626638296
 </a>
+
 
 <a
 class="contact-chip"
@@ -1270,9 +2279,22 @@ rel="noopener noreferrer"
 💼 LinkedIn
 </a>
 
+
+<a
+class="contact-chip"
+href="https://github.com/ragavan994463-max"
+target="_blank"
+rel="noopener noreferrer"
+>
+◈ GitHub
+</a>
+
 </div>
 
-<div class="actions" style="justify-content:center">
+
+<div class="actions"
+style="justify-content:center">
+
 
 <a
 class="btn primary"
@@ -1280,8 +2302,9 @@ href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
 target="_blank"
 rel="noopener noreferrer"
 >
-Connect on LinkedIn
+Connect on LinkedIn →
 </a>
+
 
 <a
 class="btn"
@@ -1289,467 +2312,291 @@ href="https://github.com/ragavan994463-max"
 target="_blank"
 rel="noopener noreferrer"
 >
-GitHub
+GitHub →
 </a>
 
-</div>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
+
 
 </main>
 
 
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <footer>
+
 <div class="container footer-inner">
 
-<span>© 2026 Raghavan</span>
+<span>
+© 2026 RAGHAVAN
+</span>
 
 <span>
-AI • Python • Systems • Engineering
+Python • Systems • Engineering • Technology
 </span>
 
 </div>
+
 </footer>
 
-<div id="toast" class="toast"></div>
+
+<div
+id="toast"
+class="toast"
+>
+</div>
 
 
 <script>
+
 "use strict";
 
 /* =========================================================
-   PORTFOLIO OS ENGINE
+   RAGHAVAN PORTFOLIO ENGINE
    ========================================================= */
 
 
-/* ---------------------------------------------------------
+/* =========================================================
    MOBILE NAVIGATION
-   --------------------------------------------------------- */
+   ========================================================= */
 
 const menuButton =
-document.getElementById("menuButton");
+    document.getElementById("menuButton");
 
 const navLinks =
-document.querySelector(".nav-links");
+    document.getElementById("navLinks");
 
-if(menuButton){
+if(menuButton && navLinks){
 
-menuButton.addEventListener("click",()=>{
+    menuButton.addEventListener(
+        "click",
+        ()=>{
 
-if(!navLinks)return;
+            navLinks.classList.toggle("open");
 
-const hidden =
-getComputedStyle(navLinks).display==="none";
-
-navLinks.style.display =
-hidden ? "flex" : "none";
-
-});
+        }
+    );
 
 }
-
-
-/* ---------------------------------------------------------
-   TERMINAL
-   --------------------------------------------------------- */
-
-const terminalInput =
-document.getElementById("terminalInput");
-
-const terminalOutput =
-document.getElementById("terminalOutput");
-
-
-const commands = {
-
-help:
-`AVAILABLE COMMANDS
-
-about
-skills
-project
-kaggriculture
-architecture
-github
-community
-contact
-status
-clear
-
-SYSTEM:
-Raghavan AI Engineering OS`,
-
-about:
-`RAGHAVAN
-
-AI-focused developer and system builder.
-
-Primary interests:
-• Python
-• Artificial Intelligence
-• Autonomous Agents
-• Machine Learning
-• System Architecture
-• Automation
-
-FLAGSHIP:
-Crop Coders — Kaggriculture`,
-
-skills:
-`ENGINEERING DNA
-
-Python
-Artificial Intelligence
-Machine Learning
-Agent Architecture
-Reinforcement Learning
-System Design
-Git & GitHub
-Automation`,
-
-project:
-`FLAGSHIP PROJECT
-
-CROP CODERS — KAGGRICULTURE
-
-Focus:
-Autonomous farming intelligence
-
-Architecture:
-Environment
-→ Prediction
-→ Constraints
-→ Decision
-→ Action
-→ Feedback`,
-
-kaggriculture:
-`CROP CODERS / KAGGRICULTURE
-
-INTELLIGENCE LOOP
-
-Environment
-      ↓
-Prediction
-      ↓
-Constraints
-      ↓
-Decision
-      ↓
-Action
-      ↓
-Feedback
-      ↓
-Learning
-
-STATUS: ACTIVE DEVELOPMENT`,
-
-architecture:
-`ARCHITECTURE MODULES
-
-01 Environment
-02 Prediction
-03 Constraints
-04 Decision
-05 Action
-06 Feedback
-
-Click architecture nodes on the project section
-to inspect individual modules.`,
-
-github:
-`GITHUB
-
-Profile:
-ragavan994463-max
-
-Flagship repository:
-kaggriculture-agent
-
-Open the GitHub Project Explorer section
-to access repository links.`,
-
-community:
-`HACKING COMMUNITY
-
-Creator:
-Shanmugam
-
-Technical Leader:
-Raghavan
-
-Mission:
-Learning
-Building
-Experimentation
-Responsible technology
-Collaboration`,
-
-contact:
-`CONTACT
-
-LinkedIn:
-Raghavan Ganesan
-
-Phone:
-9626638296
-
-Use the Contact section for direct links.`,
-
-status:
-`SYSTEM STATUS
-
-PORTFOLIO OS ........ ONLINE
-AI CONSOLE .......... ONLINE
-ARCHITECTURE ........ ONLINE
-GITHUB MODULE ....... READY
-MOBILE ENGINE ...... OPTIMIZED
-
-ALL CORE SYSTEMS NOMINAL.`
-
-};
-
-
-function writeTerminal(text){
-
-if(!terminalOutput)return;
-
-terminalOutput.textContent=text;
-
-}
-
-
-function runTerminalCommand(value){
-
-const command=
-String(value||"")
-.trim()
-.toLowerCase();
-
-if(!command)return;
-
-if(command==="clear"){
-
-writeTerminal("");
-
-return;
-
-}
-
-if(commands[command]){
-
-writeTerminal(
-`> ${command}\n\n${commands[command]}`
-);
-
-return;
-
-}
-
-writeTerminal(
-`> ${command}
-
-COMMAND NOT FOUND.
-
-Type "help" to view
-available commands.`
-);
-
-}
-
-
-if(terminalInput){
-
-terminalInput.addEventListener(
-"keydown",
-event=>{
-
-if(event.key==="Enter"){
-
-runTerminalCommand(
-terminalInput.value
-);
-
-terminalInput.value="";
-
-}
-
-});
-
-}
-
-
-/* ---------------------------------------------------------
-   ARCHITECTURE INSPECTOR
-   --------------------------------------------------------- */
-
-const architectureData={
-
-environment:
-"ENVIRONMENT — The system observes the current world state, available resources, market conditions and game information before making decisions.",
-
-prediction:
-"PREDICTION — Estimates likely future outcomes so decisions can consider expected consequences rather than only the current state.",
-
-constraints:
-"CONSTRAINTS — Dynamic guardrails restrict unsafe, impossible or economically poor actions while preserving decision flexibility.",
-
-decision:
-"DECISION — Combines observations, predictions and constraints to select a strategy or next action.",
-
-action:
-"ACTION — Converts the selected decision into an executable operation within the environment.",
-
-feedback:
-"FEEDBACK — Evaluates the result of actions and feeds useful information back into the intelligence loop for improvement."
-
-};
-
-
-const architectureInfo=
-document.getElementById("architectureInfo");
 
 
 document
-.querySelectorAll(".arch-node")
-.forEach(node=>{
+    .querySelectorAll(".nav-links a")
+    .forEach(link=>{
 
-node.addEventListener("click",()=>{
+        link.addEventListener(
+            "click",
+            ()=>{
 
-const key=node.dataset.arch;
+                navLinks?.classList.remove("open");
 
-if(!architectureInfo)return;
+            }
+        );
 
-architectureInfo.textContent=
-architectureData[key] ||
-"Architecture module information unavailable.";
+    });
+
+
+/* =========================================================
+   ARCHITECTURE INSPECTOR
+   ========================================================= */
+
+const architectureData = {
+
+    environment:
+        "ENVIRONMENT — Observes the current farming world, available resources, market conditions and game state before decisions are produced.",
+
+    prediction:
+        "PREDICTION — Estimates possible future outcomes so the system can reason about consequences instead of reacting only to the current state.",
+
+    constraints:
+        "CONSTRAINTS — Provides dynamic guardrails that prevent impossible, unsafe or strategically poor operations while preserving flexibility.",
+
+    decision:
+        "DECISION — Combines observations, predictions and constraints to determine the most appropriate strategy or next operation.",
+
+    action:
+        "ACTION — Converts the selected decision into an executable operation inside the farming environment.",
+
+    feedback:
+        "FEEDBACK — Evaluates what happened after an action and provides information that can improve later decisions."
+};
+
+
+const architectureInfo =
+    document.getElementById("architectureInfo");
+
+
+const architectureNodes =
+    document.querySelectorAll(".arch-node");
+
+
+architectureNodes.forEach(node=>{
+
+    node.addEventListener(
+        "click",
+        ()=>{
+
+            architectureNodes.forEach(
+                item =>
+                    item.classList.remove("active")
+            );
+
+            node.classList.add("active");
+
+            const key =
+                node.dataset.arch;
+
+            if(architectureInfo){
+
+                architectureInfo.textContent =
+                    architectureData[key] ||
+                    "Architecture information unavailable.";
+
+            }
+
+        }
+    );
 
 });
 
-});
 
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 
-/* ---------------------------------------------------------
-   REVEAL ENGINE
-   --------------------------------------------------------- */
-
-const revealElements=
-document.querySelectorAll(".reveal");
+const revealElements =
+    document.querySelectorAll(".reveal");
 
 
 if("IntersectionObserver" in window){
 
-const observer=
-new IntersectionObserver(
-entries=>{
+    const observer =
+        new IntersectionObserver(
+            entries=>{
 
-entries.forEach(entry=>{
+                entries.forEach(entry=>{
 
-if(entry.isIntersecting){
+                    if(entry.isIntersecting){
 
-entry.target.classList.add("visible");
+                        entry.target
+                            .classList
+                            .add("visible");
 
-observer.unobserve(entry.target);
+                        observer.unobserve(
+                            entry.target
+                        );
 
-}
+                    }
 
-});
+                });
 
-},
-{threshold:.12}
-);
+            },
+            {
+                threshold:.12
+            }
+        );
 
-revealElements.forEach(
-element=>observer.observe(element)
-);
+
+    revealElements.forEach(
+        element =>
+            observer.observe(element)
+    );
 
 }else{
 
-revealElements.forEach(
-element=>element.classList.add("visible")
-);
+    revealElements.forEach(
+        element =>
+            element.classList.add("visible")
+    );
 
 }
 
 
-/* ---------------------------------------------------------
-   KEYBOARD SHORTCUT
-   --------------------------------------------------------- */
+/* =========================================================
+   EXTERNAL LINK FEEDBACK
+   ========================================================= */
 
-document.addEventListener("keydown",event=>{
-
-if(
-event.key==="/" &&
-document.activeElement!==terminalInput
-){
-
-event.preventDefault();
-
-if(terminalInput){
-
-terminalInput.focus();
-
-}
-
-}
-
-});
-
-
-/* ---------------------------------------------------------
-   TOAST ENGINE
-   --------------------------------------------------------- */
-
-const toast=
-document.getElementById("toast");
+const toast =
+    document.getElementById("toast");
 
 
 function showToast(message){
 
-if(!toast)return;
+    if(!toast)return;
 
-toast.textContent=message;
+    toast.textContent =
+        message;
 
-toast.classList.add("show");
+    toast.classList.add("show");
 
-window.setTimeout(
-()=>toast.classList.remove("show"),
-2200
-);
+    window.setTimeout(
+        ()=>{
+            toast.classList.remove("show");
+        },
+        2200
+    );
 
 }
 
 
-/* ---------------------------------------------------------
-   EXTERNAL LINK FEEDBACK
-   --------------------------------------------------------- */
-
 document
-.querySelectorAll('a[target="_blank"]')
-.forEach(link=>{
+    .querySelectorAll(
+        'a[target="_blank"]'
+    )
+    .forEach(link=>{
 
-link.addEventListener("click",()=>{
+        link.addEventListener(
+            "click",
+            ()=>{
+                showToast(
+                    "Opening external resource..."
+                );
+            }
+        );
 
-showToast("Opening external resource...");
-
-});
-
-});
+    });
 
 
-/* ---------------------------------------------------------
+/* =========================================================
+   KEYBOARD SHORTCUTS
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key === "Escape"){
+
+            navLinks?.classList.remove("open");
+
+        }
+
+    }
+);
+
+
+/* =========================================================
    INITIALIZATION
-   --------------------------------------------------------- */
+   ========================================================= */
 
-window.addEventListener("load",()=>{
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
 
-document.title=
-"Raghavan | AI Engineering OS";
+        document.title =
+            "RAGHAVAN | Engineering Portfolio";
 
-});
+    }
+);
 
 </script>
 
