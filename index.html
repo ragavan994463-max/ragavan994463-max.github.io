@@ -2,902 +2,755 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-      content="Raghavan — AI, Python, software engineering and autonomous system development.">
-
-<meta name="theme-color"
-      content="#070b14">
-
-<title>Raghavan | AI Engineering Portfolio</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Raghavan — AI, Python, autonomous systems and software engineering portfolio.">
+<meta name="theme-color" content="#05070d">
+<title>Raghavan | AI Engineering OS</title>
 
 <style>
-/* =========================================================
-   RAGHAVAN AI PORTFOLIO OS
-   VERSION 2.0
-   ZERO DEPENDENCIES
-   MOBILE FIRST
-   ========================================================= */
+:root{
+--bg:#05070d;
+--bg2:#090e18;
+--panel:rgba(255,255,255,.055);
+--panel2:rgba(255,255,255,.09);
+--border:rgba(255,255,255,.11);
+--text:#f7f9ff;
+--muted:#9da8bc;
+--blue:#7c8cff;
+--cyan:#5ee7df;
+--green:#67e8a5;
+--purple:#b58cff;
+--red:#ff718c;
+--radius:24px;
+--max:1200px;
+--shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{
+scroll-behavior:smooth;
+scroll-padding-top:80px;
+}
+
+body{
+min-height:100vh;
+background:
+radial-gradient(circle at 10% 10%,rgba(124,140,255,.15),transparent 30%),
+radial-gradient(circle at 90% 20%,rgba(94,231,223,.10),transparent 28%),
+linear-gradient(180deg,var(--bg),var(--bg2));
+color:var(--text);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+line-height:1.6;
+overflow-x:hidden;
+}
+
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+button{cursor:pointer}
+
+.container{
+width:min(92%,var(--max));
+margin:auto;
+}
+
+.grid{
+position:fixed;
+inset:0;
+z-index:-5;
+pointer-events:none;
+opacity:.65;
+background-image:
+linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+background-size:45px 45px;
+mask-image:linear-gradient(to bottom,black,transparent 92%);
+}
+
+.orb{
+position:fixed;
+width:330px;
+height:330px;
+border-radius:50%;
+filter:blur(110px);
+opacity:.08;
+pointer-events:none;
+z-index:-4;
+}
+
+.orb.one{top:5%;left:-160px;background:var(--blue)}
+.orb.two{top:50%;right:-160px;background:var(--cyan)}
+.orb.three{bottom:-170px;left:35%;background:var(--purple)}
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+z-index:1000;
+background:rgba(5,7,13,.75);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border-bottom:1px solid var(--border);
+}
+
+.nav{
+min-height:72px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+}
+
+.logo{
+font-size:1.1rem;
+font-weight:900;
+letter-spacing:-.04em;
+}
+
+.logo span{color:var(--cyan)}
 
-:root {
-  --bg:#05070d;
-  --bg2:#090e18;
-  --panel:rgba(255,255,255,.055);
-  --panel2:rgba(255,255,255,.085);
-  --border:rgba(255,255,255,.11);
-
-  --text:#f7f9ff;
-  --muted:#9da8bc;
-
-  --blue:#7c8cff;
-  --cyan:#5ee7df;
-  --green:#67e8a5;
-  --purple:#b58cff;
-
-  --shadow:0 25px 80px rgba(0,0,0,.45);
-
-  --radius:24px;
-  --max:1200px;
+.nav-links{
+display:flex;
+gap:22px;
 }
 
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+.nav-links a{
+color:var(--muted);
+font-size:.82rem;
+transition:.25s;
 }
+
+.nav-links a:hover{color:white}
 
-html {
-  scroll-behavior:smooth;
-  scroll-padding-top:90px;
+.menu{
+display:none;
+border:1px solid var(--border);
+background:var(--panel);
+color:white;
+padding:8px 11px;
+border-radius:10px;
 }
 
-body {
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 10% 10%,
-      rgba(124,140,255,.15),
-      transparent 30%),
-    radial-gradient(circle at 90% 20%,
-      rgba(94,231,223,.10),
-      transparent 28%),
-    linear-gradient(180deg,var(--bg),var(--bg2));
+/* HERO */
 
-  color:var(--text);
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:125px 0 80px;
+}
 
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+.hero-content{max-width:900px}
 
-  line-height:1.6;
-  overflow-x:hidden;
+.status{
+display:inline-flex;
+align-items:center;
+gap:9px;
+padding:7px 13px;
+border:1px solid rgba(103,232,165,.22);
+border-radius:999px;
+background:rgba(103,232,165,.06);
+color:#a9f7c9;
+font-size:.75rem;
+margin-bottom:24px;
 }
 
-a {
-  color:inherit;
-  text-decoration:none;
+.status-dot{
+width:8px;
+height:8px;
+border-radius:50%;
+background:var(--green);
+box-shadow:0 0 15px var(--green);
+animation:pulse 2s infinite;
 }
 
-button,
-input {
-  font:inherit;
+@keyframes pulse{
+0%,100%{opacity:.5;transform:scale(.8)}
+50%{opacity:1;transform:scale(1.2)}
 }
 
-button {
-  cursor:pointer;
+.hero h1{
+font-size:clamp(3rem,9vw,7rem);
+line-height:.95;
+letter-spacing:-.07em;
+margin-bottom:25px;
 }
 
-.container {
-  width:min(92%,var(--max));
-  margin:auto;
+.gradient{
+background:linear-gradient(110deg,var(--blue),var(--cyan),var(--purple));
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
 }
-
-/* =========================================================
-   BACKGROUND
-   ========================================================= */
 
-.grid {
-  position:fixed;
-  inset:0;
-  z-index:-5;
-  pointer-events:none;
-
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    );
-
-  background-size:45px 45px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 90%
-    );
+.hero p{
+max-width:720px;
+color:var(--muted);
+font-size:clamp(1rem,2vw,1.2rem);
+margin-bottom:32px;
 }
 
-.orb {
-  position:fixed;
-  width:320px;
-  height:320px;
-  border-radius:50%;
-  filter:blur(100px);
-  opacity:.08;
-  pointer-events:none;
-  z-index:-4;
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
 }
 
-.orb.one {
-  top:5%;
-  left:-150px;
-  background:var(--blue);
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:13px 19px;
+border-radius:14px;
+border:1px solid var(--border);
+background:var(--panel);
+color:white;
+transition:.25s;
 }
 
-.orb.two {
-  top:55%;
-  right:-150px;
-  background:var(--cyan);
+.btn:hover{
+transform:translateY(-3px);
+background:var(--panel2);
 }
 
-.orb.three {
-  bottom:-150px;
-  left:35%;
-  background:var(--purple);
+.btn.primary{
+background:linear-gradient(135deg,rgba(124,140,255,.85),rgba(94,231,223,.55));
+border-color:transparent;
 }
-
-/* =========================================================
-   NAVBAR
-   ========================================================= */
 
-.navbar {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
+section{padding:105px 0}
 
-  background:rgba(5,7,13,.72);
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-
-  border-bottom:1px solid var(--border);
+.section-label{
+color:var(--cyan);
+font-size:.72rem;
+text-transform:uppercase;
+letter-spacing:.18em;
+font-weight:800;
+margin-bottom:12px;
 }
-
-.nav {
-  min-height:72px;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+.section-title{
+font-size:clamp(2rem,5vw,3.5rem);
+letter-spacing:-.05em;
+margin-bottom:18px;
 }
 
-.logo {
-  font-size:1.15rem;
-  font-weight:900;
-  letter-spacing:-.04em;
+.section-text{
+max-width:720px;
+color:var(--muted);
+margin-bottom:38px;
 }
 
-.logo span {
-  color:var(--cyan);
-}
+/* TERMINAL */
 
-.nav-links {
-  display:flex;
-  gap:24px;
+.terminal{
+border:1px solid var(--border);
+border-radius:24px;
+overflow:hidden;
+background:rgba(0,0,0,.35);
+box-shadow:var(--shadow);
 }
 
-.nav-links a {
-  color:var(--muted);
-  font-size:.9rem;
-  transition:.25s;
+.terminal-head{
+height:48px;
+display:flex;
+align-items:center;
+gap:8px;
+padding:0 16px;
+border-bottom:1px solid var(--border);
+background:rgba(255,255,255,.035);
 }
 
-.nav-links a:hover {
-  color:white;
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.3);
 }
 
-.menu {
-  display:none;
-  border:1px solid var(--border);
-  background:var(--panel);
-  color:white;
-  padding:8px 11px;
-  border-radius:10px;
+.terminal-title{
+margin-left:8px;
+font-size:.75rem;
+color:var(--muted);
 }
-
-/* =========================================================
-   HERO
-   ========================================================= */
 
-.hero {
-  min-height:100vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:
-    120px 0
-    70px;
+.terminal-body{
+padding:22px;
+font-family:
+ui-monospace,
+SFMono-Regular,
+Menlo,
+Monaco,
+Consolas,
+monospace;
+font-size:.82rem;
 }
 
-.hero-content {
-  max-width:900px;
+.terminal-output{
+min-height:210px;
+white-space:pre-wrap;
+color:#dce3f4;
 }
-
-.status {
-  display:inline-flex;
-  align-items:center;
-  gap:9px;
-
-  padding:7px 13px;
 
-  border:1px solid rgba(103,232,165,.22);
-  border-radius:999px;
-
-  background:rgba(103,232,165,.06);
-
-  color:#a9f7c9;
-
-  font-size:.8rem;
-  margin-bottom:24px;
+.prompt{
+color:var(--green);
 }
-
-.status-dot {
-  width:8px;
-  height:8px;
 
-  border-radius:50%;
-  background:var(--green);
-
-  box-shadow:
-    0 0 15px var(--green);
-
-  animation:pulse 2s infinite;
+.terminal-input-row{
+display:flex;
+align-items:center;
+gap:9px;
+border-top:1px solid var(--border);
+padding-top:16px;
 }
 
-@keyframes pulse {
-  0%,100% { opacity:.5; transform:scale(.8); }
-  50% { opacity:1; transform:scale(1.2); }
+.terminal-input{
+flex:1;
+min-width:0;
+background:transparent;
+border:0;
+outline:0;
+color:white;
+font-family:inherit;
 }
-
-.hero h1 {
-  font-size:
-    clamp(3rem,9vw,7rem);
-
-  line-height:.95;
 
-  letter-spacing:-.07em;
+/* SYSTEM CARDS */
 
-  margin-bottom:25px;
+.dashboard{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
 }
 
-.gradient {
-  background:
-    linear-gradient(
-      110deg,
-      var(--blue),
-      var(--cyan),
-      var(--purple)
-    );
-
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.metric{
+padding:22px;
+border:1px solid var(--border);
+background:var(--panel);
+border-radius:20px;
+transition:.3s;
 }
-
-.hero p {
-  max-width:720px;
-
-  color:var(--muted);
-
-  font-size:
-    clamp(1rem,2vw,1.2rem);
 
-  margin-bottom:32px;
+.metric:hover{
+transform:translateY(-5px);
+background:var(--panel2);
 }
 
-.actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+.metric-icon{
+font-size:1.3rem;
+margin-bottom:14px;
 }
 
-.btn {
-  padding:13px 19px;
-
-  border-radius:14px;
-
-  border:1px solid var(--border);
+.metric-value{
+font-size:1.8rem;
+font-weight:900;
+letter-spacing:-.05em;
+}
 
-  background:var(--panel);
+.metric-name{
+color:var(--muted);
+font-size:.78rem;
+}
 
-  color:white;
+/* PROJECT */
 
-  transition:
-    transform .25s,
-    background .25s,
-    border .25s;
+.flagship{
+padding:32px;
+border:1px solid rgba(124,140,255,.22);
+border-radius:28px;
+background:
+radial-gradient(circle at 100% 0,rgba(124,140,255,.14),transparent 40%),
+var(--panel);
+box-shadow:var(--shadow);
 }
 
-.btn:hover {
-  transform:translateY(-3px);
-  background:var(--panel2);
-  border-color:rgba(255,255,255,.22);
+.flagship-tag{
+display:inline-block;
+padding:6px 10px;
+border-radius:999px;
+background:rgba(124,140,255,.12);
+color:#b7c0ff;
+font-size:.68rem;
+margin-bottom:18px;
 }
 
-.btn.primary {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(124,140,255,.85),
-      rgba(94,231,223,.55)
-    );
+.flagship h3{
+font-size:clamp(1.8rem,5vw,3rem);
+letter-spacing:-.05em;
+margin-bottom:12px;
+}
 
-  border-color:transparent;
+.flagship p{
+color:var(--muted);
+max-width:780px;
+margin-bottom:30px;
 }
 
-/* =========================================================
-   SECTION
-   ========================================================= */
+/* ARCHITECTURE */
 
-section {
-  padding:110px 0;
+.architecture{
+position:relative;
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:10px;
 }
 
-.section-label {
-  color:var(--cyan);
-  font-size:.75rem;
-  text-transform:uppercase;
-  letter-spacing:.18em;
-  font-weight:800;
-  margin-bottom:12px;
+.arch-node{
+position:relative;
+min-height:125px;
+padding:15px 10px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+border:1px solid var(--border);
+border-radius:18px;
+background:rgba(0,0,0,.25);
+transition:.3s;
+overflow:hidden;
 }
-
-.section-title {
-  font-size:
-    clamp(2rem,5vw,3.5rem);
 
-  letter-spacing:-.05em;
-  margin-bottom:18px;
+.arch-node::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(135deg,rgba(124,140,255,.12),transparent);
+opacity:0;
+transition:.3s;
 }
 
-.section-text {
-  max-width:700px;
-  color:var(--muted);
-  margin-bottom:40px;
+.arch-node:hover{
+transform:translateY(-7px) scale(1.02);
+border-color:rgba(94,231,223,.45);
 }
 
-/* =========================================================
-   AI COMMAND CENTER
-   ========================================================= */
+.arch-node:hover::before{opacity:1}
 
-.ai-console {
-  border:1px solid var(--border);
-  background:rgba(255,255,255,.045);
-
-  border-radius:var(--radius);
+.arch-number{
+color:var(--cyan);
+font-size:.65rem;
+font-weight:900;
+margin-bottom:7px;
+}
 
-  overflow:hidden;
+.arch-node b{font-size:.8rem}
+.arch-node span{font-size:.66rem;color:var(--muted);margin-top:5px}
 
-  box-shadow:var(--shadow);
+.arch-info{
+margin-top:20px;
+padding:18px;
+border:1px solid var(--border);
+border-radius:16px;
+background:rgba(0,0,0,.2);
+color:var(--muted);
+min-height:62px;
 }
 
-.console-head {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+/* SKILLS */
 
-  padding:16px 20px;
-
-  border-bottom:1px solid var(--border);
+.skills{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:14px;
 }
 
-.console-title {
-  font-weight:800;
+.skill{
+padding:20px;
+border:1px solid var(--border);
+border-radius:18px;
+background:var(--panel);
+transition:.3s;
 }
 
-.console-status {
-  color:var(--green);
-  font-size:.78rem;
+.skill:hover{
+transform:translateY(-5px);
+border-color:rgba(124,140,255,.35);
 }
 
-.console-body {
-  padding:24px;
+.skill strong{
+display:block;
+margin-bottom:7px;
 }
-
-.ai-output {
-  min-height:120px;
 
-  color:#dce3f4;
+.skill small{color:var(--muted)}
 
-  margin-bottom:20px;
+/* GITHUB */
 
-  white-space:pre-line;
+.github-panel{
+border:1px solid var(--border);
+border-radius:24px;
+background:var(--panel);
+overflow:hidden;
 }
 
-.command-row {
-  display:flex;
-  gap:10px;
+.github-top{
+padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+border-bottom:1px solid var(--border);
 }
-
-.command-input {
-  flex:1;
-
-  min-width:0;
 
-  padding:14px 16px;
-
-  border-radius:14px;
-
-  border:1px solid var(--border);
-
-  background:rgba(0,0,0,.28);
-
-  color:white;
-
-  outline:none;
+.github-title{
+font-weight:900;
+font-size:1.1rem;
 }
 
-.command-input:focus {
-  border-color:var(--blue);
+.github-status{
+font-size:.72rem;
+color:var(--green);
 }
-
-.command-btn {
-  padding:0 18px;
-
-  border:0;
-  border-radius:14px;
-
-  background:var(--blue);
-  color:white;
 
-  font-weight:800;
+.repo-grid{
+padding:20px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
 }
 
-.commands {
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-
-  margin-top:14px;
+.repo{
+padding:20px;
+border:1px solid var(--border);
+border-radius:18px;
+background:rgba(0,0,0,.18);
+transition:.3s;
 }
-
-.command-chip {
-  padding:7px 11px;
-
-  border-radius:999px;
-
-  border:1px solid var(--border);
 
-  background:var(--panel);
-
-  color:var(--muted);
-
-  font-size:.75rem;
+.repo:hover{
+transform:translateY(-5px);
+background:var(--panel2);
 }
-
-/* =========================================================
-   SYSTEM DASHBOARD
-   ========================================================= */
-
-.dashboard {
-  display:grid;
 
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:15px;
+.repo-name{
+font-weight:800;
+margin-bottom:7px;
 }
-
-.metric {
-  padding:22px;
-
-  border:
-    1px solid var(--border);
-
-  background:var(--panel);
 
-  border-radius:20px;
-
-  transition:.3s;
+.repo-desc{
+font-size:.78rem;
+color:var(--muted);
+margin-bottom:15px;
 }
 
-.metric:hover {
-  transform:translateY(-5px);
-  background:var(--panel2);
+.repo-meta{
+display:flex;
+gap:12px;
+font-size:.68rem;
+color:var(--muted);
 }
 
-.metric-icon {
-  font-size:1.3rem;
-  margin-bottom:15px;
-}
+/* COMMUNITY */
 
-.metric-value {
-  font-size:2rem;
-  font-weight:900;
-  letter-spacing:-.05em;
+.community{
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:18px;
 }
 
-.metric-name {
-  color:var(--muted);
-  font-size:.82rem;
+.card{
+padding:28px;
+border:1px solid var(--border);
+border-radius:22px;
+background:var(--panel);
 }
 
-/* =========================================================
-   SKILLS
-   ========================================================= */
-
-.skills {
-  display:grid;
+.member{
+display:flex;
+align-items:center;
+gap:15px;
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.07);
+}
 
-  grid-template-columns:
-    repeat(4,1fr);
+.member:last-child{border-bottom:0}
 
-  gap:14px;
+.avatar{
+width:45px;
+height:45px;
+display:grid;
+place-items:center;
+border-radius:50%;
+background:linear-gradient(135deg,var(--blue),var(--cyan));
+font-weight:900;
 }
-
-.skill {
-  padding:20px;
 
-  border:1px solid var(--border);
-  border-radius:18px;
+.member small{
+display:block;
+color:var(--muted);
+}
 
-  background:var(--panel);
+/* CONTACT */
 
-  transition:.3s;
+.contact{
+text-align:center;
+padding:55px 25px;
+border:1px solid var(--border);
+border-radius:28px;
+background:
+radial-gradient(circle at 50% 0,rgba(124,140,255,.13),transparent 50%),
+var(--panel);
 }
 
-.skill:hover {
-  transform:translateY(-4px);
+.contact p{
+color:var(--muted);
+margin:15px auto 28px;
+max-width:600px;
 }
 
-.skill strong {
-  display:block;
-  margin-bottom:8px;
+.contact-info{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:25px;
 }
 
-.skill small {
-  color:var(--muted);
+.contact-chip{
+padding:10px 14px;
+border:1px solid var(--border);
+border-radius:12px;
+background:rgba(0,0,0,.2);
+font-size:.78rem;
 }
-
-/* =========================================================
-   KAGGRICULTURE
-   ========================================================= */
-
-.flagship {
-  position:relative;
-
-  padding:32px;
 
-  border:1px solid rgba(124,140,255,.22);
+/* FOOTER */
 
-  border-radius:28px;
-
-  background:
-    radial-gradient(
-      circle at 100% 0,
-      rgba(124,140,255,.14),
-      transparent 40%
-    ),
-    var(--panel);
-
-  overflow:hidden;
+footer{
+padding:35px 0;
+border-top:1px solid var(--border);
+color:var(--muted);
+font-size:.78rem;
 }
-
-.flagship-tag {
-  display:inline-block;
-
-  padding:6px 10px;
 
-  border-radius:999px;
-
-  background:rgba(124,140,255,.12);
-
-  color:#b7c0ff;
-
-  font-size:.7rem;
-
-  margin-bottom:20px;
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:20px;
 }
 
-.flagship h3 {
-  font-size:
-    clamp(1.8rem,5vw,3rem);
+/* REVEAL */
 
-  letter-spacing:-.05em;
-
-  margin-bottom:12px;
+.reveal{
+opacity:0;
+transform:translateY(24px);
+transition:opacity .7s ease,transform .7s ease;
 }
-
-.flagship p {
-  color:var(--muted);
 
-  max-width:760px;
-
-  margin-bottom:28px;
+.reveal.visible{
+opacity:1;
+transform:translateY(0);
 }
-
-.architecture {
-  display:grid;
 
-  grid-template-columns:
-    repeat(6,1fr);
+/* TOAST */
 
-  gap:10px;
+.toast{
+position:fixed;
+left:50%;
+bottom:25px;
+transform:translate(-50%,20px);
+padding:12px 18px;
+border:1px solid var(--border);
+border-radius:14px;
+background:rgba(10,14,24,.92);
+backdrop-filter:blur(15px);
+color:white;
+font-size:.78rem;
+opacity:0;
+pointer-events:none;
+transition:.3s;
+z-index:2000;
 }
 
-.arch-node {
-  position:relative;
-
-  padding:18px 12px;
-
-  min-height:110px;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
-  border:1px solid var(--border);
-
-  border-radius:17px;
-
-  background:rgba(0,0,0,.2);
-
-  text-align:center;
-
-  transition:.3s;
+.toast.show{
+opacity:1;
+transform:translate(-50%,0);
 }
 
-.arch-node:hover {
-  transform:translateY(-6px);
+/* MOBILE */
 
-  border-color:
-    rgba(94,231,223,.4);
+@media(max-width:900px){
 
-  background:
-    rgba(94,231,223,.06);
+.dashboard{
+grid-template-columns:repeat(2,1fr);
 }
 
-.arch-node b {
-  font-size:.85rem;
+.skills{
+grid-template-columns:repeat(2,1fr);
 }
 
-.arch-node span {
-  color:var(--muted);
-  font-size:.7rem;
-  margin-top:5px;
+.architecture{
+grid-template-columns:repeat(3,1fr);
 }
 
-/* =========================================================
-   COMMUNITY
-   ========================================================= */
-
-.community {
-  display:grid;
-
-  grid-template-columns:
-    1.2fr .8fr;
-
-  gap:18px;
+.community{
+grid-template-columns:1fr;
 }
-
-.card {
-  padding:28px;
 
-  border:1px solid var(--border);
-
-  border-radius:22px;
-
-  background:var(--panel);
+.repo-grid{
+grid-template-columns:1fr;
 }
-
-.member {
-  display:flex;
-  align-items:center;
-  gap:15px;
+}
 
-  padding:15px 0;
+@media(max-width:650px){
 
-  border-bottom:
-    1px solid rgba(255,255,255,.07);
+.nav-links{
+display:none;
 }
 
-.member:last-child {
-  border-bottom:0;
+.menu{
+display:block;
 }
 
-.avatar {
-  width:45px;
-  height:45px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--blue),
-      var(--cyan)
-    );
-
-  font-weight:900;
+.hero{
+min-height:auto;
+padding-top:130px;
 }
 
-.member small {
-  display:block;
-  color:var(--muted);
+.hero h1{
+font-size:clamp(3rem,16vw,5rem);
 }
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
-
-.contact {
-  text-align:center;
-
-  padding:55px 25px;
-
-  border:
-    1px solid var(--border);
 
-  border-radius:28px;
-
-  background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(124,140,255,.13),
-      transparent 50%
-    ),
-    var(--panel);
+section{
+padding:75px 0;
 }
 
-.contact p {
-  color:var(--muted);
-  margin:15px auto 28px;
-  max-width:600px;
+.dashboard,
+.skills{
+grid-template-columns:1fr;
 }
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
-
-footer {
-  padding:35px 0;
-
-  border-top:
-    1px solid var(--border);
 
-  color:var(--muted);
-
-  font-size:.8rem;
+.architecture{
+grid-template-columns:repeat(2,1fr);
 }
 
-.footer-inner {
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
+.flagship{
+padding:22px;
 }
-
-/* =========================================================
-   REVEAL ANIMATION
-   ========================================================= */
 
-.reveal {
-  opacity:0;
-  transform:translateY(25px);
-
-  transition:
-    opacity .8s ease,
-    transform .8s ease;
+.github-top{
+align-items:flex-start;
+flex-direction:column;
 }
 
-.reveal.visible {
-  opacity:1;
-  transform:translateY(0);
+.footer-inner{
+flex-direction:column;
 }
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
 
-@media(max-width:900px) {
-
-  .dashboard {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .skills {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .architecture {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .community {
-    grid-template-columns:1fr;
-  }
+.terminal-body{
+padding:17px;
+font-size:.75rem;
 }
-
-@media(max-width:650px) {
-
-  .nav-links {
-    display:none;
-  }
-
-  .menu {
-    display:block;
-  }
-
-  .hero {
-    min-height:auto;
-    padding-top:130px;
-  }
-
-  .hero h1 {
-    font-size:
-      clamp(3rem,16vw,5rem);
-  }
-
-  section {
-    padding:75px 0;
-  }
-
-  .dashboard,
-  .skills {
-    grid-template-columns:1fr;
-  }
-
-  .architecture {
-    grid-template-columns:1fr 1fr;
-  }
-
-  .flagship {
-    padding:22px;
-  }
-
-  .command-row {
-    flex-direction:column;
-  }
-
-  .command-btn {
-    padding:13px;
-  }
-
-  .footer-inner {
-    flex-direction:column;
-  }
 }
 
-@media(prefers-reduced-motion:reduce) {
+@media(prefers-reduced-motion:reduce){
 
-  *,
-  *::before,
-  *::after {
-    animation:none !important;
-    transition:none !important;
-    scroll-behavior:auto !important;
-  }
+*{
+animation:none!important;
+transition:none!important;
+scroll-behavior:auto!important;
+}
 }
 </style>
 </head>
@@ -909,653 +762,644 @@ footer {
 <div class="orb two"></div>
 <div class="orb three"></div>
 
-<!-- =======================================================
-     NAVIGATION
-     ======================================================= -->
-
 <header class="navbar">
+<div class="container nav">
 
-  <div class="container nav">
+<a href="#home" class="logo">
+R<span>:</span>RAGHAVAN
+</a>
 
-    <a href="#home" class="logo">
-      R<span>:</span>RAGHAVAN
-    </a>
+<nav class="nav-links">
+<a href="#ai">AI OS</a>
+<a href="#project">Kaggriculture</a>
+<a href="#github">GitHub</a>
+<a href="#skills">Skills</a>
+<a href="#community">Community</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <nav class="nav-links">
+<button class="menu" id="menuButton">☰</button>
 
-      <a href="#ai">AI OS</a>
-      <a href="#skills">Skills</a>
-      <a href="#project">Project</a>
-      <a href="#community">Community</a>
-      <a href="#contact">Contact</a>
-
-    </nav>
-
-    <button
-      class="menu"
-      onclick="toggleMenu()"
-      aria-label="Toggle navigation"
-    >
-      ☰
-    </button>
-
-  </div>
-
+</div>
 </header>
 
+<main>
 
-<!-- =======================================================
-     HERO
-     ======================================================= -->
+<!-- HERO -->
 
-<main id="home">
+<section id="home" class="hero">
+<div class="container">
+<div class="hero-content reveal">
 
-<section class="hero">
+<div class="status">
+<span class="status-dot"></span>
+RAGHAVAN AI ENGINEERING OS • ONLINE
+</div>
 
-  <div class="container">
+<h1>
+Building
+<span class="gradient">intelligent</span>
+systems.
+</h1>
 
-    <div class="hero-content reveal">
+<p>
+AI-focused developer building Python systems,
+autonomous-agent architectures, software
+engineering projects and experimental intelligent
+systems.
+</p>
 
-      <div class="status">
-        <span class="status-dot"></span>
-        AI ENGINEERING SYSTEM ONLINE
-      </div>
+<div class="actions">
 
-      <h1>
-        Building
-        <span class="gradient">
-          intelligent
-        </span>
-        systems.
-      </h1>
+<a class="btn primary" href="#project">
+Explore Kaggriculture
+</a>
 
-      <p>
-        I'm Raghavan — focused on Python, AI,
-        software engineering, autonomous agents,
-        system architecture and experimental
-        intelligent systems.
-      </p>
+<a class="btn" href="#ai">
+Open Terminal
+</a>
 
-      <div class="actions">
+</div>
 
-        <a
-          class="btn primary"
-          href="#project"
-        >
-          Explore My System
-        </a>
-
-        <a
-          class="btn"
-          href="#ai"
-        >
-          Open AI Console
-        </a>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
+</div>
 </section>
 
 
-<!-- =======================================================
-     AI CONSOLE
-     ======================================================= -->
+<!-- TERMINAL -->
 
 <section id="ai">
+<div class="container">
 
-  <div class="container">
+<div class="reveal">
+<div class="section-label">01 / AI Interface</div>
+<h2 class="section-title">Raghavan Terminal</h2>
+<p class="section-text">
+Explore the portfolio through a command-driven
+interface.
+</p>
+</div>
 
-    <div class="reveal">
+<div class="terminal reveal">
 
-      <div class="section-label">
-        01 / Intelligence Interface
-      </div>
+<div class="terminal-head">
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="terminal-title">raghavan@ai-os:~</span>
+</div>
 
-      <h2 class="section-title">
-        Portfolio AI Console
-      </h2>
+<div class="terminal-body">
 
-      <p class="section-text">
-        An interactive command interface for
-        exploring my engineering profile.
-      </p>
+<div id="terminalOutput" class="terminal-output">
+RAGHAVAN AI ENGINEERING OS
 
-    </div>
+System initialized.
+Knowledge modules loaded.
 
+Type "help" to view commands.
+</div>
 
-    <div class="ai-console reveal">
+<div class="terminal-input-row">
 
-      <div class="console-head">
+<span class="prompt">visitor@raghavan:~$</span>
 
-        <span class="console-title">
-          RAGHAVAN.AI
-        </span>
+<input
+id="terminalInput"
+class="terminal-input"
+autocomplete="off"
+spellcheck="false"
+placeholder="type a command..."
+>
 
-        <span class="console-status">
-          ● ONLINE
-        </span>
+</div>
 
-      </div>
+</div>
+</div>
 
-      <div class="console-body">
-
-        <div
-          id="aiOutput"
-          class="ai-output"
-        >
-Welcome to Raghavan AI.
-
-Type a command or select one below.
-
-Try:
-projects
-skills
-kaggriculture
-community
-about
-contact
-        </div>
-
-        <div class="command-row">
-
-          <input
-            id="commandInput"
-            class="command-input"
-            type="text"
-            autocomplete="off"
-            placeholder="Enter command..."
-            aria-label="AI command"
-          >
-
-          <button
-            id="commandButton"
-            class="command-btn"
-          >
-            RUN
-          </button>
-
-        </div>
-
-        <div class="commands">
-
-          <button
-            class="command-chip"
-            data-command="projects"
-          >
-            projects
-          </button>
-
-          <button
-            class="command-chip"
-            data-command="skills"
-          >
-            skills
-          </button>
-
-          <button
-            class="command-chip"
-            data-command="kaggriculture"
-          >
-            kaggriculture
-          </button>
-
-          <button
-            class="command-chip"
-            data-command="community"
-          >
-            community
-          </button>
-
-          <button
-            class="command-chip"
-            data-command="about"
-          >
-            about
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
 
 
-<!-- =======================================================
-     SYSTEM DASHBOARD
-     ======================================================= -->
+<!-- DASHBOARD -->
 
 <section>
+<div class="container">
 
-  <div class="container">
+<div class="reveal">
+<div class="section-label">02 / System Telemetry</div>
+<h2 class="section-title">Engineering Dashboard</h2>
+<p class="section-text">
+A compact view of the technologies and systems
+forming my current engineering profile.
+</p>
+</div>
 
-    <div class="reveal">
+<div class="dashboard">
 
-      <div class="section-label">
-        02 / System Dashboard
-      </div>
+<div class="metric reveal">
+<div class="metric-icon">🐍</div>
+<div class="metric-value">Python</div>
+<div class="metric-name">Primary Language</div>
+</div>
 
-      <h2 class="section-title">
-        Engineering Stack
-      </h2>
+<div class="metric reveal">
+<div class="metric-icon">🧠</div>
+<div class="metric-value">AI</div>
+<div class="metric-name">Intelligent Systems</div>
+</div>
 
-      <p class="section-text">
-        Core areas currently shaping my technical
-        development.
-      </p>
+<div class="metric reveal">
+<div class="metric-icon">🤖</div>
+<div class="metric-value">Agents</div>
+<div class="metric-name">Autonomous Architecture</div>
+</div>
 
-    </div>
+<div class="metric reveal">
+<div class="metric-icon">⚙️</div>
+<div class="metric-value">Systems</div>
+<div class="metric-name">Software Engineering</div>
+</div>
 
+</div>
 
-    <div class="dashboard">
-
-      <div class="metric reveal">
-        <div class="metric-icon">🐍</div>
-        <div class="metric-value">Python</div>
-        <div class="metric-name">Primary Language</div>
-      </div>
-
-      <div class="metric reveal">
-        <div class="metric-icon">🧠</div>
-        <div class="metric-value">AI</div>
-        <div class="metric-name">Intelligent Systems</div>
-      </div>
-
-      <div class="metric reveal">
-        <div class="metric-icon">⚙️</div>
-        <div class="metric-value">Agents</div>
-        <div class="metric-name">Autonomous Architecture</div>
-      </div>
-
-      <div class="metric reveal">
-        <div class="metric-icon">🚀</div>
-        <div class="metric-value">Git</div>
-        <div class="metric-name">Engineering Workflow</div>
-      </div>
-
-    </div>
-
-  </div>
-
+</div>
 </section>
 
 
-<!-- =======================================================
-     SKILLS
-     ======================================================= -->
-
-<section id="skills">
-
-  <div class="container">
-
-    <div class="reveal">
-
-      <div class="section-label">
-        03 / Engineering DNA
-      </div>
-
-      <h2 class="section-title">
-        What I Build With
-      </h2>
-
-      <p class="section-text">
-        A growing technical foundation focused on
-        building complete systems rather than isolated
-        experiments.
-      </p>
-
-    </div>
-
-
-    <div class="skills">
-
-      <div class="skill reveal">
-        <strong>Python</strong>
-        <small>Core development language</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Artificial Intelligence</strong>
-        <small>Intelligent system development</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Machine Learning</strong>
-        <small>Prediction and learning systems</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Agent Architecture</strong>
-        <small>Autonomous decision systems</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Reinforcement Learning</strong>
-        <small>Learning through interaction</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>System Design</strong>
-        <small>Modular engineering architecture</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Git & GitHub</strong>
-        <small>Version control and collaboration</small>
-      </div>
-
-      <div class="skill reveal">
-        <strong>Automation</strong>
-        <small>Tools and workflow engineering</small>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     FLAGSHIP PROJECT
-     ======================================================= -->
+<!-- KAGGRICULTURE -->
 
 <section id="project">
+<div class="container">
 
-  <div class="container">
+<div class="reveal">
+<div class="section-label">03 / Flagship Intelligence System</div>
+<h2 class="section-title">Crop Coders Kaggriculture</h2>
+<p class="section-text">
+The primary project showcased on this portfolio.
+</p>
+</div>
 
-    <div class="reveal">
+<article class="flagship reveal">
 
-      <div class="section-label">
-        04 / Flagship System
-      </div>
+<span class="flagship-tag">
+CROP CODERS • KAGGRICULTURE
+</span>
 
-      <h2 class="section-title">
-        The Project
-      </h2>
+<h3>Autonomous Farming Intelligence</h3>
 
-    </div>
+<p>
+A modular architecture for intelligent farming
+decision-making, combining observation,
+prediction, constraints, strategy, action and
+feedback-driven improvement.
+</p>
 
+<div class="architecture">
 
-    <article class="flagship reveal">
+<button class="arch-node" data-arch="environment">
+<span class="arch-number">01</span>
+<b>Environment</b>
+<span>Observe state</span>
+</button>
 
-      <span class="flagship-tag">
-        CROP CODERS • KAGGRICULTURE
-      </span>
+<button class="arch-node" data-arch="prediction">
+<span class="arch-number">02</span>
+<b>Prediction</b>
+<span>Estimate future</span>
+</button>
 
-      <h3>
-        Autonomous Farming Intelligence
-      </h3>
+<button class="arch-node" data-arch="constraints">
+<span class="arch-number">03</span>
+<b>Constraints</b>
+<span>Guard decisions</span>
+</button>
 
-      <p>
-        A modular AI architecture designed around
-        environment interaction, prediction,
-        constraints, decision-making, feedback and
-        continuous improvement.
-      </p>
+<button class="arch-node" data-arch="decision">
+<span class="arch-number">04</span>
+<b>Decision</b>
+<span>Select strategy</span>
+</button>
 
+<button class="arch-node" data-arch="action">
+<span class="arch-number">05</span>
+<b>Action</b>
+<span>Execute policy</span>
+</button>
 
-      <div class="architecture">
+<button class="arch-node" data-arch="feedback">
+<span class="arch-number">06</span>
+<b>Feedback</b>
+<span>Learn and improve</span>
+</button>
 
-        <div class="arch-node">
-          <b>Environment</b>
-          <span>Observe world</span>
-        </div>
+</div>
 
-        <div class="arch-node">
-          <b>Prediction</b>
-          <span>Estimate future</span>
-        </div>
+<div id="architectureInfo" class="arch-info">
+Select an architecture component to inspect it.
+</div>
 
-        <div class="arch-node">
-          <b>Constraints</b>
-          <span>Guard decisions</span>
-        </div>
+</article>
 
-        <div class="arch-node">
-          <b>Decision</b>
-          <span>Select strategy</span>
-        </div>
-
-        <div class="arch-node">
-          <b>Action</b>
-          <span>Execute policy</span>
-        </div>
-
-        <div class="arch-node">
-          <b>Feedback</b>
-          <span>Learn & improve</span>
-        </div>
-
-      </div>
-
-    </article>
-
-  </div>
-
+</div>
 </section>
 
 
-<!-- =======================================================
-     COMMUNITY
-     ======================================================= -->
+<!-- GITHUB -->
+
+<section id="github">
+<div class="container">
+
+<div class="reveal">
+<div class="section-label">04 / Repository Intelligence</div>
+<h2 class="section-title">GitHub Project Explorer</h2>
+<p class="section-text">
+A portfolio-native repository interface. Your
+flagship Kaggriculture project is highlighted first.
+</p>
+</div>
+
+<div class="github-panel reveal">
+
+<div class="github-top">
+
+<div>
+<div class="github-title">Raghavan GitHub</div>
+<div style="color:var(--muted);font-size:.75rem;margin-top:4px">
+ragavan994463-max
+</div>
+</div>
+
+<div class="github-status">
+● REPOSITORY LINK READY
+</div>
+
+</div>
+
+<div id="repoGrid" class="repo-grid">
+
+<div class="repo">
+
+<div class="repo-name">
+Crop Coders — Kaggriculture
+</div>
+
+<div class="repo-desc">
+Autonomous farming-agent architecture and
+intelligent decision system.
+</div>
+
+<div class="repo-meta">
+<span>Python</span>
+<span>AI</span>
+<span>Agents</span>
+</div>
+
+<br>
+
+<a
+class="btn"
+href="https://github.com/ragavan994463-max/kaggriculture-agent"
+target="_blank"
+rel="noopener noreferrer"
+>
+Open Repository →
+</a>
+
+</div>
+
+
+<div class="repo">
+
+<div class="repo-name">
+GitHub Profile
+</div>
+
+<div class="repo-desc">
+Explore repositories, contributions and future
+engineering projects.
+</div>
+
+<div class="repo-meta">
+<span>GitHub</span>
+<span>Open Source</span>
+</div>
+
+<br>
+
+<a
+class="btn"
+href="https://github.com/ragavan994463-max"
+target="_blank"
+rel="noopener noreferrer"
+>
+View GitHub →
+</a>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+<div class="container">
+
+<div class="reveal">
+<div class="section-label">05 / Engineering DNA</div>
+<h2 class="section-title">Technical Capabilities</h2>
+<p class="section-text">
+Core technologies and engineering areas.
+</p>
+</div>
+
+<div class="skills">
+
+<div class="skill reveal">
+<strong>Python</strong>
+<small>Core development and automation</small>
+</div>
+
+<div class="skill reveal">
+<strong>Artificial Intelligence</strong>
+<small>Intelligent system development</small>
+</div>
+
+<div class="skill reveal">
+<strong>Machine Learning</strong>
+<small>Prediction and learning systems</small>
+</div>
+
+<div class="skill reveal">
+<strong>Agent Architecture</strong>
+<small>Autonomous decision systems</small>
+</div>
+
+<div class="skill reveal">
+<strong>Reinforcement Learning</strong>
+<small>Learning through interaction</small>
+</div>
+
+<div class="skill reveal">
+<strong>System Design</strong>
+<small>Modular architecture</small>
+</div>
+
+<div class="skill reveal">
+<strong>Git & GitHub</strong>
+<small>Version control and collaboration</small>
+</div>
+
+<div class="skill reveal">
+<strong>Automation</strong>
+<small>Engineering workflow automation</small>
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- COMMUNITY -->
 
 <section id="community">
+<div class="container">
 
-  <div class="container">
+<div class="reveal">
+<div class="section-label">06 / Community Network</div>
+<h2 class="section-title">Hacking Community</h2>
+<p class="section-text">
+A new technical community focused on learning,
+building, experimentation and responsible
+technology.
+</p>
+</div>
 
-    <div class="reveal">
+<div class="community">
 
-      <div class="section-label">
-        05 / Community
-      </div>
+<div class="card reveal">
 
-      <h2 class="section-title">
-        Hacking Community
-      </h2>
+<h3>Core Team</h3>
 
-      <p class="section-text">
-        A new technical community focused on
-        learning, building, experimentation and
-        responsible technology.
-      </p>
+<div class="member">
 
-    </div>
+<div class="avatar">S</div>
 
+<div>
+<strong>Shanmugam</strong>
+<small>Creator</small>
+</div>
 
-    <div class="community">
+</div>
 
-      <div class="card reveal">
+<div class="member">
 
-        <h3>Core Team</h3>
+<div class="avatar">R</div>
 
-        <div class="member">
+<div>
+<strong>Raghavan</strong>
+<small>Technical Leader</small>
+</div>
 
-          <div class="avatar">S</div>
+</div>
 
-          <div>
-            <strong>Shanmugam</strong>
-            <small>Creator</small>
-          </div>
-
-        </div>
-
-
-        <div class="member">
-
-          <div class="avatar">R</div>
-
-          <div>
-            <strong>Raghavan</strong>
-            <small>Technical Leader</small>
-          </div>
-
-        </div>
-
-      </div>
+</div>
 
 
-      <div class="card reveal">
+<div class="card reveal">
 
-        <h3>Community Mission</h3>
+<h3>Community Mission</h3>
 
-        <p style="color:var(--muted);margin-top:15px;">
-          Build. Learn. Experiment.
-          Share knowledge. Create responsible
-          technology.
-        </p>
+<p style="color:var(--muted);margin-top:15px">
+Learn technology.
+Build projects.
+Experiment responsibly.
+Collaborate with others.
+</p>
 
-        <br>
+<br>
 
-        <a
-          class="btn primary"
-          href="#contact"
-        >
-          Get Involved
-        </a>
+<a class="btn primary" href="#contact">
+Connect
+</a>
 
-      </div>
+</div>
 
-    </div>
+</div>
 
-  </div>
-
+</div>
 </section>
 
 
-<!-- =======================================================
-     CONTACT
-     ======================================================= -->
+<!-- CONTACT -->
 
 <section id="contact">
+<div class="container">
 
-  <div class="container">
+<div class="contact reveal">
 
-    <div class="contact reveal">
+<div class="section-label">07 / Connection</div>
 
-      <div class="section-label">
-        06 / Connection
-      </div>
+<h2 class="section-title">
+Let's Build Something Intelligent.
+</h2>
 
-      <h2 class="section-title">
-        Let's Build Something Intelligent.
-      </h2>
+<p>
+For professional networking, collaboration and
+technical opportunities.
+</p>
 
-      <p>
-        Interested in AI, software engineering,
-        autonomous systems or collaborative
-        technology projects?
-      </p>
+<div class="contact-info">
 
-      <div class="actions"
-           style="justify-content:center;">
+<a class="contact-chip" href="tel:+919626638296">
+📞 9626638296
+</a>
 
-        <a
-          class="btn primary"
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+<a
+class="contact-chip"
+href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+target="_blank"
+rel="noopener noreferrer"
+>
+💼 LinkedIn
+</a>
 
-        <a
-          class="btn"
-          href="#home"
-        >
-          Back to Top
-        </a>
+</div>
 
-      </div>
+<div class="actions" style="justify-content:center">
 
-    </div>
+<a
+class="btn primary"
+href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+target="_blank"
+rel="noopener noreferrer"
+>
+Connect on LinkedIn
+</a>
 
-  </div>
+<a
+class="btn"
+href="https://github.com/ragavan994463-max"
+target="_blank"
+rel="noopener noreferrer"
+>
+GitHub
+</a>
 
+</div>
+
+</div>
+
+</div>
 </section>
 
 </main>
 
 
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
-
 <footer>
+<div class="container footer-inner">
 
-  <div class="container footer-inner">
+<span>© 2026 Raghavan</span>
 
-    <span>
-      © 2026 Raghavan
-    </span>
+<span>
+AI • Python • Systems • Engineering
+</span>
 
-    <span>
-      AI • Python • Systems • Engineering
-    </span>
-
-  </div>
-
+</div>
 </footer>
+
+<div id="toast" class="toast"></div>
 
 
 <script>
-/* =========================================================
-   RAGHAVAN AI PORTFOLIO ENGINE
-   ========================================================= */
-
 "use strict";
+
+/* =========================================================
+   PORTFOLIO OS ENGINE
+   ========================================================= */
 
 
 /* ---------------------------------------------------------
    MOBILE NAVIGATION
    --------------------------------------------------------- */
 
-function toggleMenu() {
+const menuButton =
+document.getElementById("menuButton");
 
-  const nav = document.querySelector(".nav-links");
+const navLinks =
+document.querySelector(".nav-links");
 
-  if (!nav) return;
+if(menuButton){
 
-  const current =
-    getComputedStyle(nav).display;
+menuButton.addEventListener("click",()=>{
 
-  nav.style.display =
-    current === "none"
-      ? "flex"
-      : "none";
+if(!navLinks)return;
+
+const hidden =
+getComputedStyle(navLinks).display==="none";
+
+navLinks.style.display =
+hidden ? "flex" : "none";
+
+});
+
 }
 
 
 /* ---------------------------------------------------------
-   AI COMMAND SYSTEM
+   TERMINAL
    --------------------------------------------------------- */
 
-const responses = {
+const terminalInput =
+document.getElementById("terminalInput");
 
-  projects:
-`PROJECT DATABASE
+const terminalOutput =
+document.getElementById("terminalOutput");
 
-Active flagship:
-CROP CODERS — KAGGRICULTURE
 
-Focus:
-Autonomous farming intelligence
-Strategy
-Prediction
-Constraints
-Decision
-Feedback
-Learning`,
+const commands = {
 
-  skills:
-`ENGINEERING PROFILE
+help:
+`AVAILABLE COMMANDS
+
+about
+skills
+project
+kaggriculture
+architecture
+github
+community
+contact
+status
+clear
+
+SYSTEM:
+Raghavan AI Engineering OS`,
+
+about:
+`RAGHAVAN
+
+AI-focused developer and system builder.
+
+Primary interests:
+• Python
+• Artificial Intelligence
+• Autonomous Agents
+• Machine Learning
+• System Architecture
+• Automation
+
+FLAGSHIP:
+Crop Coders — Kaggriculture`,
+
+skills:
+`ENGINEERING DNA
 
 Python
 Artificial Intelligence
@@ -1566,22 +1410,36 @@ System Design
 Git & GitHub
 Automation`,
 
-  kaggriculture:
-`CROP CODERS — KAGGRICULTURE
+project:
+`FLAGSHIP PROJECT
 
-SYSTEM PIPELINE
+CROP CODERS — KAGGRICULTURE
+
+Focus:
+Autonomous farming intelligence
+
+Architecture:
+Environment
+→ Prediction
+→ Constraints
+→ Decision
+→ Action
+→ Feedback`,
+
+kaggriculture:
+`CROP CODERS / KAGGRICULTURE
+
+INTELLIGENCE LOOP
 
 Environment
       ↓
 Prediction
       ↓
-Dynamic Constraints
+Constraints
       ↓
-Decision Engine
+Decision
       ↓
 Action
-      ↓
-Observation
       ↓
 Feedback
       ↓
@@ -1589,7 +1447,32 @@ Learning
 
 STATUS: ACTIVE DEVELOPMENT`,
 
-  community:
+architecture:
+`ARCHITECTURE MODULES
+
+01 Environment
+02 Prediction
+03 Constraints
+04 Decision
+05 Action
+06 Feedback
+
+Click architecture nodes on the project section
+to inspect individual modules.`,
+
+github:
+`GITHUB
+
+Profile:
+ragavan994463-max
+
+Flagship repository:
+kaggriculture-agent
+
+Open the GitHub Project Explorer section
+to access repository links.`,
+
+community:
 `HACKING COMMUNITY
 
 Creator:
@@ -1598,249 +1481,275 @@ Shanmugam
 Technical Leader:
 Raghavan
 
-MISSION:
+Mission:
 Learning
 Building
 Experimentation
 Responsible technology
 Collaboration`,
 
-  about:
-`RAGHAVAN
-
-AI-focused developer and system builder.
-
-Primary interests:
-Python
-Artificial Intelligence
-Autonomous Agents
-Software Architecture
-Machine Learning
-Automation
-
-CURRENT FLAGSHIP:
-Crop Coders — Kaggriculture`,
-
-  contact:
+contact:
 `CONTACT
 
-Connect through the LinkedIn button
-in the contact section.
+LinkedIn:
+Raghavan Ganesan
 
-For safety and privacy, personal contact
-information is intentionally not exposed
-through the command console.`
+Phone:
+9626638296
+
+Use the Contact section for direct links.`,
+
+status:
+`SYSTEM STATUS
+
+PORTFOLIO OS ........ ONLINE
+AI CONSOLE .......... ONLINE
+ARCHITECTURE ........ ONLINE
+GITHUB MODULE ....... READY
+MOBILE ENGINE ...... OPTIMIZED
+
+ALL CORE SYSTEMS NOMINAL.`
+
 };
 
 
-function runCommand(rawCommand) {
+function writeTerminal(text){
 
-  const output =
-    document.getElementById("aiOutput");
+if(!terminalOutput)return;
 
-  if (!output) return;
+terminalOutput.textContent=text;
 
-  const command =
-    String(rawCommand || "")
-      .trim()
-      .toLowerCase();
+}
 
-  if (!command) {
 
-    output.textContent =
-      "Please enter a command.";
+function runTerminalCommand(value){
 
-    return;
-  }
+const command=
+String(value||"")
+.trim()
+.toLowerCase();
 
-  if (responses[command]) {
+if(!command)return;
 
-    output.textContent =
-      responses[command];
+if(command==="clear"){
 
-    return;
-  }
+writeTerminal("");
 
-  if (
-    command === "help" ||
-    command === "commands"
-  ) {
+return;
 
-    output.textContent =
-`AVAILABLE COMMANDS
+}
 
-projects
-skills
-kaggriculture
-community
-about
-contact
+if(commands[command]){
 
-Try one of the commands above.`;
+writeTerminal(
+`> ${command}\n\n${commands[command]}`
+);
 
-    return;
-  }
+return;
 
-  output.textContent =
-`COMMAND NOT FOUND
+}
 
-"${command}" is not currently
-available.
+writeTerminal(
+`> ${command}
 
-Try:
-projects
-skills
-kaggriculture
-community
-about
-contact`;
+COMMAND NOT FOUND.
+
+Type "help" to view
+available commands.`
+);
+
+}
+
+
+if(terminalInput){
+
+terminalInput.addEventListener(
+"keydown",
+event=>{
+
+if(event.key==="Enter"){
+
+runTerminalCommand(
+terminalInput.value
+);
+
+terminalInput.value="";
+
+}
+
+});
+
 }
 
 
 /* ---------------------------------------------------------
-   COMMAND BUTTON
+   ARCHITECTURE INSPECTOR
    --------------------------------------------------------- */
 
-const commandButton =
-  document.getElementById(
-    "commandButton"
-  );
+const architectureData={
 
-const commandInput =
-  document.getElementById(
-    "commandInput"
-  );
+environment:
+"ENVIRONMENT — The system observes the current world state, available resources, market conditions and game information before making decisions.",
 
-if (commandButton) {
+prediction:
+"PREDICTION — Estimates likely future outcomes so decisions can consider expected consequences rather than only the current state.",
 
-  commandButton.addEventListener(
-    "click",
-    () => {
+constraints:
+"CONSTRAINTS — Dynamic guardrails restrict unsafe, impossible or economically poor actions while preserving decision flexibility.",
 
-      runCommand(
-        commandInput
-          ? commandInput.value
-          : ""
-      );
+decision:
+"DECISION — Combines observations, predictions and constraints to select a strategy or next action.",
 
-    }
-  );
+action:
+"ACTION — Converts the selected decision into an executable operation within the environment.",
+
+feedback:
+"FEEDBACK — Evaluates the result of actions and feeds useful information back into the intelligence loop for improvement."
+
+};
+
+
+const architectureInfo=
+document.getElementById("architectureInfo");
+
+
+document
+.querySelectorAll(".arch-node")
+.forEach(node=>{
+
+node.addEventListener("click",()=>{
+
+const key=node.dataset.arch;
+
+if(!architectureInfo)return;
+
+architectureInfo.textContent=
+architectureData[key] ||
+"Architecture module information unavailable.";
+
+});
+
+});
+
+
+/* ---------------------------------------------------------
+   REVEAL ENGINE
+   --------------------------------------------------------- */
+
+const revealElements=
+document.querySelectorAll(".reveal");
+
+
+if("IntersectionObserver" in window){
+
+const observer=
+new IntersectionObserver(
+entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("visible");
+
+observer.unobserve(entry.target);
+
 }
 
+});
 
-if (commandInput) {
+},
+{threshold:.12}
+);
 
-  commandInput.addEventListener(
-    "keydown",
-    event => {
+revealElements.forEach(
+element=>observer.observe(element)
+);
 
-      if (event.key === "Enter") {
+}else{
 
-        runCommand(
-          commandInput.value
-        );
+revealElements.forEach(
+element=>element.classList.add("visible")
+);
 
-      }
-
-    }
-  );
 }
 
 
 /* ---------------------------------------------------------
-   COMMAND CHIPS
+   KEYBOARD SHORTCUT
+   --------------------------------------------------------- */
+
+document.addEventListener("keydown",event=>{
+
+if(
+event.key==="/" &&
+document.activeElement!==terminalInput
+){
+
+event.preventDefault();
+
+if(terminalInput){
+
+terminalInput.focus();
+
+}
+
+}
+
+});
+
+
+/* ---------------------------------------------------------
+   TOAST ENGINE
+   --------------------------------------------------------- */
+
+const toast=
+document.getElementById("toast");
+
+
+function showToast(message){
+
+if(!toast)return;
+
+toast.textContent=message;
+
+toast.classList.add("show");
+
+window.setTimeout(
+()=>toast.classList.remove("show"),
+2200
+);
+
+}
+
+
+/* ---------------------------------------------------------
+   EXTERNAL LINK FEEDBACK
    --------------------------------------------------------- */
 
 document
-  .querySelectorAll(
-    ".command-chip"
-  )
-  .forEach(chip => {
+.querySelectorAll('a[target="_blank"]')
+.forEach(link=>{
 
-    chip.addEventListener(
-      "click",
-      () => {
+link.addEventListener("click",()=>{
 
-        const command =
-          chip.dataset.command || "";
+showToast("Opening external resource...");
 
-        if (commandInput) {
-          commandInput.value = command;
-        }
+});
 
-        runCommand(command);
-
-      }
-    );
-
-  });
+});
 
 
 /* ---------------------------------------------------------
-   SCROLL REVEAL ENGINE
+   INITIALIZATION
    --------------------------------------------------------- */
 
-const revealElements =
-  document.querySelectorAll(
-    ".reveal"
-  );
+window.addEventListener("load",()=>{
 
+document.title=
+"Raghavan | AI Engineering OS";
 
-if ("IntersectionObserver" in window) {
-
-  const observer =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(entry => {
-
-          if (entry.isIntersecting) {
-
-            entry.target.classList.add(
-              "visible"
-            );
-
-            observer.unobserve(
-              entry.target
-            );
-
-          }
-
-        });
-
-      },
-      {
-        threshold:.12
-      }
-    );
-
-  revealElements.forEach(
-    element => observer.observe(element)
-  );
-
-} else {
-
-  revealElements.forEach(
-    element =>
-      element.classList.add("visible")
-  );
-
-}
-
-
-/* ---------------------------------------------------------
-   INITIAL SYSTEM MESSAGE
-   --------------------------------------------------------- */
-
-window.addEventListener(
-  "load",
-  () => {
-
-    document.title =
-      "Raghavan | AI Engineering Portfolio";
-
-  }
-);
+});
 
 </script>
 
