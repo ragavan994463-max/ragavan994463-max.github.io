@@ -4,45 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<meta name="description"
-content="RAGHAVAN — Software engineer, Python developer, systems builder and technology enthusiast.">
+<title>RAGHAVAN | Engineering Portfolio</title>
 
+<meta name="description"
+content="RAGHAVAN — Software engineering, Python, systems, automation, intelligent systems and ethical cybersecurity.">
+
+<meta name="keywords"
+content="Raghavan, Python, software engineering, Kaggriculture, Crop Coders, GitHub, cybersecurity, automation, machine learning">
+
+<meta name="author" content="RAGHAVAN">
 <meta name="theme-color" content="#05070d">
 
-<title>RAGHAVAN | Engineering Portfolio</title>
+<meta property="og:title" content="RAGHAVAN | Engineering Portfolio">
+<meta property="og:description" content="Engineering, systems, projects and technology.">
+<meta property="og:type" content="website">
 
 <style>
 
 /* =========================================================
-   RAGHAVAN — ENGINEERING PORTFOLIO
-   SINGLE FILE • HTML + CSS + JAVASCRIPT
+   RAGHAVAN PORTFOLIO v3
+   ULTRA ADVANCED SINGLE-FILE ENGINE
    ========================================================= */
 
 :root{
-    --bg:#05070d;
-    --bg2:#090d17;
-    --panel:rgba(255,255,255,.055);
-    --panel2:rgba(255,255,255,.09);
-    --border:rgba(255,255,255,.11);
+    --bg:#04060b;
+    --bg2:#090d16;
+    --surface:rgba(255,255,255,.045);
+    --surface2:rgba(255,255,255,.075);
+    --surface3:rgba(255,255,255,.11);
 
-    --text:#f7f9ff;
-    --muted:#9da8bc;
+    --border:rgba(255,255,255,.10);
+    --border2:rgba(255,255,255,.16);
+
+    --text:#f8faff;
+    --muted:#9ca8bc;
+    --muted2:#748097;
 
     --blue:#7c8cff;
     --cyan:#5ee7df;
-    --green:#67e8a5;
     --purple:#b58cff;
+    --green:#67e8a5;
     --orange:#ffb86b;
     --red:#ff718c;
 
+    --max:1220px;
     --radius:24px;
-    --max:1200px;
 
     --shadow:
-        0 25px 80px rgba(0,0,0,.45);
+        0 30px 100px rgba(0,0,0,.48);
 
-    --transition:
-        .3s cubic-bezier(.2,.8,.2,1);
+    --ease:cubic-bezier(.2,.8,.2,1);
 }
 
 *{
@@ -62,12 +73,12 @@ body{
 
     background:
         radial-gradient(
-            circle at 10% 10%,
+            circle at 10% 5%,
             rgba(124,140,255,.14),
             transparent 30%
         ),
         radial-gradient(
-            circle at 90% 20%,
+            circle at 90% 15%,
             rgba(94,231,223,.09),
             transparent 28%
         ),
@@ -91,6 +102,23 @@ body{
     line-height:1.6;
 }
 
+body.light{
+    --bg:#f4f7fb;
+    --bg2:#e9eef6;
+    --surface:rgba(0,0,0,.035);
+    --surface2:rgba(0,0,0,.06);
+    --surface3:rgba(0,0,0,.09);
+    --border:rgba(0,0,0,.10);
+    --border2:rgba(0,0,0,.16);
+    --text:#111827;
+    --muted:#58657a;
+    --muted2:#6d7789;
+}
+
+body.no-scroll{
+    overflow:hidden;
+}
+
 a{
     color:inherit;
     text-decoration:none;
@@ -105,29 +133,98 @@ button{
     cursor:pointer;
 }
 
+img{
+    max-width:100%;
+    display:block;
+}
+
 ::selection{
     background:rgba(94,231,223,.25);
-    color:white;
 }
 
 /* =========================================================
-   BACKGROUND SYSTEM
+   PRELOADER
+   ========================================================= */
+
+#preloader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:grid;
+    place-items:center;
+
+    background:var(--bg);
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+#preloader.hide{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader{
+    width:70px;
+    height:70px;
+
+    position:relative;
+}
+
+.loader::before,
+.loader::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    border-radius:50%;
+
+    border:2px solid transparent;
+
+    border-top-color:var(--cyan);
+    border-right-color:var(--blue);
+
+    animation:
+        spin 1s linear infinite;
+}
+
+.loader::after{
+    inset:10px;
+
+    border-top-color:var(--purple);
+
+    animation-direction:reverse;
+    animation-duration:.7s;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================================================
+   BACKGROUND ENGINE
    ========================================================= */
 
 .background-grid{
     position:fixed;
     inset:0;
-    z-index:-10;
+
+    z-index:-20;
     pointer-events:none;
 
     background-image:
         linear-gradient(
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.022) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(255,255,255,.025) 1px,
+            rgba(255,255,255,.022) 1px,
             transparent 1px
         );
 
@@ -141,38 +238,77 @@ button{
         );
 }
 
-.glow{
+.noise{
     position:fixed;
-    width:350px;
-    height:350px;
+    inset:0;
+
+    z-index:-19;
+    pointer-events:none;
+
+    opacity:.035;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+.orb{
+    position:fixed;
+
+    width:380px;
+    height:380px;
 
     border-radius:50%;
 
-    filter:blur(120px);
+    filter:blur(130px);
 
-    opacity:.07;
+    opacity:.075;
+
+    z-index:-18;
 
     pointer-events:none;
 
-    z-index:-9;
+    transition:
+        transform 1s var(--ease);
 }
 
-.glow.one{
-    top:5%;
+.orb.one{
+    top:-180px;
     left:-170px;
     background:var(--blue);
 }
 
-.glow.two{
-    top:45%;
-    right:-170px;
+.orb.two{
+    top:40%;
+    right:-190px;
     background:var(--cyan);
 }
 
-.glow.three{
-    bottom:-180px;
+.orb.three{
+    bottom:-200px;
     left:35%;
     background:var(--purple);
+}
+
+.cursor-glow{
+    position:fixed;
+
+    width:300px;
+    height:300px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:-15;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(94,231,223,.08),
+            transparent 65%
+        );
+
+    transform:translate(-50%,-50%);
 }
 
 /* =========================================================
@@ -189,232 +325,38 @@ section{
 }
 
 .section-label{
-    margin-bottom:12px;
-
     color:var(--cyan);
 
-    font-size:.7rem;
+    font-size:.68rem;
     font-weight:900;
 
     text-transform:uppercase;
-    letter-spacing:.18em;
+    letter-spacing:.2em;
+
+    margin-bottom:12px;
 }
 
 .section-title{
-    margin-bottom:18px;
-
     font-size:
         clamp(
-            2rem,
+            2.1rem,
             5vw,
-            3.6rem
+            3.8rem
         );
 
-    line-height:1.05;
-    letter-spacing:-.055em;
+    line-height:1.02;
+
+    letter-spacing:-.06em;
+
+    margin-bottom:18px;
 }
 
 .section-text{
     max-width:760px;
 
+    color:var(--muted);
+
     margin-bottom:38px;
-
-    color:var(--muted);
-
-    font-size:1rem;
-}
-
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
-
-.navbar{
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    background:
-        rgba(5,7,13,.72);
-
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
-
-    border-bottom:
-        1px solid var(--border);
-}
-
-.nav{
-    min-height:74px;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:20px;
-}
-
-.logo{
-    font-size:1.05rem;
-    font-weight:950;
-
-    letter-spacing:-.05em;
-}
-
-.logo span{
-    color:var(--cyan);
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:22px;
-}
-
-.nav-links a{
-    position:relative;
-
-    color:var(--muted);
-
-    font-size:.8rem;
-
-    transition:var(--transition);
-}
-
-.nav-links a::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:0;
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--blue),
-            var(--cyan)
-        );
-
-    transition:var(--transition);
-}
-
-.nav-links a:hover{
-    color:white;
-}
-
-.nav-links a:hover::after{
-    width:100%;
-}
-
-.menu{
-    display:none;
-
-    border:
-        1px solid var(--border);
-
-    background:var(--panel);
-
-    color:white;
-
-    padding:8px 11px;
-
-    border-radius:10px;
-}
-
-/* =========================================================
-   HERO
-   ========================================================= */
-
-.hero{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-
-    padding:
-        140px 0
-        80px;
-}
-
-.hero-content{
-    max-width:950px;
-}
-
-.hero-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:9px;
-
-    margin-bottom:25px;
-
-    padding:
-        8px 14px;
-
-    border:
-        1px solid
-        rgba(94,231,223,.22);
-
-    border-radius:999px;
-
-    background:
-        rgba(94,231,223,.055);
-
-    color:#b9fff9;
-
-    font-size:.72rem;
-    font-weight:800;
-}
-
-.badge-dot{
-    width:8px;
-    height:8px;
-
-    border-radius:50%;
-
-    background:var(--green);
-
-    box-shadow:
-        0 0 15px
-        var(--green);
-
-    animation:pulse 2s infinite;
-}
-
-@keyframes pulse{
-
-    0%,100%{
-        opacity:.45;
-        transform:scale(.8);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.2);
-    }
-
-}
-
-.hero h1{
-    margin-bottom:25px;
-
-    font-size:
-        clamp(
-            3.2rem,
-            9vw,
-            7.4rem
-        );
-
-    line-height:.9;
-
-    letter-spacing:-.075em;
 }
 
 .gradient{
@@ -432,10 +374,240 @@ section{
     color:transparent;
 }
 
-.hero p{
-    max-width:760px;
+.glass{
+    background:var(--surface);
 
-    margin-bottom:32px;
+    border:
+        1px solid var(--border);
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+}
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar{
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:5000;
+
+    background:
+        rgba(4,6,11,.72);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:
+        1px solid var(--border);
+
+    transition:
+        background .3s ease;
+}
+
+body.light .navbar{
+    background:rgba(244,247,251,.78);
+}
+
+.nav{
+    min-height:76px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.logo{
+    font-weight:950;
+
+    font-size:1.05rem;
+
+    letter-spacing:-.055em;
+}
+
+.logo span{
+    color:var(--cyan);
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    position:relative;
+
+    color:var(--muted);
+
+    font-size:.76rem;
+
+    transition:.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+    color:var(--text);
+}
+
+.nav-links a::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-9px;
+
+    width:0;
+    height:2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    transition:.25s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after{
+    width:100%;
+}
+
+.nav-tools{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.icon-btn{
+    width:38px;
+    height:38px;
+
+    display:grid;
+    place-items:center;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:12px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    transition:.25s ease;
+}
+
+.icon-btn:hover{
+    transform:translateY(-2px);
+
+    border-color:
+        rgba(94,231,223,.4);
+}
+
+.menu{
+    display:none;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding:
+        145px 0
+        80px;
+
+    position:relative;
+}
+
+.hero-content{
+    max-width:950px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+
+    margin-bottom:25px;
+
+    padding:
+        8px 14px;
+
+    border:
+        1px solid
+        rgba(94,231,223,.22);
+
+    border-radius:999px;
+
+    background:
+        rgba(94,231,223,.05);
+
+    color:#b9fff9;
+
+    font-size:.68rem;
+    font-weight:850;
+}
+
+.eyebrow-dot{
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--green);
+
+    box-shadow:
+        0 0 16px var(--green);
+
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(.8);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+}
+
+.hero h1{
+    font-size:
+        clamp(
+            3.4rem,
+            9vw,
+            7.6rem
+        );
+
+    line-height:.88;
+
+    letter-spacing:-.08em;
+
+    margin-bottom:28px;
+}
+
+.hero-description{
+    max-width:780px;
 
     color:var(--muted);
 
@@ -443,55 +615,82 @@ section{
         clamp(
             1rem,
             2vw,
-            1.2rem
+            1.18rem
         );
+
+    margin-bottom:34px;
 }
 
-.actions{
+.hero-actions{
     display:flex;
     flex-wrap:wrap;
-    gap:12px;
+    gap:11px;
 }
 
 .btn{
+    min-height:48px;
+
     display:inline-flex;
     align-items:center;
     justify-content:center;
     gap:8px;
 
     padding:
-        13px 19px;
+        12px 18px;
 
     border:
         1px solid var(--border);
 
     border-radius:14px;
 
-    background:var(--panel);
+    background:var(--surface);
 
-    color:white;
+    color:var(--text);
 
-    transition:var(--transition);
+    font-size:.78rem;
+
+    transition:
+        transform .3s var(--ease),
+        background .3s ease,
+        border-color .3s ease;
 }
 
 .btn:hover{
     transform:translateY(-4px);
 
-    background:var(--panel2);
+    background:var(--surface2);
 
     border-color:
-        rgba(94,231,223,.3);
+        rgba(94,231,223,.35);
 }
 
 .btn.primary{
+    border-color:transparent;
+
     background:
         linear-gradient(
             135deg,
             rgba(124,140,255,.9),
             rgba(94,231,223,.55)
         );
+}
 
-    border-color:transparent;
+.hero-meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+
+    margin-top:38px;
+
+    color:var(--muted2);
+
+    font-size:.7rem;
+}
+
+.hero-meta span{
+    display:flex;
+    align-items:center;
+    gap:7px;
 }
 
 /* =========================================================
@@ -508,71 +707,246 @@ section{
     gap:18px;
 }
 
-.panel{
+.card{
     padding:30px;
 
     border:
         1px solid var(--border);
 
-    border-radius:var(--radius);
+    border-radius:24px;
 
-    background:var(--panel);
+    background:var(--surface);
 
-    box-shadow:
-        0 20px 70px
-        rgba(0,0,0,.15);
-
-    transition:var(--transition);
+    transition:
+        transform .3s var(--ease),
+        border-color .3s ease;
 }
 
-.panel:hover{
-    transform:translateY(-4px);
+.card:hover{
+    transform:translateY(-5px);
 
     border-color:
-        rgba(124,140,255,.25);
+        rgba(124,140,255,.28);
 }
 
-.about-main p{
+.card p{
     color:var(--muted);
-
-    margin-bottom:18px;
 }
 
-.about-highlight{
+.about-highlights{
     display:grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:12px;
+    gap:10px;
 
     margin-top:25px;
 }
 
 .highlight{
-    padding:17px;
+    padding:16px;
 
     border:
         1px solid var(--border);
 
-    border-radius:17px;
+    border-radius:16px;
 
     background:
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.15);
 }
 
 .highlight strong{
     display:block;
 
-    margin-bottom:4px;
+    font-size:.8rem;
 
-    font-size:.85rem;
+    margin-bottom:3px;
 }
 
 .highlight span{
     color:var(--muted);
 
-    font-size:.72rem;
+    font-size:.68rem;
+}
+
+/* =========================================================
+   ENGINEERING MAP
+   ========================================================= */
+
+.map-wrapper{
+    position:relative;
+
+    min-height:500px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:30px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124,140,255,.07),
+            transparent 55%
+        ),
+        var(--surface);
+
+    box-shadow:var(--shadow);
+}
+
+.map-lines{
+    position:absolute;
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.3;
+}
+
+.map-line{
+    position:absolute;
+
+    height:1px;
+
+    transform-origin:left center;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--cyan),
+            transparent
+        );
+}
+
+.line-a{
+    width:35%;
+    top:40%;
+    left:15%;
+    transform:rotate(-15deg);
+}
+
+.line-b{
+    width:35%;
+    top:40%;
+    left:50%;
+    transform:rotate(15deg);
+}
+
+.line-c{
+    width:35%;
+    top:58%;
+    left:15%;
+    transform:rotate(15deg);
+}
+
+.line-d{
+    width:35%;
+    top:58%;
+    left:50%;
+    transform:rotate(-15deg);
+}
+
+.engineering-core{
+    width:155px;
+    height:155px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(124,140,255,.3),
+            rgba(94,231,223,.08)
+        );
+
+    border:
+        1px solid
+        rgba(94,231,223,.4);
+
+    box-shadow:
+        0 0 70px
+        rgba(94,231,223,.12);
+
+    text-align:center;
+
+    font-weight:950;
+
+    position:relative;
+    z-index:2;
+}
+
+.map-node{
+    position:absolute;
+
+    min-width:145px;
+
+    padding:14px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    background:
+        rgba(5,7,13,.72);
+
+    backdrop-filter:blur(10px);
+
+    text-align:center;
+
+    transition:.3s var(--ease);
+
+    z-index:3;
+}
+
+.map-node:hover{
+    transform:scale(1.07);
+
+    border-color:
+        rgba(94,231,223,.45);
+}
+
+.map-node strong{
+    display:block;
+
+    font-size:.75rem;
+}
+
+.map-node small{
+    color:var(--muted);
+
+    font-size:.62rem;
+}
+
+.node-python{
+    top:10%;
+    left:12%;
+}
+
+.node-systems{
+    top:10%;
+    right:12%;
+}
+
+.node-automation{
+    bottom:10%;
+    left:12%;
+}
+
+.node-cyber{
+    bottom:10%;
+    right:12%;
 }
 
 /* =========================================================
@@ -585,45 +959,22 @@ section{
     grid-template-columns:
         repeat(4,1fr);
 
-    gap:14px;
+    gap:13px;
 }
 
 .expertise{
-    position:relative;
-
     min-height:180px;
 
-    padding:22px;
+    padding:21px;
 
     border:
         1px solid var(--border);
 
     border-radius:20px;
 
-    background:var(--panel);
+    background:var(--surface);
 
-    overflow:hidden;
-
-    transition:var(--transition);
-}
-
-.expertise::before{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(124,140,255,.13),
-            transparent 45%
-        );
-
-    opacity:0;
-
-    transition:var(--transition);
+    transition:.3s var(--ease);
 }
 
 .expertise:hover{
@@ -633,14 +984,10 @@ section{
         rgba(124,140,255,.35);
 }
 
-.expertise:hover::before{
-    opacity:1;
-}
-
 .expertise-icon{
     font-size:1.5rem;
 
-    margin-bottom:17px;
+    margin-bottom:16px;
 }
 
 .expertise strong{
@@ -648,23 +995,25 @@ section{
 
     margin-bottom:7px;
 
-    font-size:.95rem;
+    font-size:.86rem;
 }
 
 .expertise small{
     color:var(--muted);
 
-    font-size:.75rem;
+    font-size:.69rem;
 }
 
 /* =========================================================
-   FLAGSHIP PROJECT
+   KAGGRICULTURE
    ========================================================= */
 
 .flagship{
+    padding:35px;
+
     position:relative;
 
-    padding:35px;
+    overflow:hidden;
 
     border:
         1px solid
@@ -678,35 +1027,12 @@ section{
             rgba(124,140,255,.14),
             transparent 40%
         ),
-        var(--panel);
+        var(--surface);
 
     box-shadow:var(--shadow);
-
-    overflow:hidden;
 }
 
-.flagship::after{
-    content:"";
-
-    position:absolute;
-
-    width:240px;
-    height:240px;
-
-    right:-100px;
-    bottom:-120px;
-
-    border-radius:50%;
-
-    background:
-        rgba(94,231,223,.08);
-
-    filter:blur(60px);
-
-    pointer-events:none;
-}
-
-.project-tag{
+.flagship-tag{
     display:inline-block;
 
     margin-bottom:18px;
@@ -719,44 +1045,46 @@ section{
     background:
         rgba(124,140,255,.12);
 
-    color:#bcc4ff;
+    color:#bec6ff;
 
-    font-size:.67rem;
-    font-weight:800;
+    font-size:.66rem;
+    font-weight:850;
 }
 
 .flagship h3{
-    margin-bottom:12px;
-
     font-size:
         clamp(
-            1.9rem,
+            2rem,
             5vw,
-            3.2rem
+            3.3rem
         );
 
-    letter-spacing:-.055em;
+    line-height:1;
+
+    letter-spacing:-.06em;
+
+    margin-bottom:13px;
 }
 
 .flagship-description{
     max-width:800px;
 
-    margin-bottom:32px;
-
     color:var(--muted);
+
+    margin-bottom:25px;
 }
 
-.project-meta{
+.tags{
     display:flex;
     flex-wrap:wrap;
-    gap:8px;
+    gap:7px;
 
     margin-bottom:30px;
 }
 
 .tag{
     padding:
-        7px 10px;
+        6px 10px;
 
     border:
         1px solid var(--border);
@@ -764,11 +1092,11 @@ section{
     border-radius:999px;
 
     background:
-        rgba(0,0,0,.2);
+        rgba(0,0,0,.18);
 
-    color:#c8d0df;
+    color:var(--muted);
 
-    font-size:.68rem;
+    font-size:.63rem;
 }
 
 /* =========================================================
@@ -789,10 +1117,10 @@ section{
 
     display:flex;
     flex-direction:column;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
-    padding:15px 10px;
+    padding:12px 8px;
 
     border:
         1px solid var(--border);
@@ -800,49 +1128,49 @@ section{
     border-radius:18px;
 
     background:
-        rgba(0,0,0,.25);
+        rgba(0,0,0,.2);
 
-    color:white;
+    color:var(--text);
 
     text-align:center;
 
-    transition:var(--transition);
+    transition:.3s var(--ease);
 }
 
 .arch-node:hover,
 .arch-node.active{
     transform:translateY(-7px);
 
-    border-color:
-        rgba(94,231,223,.5);
-
     background:
-        rgba(94,231,223,.055);
+        rgba(94,231,223,.05);
+
+    border-color:
+        rgba(94,231,223,.45);
 }
 
 .arch-number{
-    margin-bottom:7px;
-
     color:var(--cyan);
 
-    font-size:.64rem;
+    font-size:.63rem;
     font-weight:900;
+
+    margin-bottom:6px;
 }
 
 .arch-node b{
-    font-size:.78rem;
+    font-size:.76rem;
 }
 
 .arch-node span:last-child{
-    margin-top:5px;
-
     color:var(--muted);
 
-    font-size:.64rem;
+    font-size:.61rem;
+
+    margin-top:4px;
 }
 
 .arch-info{
-    min-height:70px;
+    min-height:72px;
 
     margin-top:18px;
 
@@ -851,19 +1179,15 @@ section{
     border:
         1px solid var(--border);
 
-    border-radius:17px;
+    border-radius:16px;
 
     background:
-        rgba(0,0,0,.2);
+        rgba(0,0,0,.16);
 
     color:var(--muted);
 
-    font-size:.82rem;
+    font-size:.77rem;
 }
-
-/* =========================================================
-   PROJECT DETAILS
-   ========================================================= */
 
 .project-details{
     display:grid;
@@ -871,12 +1195,12 @@ section{
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:14px;
+    gap:12px;
 
     margin-top:18px;
 }
 
-.project-detail{
+.detail{
     padding:20px;
 
     border:
@@ -885,19 +1209,302 @@ section{
     border-radius:18px;
 
     background:
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.16);
 }
 
-.project-detail strong{
+.detail strong{
     display:block;
 
-    margin-bottom:7px;
+    margin-bottom:6px;
+
+    font-size:.78rem;
 }
 
-.project-detail span{
+.detail span{
     color:var(--muted);
 
+    font-size:.68rem;
+}
+
+/* =========================================================
+   PROJECT LAB
+   ========================================================= */
+
+.lab{
+    display:grid;
+
+    grid-template-columns:
+        .8fr
+        1.2fr;
+
+    gap:18px;
+}
+
+.lab-controls{
+    display:grid;
+    gap:10px;
+}
+
+.lab-button{
+    padding:16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    text-align:left;
+
+    transition:.25s ease;
+}
+
+.lab-button:hover,
+.lab-button.active{
+    border-color:
+        rgba(94,231,223,.4);
+
+    background:
+        rgba(94,231,223,.05);
+}
+
+.lab-screen{
+    min-height:380px;
+
+    padding:25px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:24px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(124,140,255,.07),
+            transparent 60%
+        ),
+        rgba(0,0,0,.22);
+}
+
+.simulation{
+    display:grid;
+
+    gap:14px;
+
+    margin-top:20px;
+}
+
+.sim-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:13px 15px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.sim-row span{
+    color:var(--muted);
+
+    font-size:.7rem;
+}
+
+.progress{
+    width:45%;
+    height:7px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+.progress i{
+    display:block;
+
+    width:0%;
+    height:100%;
+
+    border-radius:inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    transition:
+        width 1s var(--ease);
+}
+
+/* =========================================================
+   JOURNEY
+   ========================================================= */
+
+.timeline{
+    position:relative;
+
+    max-width:850px;
+
+    margin:auto;
+}
+
+.timeline::before{
+    content:"";
+
+    position:absolute;
+
+    left:20px;
+    top:0;
+    bottom:0;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            var(--blue),
+            var(--cyan),
+            transparent
+        );
+}
+
+.timeline-item{
+    position:relative;
+
+    padding:
+        0 0 40px 60px;
+}
+
+.timeline-dot{
+    position:absolute;
+
+    left:12px;
+    top:4px;
+
+    width:17px;
+    height:17px;
+
+    border-radius:50%;
+
+    background:var(--bg);
+
+    border:
+        2px solid var(--cyan);
+
+    box-shadow:
+        0 0 20px
+        rgba(94,231,223,.3);
+}
+
+.timeline-card{
+    padding:20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--surface);
+}
+
+.timeline-card small{
+    color:var(--cyan);
+
+    font-size:.65rem;
+}
+
+.timeline-card h3{
+    margin:5px 0;
+
+    font-size:1rem;
+}
+
+.timeline-card p{
+    color:var(--muted);
+
+    font-size:.72rem;
+}
+
+/* =========================================================
+   SKILL MATRIX
+   ========================================================= */
+
+.skills-matrix{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+}
+
+.skill-row{
+    padding:18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--surface);
+}
+
+.skill-head{
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
     font-size:.75rem;
+}
+
+.skill-head span{
+    color:var(--muted);
+}
+
+.skill-bar{
+    height:6px;
+
+    overflow:hidden;
+
+    border-radius:999px;
+
+    background:
+        rgba(255,255,255,.07);
+}
+
+.skill-bar i{
+    display:block;
+
+    height:100%;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    border-radius:inherit;
+
+    transition:
+        width 1.2s var(--ease);
 }
 
 /* =========================================================
@@ -910,13 +1517,14 @@ section{
     border:
         1px solid var(--border);
 
-    border-radius:24px;
+    border-radius:25px;
 
-    background:var(--panel);
+    background:var(--surface);
 }
 
 .github-header{
     display:flex;
+
     justify-content:space-between;
     align-items:center;
 
@@ -929,22 +1537,21 @@ section{
 }
 
 .github-name{
-    font-size:1.05rem;
     font-weight:900;
 }
 
 .github-user{
-    margin-top:4px;
-
     color:var(--muted);
 
-    font-size:.74rem;
+    font-size:.7rem;
+
+    margin-top:3px;
 }
 
 .github-status{
     color:var(--green);
 
-    font-size:.7rem;
+    font-size:.66rem;
     font-weight:800;
 }
 
@@ -954,13 +1561,13 @@ section{
     grid-template-columns:
         repeat(2,1fr);
 
-    gap:14px;
+    gap:13px;
 
     padding:20px;
 }
 
 .repo{
-    padding:21px;
+    padding:20px;
 
     border:
         1px solid var(--border);
@@ -968,44 +1575,97 @@ section{
     border-radius:18px;
 
     background:
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.16);
 
-    transition:var(--transition);
+    transition:.3s var(--ease);
 }
 
 .repo:hover{
     transform:translateY(-5px);
 
-    background:var(--panel2);
+    background:var(--surface2);
 }
 
 .repo-name{
-    margin-bottom:7px;
-
     font-weight:850;
+
+    margin-bottom:7px;
 }
 
 .repo-description{
-    margin-bottom:15px;
-
     color:var(--muted);
 
-    font-size:.76rem;
+    font-size:.72rem;
+
+    margin-bottom:14px;
 }
 
 .repo-meta{
     display:flex;
     gap:12px;
 
-    margin-bottom:17px;
-
     color:var(--muted);
 
-    font-size:.67rem;
+    font-size:.63rem;
+
+    margin-bottom:16px;
 }
 
 /* =========================================================
-   CYBERSECURITY COMMUNITY
+   ACHIEVEMENTS
+   ========================================================= */
+
+.achievement-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:12px;
+}
+
+.achievement{
+    padding:20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    background:var(--surface);
+
+    text-align:center;
+
+    transition:.3s var(--ease);
+}
+
+.achievement:hover{
+    transform:translateY(-5px);
+
+    border-color:
+        rgba(255,184,107,.35);
+}
+
+.achievement-icon{
+    font-size:1.7rem;
+
+    margin-bottom:10px;
+}
+
+.achievement strong{
+    display:block;
+
+    font-size:.76rem;
+}
+
+.achievement span{
+    color:var(--muted);
+
+    font-size:.64rem;
+}
+
+/* =========================================================
+   CYBER COMMUNITY
    ========================================================= */
 
 .community-grid{
@@ -1024,15 +1684,9 @@ section{
     border:
         1px solid var(--border);
 
-    border-radius:22px;
+    border-radius:23px;
 
-    background:var(--panel);
-}
-
-.community-card h3{
-    margin-bottom:15px;
-
-    font-size:1.2rem;
+    background:var(--surface);
 }
 
 .community-card p{
@@ -1042,42 +1696,41 @@ section{
 .principles{
     display:grid;
 
-    gap:10px;
+    gap:9px;
 
     margin-top:20px;
 }
 
 .principle{
-    padding:15px;
+    padding:14px;
 
     border:
         1px solid var(--border);
 
-    border-radius:15px;
+    border-radius:14px;
 
     background:
-        rgba(0,0,0,.18);
+        rgba(0,0,0,.16);
 }
 
 .principle strong{
     display:block;
 
-    margin-bottom:3px;
-
-    font-size:.78rem;
+    font-size:.75rem;
 }
 
 .principle span{
     color:var(--muted);
 
-    font-size:.7rem;
+    font-size:.65rem;
 }
 
 .member{
     display:flex;
+
     align-items:center;
 
-    gap:14px;
+    gap:13px;
 
     padding:15px 0;
 
@@ -1091,13 +1744,11 @@ section{
 }
 
 .avatar{
-    width:44px;
-    height:44px;
+    width:45px;
+    height:45px;
 
     display:grid;
     place-items:center;
-
-    flex:none;
 
     border-radius:50%;
 
@@ -1116,7 +1767,7 @@ section{
 
     color:var(--muted);
 
-    font-size:.7rem;
+    font-size:.66rem;
 }
 
 /* =========================================================
@@ -1125,7 +1776,7 @@ section{
 
 .contact{
     padding:
-        60px 25px;
+        65px 25px;
 
     border:
         1px solid var(--border);
@@ -1138,7 +1789,7 @@ section{
             rgba(124,140,255,.14),
             transparent 52%
         ),
-        var(--panel);
+        var(--surface);
 
     text-align:center;
 }
@@ -1159,7 +1810,7 @@ section{
 
     flex-wrap:wrap;
 
-    gap:10px;
+    gap:9px;
 
     margin-bottom:25px;
 }
@@ -1174,11 +1825,11 @@ section{
     border-radius:12px;
 
     background:
-        rgba(0,0,0,.2);
+        rgba(0,0,0,.16);
 
-    font-size:.76rem;
+    font-size:.7rem;
 
-    transition:var(--transition);
+    transition:.25s ease;
 }
 
 .contact-chip:hover{
@@ -1186,6 +1837,180 @@ section{
 
     border-color:
         rgba(94,231,223,.35);
+}
+
+/* =========================================================
+   COMMAND PALETTE
+   ========================================================= */
+
+.command-overlay{
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    display:none;
+
+    align-items:flex-start;
+    justify-content:center;
+
+    padding-top:14vh;
+
+    background:
+        rgba(0,0,0,.65);
+
+    backdrop-filter:blur(12px);
+}
+
+.command-overlay.open{
+    display:flex;
+}
+
+.command-box{
+    width:min(92%,650px);
+
+    overflow:hidden;
+
+    border:
+        1px solid var(--border2);
+
+    border-radius:22px;
+
+    background:
+        rgba(8,12,20,.96);
+
+    box-shadow:
+        0 40px 120px
+        rgba(0,0,0,.6);
+}
+
+.command-input{
+    width:100%;
+
+    padding:20px;
+
+    border:0;
+
+    outline:0;
+
+    background:transparent;
+
+    color:white;
+
+    border-bottom:
+        1px solid var(--border);
+}
+
+.command-results{
+    max-height:400px;
+
+    overflow:auto;
+
+    padding:8px;
+}
+
+.command-item{
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+
+    padding:13px;
+
+    border:0;
+
+    border-radius:11px;
+
+    background:transparent;
+
+    color:white;
+
+    text-align:left;
+}
+
+.command-item:hover{
+    background:var(--surface2);
+}
+
+.command-item span{
+    color:var(--muted);
+
+    font-size:.7rem;
+}
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-trigger{
+    display:none;
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast{
+    position:fixed;
+
+    left:50%;
+    bottom:25px;
+
+    z-index:10000;
+
+    padding:
+        12px 18px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:14px;
+
+    background:
+        rgba(10,14,24,.94);
+
+    color:white;
+
+    font-size:.72rem;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transform:
+        translate(-50%,20px);
+
+    transition:.3s ease;
+}
+
+.toast.show{
+    opacity:1;
+
+    transform:
+        translate(-50%,0);
+}
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    transition:
+        opacity .75s ease,
+        transform .75s var(--ease);
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:
+        translateY(0);
 }
 
 /* =========================================================
@@ -1200,7 +2025,7 @@ footer{
 
     color:var(--muted);
 
-    font-size:.75rem;
+    font-size:.7rem;
 }
 
 .footer-inner{
@@ -1212,80 +2037,17 @@ footer{
 }
 
 /* =========================================================
-   SCROLL REVEAL
+   RESPONSIVE
    ========================================================= */
 
-.reveal{
-    opacity:0;
-
-    transform:
-        translateY(25px);
-
-    transition:
-        opacity .75s ease,
-        transform .75s ease;
-}
-
-.reveal.visible{
-    opacity:1;
-
-    transform:
-        translateY(0);
-}
-
-/* =========================================================
-   TOAST
-   ========================================================= */
-
-.toast{
-    position:fixed;
-
-    left:50%;
-    bottom:25px;
-
-    transform:
-        translate(-50%,20px);
-
-    padding:
-        12px 18px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:14px;
-
-    background:
-        rgba(10,14,24,.94);
-
-    backdrop-filter:blur(15px);
-
-    color:white;
-
-    font-size:.75rem;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:.3s;
-
-    z-index:3000;
-}
-
-.toast.show{
-    opacity:1;
-
-    transform:
-        translate(-50%,0);
-}
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media(max-width:1000px){
+@media(max-width:1050px){
 
     .expertise-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .achievement-grid{
         grid-template-columns:
             repeat(2,1fr);
     }
@@ -1296,20 +2058,25 @@ footer{
     }
 
     .about-grid,
-    .community-grid{
+    .community-grid,
+    .lab{
         grid-template-columns:1fr;
     }
 
 }
 
-@media(max-width:700px){
+@media(max-width:720px){
+
+    section{
+        padding:80px 0;
+    }
 
     .nav-links{
         display:none;
 
         position:absolute;
 
-        top:74px;
+        top:76px;
         left:0;
 
         width:100%;
@@ -1319,7 +2086,7 @@ footer{
         flex-direction:column;
 
         background:
-            rgba(5,7,13,.96);
+            rgba(4,6,11,.97);
 
         border-bottom:
             1px solid var(--border);
@@ -1330,7 +2097,11 @@ footer{
     }
 
     .menu{
-        display:block;
+        display:grid;
+    }
+
+    .nav-tools .icon-btn{
+        display:none;
     }
 
     .hero{
@@ -1340,21 +2111,23 @@ footer{
             135px 0 85px;
     }
 
-    section{
-        padding:80px 0;
-    }
-
     .hero h1{
         font-size:
             clamp(
-                3.1rem,
+                3.2rem,
                 16vw,
-                5rem
+                5.5rem
             );
     }
 
-    .expertise-grid,
+    .about-highlights,
+    .skills-matrix,
     .project-details{
+        grid-template-columns:1fr;
+    }
+
+    .expertise-grid,
+    .achievement-grid{
         grid-template-columns:1fr;
     }
 
@@ -1376,6 +2149,39 @@ footer{
         padding:23px;
     }
 
+    .map-wrapper{
+        min-height:560px;
+    }
+
+    .map-node{
+        min-width:120px;
+    }
+
+    .node-python{
+        top:8%;
+        left:3%;
+    }
+
+    .node-systems{
+        top:8%;
+        right:3%;
+    }
+
+    .node-automation{
+        bottom:8%;
+        left:3%;
+    }
+
+    .node-cyber{
+        bottom:8%;
+        right:3%;
+    }
+
+    .engineering-core{
+        width:130px;
+        height:130px;
+    }
+
     .footer-inner{
         flex-direction:column;
     }
@@ -1394,16 +2200,51 @@ footer{
 
 }
 
+/* =========================================================
+   PRINT
+   ========================================================= */
+
+@media print{
+
+    .navbar,
+    .cursor-glow,
+    .background-grid,
+    .noise,
+    .orb,
+    #preloader,
+    .command-overlay,
+    .toast{
+        display:none!important;
+    }
+
+    body{
+        background:white;
+        color:black;
+    }
+
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="background-grid"></div>
+<!-- =====================================================
+     PRELOADER
+     ===================================================== -->
 
-<div class="glow one"></div>
-<div class="glow two"></div>
-<div class="glow three"></div>
+<div id="preloader">
+    <div class="loader"></div>
+</div>
+
+<div class="background-grid"></div>
+<div class="noise"></div>
+
+<div class="orb one"></div>
+<div class="orb two"></div>
+<div class="orb three"></div>
+
+<div class="cursor-glow" id="cursorGlow"></div>
 
 
 <!-- =====================================================
@@ -1414,28 +2255,50 @@ footer{
 
 <div class="container nav">
 
-<a href="#home" class="logo">
+<a class="logo" href="#home">
 R<span>:</span>RAGHAVAN
 </a>
 
 <nav class="nav-links" id="navLinks">
 
 <a href="#about">About</a>
+<a href="#map">Engineering</a>
 <a href="#expertise">Expertise</a>
 <a href="#project">Kaggriculture</a>
+<a href="#lab">Lab</a>
 <a href="#github">GitHub</a>
-<a href="#community">Cyber Community</a>
+<a href="#community">Community</a>
 <a href="#contact">Contact</a>
 
 </nav>
 
+<div class="nav-tools">
+
 <button
-class="menu"
+class="icon-btn"
+id="searchButton"
+aria-label="Open command search"
+>
+⌕
+</button>
+
+<button
+class="icon-btn"
+id="themeButton"
+aria-label="Change theme"
+>
+◐
+</button>
+
+<button
+class="menu icon-btn"
 id="menuButton"
 aria-label="Open navigation"
 >
 ☰
 </button>
+
+</div>
 
 </div>
 
@@ -1455,36 +2318,26 @@ aria-label="Open navigation"
 
 <div class="hero-content reveal">
 
-<div class="hero-badge">
-
-<span class="badge-dot"></span>
-
-RAGHAVAN • SOFTWARE & TECHNOLOGY
-
+<div class="eyebrow">
+<span class="eyebrow-dot"></span>
+RAGHAVAN • ENGINEERING PORTFOLIO
 </div>
 
 <h1>
-
-Building
-
-<span class="gradient">
-systems
-</span>
-
-that matter.
-
+Build.
+<span class="gradient">Learn.</span>
+Evolve.
 </h1>
 
-<p>
+<p class="hero-description">
 
-I am <strong>RAGHAVAN</strong>, a technology-focused
-developer interested in Python, software engineering,
-intelligent systems, automation, architecture and
-building ambitious real-world projects.
+I am <strong>RAGHAVAN</strong> — a technology-focused
+developer building software, systems, experiments
+and ambitious engineering projects.
 
 </p>
 
-<div class="actions">
+<div class="hero-actions">
 
 <a
 class="btn primary"
@@ -1497,8 +2350,23 @@ Explore Kaggriculture →
 class="btn"
 href="#about"
 >
-Know Raghavan
+Discover My Work
 </a>
+
+<button
+class="btn"
+id="commandButton"
+>
+⌘ Command Center
+</button>
+
+</div>
+
+<div class="hero-meta">
+
+<span>● Open to learning</span>
+<span>◈ Building projects</span>
+<span>⚡ Always experimenting</span>
 
 </div>
 
@@ -1520,16 +2388,16 @@ Know Raghavan
 <div class="reveal">
 
 <div class="section-label">
-01 / About
+01 / Identity
 </div>
 
 <h2 class="section-title">
-Engineering mindset.
+This is RAGHAVAN.
 </h2>
 
 <p class="section-text">
-A portfolio built around what I create, what I learn
-and the engineering problems I want to solve.
+Not just a list of technologies — an evolving
+engineering journey.
 </p>
 
 </div>
@@ -1537,55 +2405,53 @@ and the engineering problems I want to solve.
 
 <div class="about-grid">
 
-
-<div class="panel about-main reveal">
+<div class="card reveal">
 
 <h3>
-Hello, I'm RAGHAVAN.
+Engineering mindset
 </h3>
 
 <br>
 
 <p>
-I enjoy building software from the ground up,
-experimenting with technologies and turning ideas
-into working systems.
+
+I enjoy understanding how software works,
+building systems from individual components and
+turning ideas into practical implementations.
+
 </p>
+
+<br>
 
 <p>
-My interests span Python development, automation,
-machine learning, autonomous systems, software
-architecture, GitHub workflows and responsible
-cybersecurity learning.
+
+My interests include Python development,
+automation, machine learning, system architecture,
+autonomous systems, web technologies and
+responsible cybersecurity learning.
+
 </p>
 
-<p>
-Rather than focusing on one narrow technology,
-I continuously expand my engineering toolkit and
-try to understand how complete systems work together.
-</p>
-
-
-<div class="about-highlight">
+<div class="about-highlights">
 
 <div class="highlight">
 <strong>Build</strong>
-<span>Projects and practical systems</span>
+<span>Real projects</span>
 </div>
 
 <div class="highlight">
-<strong>Learn</strong>
-<span>Technology through experimentation</span>
+<strong>Explore</strong>
+<span>New technology</span>
 </div>
 
 <div class="highlight">
 <strong>Engineer</strong>
-<span>Modular and maintainable architecture</span>
+<span>Modular systems</span>
 </div>
 
 <div class="highlight">
-<strong>Collaborate</strong>
-<span>GitHub and team-based development</span>
+<strong>Improve</strong>
+<span>Iterate continuously</span>
 </div>
 
 </div>
@@ -1593,22 +2459,24 @@ try to understand how complete systems work together.
 </div>
 
 
-<div class="panel reveal">
+<div class="card reveal">
 
 <div class="section-label">
-Current Direction
+Core Philosophy
 </div>
 
 <h3>
-From ideas → systems
+Curiosity → Engineering → Impact
 </h3>
 
 <br>
 
-<p style="color:var(--muted)">
-My goal is to keep developing stronger engineering
-skills while creating increasingly sophisticated
-projects.
+<p>
+
+Learn the fundamentals, experiment with them,
+build something real and improve it through
+feedback.
+
 </p>
 
 <br>
@@ -1617,26 +2485,99 @@ projects.
 
 <div class="principle">
 <strong>01 • Curiosity</strong>
-<span>Understand how things work.</span>
+<span>Ask better technical questions.</span>
 </div>
 
 <div class="principle">
-<strong>02 • Engineering</strong>
-<span>Turn concepts into usable software.</span>
+<strong>02 • Discipline</strong>
+<span>Build consistently.</span>
 </div>
 
 <div class="principle">
 <strong>03 • Experimentation</strong>
-<span>Test ideas and improve them.</span>
+<span>Test ideas instead of only discussing them.</span>
 </div>
 
 <div class="principle">
 <strong>04 • Responsibility</strong>
-<span>Build and learn technology ethically.</span>
+<span>Use technology ethically.</span>
 </div>
 
 </div>
 
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     ENGINEERING MAP
+     ===================================================== -->
+
+<section id="map">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+02 / Engineering Map
+</div>
+
+<h2 class="section-title">
+How my skills connect.
+</h2>
+
+<p class="section-text">
+A visual representation of the engineering areas
+that form my current technical direction.
+</p>
+
+</div>
+
+
+<div class="map-wrapper reveal">
+
+<div class="map-lines">
+
+<div class="map-line line-a"></div>
+<div class="map-line line-b"></div>
+<div class="map-line line-c"></div>
+<div class="map-line line-d"></div>
+
+</div>
+
+
+<div class="engineering-core">
+RAGHAVAN
+</div>
+
+
+<div class="map-node node-python">
+<strong>🐍 Python</strong>
+<small>Development</small>
+</div>
+
+
+<div class="map-node node-systems">
+<strong>⚙️ Systems</strong>
+<small>Architecture</small>
+</div>
+
+
+<div class="map-node node-automation">
+<strong>🔧 Automation</strong>
+<small>Workflows</small>
+</div>
+
+
+<div class="map-node node-cyber">
+<strong>🛡️ Security</strong>
+<small>Ethical learning</small>
 </div>
 
 </div>
@@ -1657,16 +2598,15 @@ projects.
 <div class="reveal">
 
 <div class="section-label">
-02 / Expertise
+03 / Expertise
 </div>
 
 <h2 class="section-title">
-Engineering capabilities.
+Technical capabilities.
 </h2>
 
 <p class="section-text">
-A broad technical profile covering development,
-systems, automation and emerging technologies.
+A broad engineering toolkit that continues to grow.
 </p>
 
 </div>
@@ -1674,86 +2614,53 @@ systems, automation and emerging technologies.
 
 <div class="expertise-grid">
 
-
 <div class="expertise reveal">
 <div class="expertise-icon">🐍</div>
-<strong>Python Development</strong>
-<small>
-Application development, scripting, automation
-and backend-oriented engineering.
-</small>
+<strong>Python</strong>
+<small>Development, automation and backend engineering.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">🧠</div>
 <strong>Machine Learning</strong>
-<small>
-Learning systems, prediction pipelines and
-experimental intelligent applications.
-</small>
+<small>Prediction, learning systems and experimentation.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">🤖</div>
 <strong>Autonomous Systems</strong>
-<small>
-Decision-making architectures and systems
-designed to operate through feedback.
-</small>
+<small>Decision-making and feedback-driven architectures.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">⚙️</div>
-<strong>System Architecture</strong>
-<small>
-Modular structures, components, interfaces
-and scalable engineering concepts.
-</small>
+<strong>System Design</strong>
+<small>Modular software and engineering architecture.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">🔧</div>
 <strong>Automation</strong>
-<small>
-Reducing repetitive work through scripts,
-tools and engineering workflows.
-</small>
+<small>Tools, scripts and engineering workflows.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">🌐</div>
 <strong>Web Development</strong>
-<small>
-Modern responsive interfaces and interactive
-browser-based experiences.
-</small>
+<small>Responsive interfaces and interactive experiences.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">📦</div>
 <strong>Git & GitHub</strong>
-<small>
-Version control, repository organization,
-branches and collaborative development.
-</small>
+<small>Version control and collaborative development.</small>
 </div>
-
 
 <div class="expertise reveal">
 <div class="expertise-icon">🛡️</div>
 <strong>Ethical Cybersecurity</strong>
-<small>
-Security learning, responsible experimentation
-and defensive technology awareness.
-</small>
+<small>Security concepts, awareness and defensive learning.</small>
 </div>
-
 
 </div>
 
@@ -1773,7 +2680,7 @@ and defensive technology awareness.
 <div class="reveal">
 
 <div class="section-label">
-03 / Featured Project
+04 / Flagship Project
 </div>
 
 <h2 class="section-title">
@@ -1781,8 +2688,7 @@ Crop Coders — Kaggriculture.
 </h2>
 
 <p class="section-text">
-The flagship engineering project currently
-featured on this portfolio.
+The primary project in the RAGHAVAN portfolio.
 </p>
 
 </div>
@@ -1790,109 +2696,80 @@ featured on this portfolio.
 
 <article class="flagship reveal">
 
-
-<span class="project-tag">
+<span class="flagship-tag">
 CROP CODERS • KAGGRICULTURE
 </span>
-
 
 <h3>
 Autonomous Farming Intelligence
 </h3>
 
-
 <p class="flagship-description">
 
-A modular farming-agent architecture designed
-around observation, prediction, constraints,
-strategy, action and feedback. The project focuses
-on engineering a complete decision system rather
-than a single isolated model.
+A modular architecture for intelligent farming
+decision-making, connecting observation, prediction,
+constraints, strategy, action and feedback into a
+larger engineering system.
 
 </p>
 
 
-<div class="project-meta">
+<div class="tags">
 
 <span class="tag">Python</span>
 <span class="tag">Machine Learning</span>
 <span class="tag">Agents</span>
 <span class="tag">Simulation</span>
 <span class="tag">Decision Systems</span>
-<span class="tag">Modular Architecture</span>
+<span class="tag">Architecture</span>
 
 </div>
 
 
 <div class="architecture">
 
-
-<button
-class="arch-node"
-data-arch="environment"
->
+<button class="arch-node" data-arch="environment">
 <span class="arch-number">01</span>
 <b>Environment</b>
 <span>Observe state</span>
 </button>
 
-
-<button
-class="arch-node"
-data-arch="prediction"
->
+<button class="arch-node" data-arch="prediction">
 <span class="arch-number">02</span>
 <b>Prediction</b>
 <span>Estimate future</span>
 </button>
 
-
-<button
-class="arch-node"
-data-arch="constraints"
->
+<button class="arch-node" data-arch="constraints">
 <span class="arch-number">03</span>
 <b>Constraints</b>
 <span>Guard decisions</span>
 </button>
 
-
-<button
-class="arch-node"
-data-arch="decision"
->
+<button class="arch-node" data-arch="decision">
 <span class="arch-number">04</span>
 <b>Decision</b>
 <span>Select strategy</span>
 </button>
 
-
-<button
-class="arch-node"
-data-arch="action"
->
+<button class="arch-node" data-arch="action">
 <span class="arch-number">05</span>
 <b>Action</b>
 <span>Execute policy</span>
 </button>
 
-
-<button
-class="arch-node"
-data-arch="feedback"
->
+<button class="arch-node" data-arch="feedback">
 <span class="arch-number">06</span>
 <b>Feedback</b>
 <span>Improve system</span>
 </button>
 
-
 </div>
 
 
 <div
-id="architectureInfo"
 class="arch-info"
+id="architectureInfo"
 >
 Select an architecture component to inspect it.
 </div>
@@ -1900,33 +2777,27 @@ Select an architecture component to inspect it.
 
 <div class="project-details">
 
-
-<div class="project-detail">
+<div class="detail">
 <strong>Architecture</strong>
 <span>
-Independent modular components designed
-to connect into a larger system.
+Independent modules designed to connect
+into a larger system.
 </span>
 </div>
 
-
-<div class="project-detail">
+<div class="detail">
 <strong>Engineering Focus</strong>
 <span>
-Decision-making, planning, feedback and
-system-level intelligence.
+Decision-making, planning and feedback.
 </span>
 </div>
 
-
-<div class="project-detail">
+<div class="detail">
 <strong>Development</strong>
 <span>
-Continuously evolving through experimentation,
-testing and iteration.
+Testing, experimentation and iteration.
 </span>
 </div>
-
 
 </div>
 
@@ -1934,7 +2805,7 @@ testing and iteration.
 <br>
 
 
-<div class="actions">
+<div class="hero-actions">
 
 <a
 class="btn primary"
@@ -1942,20 +2813,406 @@ href="https://github.com/ragavan994463-max/kaggriculture-agent"
 target="_blank"
 rel="noopener noreferrer"
 >
-View Project on GitHub →
+Open Kaggriculture →
 </a>
 
 <a
 class="btn"
-href="#github"
+href="#lab"
 >
-Project Explorer
+Open Project Lab
 </a>
 
 </div>
 
-
 </article>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     PROJECT LAB
+     ===================================================== -->
+
+<section id="lab">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+05 / Project Laboratory
+</div>
+
+<h2 class="section-title">
+Interactive engineering lab.
+</h2>
+
+<p class="section-text">
+Small browser-based demonstrations that make
+engineering concepts visible and interactive.
+</p>
+
+</div>
+
+
+<div class="lab">
+
+<div class="lab-controls reveal">
+
+<button
+class="lab-button active"
+data-lab="decision"
+>
+<strong>Decision Simulation</strong><br>
+<small>Simulate a system decision.</small>
+</button>
+
+<button
+class="lab-button"
+data-lab="resource"
+>
+<strong>Resource Allocation</strong><br>
+<small>Explore resource distribution.</small>
+</button>
+
+<button
+class="lab-button"
+data-lab="feedback"
+>
+<strong>Feedback Loop</strong><br>
+<small>Observe iterative improvement.</small>
+</button>
+
+</div>
+
+
+<div class="lab-screen reveal">
+
+<div class="section-label">
+LIVE DEMONSTRATION
+</div>
+
+<h3 id="labTitle">
+Decision Simulation
+</h3>
+
+<p
+id="labDescription"
+style="color:var(--muted);font-size:.75rem;margin-top:8px"
+>
+A simplified demonstration of how observations
+can influence a selected strategy.
+</p>
+
+
+<div class="simulation">
+
+<div class="sim-row">
+<span>Observation confidence</span>
+
+<div class="progress">
+<i id="bar1"></i>
+</div>
+
+<strong id="value1">0%</strong>
+</div>
+
+
+<div class="sim-row">
+<span>Prediction quality</span>
+
+<div class="progress">
+<i id="bar2"></i>
+</div>
+
+<strong id="value2">0%</strong>
+</div>
+
+
+<div class="sim-row">
+<span>Decision stability</span>
+
+<div class="progress">
+<i id="bar3"></i>
+</div>
+
+<strong id="value3">0%</strong>
+</div>
+
+
+<div class="sim-row">
+<span>Feedback value</span>
+
+<div class="progress">
+<i id="bar4"></i>
+</div>
+
+<strong id="value4">0%</strong>
+</div>
+
+</div>
+
+
+<br>
+
+<button
+class="btn primary"
+id="runLab"
+>
+Run Demonstration →
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     JOURNEY
+     ===================================================== -->
+
+<section id="journey">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+06 / Engineering Journey
+</div>
+
+<h2 class="section-title">
+Building forward.
+</h2>
+
+<p class="section-text">
+A living timeline of engineering growth and project
+development.
+</p>
+
+</div>
+
+
+<div class="timeline">
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<small>FOUNDATION</small>
+
+<h3>
+Programming & Python
+</h3>
+
+<p>
+Developing programming fundamentals and building
+practical software projects.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<small>EXPANSION</small>
+
+<h3>
+Systems & Automation
+</h3>
+
+<p>
+Moving from isolated scripts toward reusable
+engineering systems and workflows.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<small>FLAGSHIP</small>
+
+<h3>
+Crop Coders — Kaggriculture
+</h3>
+
+<p>
+Developing a modular autonomous farming
+decision architecture.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="timeline-item reveal">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<small>NEXT</small>
+
+<h3>
+Advanced Engineering
+</h3>
+
+<p>
+Continue exploring systems, machine learning,
+automation, security and larger projects.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS MATRIX
+     ===================================================== -->
+
+<section id="skills">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+07 / Skills Matrix
+</div>
+
+<h2 class="section-title">
+Technical growth map.
+</h2>
+
+<p class="section-text">
+An interactive representation of the technologies
+I am developing.
+</p>
+
+</div>
+
+
+<div class="skills-matrix">
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Python</strong>
+<span>Core</span>
+</div>
+<div class="skill-bar">
+<i data-width="92"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>System Architecture</strong>
+<span>Advanced focus</span>
+</div>
+<div class="skill-bar">
+<i data-width="82"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Automation</strong>
+<span>Strong</span>
+</div>
+<div class="skill-bar">
+<i data-width="84"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Machine Learning</strong>
+<span>Growing</span>
+</div>
+<div class="skill-bar">
+<i data-width="72"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Git & GitHub</strong>
+<span>Strong</span>
+</div>
+<div class="skill-bar">
+<i data-width="82"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Web Development</strong>
+<span>Strong</span>
+</div>
+<div class="skill-bar">
+<i data-width="78"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Autonomous Systems</strong>
+<span>Focused</span>
+</div>
+<div class="skill-bar">
+<i data-width="76"></i>
+</div>
+</div>
+
+
+<div class="skill-row reveal">
+<div class="skill-head">
+<strong>Cybersecurity</strong>
+<span>Learning</span>
+</div>
+<div class="skill-bar">
+<i data-width="65"></i>
+</div>
+</div>
+
+</div>
 
 </div>
 
@@ -1973,23 +3230,21 @@ Project Explorer
 <div class="reveal">
 
 <div class="section-label">
-04 / GitHub
+08 / GitHub
 </div>
 
 <h2 class="section-title">
-My engineering workspace.
+Engineering workspace.
 </h2>
 
 <p class="section-text">
-Explore the projects, repositories and development
-work behind my engineering journey.
+The public development side of RAGHAVAN.
 </p>
 
 </div>
 
 
 <div class="github-panel reveal">
-
 
 <div class="github-header">
 
@@ -2005,16 +3260,14 @@ ragavan994463-max
 
 </div>
 
-
 <div class="github-status">
-● REPOSITORY LINKS ACTIVE
+● LINKS ACTIVE
 </div>
 
 </div>
 
 
 <div class="repo-grid">
-
 
 <div class="repo">
 
@@ -2023,10 +3276,8 @@ Crop Coders — Kaggriculture
 </div>
 
 <div class="repo-description">
-
 Autonomous farming-agent architecture and
 intelligent decision system.
-
 </div>
 
 <div class="repo-meta">
@@ -2054,10 +3305,8 @@ RAGHAVAN GitHub Profile
 </div>
 
 <div class="repo-description">
-
 Explore repositories, contributions and future
 engineering projects.
-
 </div>
 
 <div class="repo-meta">
@@ -2077,7 +3326,6 @@ View Profile →
 
 </div>
 
-
 </div>
 
 </div>
@@ -2088,7 +3336,66 @@ View Profile →
 
 
 <!-- =====================================================
-     CYBERSECURITY COMMUNITY
+     ACHIEVEMENTS
+     ===================================================== -->
+
+<section id="achievements">
+
+<div class="container">
+
+<div class="reveal">
+
+<div class="section-label">
+09 / Achievements
+</div>
+
+<h2 class="section-title">
+Milestones.
+</h2>
+
+<p class="section-text">
+The portfolio's achievement system can grow as
+RAGHAVAN's engineering journey progresses.
+</p>
+
+</div>
+
+
+<div class="achievement-grid">
+
+<div class="achievement reveal">
+<div class="achievement-icon">🏗️</div>
+<strong>System Builder</strong>
+<span>Building modular software systems.</span>
+</div>
+
+<div class="achievement reveal">
+<div class="achievement-icon">🌱</div>
+<strong>Kaggriculture</strong>
+<span>Flagship autonomous farming project.</span>
+</div>
+
+<div class="achievement reveal">
+<div class="achievement-icon">🐍</div>
+<strong>Python Engineer</strong>
+<span>Python as a primary development language.</span>
+</div>
+
+<div class="achievement reveal">
+<div class="achievement-icon">🔐</div>
+<strong>Security Learner</strong>
+<span>Responsible cybersecurity exploration.</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     COMMUNITY
      ===================================================== -->
 
 <section id="community">
@@ -2098,7 +3405,7 @@ View Profile →
 <div class="reveal">
 
 <div class="section-label">
-05 / Community
+10 / Community
 </div>
 
 <h2 class="section-title">
@@ -2106,11 +3413,7 @@ Ethical cybersecurity community.
 </h2>
 
 <p class="section-text">
-
-A technology community centered around learning,
-responsible experimentation, security awareness
-and collaboration.
-
+Learning, collaboration and responsible technology.
 </p>
 
 </div>
@@ -2118,56 +3421,49 @@ and collaboration.
 
 <div class="community-grid">
 
-
 <div class="community-card reveal">
 
 <h3>
 Community Mission
 </h3>
 
+<br>
+
 <p>
-
-Learn cybersecurity responsibly, understand how
-technology works, build useful security knowledge
-and collaborate without harming systems or people.
-
+Build security knowledge through authorized,
+controlled and responsible experimentation.
 </p>
 
 
 <div class="principles">
 
-
 <div class="principle">
 <strong>🔐 Learn</strong>
 <span>
-Understand security concepts and defensive practices.
+Understand security concepts.
 </span>
 </div>
-
 
 <div class="principle">
 <strong>🧪 Experiment</strong>
 <span>
-Use controlled environments and authorized systems.
+Use controlled environments.
 </span>
 </div>
-
 
 <div class="principle">
 <strong>🛡️ Defend</strong>
 <span>
-Promote safer software and stronger security awareness.
+Promote safer technology.
 </span>
 </div>
-
 
 <div class="principle">
 <strong>🤝 Collaborate</strong>
 <span>
-Share knowledge and build with the community.
+Share knowledge responsibly.
 </span>
 </div>
-
 
 </div>
 
@@ -2215,14 +3511,12 @@ Technical Leader
 
 <br>
 
-
 <p>
 Technology should be explored with curiosity,
 discipline and responsibility.
 </p>
 
 </div>
-
 
 </div>
 
@@ -2241,22 +3535,17 @@ discipline and responsibility.
 
 <div class="contact reveal">
 
-
 <div class="section-label">
-06 / Contact
+11 / Connection
 </div>
-
 
 <h2 class="section-title">
 Let's build something.
 </h2>
 
-
 <p>
-
-For professional networking, collaboration,
+Professional networking, collaboration,
 projects and technology opportunities.
-
 </p>
 
 
@@ -2269,7 +3558,6 @@ href="tel:+919626638296"
 📞 9626638296
 </a>
 
-
 <a
 class="contact-chip"
 href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
@@ -2278,7 +3566,6 @@ rel="noopener noreferrer"
 >
 💼 LinkedIn
 </a>
-
 
 <a
 class="contact-chip"
@@ -2292,9 +3579,8 @@ rel="noopener noreferrer"
 </div>
 
 
-<div class="actions"
+<div class="hero-actions"
 style="justify-content:center">
-
 
 <a
 class="btn primary"
@@ -2305,7 +3591,6 @@ rel="noopener noreferrer"
 Connect on LinkedIn →
 </a>
 
-
 <a
 class="btn"
 href="https://github.com/ragavan994463-max"
@@ -2314,7 +3599,6 @@ rel="noopener noreferrer"
 >
 GitHub →
 </a>
-
 
 </div>
 
@@ -2349,11 +3633,38 @@ Python • Systems • Engineering • Technology
 </footer>
 
 
+<!-- =====================================================
+     COMMAND PALETTE
+     ===================================================== -->
+
 <div
-id="toast"
-class="toast"
+class="command-overlay"
+id="commandOverlay"
 >
+
+<div class="command-box">
+
+<input
+class="command-input"
+id="commandInput"
+placeholder="Search RAGHAVAN portfolio..."
+autocomplete="off"
+/>
+
+<div
+class="command-results"
+id="commandResults"
+></div>
+
 </div>
+
+</div>
+
+
+<div
+class="toast"
+id="toast"
+></div>
 
 
 <script>
@@ -2366,7 +3677,27 @@ class="toast"
 
 
 /* =========================================================
-   MOBILE NAVIGATION
+   PRELOADER
+   ========================================================= */
+
+window.addEventListener(
+    "load",
+    ()=>{
+        setTimeout(
+            ()=>{
+                document
+                    .getElementById("preloader")
+                    ?.classList
+                    .add("hide");
+            },
+            500
+        );
+    }
+);
+
+
+/* =========================================================
+   MOBILE NAV
    ========================================================= */
 
 const menuButton =
@@ -2375,19 +3706,12 @@ const menuButton =
 const navLinks =
     document.getElementById("navLinks");
 
-if(menuButton && navLinks){
-
-    menuButton.addEventListener(
-        "click",
-        ()=>{
-
-            navLinks.classList.toggle("open");
-
-        }
-    );
-
-}
-
+menuButton?.addEventListener(
+    "click",
+    ()=>{
+        navLinks?.classList.toggle("open");
+    }
+);
 
 document
     .querySelectorAll(".nav-links a")
@@ -2396,13 +3720,74 @@ document
         link.addEventListener(
             "click",
             ()=>{
-
                 navLinks?.classList.remove("open");
-
             }
         );
 
     });
+
+
+/* =========================================================
+   THEME ENGINE
+   ========================================================= */
+
+const themeButton =
+    document.getElementById("themeButton");
+
+const savedTheme =
+    localStorage.getItem("raghavan-theme");
+
+if(savedTheme === "light"){
+    document.body.classList.add("light");
+}
+
+themeButton?.addEventListener(
+    "click",
+    ()=>{
+
+        document.body
+            .classList
+            .toggle("light");
+
+        localStorage.setItem(
+            "raghavan-theme",
+            document.body.classList.contains("light")
+                ? "light"
+                : "dark"
+        );
+
+        showToast(
+            document.body.classList.contains("light")
+                ? "Light theme enabled."
+                : "Dark theme enabled."
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CURSOR ENGINE
+   ========================================================= */
+
+const cursorGlow =
+    document.getElementById("cursorGlow");
+
+window.addEventListener(
+    "pointermove",
+    event=>{
+
+        if(!cursorGlow)return;
+
+        cursorGlow.style.left =
+            `${event.clientX}px`;
+
+        cursorGlow.style.top =
+            `${event.clientY}px`;
+
+    },
+    {passive:true}
+);
 
 
 /* =========================================================
@@ -2412,32 +3797,30 @@ document
 const architectureData = {
 
     environment:
-        "ENVIRONMENT — Observes the current farming world, available resources, market conditions and game state before decisions are produced.",
+        "ENVIRONMENT — Observes world state, resources, market conditions and game information before decisions.",
 
     prediction:
-        "PREDICTION — Estimates possible future outcomes so the system can reason about consequences instead of reacting only to the current state.",
+        "PREDICTION — Estimates likely future outcomes so the system can reason about consequences.",
 
     constraints:
-        "CONSTRAINTS — Provides dynamic guardrails that prevent impossible, unsafe or strategically poor operations while preserving flexibility.",
+        "CONSTRAINTS — Provides dynamic guardrails against impossible or strategically poor operations.",
 
     decision:
-        "DECISION — Combines observations, predictions and constraints to determine the most appropriate strategy or next operation.",
+        "DECISION — Combines observations, predictions and constraints to select a strategy.",
 
     action:
-        "ACTION — Converts the selected decision into an executable operation inside the farming environment.",
+        "ACTION — Converts a selected decision into an executable operation.",
 
     feedback:
-        "FEEDBACK — Evaluates what happened after an action and provides information that can improve later decisions."
-};
+        "FEEDBACK — Evaluates outcomes and returns useful information for future improvement."
 
+};
 
 const architectureInfo =
     document.getElementById("architectureInfo");
 
-
 const architectureNodes =
     document.querySelectorAll(".arch-node");
-
 
 architectureNodes.forEach(node=>{
 
@@ -2459,7 +3842,7 @@ architectureNodes.forEach(node=>{
 
                 architectureInfo.textContent =
                     architectureData[key] ||
-                    "Architecture information unavailable.";
+                    "Information unavailable.";
 
             }
 
@@ -2475,7 +3858,6 @@ architectureNodes.forEach(node=>{
 
 const revealElements =
     document.querySelectorAll(".reveal");
-
 
 if("IntersectionObserver" in window){
 
@@ -2501,10 +3883,9 @@ if("IntersectionObserver" in window){
 
             },
             {
-                threshold:.12
+                threshold:.1
             }
         );
-
 
     revealElements.forEach(
         element =>
@@ -2522,31 +3903,504 @@ if("IntersectionObserver" in window){
 
 
 /* =========================================================
-   EXTERNAL LINK FEEDBACK
+   SKILL BARS
+   ========================================================= */
+
+const skillBars =
+    document.querySelectorAll(
+        ".skill-bar i"
+    );
+
+if("IntersectionObserver" in window){
+
+    const skillObserver =
+        new IntersectionObserver(
+            entries=>{
+
+                entries.forEach(entry=>{
+
+                    if(entry.isIntersecting){
+
+                        const width =
+                            entry.target
+                                .dataset
+                                .width;
+
+                        entry.target.style.width =
+                            `${width}%`;
+
+                        skillObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold:.4
+            }
+        );
+
+    skillBars.forEach(
+        bar =>
+            skillObserver.observe(bar)
+    );
+
+}
+
+
+/* =========================================================
+   PROJECT LAB
+   ========================================================= */
+
+const labButtons =
+    document.querySelectorAll(
+        ".lab-button"
+    );
+
+const labTitle =
+    document.getElementById("labTitle");
+
+const labDescription =
+    document.getElementById("labDescription");
+
+const labData = {
+
+    decision:{
+        title:"Decision Simulation",
+        description:
+            "A simplified demonstration of observations influencing a strategy.",
+        values:[82,76,88,70]
+    },
+
+    resource:{
+        title:"Resource Allocation",
+        description:
+            "A conceptual demonstration of distributing limited resources.",
+        values:[74,88,69,81]
+    },
+
+    feedback:{
+        title:"Feedback Loop",
+        description:
+            "A simplified iterative system where feedback improves later decisions.",
+        values:[63,71,84,94]
+    }
+
+};
+
+let currentLab =
+    "decision";
+
+function loadLab(type){
+
+    currentLab =
+        type;
+
+    const data =
+        labData[type];
+
+    if(!data)return;
+
+    if(labTitle)
+        labTitle.textContent =
+            data.title;
+
+    if(labDescription)
+        labDescription.textContent =
+            data.description;
+
+    labButtons.forEach(
+        button=>{
+            button.classList.toggle(
+                "active",
+                button.dataset.lab === type
+            );
+        }
+    );
+
+    data.values.forEach(
+        (value,index)=>{
+
+            const bar =
+                document.getElementById(
+                    `bar${index+1}`
+                );
+
+            const label =
+                document.getElementById(
+                    `value${index+1}`
+                );
+
+            if(bar)
+                bar.style.width =
+                    `${value}%`;
+
+            if(label)
+                label.textContent =
+                    `${value}%`;
+
+        }
+    );
+
+}
+
+labButtons.forEach(
+    button=>{
+
+        button.addEventListener(
+            "click",
+            ()=>{
+                loadLab(
+                    button.dataset.lab
+                );
+            }
+        );
+
+    }
+);
+
+loadLab("decision");
+
+
+document
+    .getElementById("runLab")
+    ?.addEventListener(
+        "click",
+        ()=>{
+
+            loadLab(currentLab);
+
+            showToast(
+                "Engineering demonstration executed."
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   COMMAND PALETTE
+   ========================================================= */
+
+const commandOverlay =
+    document.getElementById(
+        "commandOverlay"
+    );
+
+const commandInput =
+    document.getElementById(
+        "commandInput"
+    );
+
+const commandResults =
+    document.getElementById(
+        "commandResults"
+    );
+
+const commandData = [
+
+    ["About","about"],
+    ["Engineering Map","map"],
+    ["Expertise","expertise"],
+    ["Kaggriculture","project"],
+    ["Project Laboratory","lab"],
+    ["Engineering Journey","journey"],
+    ["Skills Matrix","skills"],
+    ["GitHub","github"],
+    ["Achievements","achievements"],
+    ["Cybersecurity Community","community"],
+    ["Contact","contact"]
+
+];
+
+
+function renderCommands(filter=""){
+
+    if(!commandResults)return;
+
+    const normalized =
+        filter
+            .toLowerCase()
+            .trim();
+
+    const results =
+        commandData.filter(
+            item =>
+                item[0]
+                    .toLowerCase()
+                    .includes(normalized)
+        );
+
+    commandResults.innerHTML =
+        results.map(
+            item=>`
+
+            <button
+                class="command-item"
+                data-target="${item[1]}"
+            >
+
+                <strong>${item[0]}</strong>
+
+                <span>
+                    Open →
+                </span>
+
+            </button>
+
+            `
+        ).join("");
+
+    commandResults
+        .querySelectorAll(
+            ".command-item"
+        )
+        .forEach(item=>{
+
+            item.addEventListener(
+                "click",
+                ()=>{
+
+                    const target =
+                        document.getElementById(
+                            item.dataset.target
+                        );
+
+                    closeCommand();
+
+                    target?.scrollIntoView({
+                        behavior:"smooth"
+                    });
+
+                }
+            );
+
+        });
+
+}
+
+
+function openCommand(){
+
+    commandOverlay
+        ?.classList
+        .add("open");
+
+    document.body.classList.add(
+        "no-scroll"
+    );
+
+    renderCommands();
+
+    setTimeout(
+        ()=>{
+            commandInput?.focus();
+        },
+        50
+    );
+
+}
+
+
+function closeCommand(){
+
+    commandOverlay
+        ?.classList
+        .remove("open");
+
+    document.body.classList.remove(
+        "no-scroll"
+    );
+
+}
+
+
+function toggleCommand(){
+
+    if(
+        commandOverlay
+            ?.classList
+            .contains("open")
+    ){
+
+        closeCommand();
+
+    }else{
+
+        openCommand();
+
+    }
+
+}
+
+
+document
+    .getElementById("commandButton")
+    ?.addEventListener(
+        "click",
+        toggleCommand
+    );
+
+document
+    .getElementById("searchButton")
+    ?.addEventListener(
+        "click",
+        toggleCommand
+    );
+
+commandInput?.addEventListener(
+    "input",
+    ()=>{
+        renderCommands(
+            commandInput.value
+        );
+    }
+);
+
+commandOverlay?.addEventListener(
+    "click",
+    event=>{
+
+        if(
+            event.target ===
+            commandOverlay
+        ){
+
+            closeCommand();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD COMMANDS
+   ========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(
+            event.key === "/" &&
+            document.activeElement !== commandInput
+        ){
+
+            event.preventDefault();
+
+            openCommand();
+
+        }
+
+        if(event.key === "Escape"){
+
+            closeCommand();
+
+            navLinks?.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+   ========================================================= */
+
+const navAnchors =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+const trackedSections =
+    document.querySelectorAll(
+        "main section[id]"
+    );
+
+if("IntersectionObserver" in window){
+
+    const navObserver =
+        new IntersectionObserver(
+            entries=>{
+
+                entries.forEach(entry=>{
+
+                    if(entry.isIntersecting){
+
+                        navAnchors.forEach(
+                            link=>{
+                                link.classList.toggle(
+                                    "active",
+                                    link.getAttribute(
+                                        "href"
+                                    ) ===
+                                    `#${entry.target.id}`
+                                );
+                            }
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                rootMargin:
+                    "-35% 0px -55% 0px"
+            }
+        );
+
+    trackedSections.forEach(
+        section =>
+            navObserver.observe(section)
+    );
+
+}
+
+
+/* =========================================================
+   TOAST
    ========================================================= */
 
 const toast =
     document.getElementById("toast");
 
+let toastTimer;
 
 function showToast(message){
 
     if(!toast)return;
+
+    clearTimeout(toastTimer);
 
     toast.textContent =
         message;
 
     toast.classList.add("show");
 
-    window.setTimeout(
-        ()=>{
-            toast.classList.remove("show");
-        },
-        2200
-    );
+    toastTimer =
+        setTimeout(
+            ()=>{
+                toast.classList.remove(
+                    "show"
+                );
+            },
+            2200
+        );
 
 }
 
+
+/* =========================================================
+   EXTERNAL LINK FEEDBACK
+   ========================================================= */
 
 document
     .querySelectorAll(
@@ -2567,21 +4421,93 @@ document
 
 
 /* =========================================================
-   KEYBOARD SHORTCUTS
+   PARALLAX ORBS
    ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event=>{
+window.addEventListener(
+    "scroll",
+    ()=>{
 
-        if(event.key === "Escape"){
+        const y =
+            window.scrollY;
 
-            navLinks?.classList.remove("open");
+        const one =
+            document.querySelector(
+                ".orb.one"
+            );
+
+        const two =
+            document.querySelector(
+                ".orb.two"
+            );
+
+        const three =
+            document.querySelector(
+                ".orb.three"
+            );
+
+        if(one)
+            one.style.transform =
+                `translateY(${y*.08}px)`;
+
+        if(two)
+            two.style.transform =
+                `translateY(${-y*.05}px)`;
+
+        if(three)
+            three.style.transform =
+                `translateY(${-y*.03}px)`;
+
+    },
+    {passive:true}
+);
+
+
+/* =========================================================
+   PERFORMANCE
+   ========================================================= */
+
+if("requestIdleCallback" in window){
+
+    requestIdleCallback(
+        ()=>{
+            document.documentElement
+                .classList
+                .add("enhanced");
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+document
+    .querySelectorAll(
+        "button"
+    )
+    .forEach(button=>{
+
+        if(!button.getAttribute("aria-label")){
+
+            const text =
+                button.textContent
+                    .trim();
+
+            if(text){
+
+                button.setAttribute(
+                    "aria-label",
+                    text
+                );
+
+            }
 
         }
 
-    }
-);
+    });
 
 
 /* =========================================================
@@ -2594,6 +4520,10 @@ document.addEventListener(
 
         document.title =
             "RAGHAVAN | Engineering Portfolio";
+
+        showToast(
+            "RAGHAVAN Portfolio initialized."
+        );
 
     }
 );
