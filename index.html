@@ -10,17 +10,12 @@
 
 <meta
   name="description"
-  content="Raghavan — Software engineering, Python, intelligent systems, automation and autonomous project architecture."
+  content="Raghavan — Software engineering, Python, intelligent systems, autonomous architecture and Crop Coders Kaggriculture."
 >
 
 <meta
   name="theme-color"
-  content="#070a12"
->
-
-<meta
-  name="author"
-  content="Raghavan"
+  content="#070910"
 >
 
 <title>Raghavan | Software Engineer</title>
@@ -28,61 +23,38 @@
 <style>
 
 /* =========================================================
-   RAGHAVAN — PROFESSIONAL ENGINEERING PORTFOLIO
-   VERSION 20
-   Single-file HTML / CSS / JavaScript
-   ========================================================= */
-
-
-/* =========================================================
-   DESIGN TOKENS
+   RAGHAVAN ENGINEERING PORTFOLIO
+   VERSION 3.0
+   ULTRA ADVANCED SINGLE-FILE EDITION
    ========================================================= */
 
 :root{
 
-  --bg:#060811;
-  --bg-soft:#0b0f1a;
-  --bg-elevated:#101522;
-
-  --panel:rgba(255,255,255,.045);
-  --panel-hover:rgba(255,255,255,.075);
+  --bg:#070910;
+  --bg-soft:#0b0f18;
+  --surface:rgba(255,255,255,.055);
+  --surface-strong:rgba(255,255,255,.085);
+  --surface-light:rgba(255,255,255,.12);
 
   --border:rgba(255,255,255,.105);
   --border-strong:rgba(255,255,255,.18);
 
   --text:#f7f9ff;
-  --text-soft:#d7dceb;
-  --muted:#929caf;
+  --muted:#9ba7ba;
+  --muted-2:#707b8e;
 
-  --blue:#7085ff;
-  --cyan:#54e4df;
-  --purple:#b48cff;
-  --green:#65e6a2;
+  --blue:#7c8cff;
+  --cyan:#5ee7df;
+  --purple:#b58cff;
+  --green:#68e7a3;
   --orange:#ffb86b;
-  --pink:#ff78ad;
-  --red:#ff718c;
 
   --gradient:
     linear-gradient(
-      120deg,
-      #7386ff,
-      #54e4df,
-      #b48cff
-    );
-
-  --gradient-warm:
-    linear-gradient(
-      120deg,
-      #ff7eb3,
-      #ffb86b,
-      #ffe082
-    );
-
-  --gradient-green:
-    linear-gradient(
-      120deg,
-      #54e4df,
-      #65e6a2
+      110deg,
+      var(--blue),
+      var(--cyan),
+      var(--purple)
     );
 
   --radius-sm:12px;
@@ -95,41 +67,33 @@
   --shadow:
     0 30px 100px rgba(0,0,0,.42);
 
-  --transition:
-    280ms cubic-bezier(.2,.8,.2,1);
-
-  --header-height:76px;
+  --nav-height:76px;
 }
 
-
-/* =========================================================
-   LIGHT THEME
-   ========================================================= */
-
-body.light{
+[data-theme="light"]{
 
   --bg:#f5f7fb;
-  --bg-soft:#eef1f7;
-  --bg-elevated:#ffffff;
+  --bg-soft:#edf1f7;
 
-  --panel:rgba(0,0,0,.035);
-  --panel-hover:rgba(0,0,0,.065);
+  --surface:rgba(0,0,0,.045);
+  --surface-strong:rgba(0,0,0,.07);
+  --surface-light:rgba(0,0,0,.1);
 
-  --border:rgba(10,20,40,.10);
-  --border-strong:rgba(10,20,40,.18);
+  --border:rgba(0,0,0,.10);
+  --border-strong:rgba(0,0,0,.18);
 
   --text:#101521;
-  --text-soft:#303949;
-  --muted:#647084;
+  --muted:#596578;
+  --muted-2:#7a8494;
+
+  --blue:#5968e8;
+  --cyan:#169e98;
+  --purple:#8159ce;
+  --green:#15965c;
 
   --shadow:
-    0 25px 80px rgba(25,35,55,.14);
+    0 30px 80px rgba(0,0,0,.12);
 }
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 *{
   box-sizing:border-box;
@@ -139,34 +103,31 @@ body.light{
 
 html{
   scroll-behavior:smooth;
-  scroll-padding-top:90px;
+  scroll-padding-top:100px;
 }
 
 body{
 
   min-height:100vh;
 
-  color:var(--text);
-
   background:
-
     radial-gradient(
-      circle at 5% 5%,
-      rgba(112,133,255,.14),
-      transparent 28%
+      circle at 8% 8%,
+      rgba(124,140,255,.15),
+      transparent 30%
     ),
-
     radial-gradient(
-      circle at 95% 15%,
-      rgba(84,228,223,.09),
-      transparent 25%
+      circle at 92% 18%,
+      rgba(94,231,223,.11),
+      transparent 27%
     ),
-
     linear-gradient(
       180deg,
       var(--bg),
       var(--bg-soft)
     );
+
+  color:var(--text);
 
   font-family:
     Inter,
@@ -177,13 +138,18 @@ body{
     "Segoe UI",
     sans-serif;
 
-  line-height:1.6;
+  line-height:1.65;
 
   overflow-x:hidden;
 
   transition:
     background .35s ease,
     color .35s ease;
+}
+
+body::selection{
+  background:var(--blue);
+  color:white;
 }
 
 a{
@@ -205,9 +171,13 @@ img{
   display:block;
 }
 
+.container{
+  width:min(92%,var(--max));
+  margin:auto;
+}
 
 /* =========================================================
-   GLOBAL BACKGROUND
+   BACKGROUND
    ========================================================= */
 
 .background-grid{
@@ -220,19 +190,17 @@ img{
   pointer-events:none;
 
   background-image:
-
     linear-gradient(
-      rgba(255,255,255,.022) 1px,
+      rgba(255,255,255,.025) 1px,
       transparent 1px
     ),
-
     linear-gradient(
       90deg,
-      rgba(255,255,255,.022) 1px,
+      rgba(255,255,255,.025) 1px,
       transparent 1px
     );
 
-  background-size:44px 44px;
+  background-size:46px 46px;
 
   mask-image:
     linear-gradient(
@@ -240,21 +208,18 @@ img{
       black,
       transparent 92%
     );
-
-  opacity:.7;
 }
 
-body.light .background-grid{
-  background-image:
+[data-theme="light"] .background-grid{
 
+  background-image:
     linear-gradient(
-      rgba(20,30,50,.045) 1px,
+      rgba(0,0,0,.025) 1px,
       transparent 1px
     ),
-
     linear-gradient(
       90deg,
-      rgba(20,30,50,.045) 1px,
+      rgba(0,0,0,.025) 1px,
       transparent 1px
     );
 }
@@ -263,38 +228,37 @@ body.light .background-grid{
 
   position:fixed;
 
-  width:340px;
-  height:340px;
+  width:360px;
+  height:360px;
 
   border-radius:50%;
 
   filter:blur(120px);
 
-  opacity:.07;
+  opacity:.075;
 
   pointer-events:none;
 
   z-index:-8;
 }
 
-.glow.one{
-  top:8%;
-  left:-180px;
+.glow-one{
+  top:-100px;
+  left:-160px;
   background:var(--blue);
 }
 
-.glow.two{
+.glow-two{
   top:45%;
   right:-180px;
   background:var(--cyan);
 }
 
-.glow.three{
-  bottom:-190px;
+.glow-three{
+  bottom:-180px;
   left:38%;
   background:var(--purple);
 }
-
 
 /* =========================================================
    SCROLL PROGRESS
@@ -307,7 +271,7 @@ body.light .background-grid{
   top:0;
   left:0;
 
-  width:0;
+  width:0%;
   height:3px;
 
   z-index:5000;
@@ -315,30 +279,14 @@ body.light .background-grid{
   background:var(--gradient);
 
   box-shadow:
-    0 0 18px rgba(112,133,255,.65);
+    0 0 18px rgba(124,140,255,.7);
 }
 
-
 /* =========================================================
-   CONTAINER
+   NAVIGATION
    ========================================================= */
 
-.container{
-
-  width:min(
-    92%,
-    var(--max)
-  );
-
-  margin:auto;
-}
-
-
-/* =========================================================
-   HEADER
-   ========================================================= */
-
-.header{
+.navbar{
 
   position:fixed;
 
@@ -347,9 +295,7 @@ body.light .background-grid{
 
   width:100%;
 
-  height:var(--header-height);
-
-  z-index:2000;
+  z-index:4000;
 
   background:
     color-mix(
@@ -365,9 +311,9 @@ body.light .background-grid{
     1px solid var(--border);
 }
 
-.header-inner{
+.nav{
 
-  height:100%;
+  min-height:var(--nav-height);
 
   display:flex;
 
@@ -375,313 +321,153 @@ body.light .background-grid{
 
   justify-content:space-between;
 
-  gap:20px;
+  gap:25px;
 }
 
+/* BRAND */
 
-/* =========================================================
-   TOP LEFT MENU
-   ========================================================= */
-
-.menu-button{
+.brand{
 
   display:flex;
 
   align-items:center;
 
-  justify-content:center;
-
-  gap:9px;
-
-  min-width:48px;
-  height:44px;
-
-  padding:0 14px;
-
-  color:var(--text);
-
-  background:var(--panel);
-
-  border:1px solid var(--border);
-
-  border-radius:13px;
-
-  transition:var(--transition);
-}
-
-.menu-button:hover{
-
-  transform:translateY(-2px);
-
-  border-color:
-    rgba(84,228,223,.45);
-
-  background:var(--panel-hover);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,.15);
-}
-
-.menu-icon{
-
-  display:flex;
-
-  flex-direction:column;
-
-  gap:4px;
-}
-
-.menu-icon span{
-
-  width:17px;
-  height:2px;
-
-  border-radius:2px;
-
-  background:currentColor;
-
-  transition:var(--transition);
-}
-
-.menu-label{
-
-  font-size:.7rem;
-
-  font-weight:800;
-
-  letter-spacing:.08em;
-
-  text-transform:uppercase;
-}
-
-
-/* =========================================================
-   BRAND
-   ========================================================= */
-
-.brand{
-
-  position:absolute;
-
-  left:50%;
-
-  transform:translateX(-50%);
-
-  font-size:1.05rem;
+  gap:10px;
 
   font-weight:950;
 
   letter-spacing:-.045em;
 
+  font-size:1.05rem;
+
   white-space:nowrap;
 }
 
-.brand span{
+.brand-mark{
 
-  background:var(--gradient);
-
-  -webkit-background-clip:text;
-
-  background-clip:text;
-
-  color:transparent;
-}
-
-
-/* =========================================================
-   HEADER RIGHT
-   ========================================================= */
-
-.header-right{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-}
-
-.theme-button{
-
-  width:44px;
-  height:44px;
+  width:31px;
+  height:31px;
 
   display:grid;
 
   place-items:center;
 
-  border-radius:13px;
+  border-radius:9px;
 
-  border:1px solid var(--border);
+  background:var(--gradient);
 
-  background:var(--panel);
+  color:white;
 
-  color:var(--text);
+  font-size:.75rem;
 
-  font-size:1rem;
-
-  transition:var(--transition);
+  box-shadow:
+    0 0 25px rgba(124,140,255,.25);
 }
 
-.theme-button:hover{
-
-  transform:rotate(8deg) translateY(-2px);
-
-  border-color:
-    rgba(180,140,255,.45);
+.brand-name{
+  font-weight:950;
 }
 
+/* NAV LINKS */
 
-/* =========================================================
-   SIDE MENU
-   ========================================================= */
-
-.menu-overlay{
-
-  position:fixed;
-
-  inset:0;
-
-  z-index:3000;
-
-  background:rgba(0,0,0,.55);
-
-  backdrop-filter:blur(5px);
-
-  opacity:0;
-
-  visibility:hidden;
-
-  transition:.3s;
-}
-
-.menu-overlay.open{
-
-  opacity:1;
-
-  visibility:visible;
-}
-
-.side-menu{
-
-  position:fixed;
-
-  top:0;
-  left:0;
-
-  width:min(390px,88vw);
-
-  height:100vh;
-
-  z-index:3100;
-
-  padding:28px;
-
-  background:
-    color-mix(
-      in srgb,
-      var(--bg-elevated) 95%,
-      transparent
-    );
-
-  border-right:1px solid var(--border);
-
-  transform:translateX(-105%);
-
-  transition:
-    transform .42s
-    cubic-bezier(.2,.8,.2,1);
-
-  box-shadow:var(--shadow);
-
-  overflow-y:auto;
-}
-
-.side-menu.open{
-
-  transform:translateX(0);
-}
-
-.side-menu-head{
+.nav-links{
 
   display:flex;
 
   align-items:center;
 
-  justify-content:space-between;
+  gap:22px;
 
-  margin-bottom:35px;
+  margin-left:auto;
 }
 
-.side-menu-title{
+.nav-links a{
 
-  font-weight:900;
+  position:relative;
 
-  letter-spacing:-.03em;
+  color:var(--muted);
+
+  font-size:.78rem;
+
+  font-weight:650;
+
+  transition:.25s ease;
 }
 
-.close-menu{
+.nav-links a::after{
 
-  width:40px;
-  height:40px;
+  content:"";
 
-  border:1px solid var(--border);
+  position:absolute;
 
-  background:var(--panel);
+  left:0;
+  bottom:-8px;
+
+  width:0;
+  height:2px;
+
+  border-radius:999px;
+
+  background:var(--gradient);
+
+  transition:.25s ease;
+}
+
+.nav-links a:hover{
 
   color:var(--text);
-
-  border-radius:12px;
 }
 
-.menu-links{
+.nav-links a:hover::after{
+  width:100%;
+}
 
-  display:grid;
+/* RIGHT CONTROLS */
+
+.nav-controls{
+
+  display:flex;
+
+  align-items:center;
 
   gap:8px;
 }
 
-.menu-link{
+.theme-toggle,
+.menu-toggle{
 
-  display:flex;
+  width:40px;
+  height:40px;
 
-  align-items:center;
+  display:grid;
 
-  gap:13px;
+  place-items:center;
 
-  padding:14px;
+  border:1px solid var(--border);
 
-  border-radius:14px;
+  border-radius:12px;
 
-  color:var(--muted);
-
-  border:1px solid transparent;
-
-  transition:var(--transition);
-}
-
-.menu-link:hover{
+  background:var(--surface);
 
   color:var(--text);
 
-  background:var(--panel);
-
-  border-color:var(--border);
-
-  transform:translateX(5px);
+  transition:.25s ease;
 }
 
-.menu-link-number{
+.theme-toggle:hover,
+.menu-toggle:hover{
 
-  font-family:
-    ui-monospace,
-    monospace;
+  transform:translateY(-2px);
 
-  font-size:.68rem;
+  border-color:
+    rgba(124,140,255,.45);
 
-  color:var(--cyan);
+  background:var(--surface-strong);
 }
 
+.menu-toggle{
+  display:none;
+}
 
 /* =========================================================
    HERO
@@ -696,11 +482,9 @@ body.light .background-grid{
   align-items:center;
 
   padding:
-    145px
+    calc(var(--nav-height) + 75px)
     0
-    90px;
-
-  position:relative;
+    80px;
 }
 
 .hero-layout{
@@ -708,20 +492,15 @@ body.light .background-grid{
   display:grid;
 
   grid-template-columns:
-    1.25fr
-    .75fr;
+    minmax(0,1.25fr)
+    minmax(300px,.75fr);
 
-  gap:60px;
+  gap:70px;
 
   align-items:center;
 }
 
-.hero-content{
-
-  max-width:820px;
-}
-
-.availability{
+.eyebrow{
 
   display:inline-flex;
 
@@ -731,51 +510,53 @@ body.light .background-grid{
 
   padding:7px 12px;
 
-  margin-bottom:24px;
+  border:
+    1px solid
+    rgba(103,232,165,.22);
 
   border-radius:999px;
 
-  border:1px solid
-    rgba(101,230,162,.22);
-
   background:
-    rgba(101,230,162,.055);
+    rgba(103,232,165,.055);
 
-  color:#9df1bf;
+  color:
+    #9ef4c1;
 
   font-size:.7rem;
 
   font-weight:800;
 
-  letter-spacing:.06em;
+  letter-spacing:.04em;
+
+  margin-bottom:25px;
 }
 
-.availability-dot{
+.eyebrow-dot{
 
-  width:8px;
-  height:8px;
+  width:7px;
+  height:7px;
 
   border-radius:50%;
 
   background:var(--green);
 
   box-shadow:
-    0 0 15px var(--green);
+    0 0 14px var(--green);
 
   animation:
-    pulse 2s infinite;
+    statusPulse 2s infinite;
 }
 
-@keyframes pulse{
+@keyframes statusPulse{
 
   0%,100%{
-    opacity:.45;
+    opacity:.5;
     transform:scale(.8);
   }
 
   50%{
     opacity:1;
-    transform:scale(1.2);
+    transform:scale(1.15);
   }
 }
 
@@ -783,14 +564,16 @@ body.light .background-grid{
 
   font-size:
     clamp(
-      3.4rem,
+      3.7rem,
       8vw,
-      7.2rem
+      7.5rem
     );
 
-  line-height:.91;
+  line-height:.9;
 
-  letter-spacing:-.075em;
+  letter-spacing:-.085em;
+
+  max-width:850px;
 
   margin-bottom:28px;
 }
@@ -800,7 +583,6 @@ body.light .background-grid{
   background:var(--gradient);
 
   -webkit-background-clip:text;
-
   background-clip:text;
 
   color:transparent;
@@ -808,26 +590,21 @@ body.light .background-grid{
 
 .hero-description{
 
-  max-width:720px;
+  max-width:710px;
 
   color:var(--muted);
 
   font-size:
     clamp(
       1rem,
-      2vw,
-      1.2rem
+      1.8vw,
+      1.18rem
     );
 
-  margin-bottom:32px;
+  margin-bottom:34px;
 }
 
-
-/* =========================================================
-   BUTTON SYSTEM
-   ========================================================= */
-
-.actions{
+.hero-actions{
 
   display:flex;
 
@@ -848,27 +625,33 @@ body.light .background-grid{
 
   gap:9px;
 
-  min-height:47px;
-
   padding:
-    0
-    18px;
+    12px
+    17px;
+
+  min-height:46px;
+
+  border:
+    1px solid
+    var(--border);
 
   border-radius:14px;
 
-  border:1px solid var(--border);
-
-  background:var(--panel);
+  background:var(--surface);
 
   color:var(--text);
 
-  font-size:.82rem;
+  font-size:.78rem;
 
-  font-weight:800;
+  font-weight:750;
+
+  transition:
+    transform .25s ease,
+    background .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease;
 
   overflow:hidden;
-
-  transition:var(--transition);
 }
 
 .btn::before{
@@ -881,241 +664,230 @@ body.light .background-grid{
 
   background:
     linear-gradient(
-      110deg,
+      120deg,
       transparent,
-      rgba(255,255,255,.18),
+      rgba(255,255,255,.12),
       transparent
     );
 
-  transform:translateX(-120%);
+  transform:
+    translateX(-120%);
 
-  transition:.55s;
+  transition:.55s ease;
 }
 
 .btn:hover::before{
-
   transform:translateX(120%);
 }
 
 .btn:hover{
 
-  transform:translateY(-4px);
+  transform:translateY(-3px);
+
+  background:var(--surface-strong);
 
   border-color:
     var(--border-strong);
 
   box-shadow:
-    0 15px 35px rgba(0,0,0,.18);
+    0 12px 30px rgba(0,0,0,.15);
 }
 
-.btn-primary{
+.btn.primary{
 
-  color:#fff;
+  color:white;
 
-  border:0;
+  border-color:transparent;
 
   background:
     linear-gradient(
       135deg,
-      #7185ff,
-      #54cfe1
+      rgba(124,140,255,.95),
+      rgba(94,231,223,.68)
     );
 
   box-shadow:
-    0 10px 35px
-    rgba(84,150,255,.22);
+    0 12px 35px
+    rgba(124,140,255,.18);
 }
 
-.btn-purple{
+.btn.primary:hover{
 
-  color:#fff;
-
-  border:0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #9d72ff,
-      #df75d8
-    );
+  box-shadow:
+    0 18px 45px
+    rgba(124,140,255,.28);
 }
 
-.btn-green{
+/* HERO VISUAL */
 
-  color:#07100c;
-
-  border:0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #54e4df,
-      #65e6a2
-    );
-}
-
-.btn-warm{
-
-  color:#fff;
-
-  border:0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #ff6f91,
-      #ffad69
-    );
-}
-
-
-/* =========================================================
-   HERO TERMINAL CARD
-   ========================================================= */
-
-.hero-terminal{
+.hero-visual{
 
   position:relative;
 
-  border:1px solid var(--border);
+  min-height:410px;
 
-  border-radius:26px;
+  display:grid;
 
-  background:
-    rgba(0,0,0,.22);
-
-  box-shadow:var(--shadow);
-
-  overflow:hidden;
-
-  transform:
-    perspective(900px)
-    rotateY(-4deg);
-
-  transition:
-    transform .5s ease;
+  place-items:center;
 }
 
-.hero-terminal:hover{
+.profile-orbit{
 
-  transform:
-    perspective(900px)
-    rotateY(0deg)
-    translateY(-7px);
-}
+  position:relative;
 
-.terminal-header{
-
-  height:45px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:7px;
-
-  padding:0 15px;
-
-  border-bottom:1px solid var(--border);
-
-  background:rgba(255,255,255,.035);
-}
-
-.terminal-dot{
-
-  width:9px;
-  height:9px;
+  width:330px;
+  height:330px;
 
   border-radius:50%;
 
-  background:rgba(255,255,255,.28);
+  border:
+    1px solid
+    rgba(124,140,255,.18);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124,140,255,.12),
+      transparent 63%
+    );
+
+  box-shadow:
+    0 0 100px
+    rgba(124,140,255,.08);
 }
 
-.terminal-name{
+.profile-orbit::before,
+.profile-orbit::after{
 
-  margin-left:8px;
+  content:"";
+
+  position:absolute;
+
+  inset:30px;
+
+  border-radius:50%;
+
+  border:
+    1px dashed
+    rgba(94,231,223,.22);
+
+  animation:
+    orbitSpin 18s linear infinite;
+}
+
+.profile-orbit::after{
+
+  inset:70px;
+
+  border:
+    1px solid
+    rgba(181,140,255,.18);
+
+  animation-direction:reverse;
+
+  animation-duration:12s;
+}
+
+@keyframes orbitSpin{
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+.profile-core{
+
+  position:absolute;
+
+  inset:95px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  background:
+    var(--gradient);
+
+  color:white;
+
+  font-size:3.2rem;
+
+  font-weight:950;
+
+  letter-spacing:-.08em;
+
+  box-shadow:
+    0 0 70px
+    rgba(124,140,255,.25);
+}
+
+.orbit-label{
+
+  position:absolute;
+
+  padding:8px 11px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:11px;
+
+  background:
+    rgba(10,14,24,.78);
+
+  backdrop-filter:blur(15px);
 
   color:var(--muted);
 
-  font-family:
-    ui-monospace,
-    monospace;
+  font-size:.64rem;
 
-  font-size:.68rem;
+  font-weight:800;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.2);
 }
 
-.hero-terminal-body{
-
-  padding:23px;
-
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
-
-  font-size:.75rem;
-
-  color:#dce5f5;
+[data-theme="light"] .orbit-label{
+  background:rgba(255,255,255,.8);
 }
 
-.code-line{
-
-  margin:6px 0;
+.label-python{
+  top:30px;
+  right:5px;
 }
 
-.code-key{
-  color:#8e9cff;
+.label-systems{
+  bottom:30px;
+  right:5px;
 }
 
-.code-value{
-  color:#65e6a2;
+.label-github{
+  bottom:65px;
+  left:-10px;
 }
 
-.code-string{
-  color:#ffbd79;
+.label-engineering{
+  top:65px;
+  left:-25px;
 }
-
-.cursor{
-
-  display:inline-block;
-
-  width:7px;
-  height:14px;
-
-  vertical-align:-2px;
-
-  background:var(--cyan);
-
-  animation:
-    blink 1s infinite;
-}
-
-@keyframes blink{
-  50%{opacity:0}
-}
-
 
 /* =========================================================
-   SECTION
+   SECTION COMMON
    ========================================================= */
 
 section{
   padding:110px 0;
 }
 
-.section-header{
+.section-heading{
+  max-width:800px;
 
-  max-width:760px;
-
-  margin-bottom:42px;
+  margin-bottom:45px;
 }
 
-.section-label{
-
-  margin-bottom:10px;
+.section-number{
 
   color:var(--cyan);
 
@@ -1126,20 +898,22 @@ section{
   letter-spacing:.2em;
 
   text-transform:uppercase;
+
+  margin-bottom:12px;
 }
 
 .section-title{
 
   font-size:
     clamp(
-      2.1rem,
+      2.2rem,
       5vw,
-      3.8rem
+      4rem
     );
 
   line-height:1;
 
-  letter-spacing:-.06em;
+  letter-spacing:-.065em;
 
   margin-bottom:18px;
 }
@@ -1149,216 +923,103 @@ section{
   color:var(--muted);
 
   max-width:720px;
+
+  font-size:.96rem;
 }
 
-
 /* =========================================================
-   PROFILE STRIP
+   ABOUT
    ========================================================= */
 
-.profile-strip{
+.about-grid{
 
   display:grid;
 
   grid-template-columns:
-    repeat(4,1fr);
+    1fr
+    1fr;
 
-  gap:13px;
+  gap:18px;
 }
 
-.profile-card{
+.about-card{
 
-  padding:22px;
+  padding:30px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius:20px;
+  border-radius:var(--radius-lg);
 
-  background:var(--panel);
+  background:var(--surface);
 
-  transition:var(--transition);
+  transition:.3s ease;
 }
 
-.profile-card:hover{
+.about-card:hover{
 
-  transform:translateY(-6px);
-
-  background:var(--panel-hover);
+  transform:translateY(-5px);
 
   border-color:
-    rgba(112,133,255,.3);
+    rgba(124,140,255,.3);
+
+  background:var(--surface-strong);
 }
 
-.profile-icon{
+.about-card h3{
 
-  width:42px;
-  height:42px;
+  font-size:1.15rem;
 
-  display:grid;
-
-  place-items:center;
-
-  border-radius:13px;
-
-  margin-bottom:16px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(112,133,255,.2),
-      rgba(84,228,223,.12)
-    );
-
-  font-size:1.1rem;
+  margin-bottom:12px;
 }
 
-.profile-value{
-
-  font-size:1.35rem;
-
-  font-weight:950;
-
-  letter-spacing:-.04em;
-}
-
-.profile-name{
+.about-card p{
 
   color:var(--muted);
 
-  font-size:.72rem;
+  font-size:.86rem;
 }
 
+.about-card.wide{
+  grid-column:span 2;
+}
 
 /* =========================================================
-   CONSOLE
+   FLAGSHIP PROJECT
    ========================================================= */
 
-.console{
-
-  border:1px solid var(--border);
-
-  border-radius:26px;
-
-  overflow:hidden;
-
-  background:
-    rgba(0,0,0,.27);
-
-  box-shadow:var(--shadow);
-}
-
-.console-output{
-
-  min-height:280px;
-
-  padding:25px;
-
-  white-space:pre-wrap;
-
-  font-family:
-    ui-monospace,
-    monospace;
-
-  font-size:.78rem;
-
-  color:#dce4f3;
-}
-
-.console-input{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:17px 20px;
-
-  border-top:1px solid var(--border);
-}
-
-.console-prompt{
-
-  color:var(--green);
-
-  font-family:
-    ui-monospace,
-    monospace;
-
-  font-size:.75rem;
-}
-
-.console-field{
-
-  flex:1;
-
-  min-width:0;
-
-  border:0;
-
-  outline:0;
-
-  background:transparent;
-
-  color:var(--text);
-
-  font-family:
-    ui-monospace,
-    monospace;
-
-  font-size:.78rem;
-}
-
-.console-help{
-
-  padding:
-    0
-    25px
-    18px;
-
-  color:var(--muted);
-
-  font-size:.68rem;
-}
-
-
-/* =========================================================
-   PROJECT FLAGSHIP
-   ========================================================= */
-
-.flagship{
+.project-shell{
 
   position:relative;
 
-  padding:34px;
+  padding:36px;
 
-  border-radius:30px;
+  border:
+    1px solid
+    rgba(124,140,255,.22);
 
-  border:1px solid
-    rgba(112,133,255,.24);
+  border-radius:var(--radius-xl);
 
   background:
-
     radial-gradient(
       circle at 100% 0,
-      rgba(112,133,255,.14),
-      transparent 40%
+      rgba(124,140,255,.15),
+      transparent 38%
     ),
-
     radial-gradient(
       circle at 0 100%,
-      rgba(84,228,223,.06),
+      rgba(94,231,223,.07),
       transparent 35%
     ),
-
-    var(--panel);
+    var(--surface);
 
   box-shadow:var(--shadow);
 
   overflow:hidden;
 }
 
-.flagship::after{
+.project-shell::after{
 
   content:"";
 
@@ -1367,96 +1028,129 @@ section{
   width:220px;
   height:220px;
 
-  right:-100px;
-  bottom:-110px;
+  right:-90px;
+  bottom:-90px;
 
   border-radius:50%;
 
-  background:var(--purple);
+  border:
+    1px solid
+    rgba(181,140,255,.18);
+}
 
-  filter:blur(100px);
+.project-top{
 
-  opacity:.08;
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:30px;
+
+  margin-bottom:35px;
 }
 
 .project-badge{
 
   display:inline-flex;
 
-  padding:7px 11px;
-
-  margin-bottom:18px;
+  padding:6px 10px;
 
   border-radius:999px;
 
-  color:#bfc7ff;
-
   background:
-    rgba(112,133,255,.1);
+    rgba(124,140,255,.1);
 
-  border:1px solid
-    rgba(112,133,255,.18);
+  color:#b8c1ff;
 
-  font-size:.66rem;
+  font-size:.65rem;
 
-  font-weight:900;
+  font-weight:850;
 
   letter-spacing:.08em;
 }
 
-.flagship h3{
+.project-title{
 
   font-size:
     clamp(
       2rem,
       5vw,
-      3.2rem
+      3.5rem
     );
 
   line-height:1;
 
-  letter-spacing:-.055em;
+  letter-spacing:-.065em;
 
-  margin-bottom:14px;
+  margin:
+    16px
+    0
+    14px;
 }
 
-.flagship-description{
+.project-description{
+
+  max-width:790px;
 
   color:var(--muted);
 
-  max-width:820px;
-
-  margin-bottom:28px;
+  font-size:.92rem;
 }
 
-.project-tags{
+.project-link{
 
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:8px;
-
-  margin-bottom:30px;
+  flex-shrink:0;
 }
 
-.project-tag{
+/* PROJECT METRICS */
 
-  padding:7px 10px;
+.project-metrics{
 
-  border-radius:10px;
+  display:grid;
 
-  border:1px solid var(--border);
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:12px;
+
+  margin-bottom:35px;
+}
+
+.project-metric{
+
+  padding:18px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:17px;
+
+  background:
+    rgba(0,0,0,.12);
+}
+
+[data-theme="light"] .project-metric{
+  background:rgba(0,0,0,.025);
+}
+
+.project-metric strong{
+
+  display:block;
+
+  font-size:1.2rem;
+
+  margin-bottom:3px;
+}
+
+.project-metric span{
 
   color:var(--muted);
 
-  background:rgba(0,0,0,.12);
-
-  font-size:.67rem;
-
-  font-weight:700;
+  font-size:.68rem;
 }
-
 
 /* =========================================================
    ARCHITECTURE
@@ -1467,176 +1161,99 @@ section{
   display:grid;
 
   grid-template-columns:
-    repeat(6,1fr);
+    repeat(4,1fr);
 
-  gap:10px;
+  gap:12px;
 }
 
-.arch-node{
+.arch-card{
 
   position:relative;
 
-  min-height:145px;
+  min-height:155px;
 
-  padding:15px 10px;
+  padding:20px;
 
   display:flex;
 
   flex-direction:column;
 
-  align-items:center;
+  justify-content:space-between;
 
-  justify-content:center;
+  border:
+    1px solid
+    var(--border);
 
-  text-align:center;
-
-  border:1px solid var(--border);
-
-  border-radius:18px;
-
-  background:
-    rgba(0,0,0,.18);
-
-  color:var(--text);
-
-  transition:var(--transition);
-
-  overflow:hidden;
-}
-
-.arch-node::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    var(--gradient);
-
-  opacity:0;
-
-  transition:.3s;
-}
-
-.arch-node:hover,
-.arch-node.active{
-
-  transform:
-    translateY(-7px);
-
-  border-color:
-    rgba(84,228,223,.45);
-
-  box-shadow:
-    0 15px 40px
-    rgba(0,0,0,.2);
-}
-
-.arch-node:hover::before,
-.arch-node.active::before{
-
-  opacity:.07;
-}
-
-.arch-number{
-
-  position:relative;
-
-  color:var(--cyan);
-
-  font-size:.63rem;
-
-  font-weight:950;
-
-  margin-bottom:8px;
-}
-
-.arch-node strong,
-.arch-node small{
-
-  position:relative;
-}
-
-.arch-node strong{
-
-  font-size:.78rem;
-}
-
-.arch-node small{
-
-  color:var(--muted);
-
-  font-size:.62rem;
-
-  margin-top:5px;
-}
-
-.arch-info{
-
-  margin-top:16px;
-
-  min-height:75px;
-
-  padding:19px;
-
-  border-radius:17px;
-
-  border:1px solid var(--border);
+  border-radius:19px;
 
   background:
     rgba(0,0,0,.15);
 
-  color:var(--muted);
-
-  font-size:.8rem;
+  transition:
+    transform .3s ease,
+    border-color .3s ease,
+    background .3s ease;
 }
 
+[data-theme="light"] .arch-card{
+  background:rgba(0,0,0,.025);
+}
 
-/* =========================================================
-   PROJECT STATS
-   ========================================================= */
+.arch-card:hover{
 
-.project-stats{
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(94,231,223,.4);
+
+  background:
+    var(--surface-strong);
+}
+
+.arch-index{
+
+  color:var(--cyan);
+
+  font-size:.65rem;
+
+  font-weight:950;
+}
+
+.arch-icon{
+
+  width:35px;
+  height:35px;
 
   display:grid;
 
-  grid-template-columns:
-    repeat(4,1fr);
+  place-items:center;
 
-  gap:12px;
+  border-radius:10px;
 
-  margin-top:20px;
+  background:
+    rgba(124,140,255,.1);
+
+  color:#bfc7ff;
+
+  font-size:.85rem;
 }
 
-.project-stat{
+.arch-card h4{
 
-  padding:18px;
+  font-size:.85rem;
 
-  border:1px solid var(--border);
-
-  border-radius:17px;
-
-  background:var(--panel);
+  margin-top:14px;
 }
 
-.project-stat strong{
-
-  display:block;
-
-  font-size:1.25rem;
-
-  margin-bottom:2px;
-}
-
-.project-stat span{
+.arch-card p{
 
   color:var(--muted);
 
-  font-size:.67rem;
-}
+  font-size:.68rem;
 
+  line-height:1.5;
+}
 
 /* =========================================================
    SKILLS
@@ -1656,195 +1273,292 @@ section{
 
   padding:22px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   border-radius:20px;
 
-  background:var(--panel);
+  background:var(--surface);
 
-  transition:var(--transition);
+  transition:.3s ease;
 }
 
 .skill-card:hover{
 
-  transform:
-    translateY(-7px);
+  transform:translateY(-5px);
 
   border-color:
-    rgba(112,133,255,.32);
-
-  background:var(--panel-hover);
+    rgba(124,140,255,.35);
 }
 
-.skill-top{
+.skill-icon{
 
-  display:flex;
+  width:38px;
+  height:38px;
 
-  justify-content:space-between;
+  display:grid;
 
-  align-items:center;
+  place-items:center;
 
-  gap:10px;
+  margin-bottom:18px;
 
-  margin-bottom:13px;
+  border-radius:11px;
+
+  background:
+    rgba(124,140,255,.1);
+
+  font-size:.9rem;
 }
 
-.skill-name{
+.skill-card strong{
 
-  font-weight:900;
+  display:block;
 
-  font-size:.85rem;
+  font-size:.88rem;
+
+  margin-bottom:7px;
 }
 
-.skill-category{
-
-  font-size:.59rem;
-
-  color:var(--cyan);
-
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-}
-
-.skill-description{
+.skill-card p{
 
   color:var(--muted);
 
-  font-size:.69rem;
-
-  margin-bottom:17px;
+  font-size:.7rem;
 }
 
-.skill-bar{
+/* =========================================================
+   ENGINEERING JOURNEY
+   ========================================================= */
 
-  height:5px;
+.timeline{
 
-  border-radius:999px;
+  position:relative;
 
-  overflow:hidden;
+  max-width:950px;
+
+  margin:auto;
+}
+
+.timeline::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:20px;
+
+  top:0;
+  bottom:0;
+
+  width:1px;
 
   background:
-    rgba(255,255,255,.07);
+    linear-gradient(
+      to bottom,
+      var(--blue),
+      var(--cyan),
+      var(--purple)
+    );
+
+  opacity:.45;
 }
 
-.skill-progress{
+.timeline-item{
 
-  height:100%;
+  position:relative;
 
-  width:var(--level);
+  padding-left:65px;
 
-  border-radius:inherit;
+  margin-bottom:35px;
+}
+
+.timeline-dot{
+
+  position:absolute;
+
+  left:12px;
+
+  top:6px;
+
+  width:17px;
+  height:17px;
+
+  border-radius:50%;
+
+  background:var(--bg);
+
+  border:
+    3px solid
+    var(--cyan);
+
+  box-shadow:
+    0 0 20px
+    rgba(94,231,223,.35);
+}
+
+.timeline-card{
+
+  padding:24px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:19px;
+
+  background:var(--surface);
+
+  transition:.3s ease;
+}
+
+.timeline-card:hover{
+
+  transform:translateX(5px);
+
+  border-color:
+    rgba(124,140,255,.32);
+}
+
+.timeline-year{
+
+  color:var(--cyan);
+
+  font-size:.65rem;
+
+  font-weight:900;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+}
+
+.timeline-card h3{
+
+  margin:
+    7px 0;
+
+  font-size:1rem;
+}
+
+.timeline-card p{
+
+  color:var(--muted);
+
+  font-size:.75rem;
+}
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.highlights{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:15px;
+}
+
+.highlight{
+
+  min-height:190px;
+
+  padding:25px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:22px;
+
+  background:var(--surface);
+
+  transition:.3s ease;
+}
+
+.highlight:hover{
+
+  transform:translateY(-6px);
+
+  border-color:
+    rgba(94,231,223,.32);
+}
+
+.highlight-number{
+
+  font-size:2rem;
+
+  font-weight:950;
+
+  letter-spacing:-.07em;
 
   background:var(--gradient);
 
-  transform-origin:left;
+  -webkit-background-clip:text;
+  background-clip:text;
 
-  animation:
-    growBar 1.2s ease both;
+  color:transparent;
 }
 
-@keyframes growBar{
+.highlight h3{
 
-  from{
-    transform:scaleX(0);
-  }
+  font-size:.95rem;
 
-  to{
-    transform:scaleX(1);
-  }
+  margin-bottom:6px;
 }
 
+.highlight p{
+
+  color:var(--muted);
+
+  font-size:.72rem;
+}
 
 /* =========================================================
    GITHUB
    ========================================================= */
 
-.github-panel{
-
-  border:1px solid var(--border);
-
-  border-radius:25px;
-
-  overflow:hidden;
-
-  background:var(--panel);
-
-  box-shadow:var(--shadow);
-}
-
-.github-header{
-
-  padding:24px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  gap:20px;
-
-  border-bottom:1px solid var(--border);
-}
-
-.github-name{
-
-  font-size:1rem;
-
-  font-weight:950;
-}
-
-.github-user{
-
-  color:var(--muted);
-
-  font-size:.7rem;
-
-  margin-top:3px;
-}
-
-.github-live{
-
-  color:var(--green);
-
-  font-size:.66rem;
-
-  font-weight:900;
-}
-
-.repo-grid{
-
-  padding:20px;
+.github-card{
 
   display:grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    1fr
+    1fr;
 
-  gap:14px;
+  gap:18px;
 }
 
 .repo-card{
 
-  padding:22px;
+  padding:28px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius:19px;
+  border-radius:23px;
 
-  background:
-    rgba(0,0,0,.14);
+  background:var(--surface);
 
-  transition:var(--transition);
+  transition:.3s ease;
 }
 
 .repo-card:hover{
 
-  transform:
-    translateY(-6px);
+  transform:translateY(-5px);
 
-  background:var(--panel-hover);
+  border-color:
+    rgba(124,140,255,.35);
 }
 
 .repo-header{
@@ -1853,43 +1567,51 @@ section{
 
   justify-content:space-between;
 
-  align-items:flex-start;
+  gap:20px;
 
-  gap:10px;
-
-  margin-bottom:10px;
+  margin-bottom:20px;
 }
 
-.repo-title{
+.repo-icon{
 
-  font-size:.88rem;
+  width:44px;
+  height:44px;
 
-  font-weight:900;
+  display:grid;
+
+  place-items:center;
+
+  border-radius:13px;
+
+  background:
+    rgba(124,140,255,.1);
+
+  font-size:1.1rem;
 }
 
 .repo-status{
 
-  padding:4px 7px;
+  color:var(--green);
 
-  border-radius:7px;
+  font-size:.62rem;
 
-  color:#9df1bf;
-
-  background:
-    rgba(101,230,162,.08);
-
-  font-size:.55rem;
-
-  font-weight:900;
+  font-weight:850;
 }
 
-.repo-description{
+.repo-card h3{
+
+  font-size:1.05rem;
+
+  margin-bottom:8px;
+}
+
+.repo-card p{
 
   color:var(--muted);
 
-  font-size:.71rem;
+  font-size:.75rem;
 
-  margin-bottom:17px;
+  margin-bottom:20px;
 }
 
 .repo-tags{
@@ -1900,142 +1622,23 @@ section{
 
   gap:7px;
 
-  margin-bottom:18px;
+  margin-bottom:22px;
 }
 
 .repo-tag{
 
+  padding:5px 9px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:8px;
+
   color:var(--muted);
-
-  font-size:.61rem;
-
-  padding:5px 8px;
-
-  border:1px solid var(--border);
-
-  border-radius:7px;
-}
-
-
-/* =========================================================
-   ENGINEERING TIMELINE
-   ========================================================= */
-
-.timeline{
-
-  position:relative;
-
-  display:grid;
-
-  gap:16px;
-}
-
-.timeline::before{
-
-  content:"";
-
-  position:absolute;
-
-  top:10px;
-  bottom:10px;
-  left:19px;
-
-  width:1px;
-
-  background:
-    linear-gradient(
-      var(--blue),
-      var(--cyan),
-      var(--purple)
-    );
-
-  opacity:.4;
-}
-
-.timeline-item{
-
-  position:relative;
-
-  display:grid;
-
-  grid-template-columns:40px 1fr;
-
-  gap:18px;
-}
-
-.timeline-dot{
-
-  width:39px;
-  height:39px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:50%;
-
-  border:1px solid
-    rgba(84,228,223,.3);
-
-  background:var(--bg-elevated);
-
-  color:var(--cyan);
-
-  font-size:.68rem;
-
-  font-weight:900;
-
-  z-index:1;
-}
-
-.timeline-content{
-
-  padding:21px;
-
-  border:1px solid var(--border);
-
-  border-radius:19px;
-
-  background:var(--panel);
-
-  transition:var(--transition);
-}
-
-.timeline-content:hover{
-
-  transform:translateX(5px);
-
-  border-color:
-    rgba(112,133,255,.28);
-}
-
-.timeline-year{
-
-  color:var(--cyan);
 
   font-size:.62rem;
-
-  font-weight:900;
-
-  letter-spacing:.1em;
-
-  text-transform:uppercase;
 }
-
-.timeline-content h3{
-
-  font-size:1rem;
-
-  margin:5px 0;
-}
-
-.timeline-content p{
-
-  color:var(--muted);
-
-  font-size:.72rem;
-}
-
 
 /* =========================================================
    COMMUNITY
@@ -2046,21 +1649,39 @@ section{
   display:grid;
 
   grid-template-columns:
-    1.1fr
-    .9fr;
+    1.15fr
+    .85fr;
 
   gap:18px;
 }
 
 .community-card{
 
-  padding:28px;
+  padding:30px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius:23px;
+  border-radius:24px;
 
-  background:var(--panel);
+  background:var(--surface);
+}
+
+.community-card h3{
+
+  font-size:1.05rem;
+
+  margin-bottom:10px;
+}
+
+.community-card > p{
+
+  color:var(--muted);
+
+  font-size:.78rem;
+
+  margin-bottom:20px;
 }
 
 .member{
@@ -2069,12 +1690,17 @@ section{
 
   align-items:center;
 
-  gap:14px;
+  gap:13px;
 
-  padding:15px 0;
+  padding:14px 0;
 
   border-bottom:
-    1px solid rgba(255,255,255,.06);
+    1px solid
+    rgba(255,255,255,.06);
+}
+
+[data-theme="light"] .member{
+  border-color:rgba(0,0,0,.06);
 }
 
 .member:last-child{
@@ -2083,8 +1709,8 @@ section{
 
 .avatar{
 
-  width:46px;
-  height:46px;
+  width:43px;
+  height:43px;
 
   display:grid;
 
@@ -2092,21 +1718,21 @@ section{
 
   border-radius:50%;
 
+  background:var(--gradient);
+
   color:white;
 
-  font-weight:950;
-
-  background:var(--gradient);
-}
-
-.member-name{
-
   font-weight:900;
-
-  font-size:.82rem;
 }
 
-.member-role{
+.member strong{
+
+  display:block;
+
+  font-size:.78rem;
+}
+
+.member small{
 
   color:var(--muted);
 
@@ -2117,93 +1743,88 @@ section{
 
   display:grid;
 
-  gap:10px;
+  gap:9px;
 
-  margin-top:20px;
+  list-style:none;
 }
 
-.mission-item{
+.mission-list li{
 
-  display:flex;
+  padding:11px 13px;
 
-  align-items:center;
+  border:
+    1px solid
+    var(--border);
 
-  gap:10px;
+  border-radius:11px;
+
+  background:rgba(0,0,0,.1);
 
   color:var(--muted);
 
-  font-size:.75rem;
+  font-size:.7rem;
 }
-
-.mission-item span{
-
-  width:8px;
-  height:8px;
-
-  border-radius:50%;
-
-  background:var(--cyan);
-
-  box-shadow:
-    0 0 10px var(--cyan);
-}
-
 
 /* =========================================================
    CONTACT
    ========================================================= */
 
-.contact-box{
+.contact-shell{
 
   position:relative;
 
-  padding:60px 30px;
+  padding:65px 30px;
 
   text-align:center;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius:30px;
-
-  overflow:hidden;
+  border-radius:var(--radius-xl);
 
   background:
-
     radial-gradient(
       circle at 50% 0,
-      rgba(112,133,255,.13),
-      transparent 50%
+      rgba(124,140,255,.16),
+      transparent 48%
     ),
+    var(--surface);
 
-    var(--panel);
-
-  box-shadow:var(--shadow);
+  overflow:hidden;
 }
 
-.contact-box h2{
+.contact-shell h2{
 
   font-size:
     clamp(
-      2rem,
-      5vw,
-      3.5rem
+      2.3rem,
+      6vw,
+      4.5rem
     );
 
-  line-height:1;
+  line-height:.95;
 
-  letter-spacing:-.06em;
+  letter-spacing:-.07em;
+
+  margin-bottom:18px;
 }
 
-.contact-box p{
+.contact-shell p{
 
   max-width:650px;
 
-  margin:17px auto 27px;
+  margin:
+    0
+    auto
+    28px;
 
   color:var(--muted);
+
+  font-size:.85rem;
 }
 
-.contact-links{
+.contact-actions{
 
   display:flex;
 
@@ -2212,37 +1833,7 @@ section{
   flex-wrap:wrap;
 
   gap:10px;
-
-  margin-bottom:25px;
 }
-
-.contact-chip{
-
-  padding:10px 14px;
-
-  border:1px solid var(--border);
-
-  border-radius:12px;
-
-  background:rgba(0,0,0,.12);
-
-  color:var(--muted);
-
-  font-size:.7rem;
-
-  transition:var(--transition);
-}
-
-.contact-chip:hover{
-
-  color:var(--text);
-
-  transform:translateY(-3px);
-
-  border-color:
-    rgba(84,228,223,.35);
-}
-
 
 /* =========================================================
    FOOTER
@@ -2250,13 +1841,11 @@ section{
 
 footer{
 
-  padding:34px 0;
+  padding:35px 0;
 
-  border-top:1px solid var(--border);
-
-  color:var(--muted);
-
-  font-size:.68rem;
+  border-top:
+    1px solid
+    var(--border);
 }
 
 .footer-inner{
@@ -2268,6 +1857,10 @@ footer{
   justify-content:space-between;
 
   gap:20px;
+
+  color:var(--muted);
+
+  font-size:.68rem;
 }
 
 .footer-brand{
@@ -2277,7 +1870,6 @@ footer{
   font-weight:900;
 }
 
-
 /* =========================================================
    REVEAL
    ========================================================= */
@@ -2286,20 +1878,21 @@ footer{
 
   opacity:0;
 
-  transform:translateY(28px);
+  transform:
+    translateY(25px);
 
   transition:
-    opacity .75s ease,
-    transform .75s ease;
+    opacity .7s ease,
+    transform .7s ease;
 }
 
 .reveal.visible{
 
   opacity:1;
 
-  transform:translateY(0);
+  transform:
+    translateY(0);
 }
-
 
 /* =========================================================
    TOAST
@@ -2312,27 +1905,27 @@ footer{
   left:50%;
   bottom:25px;
 
+  z-index:6000;
+
   transform:
-    translate(-50%,25px);
+    translate(-50%,20px);
 
   padding:
-    12px
-    18px;
+    11px
+    17px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  border-radius:14px;
+  border-radius:13px;
 
   background:
-    color-mix(
-      in srgb,
-      var(--bg-elevated) 94%,
-      transparent
-    );
+    rgba(10,14,24,.92);
 
-  backdrop-filter:blur(16px);
+  backdrop-filter:blur(18px);
 
-  color:var(--text);
+  color:white;
 
   font-size:.72rem;
 
@@ -2340,9 +1933,7 @@ footer{
 
   pointer-events:none;
 
-  transition:.3s;
-
-  z-index:5000;
+  transition:.3s ease;
 }
 
 .toast.show{
@@ -2353,179 +1944,155 @@ footer{
     translate(-50%,0);
 }
 
-
 /* =========================================================
    MOBILE
    ========================================================= */
 
-@media(max-width:1000px){
+@media(max-width:1050px){
 
   .hero-layout{
-
-    grid-template-columns:1fr;
-
-  }
-
-  .hero-terminal{
-
-    max-width:650px;
-  }
-
-  .profile-strip{
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .skills-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .architecture-grid{
-
-    grid-template-columns:
-      repeat(3,1fr);
-  }
-
-  .project-stats{
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .community-grid{
-
     grid-template-columns:1fr;
   }
 
-}
-
-
-@media(max-width:700px){
-
-  :root{
-    --header-height:68px;
-  }
-
-  .brand{
-    font-size:.95rem;
-  }
-
-  .menu-label{
+  .hero-visual{
     display:none;
   }
 
-  .menu-button{
-    width:44px;
-    padding:0;
-  }
-
-  .hero{
-
-    padding-top:125px;
-  }
-
-  section{
-
-    padding:78px 0;
-  }
-
-  .hero h1{
-
-    font-size:
-      clamp(
-        3.2rem,
-        17vw,
-        5.4rem
-      );
-  }
-
-  .profile-strip,
   .skills-grid{
-
-    grid-template-columns:1fr;
-  }
-
-  .architecture-grid{
-
     grid-template-columns:
       repeat(2,1fr);
   }
 
-  .repo-grid{
-
-    grid-template-columns:1fr;
+  .architecture-grid{
+    grid-template-columns:
+      repeat(2,1fr);
   }
-
-  .project-stats{
-
-    grid-template-columns:1fr;
-  }
-
-  .github-header{
-
-    align-items:flex-start;
-
-    flex-direction:column;
-  }
-
-  .footer-inner{
-
-    flex-direction:column;
-
-    align-items:flex-start;
-  }
-
-  .flagship{
-
-    padding:24px;
-  }
-
 }
 
+@media(max-width:800px){
 
-@media(max-width:450px){
+  .nav-links{
 
-  .container{
+    position:absolute;
 
-    width:90%;
+    top:calc(var(--nav-height) + 8px);
+
+    left:4%;
+
+    right:4%;
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:4px;
+
+    padding:12px;
+
+    border:
+      1px solid
+      var(--border);
+
+    border-radius:18px;
+
+    background:
+      rgba(10,14,24,.94);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:var(--shadow);
+  }
+
+  [data-theme="light"] .nav-links{
+    background:
+      rgba(250,251,255,.96);
+  }
+
+  .nav-links.open{
+    display:flex;
+  }
+
+  .nav-links a{
+
+    padding:12px;
+
+    border-radius:10px;
+  }
+
+  .nav-links a:hover{
+    background:var(--surface);
+  }
+
+  .nav-links a::after{
+    display:none;
+  }
+
+  .menu-toggle{
+    display:grid;
+  }
+
+  .project-top{
+    flex-direction:column;
+  }
+
+  .project-metrics{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .github-card,
+  .community-grid,
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-card.wide{
+    grid-column:auto;
+  }
+
+  .highlights{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  section{
+    padding:78px 0;
   }
 
   .hero{
-
-    padding-bottom:50px;
+    padding-top:135px;
   }
 
-  .architecture-grid{
-
-    grid-template-columns:1fr 1fr;
+  .hero h1{
+    font-size:
+      clamp(
+        3.2rem,
+        16vw,
+        5rem
+      );
   }
 
-  .arch-node{
-
-    min-height:125px;
+  .architecture-grid,
+  .skills-grid,
+  .project-metrics{
+    grid-template-columns:1fr;
   }
 
-  .actions{
+  .project-shell{
+    padding:23px;
+  }
 
+  .contact-shell{
+    padding:45px 20px;
+  }
+
+  .footer-inner{
     flex-direction:column;
-
-    align-items:stretch;
+    align-items:flex-start;
   }
-
-  .btn{
-
-    width:100%;
-  }
-
 }
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -2551,81 +2118,79 @@ footer{
 </style>
 </head>
 
-
 <body>
 
-<!-- =======================================================
-     BACKGROUND
-     ======================================================= -->
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <div class="background-grid"></div>
 
-<div class="glow one"></div>
-<div class="glow two"></div>
-<div class="glow three"></div>
-
-<div
-  id="scrollProgress"
-  class="scroll-progress"
-></div>
+<div class="glow glow-one"></div>
+<div class="glow glow-two"></div>
+<div class="glow glow-three"></div>
 
 
 <!-- =======================================================
-     HEADER
+     NAVIGATION
      ======================================================= -->
 
-<header class="header">
+<header class="navbar">
 
-  <div class="container header-inner">
+  <div class="container nav">
 
-    <!-- TOP LEFT MENU -->
+    <a href="#home" class="brand" aria-label="Raghavan home">
 
-    <button
-      id="menuButton"
-      class="menu-button"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-    >
-
-      <span class="menu-icon">
-
-        <span></span>
-        <span></span>
-        <span></span>
-
+      <span class="brand-mark">
+        R
       </span>
 
-      <span class="menu-label">
-        Menu
+      <span class="brand-name">
+        RAGHAVAN
       </span>
-
-    </button>
-
-
-    <!-- BRAND -->
-
-    <a
-      href="#home"
-      class="brand"
-      aria-label="Raghavan home"
-    >
-
-      RAGHAVAN<span>.</span>
 
     </a>
 
 
-    <!-- TOP RIGHT -->
+    <nav
+      class="nav-links"
+      id="navLinks"
+      aria-label="Primary navigation"
+    >
 
-    <div class="header-right">
+      <a href="#about">About</a>
+
+      <a href="#expertise">Expertise</a>
+
+      <a href="#project">Kaggriculture</a>
+
+      <a href="#journey">Journey</a>
+
+      <a href="#github">GitHub</a>
+
+      <a href="#community">Community</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+
+    <div class="nav-controls">
 
       <button
-        id="themeButton"
-        class="theme-button"
-        aria-label="Toggle light and dark theme"
+        class="theme-toggle"
+        id="themeToggle"
+        aria-label="Toggle dark and light mode"
         title="Toggle theme"
       >
-        🌙
+        ☾
+      </button>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
       </button>
 
     </div>
@@ -2635,122 +2200,6 @@ footer{
 </header>
 
 
-<!-- =======================================================
-     SIDE NAVIGATION
-     ======================================================= -->
-
-<div
-  id="menuOverlay"
-  class="menu-overlay"
-></div>
-
-
-<aside
-  id="sideMenu"
-  class="side-menu"
-  aria-label="Main navigation"
->
-
-  <div class="side-menu-head">
-
-    <div class="side-menu-title">
-      RAGHAVAN
-    </div>
-
-    <button
-      id="closeMenu"
-      class="close-menu"
-      aria-label="Close menu"
-    >
-      ✕
-    </button>
-
-  </div>
-
-
-  <nav class="menu-links">
-
-    <a
-      href="#home"
-      class="menu-link"
-    >
-      <span class="menu-link-number">01</span>
-      Home
-    </a>
-
-    <a
-      href="#profile"
-      class="menu-link"
-    >
-      <span class="menu-link-number">02</span>
-      Engineering Profile
-    </a>
-
-    <a
-      href="#console"
-      class="menu-link"
-    >
-      <span class="menu-link-number">03</span>
-      Interactive Console
-    </a>
-
-    <a
-      href="#project"
-      class="menu-link"
-    >
-      <span class="menu-link-number">04</span>
-      Kaggriculture
-    </a>
-
-    <a
-      href="#skills"
-      class="menu-link"
-    >
-      <span class="menu-link-number">05</span>
-      Skills
-    </a>
-
-    <a
-      href="#github"
-      class="menu-link"
-    >
-      <span class="menu-link-number">06</span>
-      GitHub
-    </a>
-
-    <a
-      href="#journey"
-      class="menu-link"
-    >
-      <span class="menu-link-number">07</span>
-      Engineering Journey
-    </a>
-
-    <a
-      href="#community"
-      class="menu-link"
-    >
-      <span class="menu-link-number">08</span>
-      Community
-    </a>
-
-    <a
-      href="#contact"
-      class="menu-link"
-    >
-      <span class="menu-link-number">09</span>
-      Contact
-    </a>
-
-  </nav>
-
-</aside>
-
-
-<!-- =======================================================
-     MAIN
-     ======================================================= -->
-
 <main>
 
 
@@ -2758,23 +2207,19 @@ footer{
      HERO
      ======================================================= -->
 
-<section
-  id="home"
-  class="hero"
->
+<section id="home" class="hero">
 
   <div class="container">
 
     <div class="hero-layout">
 
+      <div class="reveal">
 
-      <div class="hero-content reveal">
+        <div class="eyebrow">
 
-        <div class="availability">
+          <span class="eyebrow-dot"></span>
 
-          <span class="availability-dot"></span>
-
-          SOFTWARE ENGINEERING • BUILDING & LEARNING
+          SOFTWARE ENGINEERING • OPEN TO BUILD
 
         </div>
 
@@ -2782,53 +2227,40 @@ footer{
         <h1>
 
           Building
-
           <span class="gradient-text">
             intelligent
           </span>
-
-          software.
+          software systems.
 
         </h1>
 
 
         <p class="hero-description">
 
-          I'm Raghavan, a developer focused on Python,
-          intelligent applications, autonomous systems,
-          automation and modular software engineering.
-
-          I enjoy turning complex ideas into structured,
-          practical systems.
+          I'm <strong>Raghavan</strong>, a software-focused
+          developer building with Python, intelligent
+          systems, autonomous architectures and
+          practical engineering workflows.
 
         </p>
 
 
-        <div class="actions">
+        <div class="hero-actions">
 
           <a
             href="#project"
-            class="btn btn-primary"
+            class="btn primary"
           >
-            Explore Kaggriculture
-            <span>→</span>
-          </a>
-
-
-          <a
-            href="#github"
-            class="btn btn-purple"
-          >
-            View GitHub
+            Explore Crop Coders
             <span>↗</span>
           </a>
 
-
           <a
-            href="#contact"
+            href="#expertise"
             class="btn"
           >
-            Connect
+            View Expertise
+            <span>↓</span>
           </a>
 
         </div>
@@ -2836,107 +2268,28 @@ footer{
       </div>
 
 
-      <!-- HERO ENGINEERING CARD -->
+      <div class="hero-visual reveal">
 
-      <div class="hero-terminal reveal">
+        <div class="profile-orbit">
 
-        <div class="terminal-header">
-
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-          <span class="terminal-dot"></span>
-
-          <span class="terminal-name">
-            raghavan / engineering.profile
-          </span>
-
-        </div>
-
-
-        <div class="hero-terminal-body">
-
-          <div class="code-line">
-            <span class="code-key">
-              developer
-            </span>
-            :
-            <span class="code-string">
-              "Raghavan"
-            </span>
+          <div class="profile-core">
+            R
           </div>
 
-
-          <div class="code-line">
-            <span class="code-key">
-              focus
-            </span>
-            :
-            <span class="code-string">
-              "Software Engineering"
-            </span>
+          <div class="orbit-label label-python">
+            PYTHON
           </div>
 
-
-          <div class="code-line">
-            <span class="code-key">
-              language
-            </span>
-            :
-            <span class="code-string">
-              "Python"
-            </span>
+          <div class="orbit-label label-systems">
+            SYSTEMS
           </div>
 
-
-          <div class="code-line">
-            <span class="code-key">
-              systems
-            </span>
-            :
-            <span class="code-string">
-              "Autonomous"
-            </span>
+          <div class="orbit-label label-github">
+            GITHUB
           </div>
 
-
-          <div class="code-line">
-            <span class="code-key">
-              architecture
-            </span>
-            :
-            <span class="code-string">
-              "Modular"
-            </span>
-          </div>
-
-
-          <div class="code-line">
-            <span class="code-key">
-              flagship
-            </span>
-            :
-            <span class="code-string">
-              "Kaggriculture"
-            </span>
-          </div>
-
-
-          <br>
-
-
-          <div class="code-line">
-
-            <span class="code-value">
-              STATUS
-            </span>
-
-            :
-            <span class="code-string">
-              "BUILDING"
-            </span>
-
-            <span class="cursor"></span>
-
+          <div class="orbit-label label-engineering">
+            ENGINEERING
           </div>
 
         </div>
@@ -2951,102 +2304,80 @@ footer{
 
 
 <!-- =======================================================
-     PROFILE
+     ABOUT
      ======================================================= -->
 
-<section id="profile">
+<section id="about">
 
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-heading reveal">
 
-      <div class="section-label">
-        01 / Engineering Profile
+      <div class="section-number">
+        01 / About
       </div>
 
       <h2 class="section-title">
-        What I build.
+        Engineering with purpose.
       </h2>
 
       <p class="section-description">
-
-        My engineering interests sit at the intersection
-        of software development, intelligent systems,
-        automation and practical problem solving.
-
+        A professional overview of the way I approach
+        software, systems and technical projects.
       </p>
 
     </div>
 
 
-    <div class="profile-strip">
+    <div class="about-grid">
 
-      <div class="profile-card reveal">
+      <article class="about-card wide reveal">
 
-        <div class="profile-icon">
-          🐍
-        </div>
+        <h3>
+          Who I am
+        </h3>
 
-        <div class="profile-value">
-          Python
-        </div>
+        <p>
+          I am Raghavan, a developer interested in
+          software engineering, Python development,
+          intelligent systems, automation and modular
+          architecture. I enjoy turning complex ideas
+          into structured systems that can be tested,
+          improved and extended.
+        </p>
 
-        <div class="profile-name">
-          Primary development language
-        </div>
-
-      </div>
-
-
-      <div class="profile-card reveal">
-
-        <div class="profile-icon">
-          ⚙️
-        </div>
-
-        <div class="profile-value">
-          Systems
-        </div>
-
-        <div class="profile-name">
-          Modular software architecture
-        </div>
-
-      </div>
+      </article>
 
 
-      <div class="profile-card reveal">
+      <article class="about-card reveal">
 
-        <div class="profile-icon">
-          🤖
-        </div>
+        <h3>
+          Engineering mindset
+        </h3>
 
-        <div class="profile-value">
-          Agents
-        </div>
+        <p>
+          Modular design, clear interfaces, version
+          control, experimentation and continuous
+          improvement are central to the way I build.
+        </p>
 
-        <div class="profile-name">
-          Autonomous decision systems
-        </div>
-
-      </div>
+      </article>
 
 
-      <div class="profile-card reveal">
+      <article class="about-card reveal">
 
-        <div class="profile-icon">
-          🔧
-        </div>
+        <h3>
+          Current focus
+        </h3>
 
-        <div class="profile-value">
-          Automation
-        </div>
+        <p>
+          Building and understanding intelligent
+          decision systems through the Crop Coders
+          Kaggriculture project and broader software
+          engineering practice.
+        </p>
 
-        <div class="profile-name">
-          Efficient engineering workflows
-        </div>
-
-      </div>
+      </article>
 
     </div>
 
@@ -3056,317 +2387,78 @@ footer{
 
 
 <!-- =======================================================
-     INTERACTIVE CONSOLE
-     ======================================================= -->
-
-<section id="console">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        02 / Interactive Interface
-      </div>
-
-      <h2 class="section-title">
-        Explore the portfolio.
-      </h2>
-
-      <p class="section-description">
-
-        Use the interactive console to navigate
-        through my engineering profile.
-
-      </p>
-
-    </div>
-
-
-    <div class="console reveal">
-
-      <div class="terminal-header">
-
-        <span class="terminal-dot"></span>
-        <span class="terminal-dot"></span>
-        <span class="terminal-dot"></span>
-
-        <span class="terminal-name">
-          raghavan@portfolio:~
-        </span>
-
-      </div>
-
-
-      <div
-        id="consoleOutput"
-        class="console-output"
-      >
-RAGHAVAN PORTFOLIO CONSOLE
-
-System ready.
-
-Type "help" to see available commands.
-      </div>
-
-
-      <div class="console-input">
-
-        <span class="console-prompt">
-          visitor@raghavan:~$
-        </span>
-
-        <input
-          id="consoleInput"
-          class="console-field"
-          autocomplete="off"
-          spellcheck="false"
-          placeholder="type a command..."
-          aria-label="Portfolio console command"
-        >
-
-      </div>
-
-
-      <div class="console-help">
-
-        Commands:
-        help • about • skills • project • architecture
-        • github • community • contact • status • clear
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     KAGGRICULTURE
+     FLAGSHIP PROJECT
      ======================================================= -->
 
 <section id="project">
 
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-heading reveal">
 
-      <div class="section-label">
-        03 / Flagship Project
+      <div class="section-number">
+        02 / Flagship Project
       </div>
 
       <h2 class="section-title">
-        Crop Coders — Kaggriculture
+        Crop Coders — Kaggriculture.
       </h2>
 
       <p class="section-description">
-
-        My primary engineering project: a modular
-        autonomous farming intelligence architecture
-        designed around observation, prediction,
-        constraints, decisions, actions and feedback.
-
+        The primary project presented on this portfolio.
       </p>
 
     </div>
 
 
-    <article class="flagship reveal">
+    <article class="project-shell reveal">
 
-      <span class="project-badge">
-        CROP CODERS • KAGGRICULTURE
-      </span>
+      <div class="project-top">
+
+        <div>
+
+          <span class="project-badge">
+            CROP CODERS • KAGGRICULTURE
+          </span>
+
+          <h3 class="project-title">
+            Autonomous Farming
+            Intelligence
+          </h3>
+
+          <p class="project-description">
+
+            A modular intelligent-farming architecture
+            designed around observation, research,
+            knowledge, prediction, constraints,
+            decision-making, action and feedback.
+
+          </p>
+
+        </div>
 
 
-      <h3>
-        Autonomous Farming Intelligence
-      </h3>
+        <div class="project-link">
 
+          <a
+            class="btn primary"
+            href="https://github.com/sidhudumi-web/crop-coders-kaggriculture"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View Repository ↗
+          </a>
 
-      <p class="flagship-description">
-
-        A structured software architecture for
-        intelligent farming decision-making. The system
-        separates responsibilities into modular layers
-        so each component can evolve independently and
-        integrate into a larger decision system.
-
-      </p>
-
-
-      <div class="project-tags">
-
-        <span class="project-tag">
-          Python
-        </span>
-
-        <span class="project-tag">
-          Autonomous Agents
-        </span>
-
-        <span class="project-tag">
-          Reinforcement Learning
-        </span>
-
-        <span class="project-tag">
-          Decision Systems
-        </span>
-
-        <span class="project-tag">
-          Modular Architecture
-        </span>
+        </div>
 
       </div>
 
 
-      <!-- ARCHITECTURE -->
+      <div class="project-metrics">
 
-      <div class="architecture-grid">
+        <div class="project-metric">
 
-        <button
-          class="arch-node"
-          data-arch="environment"
-        >
-
-          <span class="arch-number">
-            01
-          </span>
-
-          <strong>
-            Environment
-          </strong>
-
-          <small>
-            Observe state
-          </small>
-
-        </button>
-
-
-        <button
-          class="arch-node"
-          data-arch="prediction"
-        >
-
-          <span class="arch-number">
-            02
-          </span>
-
-          <strong>
-            Prediction
-          </strong>
-
-          <small>
-            Estimate future
-          </small>
-
-        </button>
-
-
-        <button
-          class="arch-node"
-          data-arch="constraints"
-        >
-
-          <span class="arch-number">
-            03
-          </span>
-
-          <strong>
-            Constraints
-          </strong>
-
-          <small>
-            Guard decisions
-          </small>
-
-        </button>
-
-
-        <button
-          class="arch-node"
-          data-arch="decision"
-        >
-
-          <span class="arch-number">
-            04
-          </span>
-
-          <strong>
-            Decision
-          </strong>
-
-          <small>
-            Select strategy
-          </small>
-
-        </button>
-
-
-        <button
-          class="arch-node"
-          data-arch="action"
-        >
-
-          <span class="arch-number">
-            05
-          </span>
-
-          <strong>
-            Action
-          </strong>
-
-          <small>
-            Execute policy
-          </small>
-
-        </button>
-
-
-        <button
-          class="arch-node"
-          data-arch="feedback"
-        >
-
-          <span class="arch-number">
-            06
-          </span>
-
-          <strong>
-            Feedback
-          </strong>
-
-          <small>
-            Improve system
-          </small>
-
-        </button>
-
-      </div>
-
-
-      <div
-        id="architectureInfo"
-        class="arch-info"
-      >
-
-        Select an architecture component to inspect
-        its responsibility.
-
-      </div>
-
-
-      <!-- PROJECT STATS -->
-
-      <div class="project-stats">
-
-        <div class="project-stat">
-
-          <strong>
-            20
-          </strong>
+          <strong>20</strong>
 
           <span>
             Architecture phases
@@ -3374,41 +2466,32 @@ Type "help" to see available commands.
 
         </div>
 
+        <div class="project-metric">
 
-        <div class="project-stat">
-
-          <strong>
-            720
-          </strong>
+          <strong>Modular</strong>
 
           <span>
-            Simulation turns
+            Independent engineering
           </span>
 
         </div>
 
+        <div class="project-metric">
 
-        <div class="project-stat">
-
-          <strong>
-            Modular
-          </strong>
+          <strong>Python</strong>
 
           <span>
-            Engineering architecture
+            Core engineering ecosystem
           </span>
 
         </div>
 
+        <div class="project-metric">
 
-        <div class="project-stat">
-
-          <strong>
-            Active
-          </strong>
+          <strong>Team</strong>
 
           <span>
-            Development status
+            Collaborative development
           </span>
 
         </div>
@@ -3416,19 +2499,216 @@ Type "help" to see available commands.
       </div>
 
 
-      <br>
+      <div class="architecture-grid">
 
 
-      <div class="actions">
+        <article class="arch-card">
 
-        <a
-          href="https://github.com/ragavan994463-max/kaggriculture-agent"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          Open Project Repository →
-        </a>
+          <div>
+
+            <span class="arch-index">
+              01
+            </span>
+
+            <div class="arch-icon">
+              ◉
+            </div>
+
+            <h4>
+              Environment
+            </h4>
+
+            <p>
+              Observe the current state and available
+              information.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              02
+            </span>
+
+            <div class="arch-icon">
+              ↗
+            </div>
+
+            <h4>
+              Research
+            </h4>
+
+            <p>
+              Discover useful patterns, strategies and
+              environmental knowledge.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              03
+            </span>
+
+            <div class="arch-icon">
+              ◈
+            </div>
+
+            <h4>
+              Knowledge
+            </h4>
+
+            <p>
+              Organize experience and reusable
+              information for later decisions.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              04
+            </span>
+
+            <div class="arch-icon">
+              △
+            </div>
+
+            <h4>
+              Prediction
+            </h4>
+
+            <p>
+              Estimate possible future outcomes and
+              consequences.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              05
+            </span>
+
+            <div class="arch-icon">
+              ⛨
+            </div>
+
+            <h4>
+              Constraints
+            </h4>
+
+            <p>
+              Protect the decision process with dynamic
+              guardrails.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              06
+            </span>
+
+            <div class="arch-icon">
+              ◆
+            </div>
+
+            <h4>
+              Decision
+            </h4>
+
+            <p>
+              Select the most appropriate strategy or
+              next operation.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              07
+            </span>
+
+            <div class="arch-icon">
+              →
+            </div>
+
+            <h4>
+              Action
+            </h4>
+
+            <p>
+              Convert the selected strategy into an
+              executable operation.
+            </p>
+
+          </div>
+
+        </article>
+
+
+        <article class="arch-card">
+
+          <div>
+
+            <span class="arch-index">
+              08
+            </span>
+
+            <div class="arch-icon">
+              ↻
+            </div>
+
+            <h4>
+              Feedback
+            </h4>
+
+            <p>
+              Evaluate outcomes and feed useful
+              information into future improvement.
+            </p>
+
+          </div>
+
+        </article>
+
 
       </div>
 
@@ -3440,17 +2720,17 @@ Type "help" to see available commands.
 
 
 <!-- =======================================================
-     SKILLS
+     EXPERTISE
      ======================================================= -->
 
-<section id="skills">
+<section id="expertise">
 
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-heading reveal">
 
-      <div class="section-label">
-        04 / Engineering DNA
+      <div class="section-number">
+        03 / Expertise
       </div>
 
       <h2 class="section-title">
@@ -3458,10 +2738,9 @@ Type "help" to see available commands.
       </h2>
 
       <p class="section-description">
-
-        Technologies and engineering areas that form
-        my current development profile.
-
+        A broad engineering profile spanning programming,
+        intelligent systems, architecture and development
+        workflows.
       </p>
 
     </div>
@@ -3470,228 +2749,381 @@ Type "help" to see available commands.
     <div class="skills-grid">
 
 
-      <div class="skill-card reveal">
+      <article class="skill-card reveal">
 
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Python
-          </span>
-
-          <span class="skill-category">
-            Core
-          </span>
-
+        <div class="skill-icon">
+          Py
         </div>
 
-        <p class="skill-description">
-          Development, automation and system building.
+        <strong>
+          Python
+        </strong>
+
+        <p>
+          Application development, automation,
+          architecture and experimentation.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:92%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          AI
         </div>
 
-      </div>
+        <strong>
+          Intelligent Systems
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Software Architecture
-          </span>
-
-          <span class="skill-category">
-            Systems
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Modular and scalable engineering structures.
+        <p>
+          Designing systems capable of structured
+          reasoning, prediction and adaptation.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:86%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          ML
         </div>
 
-      </div>
+        <strong>
+          Machine Learning
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Machine Learning
-          </span>
-
-          <span class="skill-category">
-            Intelligence
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Prediction and learning-oriented systems.
+        <p>
+          Learning, prediction and data-driven
+          experimentation.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:82%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          AG
         </div>
 
-      </div>
+        <strong>
+          Agent Architecture
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Autonomous Agents
-          </span>
-
-          <span class="skill-category">
-            Systems
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Decision-making and autonomous architectures.
+        <p>
+          Modular autonomous decision and action
+          systems.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:84%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          RL
         </div>
 
-      </div>
+        <strong>
+          Reinforcement Learning
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Reinforcement Learning
-          </span>
-
-          <span class="skill-category">
-            Learning
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Learning through environment interaction.
+        <p>
+          Learning through interaction, feedback and
+          iterative improvement.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:78%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          SD
         </div>
 
-      </div>
+        <strong>
+          System Design
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Git & GitHub
-          </span>
-
-          <span class="skill-category">
-            Dev
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Version control and collaborative development.
+        <p>
+          Modular components, interfaces and scalable
+          engineering structures.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:88%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          Git
         </div>
 
-      </div>
+        <strong>
+          Git & GitHub
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Automation
-          </span>
-
-          <span class="skill-category">
-            Engineering
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Repeatable and efficient development workflows.
+        <p>
+          Version control, collaboration and project
+          management workflows.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:85%"
-          ></div>
+      </article>
+
+
+      <article class="skill-card reveal">
+
+        <div class="skill-icon">
+          ⚙
         </div>
 
-      </div>
+        <strong>
+          Automation
+        </strong>
 
-
-      <div class="skill-card reveal">
-
-        <div class="skill-top">
-
-          <span class="skill-name">
-            Problem Solving
-          </span>
-
-          <span class="skill-category">
-            Core
-          </span>
-
-        </div>
-
-        <p class="skill-description">
-          Breaking complex problems into structured systems.
+        <p>
+          Engineering workflow automation and
+          repeatable development processes.
         </p>
 
-        <div class="skill-bar">
-          <div
-            class="skill-progress"
-            style="--level:90%"
-          ></div>
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     JOURNEY
+     ======================================================= -->
+
+<section id="journey">
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <div class="section-number">
+        04 / Engineering Journey
+      </div>
+
+      <h2 class="section-title">
+        Learning by building.
+      </h2>
+
+      <p class="section-description">
+        A project-oriented engineering journey focused
+        on progressively more structured systems.
+      </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+      <article class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-card">
+
+          <span class="timeline-year">
+            Foundation
+          </span>
+
+          <h3>
+            Python & Software Development
+          </h3>
+
+          <p>
+            Building programming fundamentals,
+            automation workflows and practical
+            software projects.
+          </p>
+
         </div>
 
+      </article>
+
+
+      <article class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-card">
+
+          <span class="timeline-year">
+            Expansion
+          </span>
+
+          <h3>
+            AI & Intelligent Systems
+          </h3>
+
+          <p>
+            Exploring machine learning, intelligent
+            architectures, prediction and autonomous
+            decision-making.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-card">
+
+          <span class="timeline-year">
+            Current
+          </span>
+
+          <h3>
+            Crop Coders — Kaggriculture
+          </h3>
+
+          <p>
+            Working within a collaborative multi-phase
+            architecture focused on intelligent farming
+            decision systems.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="timeline-item reveal">
+
+        <span class="timeline-dot"></span>
+
+        <div class="timeline-card">
+
+          <span class="timeline-year">
+            Next
+          </span>
+
+          <h3>
+            Advanced Systems Engineering
+          </h3>
+
+          <p>
+            Continuing toward stronger architecture,
+            experimentation, automation and production
+            engineering practices.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     HIGHLIGHTS
+     ======================================================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="section-heading reveal">
+
+      <div class="section-number">
+        05 / Highlights
       </div>
+
+      <h2 class="section-title">
+        What defines my work.
+      </h2>
+
+    </div>
+
+
+    <div class="highlights">
+
+
+      <article class="highlight reveal">
+
+        <div class="highlight-number">
+          01
+        </div>
+
+        <div>
+
+          <h3>
+            Modular thinking
+          </h3>
+
+          <p>
+            Building independent components that can
+            evolve and connect through clear interfaces.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="highlight reveal">
+
+        <div class="highlight-number">
+          02
+        </div>
+
+        <div>
+
+          <h3>
+            Practical experimentation
+          </h3>
+
+          <p>
+            Learning through prototypes, tests,
+            iterations and real project constraints.
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <article class="highlight reveal">
+
+        <div class="highlight-number">
+          03
+        </div>
+
+        <div>
+
+          <h3>
+            Continuous improvement
+          </h3>
+
+          <p>
+            Treating every project as an opportunity to
+            improve engineering quality and understanding.
+          </p>
+
+        </div>
+
+      </article>
 
 
     </div>
@@ -3709,314 +3141,140 @@ Type "help" to see available commands.
 
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-heading reveal">
 
-      <div class="section-label">
-        05 / Repository Intelligence
+      <div class="section-number">
+        06 / GitHub
       </div>
 
       <h2 class="section-title">
-        GitHub workspace.
+        Build in public.
       </h2>
 
       <p class="section-description">
-
-        Explore my public engineering work,
-        repositories and ongoing projects.
-
+        Explore the engineering work and the flagship
+        Crop Coders repository.
       </p>
 
     </div>
 
 
-    <div class="github-panel reveal">
+    <div class="github-card">
 
 
-      <div class="github-header">
+      <article class="repo-card reveal">
 
-        <div>
+        <div class="repo-header">
 
-          <div class="github-name">
-            Raghavan GitHub
+          <div class="repo-icon">
+            ◆
           </div>
 
-          <div class="github-user">
-            @ragavan994463-max
-          </div>
+          <span class="repo-status">
+            FEATURED
+          </span>
 
         </div>
 
 
-        <div class="github-live">
-          ● PROFILE LINK READY
+        <h3>
+          Crop Coders — Kaggriculture
+        </h3>
+
+
+        <p>
+          Team project focused on modular intelligent
+          farming architecture, decision systems and
+          iterative improvement.
+        </p>
+
+
+        <div class="repo-tags">
+
+          <span class="repo-tag">
+            Python
+          </span>
+
+          <span class="repo-tag">
+            Intelligent Systems
+          </span>
+
+          <span class="repo-tag">
+            Architecture
+          </span>
+
+          <span class="repo-tag">
+            Kaggriculture
+          </span>
+
         </div>
 
-      </div>
+
+        <a
+          class="btn primary"
+          href="https://github.com/sidhudumi-web/crop-coders-kaggriculture"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open Project ↗
+        </a>
+
+      </article>
 
 
-      <div class="repo-grid">
+      <article class="repo-card reveal">
 
+        <div class="repo-header">
 
-        <article class="repo-card">
-
-          <div class="repo-header">
-
-            <div class="repo-title">
-              Crop Coders — Kaggriculture
-            </div>
-
-            <span class="repo-status">
-              ACTIVE
-            </span>
-
+          <div class="repo-icon">
+            GH
           </div>
 
-          <p class="repo-description">
-
-            Autonomous farming-agent architecture
-            and intelligent decision system.
-
-          </p>
-
-
-          <div class="repo-tags">
-
-            <span class="repo-tag">
-              Python
-            </span>
-
-            <span class="repo-tag">
-              AI
-            </span>
-
-            <span class="repo-tag">
-              Agents
-            </span>
-
-            <span class="repo-tag">
-              Systems
-            </span>
-
-          </div>
-
-
-          <a
-            href="https://github.com/ragavan994463-max/kaggriculture-agent"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-primary"
-          >
-            Open Repository →
-          </a>
-
-        </article>
-
-
-        <article class="repo-card">
-
-          <div class="repo-header">
-
-            <div class="repo-title">
-              GitHub Profile
-            </div>
-
-            <span class="repo-status">
-              PUBLIC
-            </span>
-
-          </div>
-
-          <p class="repo-description">
-
-            Explore repositories, experiments,
-            contributions and future engineering work.
-
-          </p>
-
-
-          <div class="repo-tags">
-
-            <span class="repo-tag">
-              GitHub
-            </span>
-
-            <span class="repo-tag">
-              Open Source
-            </span>
-
-            <span class="repo-tag">
-              Engineering
-            </span>
-
-          </div>
-
-
-          <a
-            href="https://github.com/ragavan994463-max"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn btn-purple"
-          >
-            View Profile →
-          </a>
-
-        </article>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     JOURNEY
-     ======================================================= -->
-
-<section id="journey">
-
-  <div class="container">
-
-    <div class="section-header reveal">
-
-      <div class="section-label">
-        06 / Engineering Journey
-      </div>
-
-      <h2 class="section-title">
-        Learning by building.
-      </h2>
-
-      <p class="section-description">
-
-        A development journey shaped by projects,
-        experimentation, problem solving and continuous
-        engineering practice.
-
-      </p>
-
-    </div>
-
-
-    <div class="timeline">
-
-
-      <div class="timeline-item reveal">
-
-        <div class="timeline-dot">
-          01
-        </div>
-
-        <div class="timeline-content">
-
-          <div class="timeline-year">
-            Foundation
-          </div>
-
-          <h3>
-            Python & Software Development
-          </h3>
-
-          <p>
-
-            Building a strong programming foundation
-            through Python, automation and practical
-            development projects.
-
-          </p>
+          <span class="repo-status">
+            PROFILE
+          </span>
 
         </div>
 
-      </div>
+
+        <h3>
+          Raghavan on GitHub
+        </h3>
 
 
-      <div class="timeline-item reveal">
-
-        <div class="timeline-dot">
-          02
-        </div>
-
-        <div class="timeline-content">
-
-          <div class="timeline-year">
-            Systems
-          </div>
-
-          <h3>
-            Modular Architecture
-          </h3>
-
-          <p>
-
-            Learning how complex projects can be
-            decomposed into independent modules,
-            interfaces and engineering layers.
-
-          </p>
-
-        </div>
-
-      </div>
+        <p>
+          Explore my development work, experiments,
+          repositories and future engineering projects.
+        </p>
 
 
-      <div class="timeline-item reveal">
+        <div class="repo-tags">
 
-        <div class="timeline-dot">
-          03
-        </div>
+          <span class="repo-tag">
+            Software
+          </span>
 
-        <div class="timeline-content">
+          <span class="repo-tag">
+            Python
+          </span>
 
-          <div class="timeline-year">
-            Intelligence
-          </div>
-
-          <h3>
-            Autonomous Systems
-          </h3>
-
-          <p>
-
-            Exploring prediction, decision-making,
-            feedback loops and autonomous agent design.
-
-          </p>
+          <span class="repo-tag">
+            Projects
+          </span>
 
         </div>
 
-      </div>
 
+        <a
+          class="btn"
+          href="https://github.com/ragavan994463-max"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View GitHub ↗
+        </a>
 
-      <div class="timeline-item reveal">
-
-        <div class="timeline-dot">
-          04
-        </div>
-
-        <div class="timeline-content">
-
-          <div class="timeline-year">
-            Current
-          </div>
-
-          <h3>
-            Crop Coders — Kaggriculture
-          </h3>
-
-          <p>
-
-            Developing a larger modular architecture
-            combining multiple engineering phases into
-            one autonomous farming system.
-
-          </p>
-
-        </div>
-
-      </div>
+      </article>
 
 
     </div>
@@ -4027,29 +3285,27 @@ Type "help" to see available commands.
 
 
 <!-- =======================================================
-     COMMUNITY
+     ETHICAL CYBERSECURITY COMMUNITY
      ======================================================= -->
 
 <section id="community">
 
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-heading reveal">
 
-      <div class="section-label">
-        07 / Technical Community
+      <div class="section-number">
+        07 / Community
       </div>
 
       <h2 class="section-title">
-        Build responsibly.
+        Learn. Build. Secure responsibly.
       </h2>
 
       <p class="section-description">
-
-        A technical community focused on learning,
-        experimentation, collaboration and responsible
-        technology.
-
+        A technical community direction focused on
+        responsible experimentation, software,
+        cybersecurity learning and collaboration.
       </p>
 
     </div>
@@ -4058,11 +3314,16 @@ Type "help" to see available commands.
     <div class="community-grid">
 
 
-      <div class="community-card reveal">
+      <article class="community-card reveal">
 
         <h3>
           Core Team
         </h3>
+
+        <p>
+          Collaborative technical development and
+          community building.
+        </p>
 
 
         <div class="member">
@@ -4073,13 +3334,13 @@ Type "help" to see available commands.
 
           <div>
 
-            <div class="member-name">
+            <strong>
               Shanmugam
-            </div>
+            </strong>
 
-            <div class="member-role">
+            <small>
               Creator
-            </div>
+            </small>
 
           </div>
 
@@ -4094,67 +3355,58 @@ Type "help" to see available commands.
 
           <div>
 
-            <div class="member-name">
+            <strong>
               Raghavan
-            </div>
+            </strong>
 
-            <div class="member-role">
+            <small>
               Technical Leader
-            </div>
+            </small>
 
           </div>
 
         </div>
 
-      </div>
+      </article>
 
 
-      <div class="community-card reveal">
+      <article class="community-card reveal">
 
         <h3>
-          Community Mission
+          Community Principles
         </h3>
 
+        <p>
+          Technology should be explored responsibly
+          and used to create useful systems.
+        </p>
 
-        <div class="mission-list">
 
-          <div class="mission-item">
-            <span></span>
-            Learn modern technology
-          </div>
+        <ul class="mission-list">
 
-          <div class="mission-item">
-            <span></span>
-            Build practical projects
-          </div>
+          <li>
+            ◈ Ethical cybersecurity learning
+          </li>
 
-          <div class="mission-item">
-            <span></span>
-            Experiment responsibly
-          </div>
+          <li>
+            ◈ Responsible experimentation
+          </li>
 
-          <div class="mission-item">
-            <span></span>
-            Collaborate with developers
-          </div>
+          <li>
+            ◈ Software development
+          </li>
 
-          <div class="mission-item">
-            <span></span>
-            Share engineering knowledge
-          </div>
+          <li>
+            ◈ Technical collaboration
+          </li>
 
-        </div>
+          <li>
+            ◈ Knowledge sharing
+          </li>
 
-        <br>
+        </ul>
 
-        <a
-          href="#contact"
-          class="btn btn-green"
-        >
-          Connect →
-        </a>
-
-      </div>
+      </article>
 
 
     </div>
@@ -4172,10 +3424,10 @@ Type "help" to see available commands.
 
   <div class="container">
 
-    <div class="contact-box reveal">
+    <div class="contact-shell reveal">
 
-      <div class="section-label">
-        08 / Connection
+      <div class="section-number">
+        08 / Contact
       </div>
 
 
@@ -4189,65 +3441,32 @@ Type "help" to see available commands.
 
       <p>
 
-        Open to professional networking,
-        collaboration, technical discussions and
-        opportunities to build useful software.
+        Interested in software engineering,
+        technical collaboration, projects or
+        professional opportunities?
 
       </p>
 
 
-      <div class="contact-links">
+      <div class="contact-actions">
 
         <a
-          class="contact-chip"
-          href="tel:+919626638296"
-        >
-          📞 9626638296
-        </a>
-
-
-        <a
-          class="contact-chip"
+          class="btn primary"
           href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          💼 LinkedIn
+          LinkedIn ↗
         </a>
 
 
         <a
-          class="contact-chip"
+          class="btn"
           href="https://github.com/ragavan994463-max"
           target="_blank"
           rel="noopener noreferrer"
         >
-          ◉ GitHub
-        </a>
-
-      </div>
-
-
-      <div class="actions"
-           style="justify-content:center">
-
-        <a
-          href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          Connect on LinkedIn →
-        </a>
-
-
-        <a
-          href="https://github.com/ragavan994463-max"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn-purple"
-        >
-          Explore GitHub →
+          GitHub ↗
         </a>
 
       </div>
@@ -4275,11 +3494,11 @@ Type "help" to see available commands.
     </span>
 
     <span>
-      Python • Software • Systems • Engineering
+      Software • Python • Systems • Engineering
     </span>
 
     <span>
-      © 2026
+      © <span id="year"></span>
     </span>
 
   </div>
@@ -4287,13 +3506,9 @@ Type "help" to see available commands.
 </footer>
 
 
-<!-- =======================================================
-     TOAST
-     ======================================================= -->
-
 <div
-  id="toast"
   class="toast"
+  id="toast"
   role="status"
   aria-live="polite"
 ></div>
@@ -4312,139 +3527,38 @@ Type "help" to see available commands.
    ELEMENTS
    ========================================================= */
 
-const body =
-  document.body;
+const root =
+  document.documentElement;
 
-const menuButton =
-  document.getElementById("menuButton");
+const themeToggle =
+  document.getElementById("themeToggle");
 
-const closeMenu =
-  document.getElementById("closeMenu");
+const menuToggle =
+  document.getElementById("menuToggle");
 
-const sideMenu =
-  document.getElementById("sideMenu");
-
-const menuOverlay =
-  document.getElementById("menuOverlay");
-
-const themeButton =
-  document.getElementById("themeButton");
-
-const toast =
-  document.getElementById("toast");
+const navLinks =
+  document.getElementById("navLinks");
 
 const scrollProgress =
   document.getElementById("scrollProgress");
 
+const toast =
+  document.getElementById("toast");
 
-/* =========================================================
-   TOAST
-   ========================================================= */
-
-let toastTimer = null;
-
-function showToast(message){
-
-  if(!toast) return;
-
-  toast.textContent = message;
-
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-
-  toastTimer =
-    setTimeout(
-      ()=>{
-        toast.classList.remove("show");
-      },
-      2200
-    );
-}
+const year =
+  document.getElementById("year");
 
 
 /* =========================================================
-   SIDE MENU
+   YEAR
    ========================================================= */
 
-function openMenu(){
+if(year){
 
-  if(!sideMenu) return;
+  year.textContent =
+    new Date().getFullYear();
 
-  sideMenu.classList.add("open");
-
-  menuOverlay?.classList.add("open");
-
-  menuButton?.setAttribute(
-    "aria-expanded",
-    "true"
-  );
-
-  document.body.style.overflow =
-    "hidden";
 }
-
-
-function closeNavigation(){
-
-  sideMenu?.classList.remove("open");
-
-  menuOverlay?.classList.remove("open");
-
-  menuButton?.setAttribute(
-    "aria-expanded",
-    "false"
-  );
-
-  document.body.style.overflow =
-    "";
-}
-
-
-menuButton?.addEventListener(
-  "click",
-  openMenu
-);
-
-closeMenu?.addEventListener(
-  "click",
-  closeNavigation
-);
-
-menuOverlay?.addEventListener(
-  "click",
-  closeNavigation
-);
-
-
-document
-  .querySelectorAll(".menu-link")
-  .forEach(link=>{
-
-    link.addEventListener(
-      "click",
-      closeNavigation
-    );
-
-  });
-
-
-/* =========================================================
-   ESCAPE KEY
-   ========================================================= */
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key === "Escape"){
-
-      closeNavigation();
-
-    }
-
-  }
-);
 
 
 /* =========================================================
@@ -4456,53 +3570,148 @@ const savedTheme =
     "raghavan-theme"
   );
 
+if(savedTheme === "light"){
+
+  root.setAttribute(
+    "data-theme",
+    "light"
+  );
+
+  if(themeToggle){
+    themeToggle.textContent="☀";
+  }
+
+}else{
+
+  root.setAttribute(
+    "data-theme",
+    "dark"
+  );
+
+  if(themeToggle){
+    themeToggle.textContent="☾";
+  }
+
+}
+
 
 function updateThemeIcon(){
 
-  if(!themeButton) return;
+  if(!themeToggle)return;
 
-  themeButton.textContent =
-    body.classList.contains("light")
-      ? "☀️"
-      : "🌙";
-}
+  const light =
+    root.getAttribute("data-theme")
+    === "light";
 
-
-if(savedTheme === "light"){
-
-  body.classList.add("light");
+  themeToggle.textContent =
+    light ? "☀" : "☾";
 
 }
 
-updateThemeIcon();
+
+if(themeToggle){
+
+  themeToggle.addEventListener(
+    "click",
+    ()=>{
+
+      const current =
+        root.getAttribute("data-theme");
+
+      const next =
+        current === "light"
+          ? "dark"
+          : "light";
+
+      root.setAttribute(
+        "data-theme",
+        next
+      );
+
+      localStorage.setItem(
+        "raghavan-theme",
+        next
+      );
+
+      updateThemeIcon();
+
+      showToast(
+        next === "light"
+          ? "Light mode enabled"
+          : "Dark mode enabled"
+      );
+
+    }
+  );
+
+}
 
 
-themeButton?.addEventListener(
-  "click",
-  ()=>{
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
-    body.classList.toggle("light");
+function closeMenu(){
 
-    const theme =
-      body.classList.contains("light")
-        ? "light"
-        : "dark";
+  if(!navLinks)return;
 
-    localStorage.setItem(
-      "raghavan-theme",
-      theme
+  navLinks.classList.remove(
+    "open"
+  );
+
+  if(menuToggle){
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
     );
 
-    updateThemeIcon();
-
-    showToast(
-      theme === "light"
-        ? "Light theme enabled"
-        : "Dark theme enabled"
-    );
+    menuToggle.textContent="☰";
 
   }
-);
+
+}
+
+
+if(menuToggle){
+
+  menuToggle.addEventListener(
+    "click",
+    ()=>{
+
+      if(!navLinks)return;
+
+      const open =
+        navLinks.classList.toggle(
+          "open"
+        );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+      menuToggle.textContent =
+        open ? "×" : "☰";
+
+    }
+  );
+
+}
+
+
+document
+  .querySelectorAll(
+    ".nav-links a"
+  )
+  .forEach(link=>{
+
+    link.addEventListener(
+      "click",
+      closeMenu
+    );
+
+  });
 
 
 /* =========================================================
@@ -4511,22 +3720,30 @@ themeButton?.addEventListener(
 
 function updateScrollProgress(){
 
-  if(!scrollProgress) return;
+  if(!scrollProgress)return;
 
   const scrollTop =
     window.scrollY;
 
-  const height =
-    document.documentElement.scrollHeight -
+  const documentHeight =
+    document.documentElement
+      .scrollHeight;
+
+  const viewportHeight =
     window.innerHeight;
 
+  const max =
+    documentHeight -
+    viewportHeight;
+
   const percentage =
-    height > 0
-      ? (scrollTop / height) * 100
+    max > 0
+      ? (scrollTop / max) * 100
       : 0;
 
   scrollProgress.style.width =
-    `${percentage}%`;
+    percentage + "%";
+
 }
 
 
@@ -4537,351 +3754,6 @@ window.addEventListener(
 );
 
 updateScrollProgress();
-
-
-/* =========================================================
-   INTERACTIVE CONSOLE
-   ========================================================= */
-
-const consoleInput =
-  document.getElementById(
-    "consoleInput"
-  );
-
-const consoleOutput =
-  document.getElementById(
-    "consoleOutput"
-  );
-
-
-const commands = {
-
-  help:
-`AVAILABLE COMMANDS
-
-about
-skills
-project
-kaggriculture
-architecture
-github
-community
-contact
-status
-clear
-
-TIP:
-Use "/" anywhere to focus the console.`,
-
-  about:
-`RAGHAVAN
-
-Software-focused developer building
-practical systems with Python,
-automation, intelligent applications
-and modular architectures.
-
-Current flagship:
-Crop Coders — Kaggriculture.`,
-
-  skills:
-`ENGINEERING CAPABILITIES
-
-Python
-Software Architecture
-Machine Learning
-Autonomous Agents
-Reinforcement Learning
-Git & GitHub
-Automation
-Problem Solving`,
-
-  project:
-`FLAGSHIP PROJECT
-
-CROP CODERS — KAGGRICULTURE
-
-A modular autonomous farming
-intelligence architecture.
-
-Environment
-↓
-Prediction
-↓
-Constraints
-↓
-Decision
-↓
-Action
-↓
-Feedback`,
-
-  kaggriculture:
-`KAGGRICULTURE
-
-PRIMARY ENGINEERING PROJECT
-
-Focus:
-Autonomous farming intelligence
-
-Architecture:
-20 modular phases
-
-Simulation:
-720 turns
-
-Status:
-ACTIVE DEVELOPMENT`,
-
-  architecture:
-`ARCHITECTURE
-
-01 Environment
-02 Prediction
-03 Constraints
-04 Decision
-05 Action
-06 Feedback
-
-Each layer has an independent
-responsibility and can evolve
-as part of a larger system.`,
-
-  github:
-`GITHUB
-
-Username:
-ragavan994463-max
-
-Flagship repository:
-kaggriculture-agent
-
-Use the GitHub section to open
-the repositories.`,
-
-  community:
-`TECHNICAL COMMUNITY
-
-Creator:
-Shanmugam
-
-Technical Leader:
-Raghavan
-
-Mission:
-Learning
-Building
-Experimentation
-Responsible technology
-Collaboration`,
-
-  contact:
-`CONTACT
-
-Raghavan
-
-LinkedIn:
-Raghavan Ganesan
-
-GitHub:
-ragavan994463-max
-
-Use the Contact section for
-direct links.`,
-
-  status:
-`SYSTEM STATUS
-
-PORTFOLIO ............ ONLINE
-THEME ENGINE .......... READY
-CONSOLE ............... ONLINE
-PROJECT MODULE ........ READY
-GITHUB MODULE ......... READY
-MOBILE SYSTEM ......... OPTIMIZED
-
-ALL CORE SYSTEMS NOMINAL.`
-
-};
-
-
-function writeConsole(text){
-
-  if(!consoleOutput) return;
-
-  consoleOutput.textContent =
-    text;
-}
-
-
-function runCommand(value){
-
-  const command =
-    String(value || "")
-      .trim()
-      .toLowerCase();
-
-  if(!command) return;
-
-
-  if(command === "clear"){
-
-    writeConsole("");
-
-    return;
-  }
-
-
-  if(commands[command]){
-
-    writeConsole(
-      `> ${command}\n\n${commands[command]}`
-    );
-
-    return;
-  }
-
-
-  writeConsole(
-`> ${command}
-
-COMMAND NOT FOUND.
-
-Type "help" to view
-available commands.`
-  );
-
-}
-
-
-consoleInput?.addEventListener(
-  "keydown",
-  event=>{
-
-    if(event.key === "Enter"){
-
-      runCommand(
-        consoleInput.value
-      );
-
-      consoleInput.value = "";
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   "/" SHORTCUT
-   ========================================================= */
-
-document.addEventListener(
-  "keydown",
-  event=>{
-
-    const active =
-      document.activeElement;
-
-    const typing =
-      active &&
-      (
-        active.tagName === "INPUT" ||
-        active.tagName === "TEXTAREA"
-      );
-
-    if(
-      event.key === "/" &&
-      !typing
-    ){
-
-      event.preventDefault();
-
-      consoleInput?.focus();
-
-      showToast(
-        "Console focused"
-      );
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   ARCHITECTURE INSPECTOR
-   ========================================================= */
-
-const architectureInfo =
-  document.getElementById(
-    "architectureInfo"
-  );
-
-
-const architectureData = {
-
-  environment:
-`ENVIRONMENT — The system observes the current world state, available resources, market conditions and simulation information before decisions are made.`,
-
-  prediction:
-`PREDICTION — Estimates likely future outcomes so the system can evaluate consequences instead of reacting only to the current state.`,
-
-  constraints:
-`CONSTRAINTS — Dynamic guardrails prevent impossible, unsafe or economically poor actions while preserving useful decision flexibility.`,
-
-  decision:
-`DECISION — Combines observations, predictions and constraints to select a strategy or next operation.`,
-
-  action:
-`ACTION — Converts the selected decision into an executable operation inside the environment.`,
-
-  feedback:
-`FEEDBACK — Evaluates results and returns useful information to the intelligence loop for adaptation and improvement.`
-
-};
-
-
-const architectureNodes =
-  document.querySelectorAll(
-    ".arch-node"
-  );
-
-
-architectureNodes.forEach(
-  node=>{
-
-    node.addEventListener(
-      "click",
-      ()=>{
-
-        architectureNodes
-          .forEach(
-            item=>
-              item.classList.remove(
-                "active"
-              )
-          );
-
-        node.classList.add(
-          "active"
-        );
-
-        const key =
-          node.dataset.arch;
-
-        if(architectureInfo){
-
-          architectureInfo.textContent =
-            architectureData[key] ||
-            "Architecture information unavailable.";
-
-        }
-
-      }
-    );
-
-  }
-);
 
 
 /* =========================================================
@@ -4899,7 +3771,7 @@ if(
   in window
 ){
 
-  const observer =
+  const revealObserver =
     new IntersectionObserver(
       entries=>{
 
@@ -4914,9 +3786,10 @@ if(
                 .classList
                 .add("visible");
 
-              observer.unobserve(
-                entry.target
-              );
+              revealObserver
+                .unobserve(
+                  entry.target
+                );
 
             }
 
@@ -4932,7 +3805,7 @@ if(
 
   revealElements.forEach(
     element=>
-      observer.observe(
+      revealObserver.observe(
         element
       )
   );
@@ -4957,24 +3830,61 @@ document
   .querySelectorAll(
     'a[target="_blank"]'
   )
-  .forEach(
-    link=>{
+  .forEach(link=>{
 
-      link.addEventListener(
-        "click",
-        ()=>{
-          showToast(
-            "Opening external resource..."
-          );
-        }
-      );
+    link.addEventListener(
+      "click",
+      ()=>{
 
-    }
-  );
+        showToast(
+          "Opening external resource..."
+        );
+
+      }
+    );
+
+  });
 
 
 /* =========================================================
-   NAVIGATION KEYBOARD ACCESS
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+
+function showToast(message){
+
+  if(!toast)return;
+
+  toast.textContent =
+    message;
+
+  toast.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    toastTimer
+  );
+
+  toastTimer =
+    setTimeout(
+      ()=>{
+
+        toast.classList.remove(
+          "show"
+        );
+
+      },
+      2200
+    );
+
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
    ========================================================= */
 
 document.addEventListener(
@@ -4982,25 +3892,10 @@ document.addEventListener(
   event=>{
 
     if(
-      event.key === "m" &&
-      !event.ctrlKey &&
-      !event.metaKey &&
-      document.activeElement !== consoleInput
+      event.key === "Escape"
     ){
 
-      if(
-        sideMenu?.classList.contains(
-          "open"
-        )
-      ){
-
-        closeNavigation();
-
-      }else{
-
-        openMenu();
-
-      }
+      closeMenu();
 
     }
 
@@ -5009,66 +3904,177 @@ document.addEventListener(
 
 
 /* =========================================================
-   SMOOTH ANCHOR FALLBACK
+   ACTIVE SECTION NAVIGATION
+   ========================================================= */
+
+const sections =
+  document.querySelectorAll(
+    "main section[id]"
+  );
+
+const navAnchors =
+  document.querySelectorAll(
+    ".nav-links a"
+  );
+
+
+if(
+  "IntersectionObserver"
+  in window
+){
+
+  const sectionObserver =
+    new IntersectionObserver(
+      entries=>{
+
+        entries.forEach(
+          entry=>{
+
+            if(
+              entry.isIntersecting
+            ){
+
+              navAnchors.forEach(
+                anchor=>{
+
+                  anchor.style.color =
+                    "";
+
+                }
+              );
+
+              const active =
+                document.querySelector(
+                  `.nav-links a[href="#${entry.target.id}"]`
+                );
+
+              if(active){
+
+                active.style.color =
+                  "var(--text)";
+
+              }
+
+            }
+
+          }
+        );
+
+      },
+      {
+        rootMargin:
+          "-35% 0px -55% 0px"
+      }
+    );
+
+
+  sections.forEach(
+    section=>
+      sectionObserver.observe(
+        section
+      )
+  );
+
+}
+
+
+/* =========================================================
+   BUTTON INTERACTION
    ========================================================= */
 
 document
   .querySelectorAll(
-    'a[href^="#"]'
+    ".btn"
   )
-  .forEach(
-    link=>{
+  .forEach(button=>{
+
+    button.addEventListener(
+      "pointermove",
+      event=>{
+
+        const rect =
+          button.getBoundingClientRect();
+
+        const x =
+          event.clientX -
+          rect.left;
+
+        const y =
+          event.clientY -
+          rect.top;
+
+        button.style.setProperty(
+          "--mx",
+          `${x}px`
+        );
+
+        button.style.setProperty(
+          "--my",
+          `${y}px`
+        );
+
+      }
+    );
+
+  });
+
+
+/* =========================================================
+   SMART EXTERNAL LINK TOAST
+   ========================================================= */
+
+function isExternal(link){
+
+  try{
+
+    return (
+      new URL(
+        link.href,
+        window.location.href
+      ).origin !==
+      window.location.origin
+    );
+
+  }catch{
+
+    return false;
+
+  }
+
+}
+
+
+document
+  .querySelectorAll(
+    "a[href]"
+  )
+  .forEach(link=>{
+
+    if(
+      isExternal(link)
+    ){
 
       link.addEventListener(
         "click",
-        event=>{
+        ()=>{
 
-          const id =
-            link.getAttribute(
-              "href"
-            );
-
-          if(
-            !id ||
-            id === "#"
-          ) return;
-
-          const target =
-            document.querySelector(
-              id
-            );
-
-          if(!target) return;
-
-          event.preventDefault();
-
-          target.scrollIntoView({
-            behavior:"smooth",
-            block:"start"
-          });
+          showToast(
+            "Opening external resource..."
+          );
 
         }
       );
 
     }
-  );
+
+  });
 
 
 /* =========================================================
    INITIALIZATION
    ========================================================= */
 
-window.addEventListener(
-  "load",
-  ()=>{
-
-    document.title =
-      "Raghavan | Software Engineer";
-
-    updateScrollProgress();
-
-  }
-);
+updateThemeIcon();
 
 </script>
 
