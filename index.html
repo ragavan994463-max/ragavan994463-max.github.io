@@ -2,86 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta
     name="description"
-    content="Raghavan — AI, Python and software development portfolio."
+    content="Raghavan — AI, Python and software developer portfolio."
   >
 
-  <meta
-    name="author"
-    content="Raghavan"
-  >
-
-  <meta
-    name="theme-color"
-    content="#0b0f19"
-  >
+  <meta name="author" content="Raghavan">
+  <meta name="theme-color" content="#080b12">
 
   <title>Raghavan | AI & Python Developer</title>
 
   <style>
     /* =========================================================
        RAGHAVAN PORTFOLIO
-       Version 1.0 — Core Foundation
+       Permanent Core Version
+       Single-file architecture
        No external dependencies
        ========================================================= */
 
     :root {
-      --bg: #070b14;
-      --bg-soft: #0d1322;
-      --surface: rgba(255, 255, 255, 0.055);
-      --surface-hover: rgba(255, 255, 255, 0.085);
-      --border: rgba(255, 255, 255, 0.11);
-      --text: #f5f7ff;
-      --muted: #aab3c5;
+      --bg: #080b12;
+      --bg-secondary: #0d111a;
+      --card: #111722;
+      --card-hover: #151d2b;
+      --border: #202a3a;
+
+      --text: #f5f7fb;
+      --muted: #a7b0c0;
+
       --accent: #7c8cff;
-      --accent-2: #5ee7df;
-      --success: #67e8a5;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 22px;
-      --max-width: 1180px;
+      --accent-light: #9da8ff;
+      --cyan: #5ee7df;
+      --green: #67e8a5;
+
+      --max-width: 1120px;
+      --radius: 18px;
     }
 
-    * {
+    /* =========================
+       RESET
+       ========================= */
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 80px;
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
+
       background:
         radial-gradient(
-          circle at 15% 10%,
-          rgba(124, 140, 255, 0.14),
+          circle at 10% 10%,
+          rgba(124, 140, 255, 0.12),
           transparent 30%
         ),
         radial-gradient(
-          circle at 85% 20%,
-          rgba(94, 231, 223, 0.09),
+          circle at 90% 30%,
+          rgba(94, 231, 223, 0.07),
           transparent 28%
         ),
         var(--bg);
+
       color: var(--text);
+
       font-family:
         Inter,
-        ui-sans-serif,
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -95,65 +95,18 @@
       font: inherit;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
       width: min(92%, var(--max-width));
-      margin-inline: auto;
+      margin: 0 auto;
     }
 
     /* =========================
-       BACKGROUND EFFECT
+       ACCESSIBILITY
        ========================= */
 
-    .background-grid {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.18;
-      background-image:
-        linear-gradient(
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.025) 1px,
-          transparent 1px
-        );
-      background-size: 45px 45px;
-      mask-image: linear-gradient(
-        to bottom,
-        black,
-        transparent 85%
-      );
-    }
-
-    .orb {
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      filter: blur(90px);
-      opacity: 0.09;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .orb.one {
-      top: 10%;
-      left: -120px;
-      background: var(--accent);
-    }
-
-    .orb.two {
-      top: 50%;
-      right: -120px;
-      background: var(--accent-2);
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
     }
 
     /* =========================
@@ -164,30 +117,86 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      right: 0;
+
       z-index: 1000;
-      background: rgba(7, 11, 20, 0.72);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+
+      background: rgba(8, 11, 18, 0.94);
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-inner {
-      min-height: 70px;
+    .nav-container {
+      min-height: 68px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
-    .brand {
-      font-size: 1.15rem;
+    .logo {
+      font-size: 1.2rem;
       font-weight: 800;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
 
-    .brand span {
-      color: var(--accent-2);
+    .logo span {
+      color: var(--cyan);
     }
 
-   
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-menu a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 650;
+
+      transition:
+        color 0.2s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+
+      width: 42px;
+      height: 42px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      background: var(--card);
+      color: var(--text);
+
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 120px 0 80px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .
