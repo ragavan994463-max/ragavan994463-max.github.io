@@ -6,118 +6,135 @@
 <meta name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta name="theme-color" content="#070a12">
+<meta name="theme-color" content="#070b16">
+<meta name="color-scheme" content="dark light">
 
 <meta name="description"
-      content="Raghavan — Python, AI, software engineering, Kaggriculture and ETERNAL community portfolio.">
+      content="RAGHAVAN — software engineering, Python, intelligent systems and Crop Coders Kaggriculture.">
 
-<meta name="author" content="Raghavan">
+<meta name="author" content="RAGHAVAN">
 
-<title>RAGHAVAN — Software Engineer</title>
+<title>RAGHAVAN — Engineering Intelligence</title>
 
 <style>
 /* ============================================================
-   RAGHAVAN PORTFOLIO — ULTRA ADVANCED EDITION
-   Single-file architecture
-   No frameworks
-   No external dependencies
+   RAGHAVAN PORTFOLIO — ULTRA ADVANCED SINGLE FILE
+   ============================================================
+
+   ENGINE:
+   • Responsive glassmorphism
+   • Dark / light visual system
+   • 3D scene
+   • WebGL shader layer
+   • Canvas particle engine
+   • Magnetic interaction
+   • Intersection Observer visibility
+   • Scroll velocity physics
+   • SVG direction morph
+   • Audio micro-interactions
+   • Holographic shimmer
+   • Liquid morphing
+   • Progressive scroll ring
+   • Mobile-first fallback architecture
+
+   No framework required.
+   ============================================================ */
+
+
+/* ============================================================
+   01 — DESIGN TOKENS
    ============================================================ */
 
 :root {
-    --bg: #050711;
-    --bg-2: #080d19;
-
+    --bg: #050811;
+    --bg-2: #091020;
     --surface: rgba(255,255,255,.055);
     --surface-2: rgba(255,255,255,.085);
     --surface-3: rgba(255,255,255,.12);
 
     --border: rgba(255,255,255,.13);
-    --border-soft: rgba(255,255,255,.07);
+    --border-strong: rgba(255,255,255,.22);
 
     --text: #f7f9ff;
-    --muted: #aab4c9;
+    --muted: #aeb8cc;
+    --muted-2: #7e899f;
 
-    --blue: #7187ff;
-    --cyan: #48e8df;
-    --purple: #ad7cff;
-    --green: #65e7a2;
+    --blue: #728cff;
+    --cyan: #53e7df;
+    --violet: #a77cff;
+    --green: #67e8a5;
 
-    --danger: #ff6d91;
+    --danger: #ff7187;
+
+    --glass-blur: 24px;
+    --radius: 28px;
 
     --shadow:
-        0 30px 90px rgba(0,0,0,.42);
+        0 30px 100px rgba(0,0,0,.38);
 
-    --glass-shadow:
-        inset 0 1px 0 rgba(255,255,255,.12),
-        0 30px 90px rgba(0,0,0,.32);
-
-    --radius: 28px;
     --max: 1180px;
 
-    --nav-height: 74px;
+    --ease:
+        cubic-bezier(.16,1,.3,1);
 
-    --transition:
-        cubic-bezier(.2,.8,.2,1);
+    --spring:
+        cubic-bezier(.175,.885,.32,1.275);
 }
 
-/* ============================================================
-   LIGHT MODE
-   ============================================================ */
+html[data-theme="light"] {
 
-body.light {
     --bg: #eef3ff;
-    --bg-2: #f7f9ff;
+    --bg-2: #ffffff;
 
-    --surface: rgba(255,255,255,.55);
-    --surface-2: rgba(255,255,255,.72);
+    --surface: rgba(255,255,255,.58);
+    --surface-2: rgba(255,255,255,.76);
     --surface-3: rgba(255,255,255,.9);
 
-    --border: rgba(40,50,90,.14);
-    --border-soft: rgba(40,50,90,.08);
+    --border: rgba(20,30,60,.12);
+    --border-strong: rgba(20,30,60,.22);
 
-    --text: #101526;
-    --muted: #536079;
+    --text: #10162a;
+    --muted: #56627a;
+    --muted-2: #778197;
+
+    --blue: #526cff;
+    --cyan: #00a99d;
+    --violet: #7c51d9;
 
     --shadow:
-        0 30px 80px rgba(60,80,130,.18);
-
-    --glass-shadow:
-        inset 0 1px 0 rgba(255,255,255,.8),
-        0 30px 80px rgba(60,80,130,.14);
+        0 30px 80px rgba(48,65,120,.18);
 }
 
+
 /* ============================================================
-   RESET
+   02 — RESET
    ============================================================ */
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: 90px;
 }
 
 body {
+    margin: 0;
     min-height: 100vh;
+
     background:
         radial-gradient(
-            circle at 15% 10%,
-            rgba(113,135,255,.16),
+            circle at 12% 8%,
+            rgba(114,140,255,.16),
             transparent 30%
         ),
         radial-gradient(
-            circle at 85% 20%,
-            rgba(72,232,223,.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 90%,
-            rgba(173,124,255,.08),
-            transparent 30%
+            circle at 88% 18%,
+            rgba(83,231,223,.10),
+            transparent 28%
         ),
         var(--bg);
 
@@ -133,15 +150,26 @@ body {
         sans-serif;
 
     line-height: 1.6;
+
     overflow-x: hidden;
 
     transition:
-        background .5s ease,
-        color .5s ease;
+        background .6s ease,
+        color .4s ease;
 }
 
-body.no-scroll {
-    overflow: hidden;
+body::selection {
+    background: var(--cyan);
+    color: #061016;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
 }
 
 a {
@@ -149,37 +177,31 @@ a {
     text-decoration: none;
 }
 
-button {
-    border: 0;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-}
-
-img {
+img,
+svg,
+canvas {
     max-width: 100%;
-    display: block;
 }
 
-::selection {
-    background: rgba(72,232,223,.3);
+.container {
+    width: min(92%, var(--max));
+    margin-inline: auto;
 }
+
+.hidden {
+    display: none !important;
+}
+
 
 /* ============================================================
-   GLOBAL BACKGROUND
+   03 — BACKGROUND GRID
    ============================================================ */
 
-.background {
+.background-grid {
     position: fixed;
     inset: 0;
-    pointer-events: none;
     z-index: -10;
-    overflow: hidden;
-}
-
-.grid {
-    position: absolute;
-    inset: 0;
+    pointer-events: none;
 
     background-image:
         linear-gradient(
@@ -192,7 +214,7 @@ img {
             transparent 1px
         );
 
-    background-size: 44px 44px;
+    background-size: 48px 48px;
 
     mask-image:
         linear-gradient(
@@ -202,74 +224,78 @@ img {
         );
 }
 
-body.light .grid {
+html[data-theme="light"] .background-grid {
     background-image:
         linear-gradient(
-            rgba(50,70,120,.035) 1px,
+            rgba(40,55,100,.045) 1px,
             transparent 1px
         ),
         linear-gradient(
             90deg,
-            rgba(50,70,120,.035) 1px,
+            rgba(40,55,100,.045) 1px,
             transparent 1px
         );
 }
 
-.orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: .16;
-    animation: orbFloat 14s ease-in-out infinite;
-}
 
-.orb.a {
+/* ============================================================
+   04 — AMBIENT ORBS
+   ============================================================ */
+
+.ambient-orb {
+    position: fixed;
     width: 360px;
     height: 360px;
-    background: var(--blue);
+    border-radius: 50%;
+
+    filter: blur(100px);
+    opacity: .11;
+
+    pointer-events: none;
+    z-index: -8;
+
+    animation:
+        orbFloat 12s ease-in-out infinite alternate;
+}
+
+.orb-a {
     left: -160px;
-    top: 15%;
+    top: 12%;
+    background: var(--blue);
 }
 
-.orb.b {
-    width: 320px;
-    height: 320px;
+.orb-b {
+    right: -160px;
+    top: 48%;
     background: var(--cyan);
-    right: -140px;
-    top: 42%;
-    animation-delay: -5s;
+    animation-delay: -4s;
 }
 
-.orb.c {
-    width: 280px;
-    height: 280px;
-    background: var(--purple);
-    left: 35%;
-    bottom: -160px;
-    animation-delay: -9s;
+.orb-c {
+    left: 40%;
+    bottom: -220px;
+    background: var(--violet);
+    animation-delay: -7s;
 }
 
 @keyframes orbFloat {
-    0%,100% {
-        transform: translate3d(0,0,0) scale(1);
+
+    from {
+        transform:
+            translate3d(0,0,0)
+            scale(1);
     }
 
-    50% {
-        transform: translate3d(30px,-25px,0) scale(1.08);
+    to {
+        transform:
+            translate3d(25px,-35px,0)
+            scale(1.12);
     }
 }
 
-/* ============================================================
-   CONTAINER
-   ============================================================ */
-
-.container {
-    width: min(92%, var(--max));
-    margin-inline: auto;
-}
 
 /* ============================================================
-   NAVIGATION
+   05 — NAVIGATION
    ============================================================ */
 
 .navbar {
@@ -278,69 +304,79 @@ body.light .grid {
     left: 0;
     width: 100%;
 
-    z-index: 1000;
+    z-index: 900;
 
     background:
         linear-gradient(
             180deg,
-            rgba(5,7,17,.86),
-            rgba(5,7,17,.58)
+            rgba(5,8,17,.84),
+            rgba(5,8,17,.55)
         );
 
-    backdrop-filter: blur(22px) saturate(140%);
-    -webkit-backdrop-filter: blur(22px) saturate(140%);
+    border-bottom:
+        1px solid var(--border);
 
-    border-bottom: 1px solid var(--border-soft);
+    backdrop-filter:
+        blur(22px) saturate(150%);
 
-    transform: translateY(0);
+    -webkit-backdrop-filter:
+        blur(22px) saturate(150%);
+
     transition:
-        transform .4s var(--transition),
+        transform .45s var(--ease),
         background .4s ease;
 }
 
-body.light .navbar {
+html[data-theme="light"] .navbar {
     background:
         rgba(245,248,255,.72);
 }
 
-.navbar.hide {
-    transform: translateY(-110%);
-}
-
 .nav-inner {
-    min-height: var(--nav-height);
+    min-height: 76px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    gap: 20px;
 }
 
 .brand {
+    position: relative;
+
     font-size: 1.12rem;
-    font-weight: 950;
+    font-weight: 900;
     letter-spacing: -.04em;
 
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand-name {
     background:
         linear-gradient(
             100deg,
-            #fff 0%,
-            var(--blue) 35%,
-            var(--cyan) 68%,
-            var(--purple) 100%
+            var(--blue),
+            var(--cyan),
+            var(--violet),
+            var(--blue)
         );
 
-    background-size: 220% auto;
+    background-size: 300% 100%;
+
     -webkit-background-clip: text;
     background-clip: text;
+
     color: transparent;
 
     animation:
-        brandFlow 5s linear infinite;
+        brandFlow 7s linear infinite;
 }
 
 @keyframes brandFlow {
     to {
-        background-position: 220% center;
+        background-position: 300% 0;
     }
 }
 
@@ -350,226 +386,208 @@ body.light .navbar {
     gap: 10px;
 }
 
-.icon-button {
-    width: 44px;
-    height: 44px;
+.icon-btn {
+    width: 46px;
+    height: 46px;
 
     display: grid;
     place-items: center;
 
+    border: 1px solid var(--border);
     border-radius: 15px;
 
     background: var(--surface);
-    border: 1px solid var(--border);
 
-    backdrop-filter: blur(18px);
+    color: var(--text);
+
+    cursor: pointer;
+
+    backdrop-filter: blur(15px);
 
     transition:
-        transform .3s var(--transition),
-        background .3s ease;
+        transform .35s var(--spring),
+        background .3s ease,
+        border-color .3s ease;
 }
 
-.icon-button:hover {
-    transform: translateY(-3px);
+.icon-btn:hover {
+    transform:
+        translateY(-3px)
+        rotateX(5deg)
+        rotateY(-5deg);
+
     background: var(--surface-2);
+    border-color: var(--border-strong);
 }
 
-/* ============================================================
-   MENU
-   ============================================================ */
-
-.menu {
-    position: fixed;
-    top: calc(var(--nav-height) + 12px);
-    right: 4%;
-
-    width: min(320px, 90vw);
-
-    padding: 16px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 24px;
-
-    background:
-        rgba(8,12,25,.88);
-
-    backdrop-filter: blur(30px) saturate(160%);
-    -webkit-backdrop-filter: blur(30px) saturate(160%);
-
-    box-shadow: var(--shadow);
-
-    opacity: 0;
-    pointer-events: none;
-
-    transform:
-        translateY(-12px)
-        scale(.96);
-
-    transition:
-        opacity .3s ease,
-        transform .3s var(--transition);
+.menu-button {
+    display: none;
 }
 
-body.light .menu {
-    background: rgba(245,248,255,.9);
+.nav-links {
+    display: flex;
+    gap: 26px;
+    align-items: center;
 }
 
-.menu.open {
-    opacity: 1;
-    pointer-events: auto;
-
-    transform:
-        translateY(0)
-        scale(1);
-}
-
-.menu a {
-    display: block;
-    padding: 13px 14px;
-
-    border-radius: 14px;
-
+.nav-links a {
     color: var(--muted);
+    font-size: .9rem;
+    font-weight: 700;
 
     transition:
-        background .25s ease,
         color .25s ease,
         transform .25s ease;
 }
 
-.menu a:hover {
-    background: var(--surface-2);
+.nav-links a:hover {
     color: var(--text);
-    transform: translateX(4px);
+    transform: translateY(-2px);
 }
 
+
 /* ============================================================
-   HERO
+   06 — HERO
    ============================================================ */
 
 .hero {
+    position: relative;
+
     min-height: 100svh;
 
-    display: flex;
+    display: grid;
     align-items: center;
 
     padding:
-        calc(var(--nav-height) + 60px)
-        0
+        130px 0
         70px;
 
-    position: relative;
+    overflow: hidden;
 }
 
-.hero-grid {
+.hero-layout {
     display: grid;
 
     grid-template-columns:
         minmax(0,1.05fr)
-        minmax(340px,.95fr);
-
-    gap: 55px;
+        minmax(320px,.95fr);
 
     align-items: center;
+
+    gap: 60px;
 }
 
 .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 9px;
+    gap: 10px;
 
     padding: 8px 13px;
+
+    border:
+        1px solid var(--border);
 
     border-radius: 999px;
 
     background: var(--surface);
-    border: 1px solid var(--border);
 
     color: var(--muted);
 
-    font-size: .8rem;
+    font-size: .78rem;
     font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
 
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(16px);
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.08);
+    margin-bottom: 24px;
 }
 
-.status-dot {
+.eyebrow-dot {
     width: 8px;
     height: 8px;
 
     border-radius: 50%;
 
-    background: var(--green);
+    background:
+        radial-gradient(
+            circle,
+            var(--green),
+            var(--cyan)
+        );
 
     box-shadow:
-        0 0 0 5px rgba(101,231,162,.09),
-        0 0 18px var(--green);
+        0 0 18px var(--cyan);
 
-    animation: pulse 2s infinite;
+    animation:
+        pulse 1.8s infinite;
 }
 
 @keyframes pulse {
+
+    0%,100% {
+        transform: scale(.8);
+        opacity: .6;
+    }
+
     50% {
-        transform: scale(1.3);
-        opacity: .65;
+        transform: scale(1.15);
+        opacity: 1;
     }
 }
 
-.hero-title {
-    margin-top: 22px;
+.hero h1 {
+    margin: 0;
 
     font-size:
         clamp(
-            3.7rem,
-            10vw,
-            8.5rem
+            3.6rem,
+            9vw,
+            7.7rem
         );
 
     line-height: .86;
+
     letter-spacing: -.075em;
 
-    font-weight: 1000;
+    max-width: 900px;
 }
 
-.hero-title .dynamic {
+.hero-title-gradient {
     display: block;
 
     background:
         linear-gradient(
             100deg,
-            var(--blue),
-            var(--cyan),
-            var(--purple),
-            var(--blue)
+            #8296ff 5%,
+            #55e7df 48%,
+            #bb8dff 90%
         );
-
-    background-size: 300% auto;
 
     -webkit-background-clip: text;
     background-clip: text;
+
     color: transparent;
 
+    background-size: 220% 100%;
+
     animation:
-        gradientFlow 7s linear infinite;
+        titleFlow 8s ease-in-out infinite alternate;
 }
 
-@keyframes gradientFlow {
+@keyframes titleFlow {
+
+    from {
+        background-position: 0 50%;
+    }
+
     to {
-        background-position: 300% center;
+        background-position: 100% 50%;
     }
 }
 
-.hero-description {
-    max-width: 690px;
+.hero-copy {
+    max-width: 720px;
 
-    margin-top: 28px;
+    margin-top: 30px;
 
     color: var(--muted);
 
@@ -577,364 +595,417 @@ body.light .menu {
         clamp(
             1rem,
             2vw,
-            1.25rem
+            1.28rem
         );
 
-    line-height: 1.85;
+    line-height: 1.75;
 }
 
-.hero-actions {
+.hero-buttons {
     display: flex;
     flex-wrap: wrap;
-
     gap: 14px;
 
     margin-top: 34px;
 }
 
+
 /* ============================================================
-   ADVANCED BUTTON
+   07 — GLASS BUTTON SYSTEM
    ============================================================ */
 
-.magnetic {
+.glass-button {
     position: relative;
-
-    min-height: 56px;
-
-    padding: 0 23px;
 
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+
+    min-height: 54px;
+
+    padding: 0 23px;
+
+    border:
+        1px solid var(--border);
 
     border-radius: 18px;
 
-    overflow: hidden;
-
-    isolation: isolate;
+    color: var(--text);
 
     background:
         linear-gradient(
-            110deg,
-            var(--blue),
-            var(--cyan)
+            135deg,
+            rgba(255,255,255,.11),
+            rgba(255,255,255,.035)
         );
 
-    color: #06101b;
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.12),
+        0 14px 35px rgba(0,0,0,.18);
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    isolation: isolate;
+
+    transition:
+        transform .35s var(--spring),
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.glass-button:hover {
+    border-color:
+        rgba(83,231,223,.45);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(114,140,255,.2),
+            rgba(83,231,223,.08)
+        );
+
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.2),
+        0 20px 50px rgba(83,231,223,.11);
+}
+
+.glass-button.primary {
+    border-color: transparent;
+
+    color: #071019;
+
+    background:
+        linear-gradient(
+            105deg,
+            #788eff,
+            #59e7df
+        );
 
     font-weight: 900;
 
     box-shadow:
-        0 15px 45px rgba(71,145,255,.22),
-        inset 0 1px 0 rgba(255,255,255,.45);
-
-    transition:
-        transform .25s var(--transition),
-        border-radius .45s var(--transition),
-        box-shadow .35s ease;
+        0 18px 45px rgba(83,231,223,.17);
 }
 
-.magnetic.secondary {
-    background: var(--surface);
-    color: var(--text);
-    border: 1px solid var(--border);
-
+.glass-button.primary:hover {
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.1),
-        0 20px 50px rgba(0,0,0,.18);
+        0 24px 65px rgba(83,231,223,.26);
 }
 
-.magnetic:hover {
-    border-radius: 28px;
-
-    box-shadow:
-        0 20px 65px rgba(71,145,255,.3),
-        inset 0 1px 0 rgba(255,255,255,.5);
+.glass-button span {
+    position: relative;
+    z-index: 3;
 }
 
-.magnetic::before {
+
+/* Holographic shimmer */
+
+.glass-button::after {
     content: "";
 
     position: absolute;
-    inset: -50%;
+
+    top: -80%;
+    left: -50%;
+
+    width: 35%;
+    height: 260%;
+
+    transform: rotate(25deg)
+               translateX(-260%);
 
     background:
         linear-gradient(
-            120deg,
-            transparent 38%,
-            rgba(255,255,255,.6) 49%,
-            transparent 60%
+            90deg,
+            transparent,
+            rgba(255,255,255,.65),
+            transparent
         );
 
-    transform:
-        translateX(-90%)
-        rotate(10deg);
+    filter: blur(2px);
+
+    pointer-events: none;
 
     animation:
-        shimmer 4.5s ease-in-out infinite;
-
-    z-index: -1;
+        shimmer 5s ease-in-out infinite;
 }
 
 @keyframes shimmer {
-    0%,55% {
+
+    0%,50% {
         transform:
-            translateX(-100%)
-            rotate(10deg);
+            rotate(25deg)
+            translateX(-260%);
     }
 
-    75%,100% {
+    70%,100% {
         transform:
-            translateX(100%)
-            rotate(10deg);
+            rotate(25deg)
+            translateX(620%);
     }
 }
 
-.magnetic span {
-    position: relative;
-    z-index: 2;
-}
 
 /* ============================================================
-   3D HERO CORE
+   08 — 3D HERO ENGINE
    ============================================================ */
 
 .scene {
     position: relative;
 
-    min-height: 530px;
+    min-height: 520px;
+
+    perspective: 1200px;
 
     display: grid;
     place-items: center;
-
-    perspective: 1400px;
-
-    transform-style: preserve-3d;
 }
 
-.core {
-    position: relative;
+.webgl-shell {
+    position: absolute;
 
-    width: 235px;
-    height: 235px;
+    width: min(500px,90vw);
+    aspect-ratio: 1;
 
     border-radius: 50%;
 
     transform-style: preserve-3d;
 
-    background:
-        radial-gradient(
-            circle at 32% 25%,
-            rgba(255,255,255,.75),
-            rgba(116,138,255,.8) 7%,
-            rgba(72,232,223,.18) 28%,
-            rgba(20,29,70,.92) 65%,
-            #050815 100%
+    filter:
+        drop-shadow(
+            0 45px 90px
+            rgba(50,90,255,.25)
         );
-
-    box-shadow:
-        inset -30px -40px 70px rgba(0,0,0,.72),
-        inset 25px 20px 55px rgba(255,255,255,.12),
-        0 0 80px rgba(93,120,255,.5),
-        0 0 180px rgba(72,232,223,.13);
 
     animation:
-        coreFloat 7s ease-in-out infinite;
+        heroFloat 7s ease-in-out infinite;
 }
 
-.core::before {
-    content: "";
+@keyframes heroFloat {
 
-    position: absolute;
-    inset: -18px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(116,140,255,.22),
-            transparent 65%
-        );
-
-    filter: blur(14px);
-
-    z-index: -1;
-}
-
-.core::after {
-    content: "";
-
-    position: absolute;
-
-    width: 60px;
-    height: 60px;
-
-    top: 18%;
-    left: 24%;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.9),
-            rgba(255,255,255,.08) 45%,
-            transparent 70%
-        );
-
-    filter: blur(3px);
-}
-
-@keyframes coreFloat {
     0%,100% {
         transform:
             translateY(0)
-            rotateX(0)
-            rotateY(0);
+            rotateX(0deg)
+            rotateY(0deg);
     }
 
     50% {
         transform:
-            translateY(-20px)
-            rotateX(7deg)
-            rotateY(12deg);
+            translateY(-16px)
+            rotateX(4deg)
+            rotateY(-7deg);
     }
 }
 
-.ring {
+#shaderCanvas {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    display: block;
+
+    opacity: .96;
+}
+
+.scene-ring {
     position: absolute;
 
-    width: 430px;
-    height: 170px;
+    width: 75%;
+    height: 25%;
 
     border:
-        1px solid rgba(112,139,255,.6);
+        1px solid
+        rgba(110,145,255,.7);
 
     border-radius: 50%;
 
     transform:
-        rotateX(70deg)
-        rotateZ(8deg);
+        rotateX(68deg)
+        rotateZ(-14deg)
+        translateZ(50px);
 
     box-shadow:
-        0 0 30px rgba(112,139,255,.12);
+        0 0 30px rgba(100,140,255,.16);
 
     animation:
-        ringSpin 9s linear infinite;
+        ringSpin 12s linear infinite;
 }
 
-.ring.r2 {
-    width: 390px;
-    height: 150px;
+.scene-ring.r2 {
+    width: 88%;
+    height: 32%;
 
     transform:
-        rotateX(70deg)
-        rotateZ(62deg);
+        rotateX(68deg)
+        rotateZ(35deg)
+        translateZ(30px);
 
-    border-color: rgba(72,232,223,.55);
-
-    animation-duration: 12s;
+    animation-duration: 18s;
     animation-direction: reverse;
 }
 
-.ring.r3 {
-    width: 470px;
-    height: 190px;
+.scene-ring.r3 {
+    width: 68%;
+    height: 21%;
 
     transform:
-        rotateX(70deg)
-        rotateZ(-30deg);
+        rotateX(72deg)
+        rotateZ(95deg)
+        translateZ(70px);
 
-    border-color: rgba(173,124,255,.4);
-
-    animation-duration: 16s;
+    animation-duration: 14s;
 }
 
 @keyframes ringSpin {
     to {
-        transform:
-            rotateX(70deg)
-            rotateZ(368deg);
+        rotate: 360deg;
     }
 }
 
-.orbit-dot {
+.core-glow {
     position: absolute;
 
-    width: 15px;
-    height: 15px;
+    width: 42%;
+    aspect-ratio: 1;
 
     border-radius: 50%;
 
-    background: var(--cyan);
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            rgba(255,255,255,.85),
+            rgba(114,140,255,.65) 8%,
+            rgba(40,50,130,.8) 42%,
+            rgba(3,7,25,.95) 72%
+        );
 
     box-shadow:
-        0 0 25px var(--cyan);
+        0 0 90px rgba(114,140,255,.45),
+        inset -30px -40px 80px rgba(0,0,0,.7);
+
+    transform:
+        translateZ(100px);
 
     animation:
-        orbit 6s linear infinite;
+        corePulse 5s ease-in-out infinite;
 }
 
-.orbit-dot.d2 {
-    background: var(--purple);
-    box-shadow: 0 0 25px var(--purple);
-    animation-duration: 8s;
-    animation-delay: -2s;
-}
+@keyframes corePulse {
 
-@keyframes orbit {
-    from {
-        transform:
-            rotate(0deg)
-            translateX(220px)
-            rotate(0deg);
+    0%,100% {
+        scale: 1;
     }
 
-    to {
-        transform:
-            rotate(360deg)
-            translateX(220px)
-            rotate(-360deg);
+    50% {
+        scale: 1.045;
     }
 }
 
-.core-label {
+.scene-label {
     position: absolute;
 
-    bottom: 30px;
+    bottom: 7%;
 
-    padding: 8px 14px;
+    padding: 10px 18px;
+
+    border:
+        1px solid var(--border);
 
     border-radius: 999px;
 
     background:
-        rgba(0,0,0,.38);
+        rgba(4,8,20,.65);
 
-    border: 1px solid rgba(255,255,255,.12);
+    color: var(--muted);
+
+    font-size: .7rem;
+    font-weight: 900;
+
+    letter-spacing: .12em;
 
     backdrop-filter: blur(15px);
 
-    font-size: .72rem;
-    font-weight: 800;
-
-    letter-spacing: .12em;
-    text-transform: uppercase;
-
-    color: rgba(255,255,255,.75);
+    transform:
+        translateZ(120px);
 }
 
+
 /* ============================================================
-   SECTION
+   09 — STATUS STRIP
+   ============================================================ */
+
+.status-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap: 14px;
+
+    margin-top: 48px;
+}
+
+.status-card {
+    padding: 20px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        var(--shadow);
+
+    transition:
+        transform .35s var(--spring),
+        background .3s ease;
+}
+
+.status-card:hover {
+    transform:
+        translateY(-7px)
+        rotateX(3deg)
+        rotateY(-3deg);
+
+    background: var(--surface-2);
+}
+
+.status-number {
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.status-label {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: .82rem;
+}
+
+
+/* ============================================================
+   10 — SECTION SYSTEM
    ============================================================ */
 
 section {
-    padding: 105px 0;
+    position: relative;
+    padding: 110px 0;
 }
 
-.section-head {
-    margin-bottom: 45px;
+.section-heading {
+    max-width: 760px;
+
+    margin-bottom: 46px;
 }
 
 .section-kicker {
@@ -945,117 +1016,117 @@ section {
 
     letter-spacing: .16em;
     text-transform: uppercase;
+
+    margin-bottom: 12px;
 }
 
-.section-title {
-    margin-top: 8px;
+.section-heading h2 {
+    margin: 0;
 
     font-size:
         clamp(
             2.2rem,
             5vw,
-            4rem
+            4.5rem
         );
 
-    line-height: 1;
+    line-height: .98;
 
-    letter-spacing: -.055em;
+    letter-spacing: -.06em;
 }
 
-.section-text {
-    max-width: 680px;
-
-    margin-top: 15px;
+.section-heading p {
+    margin-top: 18px;
 
     color: var(--muted);
+
+    font-size: 1.03rem;
 }
 
+
 /* ============================================================
-   GLASS CARDS
+   11 — GLASS CARDS
    ============================================================ */
 
-.glass {
+.glass-card {
     position: relative;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: var(--radius);
 
     background:
         linear-gradient(
             135deg,
-            rgba(255,255,255,.08),
+            rgba(255,255,255,.085),
             rgba(255,255,255,.025)
         );
 
-    border: 1px solid var(--border);
-
-    border-radius: var(--radius);
-
     backdrop-filter:
-        blur(25px)
-        saturate(150%);
+        blur(var(--glass-blur))
+        saturate(145%);
 
     -webkit-backdrop-filter:
-        blur(25px)
-        saturate(150%);
+        blur(var(--glass-blur))
+        saturate(145%);
 
-    box-shadow: var(--glass-shadow);
+    box-shadow:
+        var(--shadow);
 
     overflow: hidden;
+
+    transition:
+        transform .45s var(--spring),
+        border-color .3s ease,
+        background .3s ease;
 }
 
-.glass::before {
+.glass-card::before {
     content: "";
 
     position: absolute;
-
     inset: 0;
-
-    pointer-events: none;
 
     background:
         linear-gradient(
-            120deg,
-            rgba(255,255,255,.09),
-            transparent 30%,
-            transparent 70%,
-            rgba(72,232,223,.04)
+            125deg,
+            rgba(255,255,255,.10),
+            transparent 30%
         );
+
+    pointer-events: none;
 }
 
-.glass:hover {
+.glass-card:hover {
     border-color:
-        rgba(113,135,255,.28);
+        rgba(114,140,255,.28);
+
+    transform:
+        translateY(-7px);
 }
+
 
 /* ============================================================
-   EXPERTISE
+   12 — EXPERTISE
    ============================================================ */
 
 .expertise-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(3, minmax(0,1fr));
+        repeat(4,1fr);
 
-    gap: 18px;
+    gap: 16px;
 }
 
 .expertise-card {
-    padding: 28px;
+    min-height: 190px;
 
-    min-height: 230px;
-
-    transition:
-        transform .45s var(--transition),
-        border-color .3s ease;
+    padding: 26px;
 }
 
-.expertise-card:hover {
-    transform:
-        translateY(-10px)
-        rotateX(2deg)
-        rotateY(-2deg);
-}
-
-.card-icon {
+.expertise-icon {
     width: 48px;
     height: 48px;
 
@@ -1067,274 +1138,335 @@ section {
     background:
         linear-gradient(
             135deg,
-            rgba(113,135,255,.18),
-            rgba(72,232,223,.08)
+            rgba(114,140,255,.25),
+            rgba(83,231,223,.13)
         );
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    margin-bottom: 20px;
+    font-size: 1.25rem;
 
-    font-size: 1.3rem;
+    margin-bottom: 22px;
 }
 
 .expertise-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
 
 .expertise-card p {
-    margin-top: 10px;
-
     color: var(--muted);
 
-    font-size: .92rem;
+    font-size: .86rem;
+
+    margin-top: 8px;
 }
 
+
 /* ============================================================
-   KAGGRICULTURE
+   13 — KAGGRICULTURE
    ============================================================ */
 
-.project {
+.project-shell {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0,.9fr)
+        minmax(0,1.1fr);
+
+    gap: 18px;
+}
+
+.project-visual {
+    min-height: 560px;
+
+    display: grid;
+    place-items: center;
+
     padding: 35px;
+
+    overflow: hidden;
+}
+
+.project-visual::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(83,231,223,.24),
+            transparent 68%
+        );
+
+    filter: blur(30px);
+
+    animation:
+        projectGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes projectGlow {
+    from {
+        transform:
+            translate(-35px,20px)
+            scale(.9);
+    }
+
+    to {
+        transform:
+            translate(35px,-20px)
+            scale(1.12);
+    }
+}
+
+.farm-3d {
+    position: relative;
+
+    width: min(390px,90%);
+
+    aspect-ratio: 1;
+
+    transform-style: preserve-3d;
+
+    perspective: 1000px;
+
+    transform:
+        rotateX(55deg)
+        rotateZ(-28deg);
+
+    animation:
+        farmFloat 7s ease-in-out infinite;
+}
+
+@keyframes farmFloat {
+
+    0%,100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: 0 -13px;
+    }
+}
+
+.farm-plane {
+    position: absolute;
+    inset: 8%;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #193b35,
+            #0c2522
+        );
+
+    border:
+        1px solid
+        rgba(94,231,223,.35);
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,.35);
+
+    transform:
+        translateZ(0);
+}
+
+.farm-grid {
+    position: absolute;
+    inset: 12%;
 
     display: grid;
 
     grid-template-columns:
-        1.1fr
-        .9fr;
+        repeat(5,1fr);
 
-    gap: 35px;
+    gap: 7px;
+
+    transform:
+        translateZ(30px);
 }
 
-.project-badge {
+.farm-cell {
+    border-radius: 7px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #31735b,
+            #183f34
+        );
+
+    border:
+        1px solid
+        rgba(100,240,180,.16);
+
+    box-shadow:
+        inset 0 2px rgba(255,255,255,.08);
+}
+
+.farm-cell:nth-child(3n) {
+    background:
+        linear-gradient(
+            145deg,
+            #558a4d,
+            #24533c
+        );
+}
+
+.farm-orb {
+    position: absolute;
+
+    width: 70px;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 25%,
+            white,
+            #58e8df 12%,
+            #4555ce 48%,
+            #10132f 72%
+        );
+
+    box-shadow:
+        0 0 40px rgba(83,231,223,.4);
+
+    transform:
+        translateZ(90px);
+
+    animation:
+        farmOrb 5s ease-in-out infinite alternate;
+}
+
+@keyframes farmOrb {
+    from {
+        translate: -40px -15px;
+    }
+
+    to {
+        translate: 50px 35px;
+    }
+}
+
+.project-content {
+    padding: 38px;
+}
+
+.project-tag {
     display: inline-flex;
 
     padding: 7px 11px;
 
+    border:
+        1px solid var(--border);
+
     border-radius: 999px;
 
-    background: rgba(101,231,162,.08);
-
-    border:
-        1px solid rgba(101,231,162,.18);
-
-    color: var(--green);
+    color: var(--cyan);
 
     font-size: .72rem;
     font-weight: 900;
 
-    letter-spacing: .1em;
-    text-transform: uppercase;
+    background: var(--surface);
 }
 
-.project h3 {
+.project-content h3 {
     margin-top: 18px;
 
     font-size:
         clamp(
             2rem,
-            4vw,
-            3.2rem
+            5vw,
+            3.7rem
         );
 
-    line-height: 1;
+    line-height: .98;
 
-    letter-spacing: -.055em;
+    letter-spacing: -.06em;
 }
 
-.project-description {
-    margin-top: 18px;
-
-    color: var(--muted);
-
-    line-height: 1.85;
-}
-
-.project-stack {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-
+.project-content > p {
     margin-top: 22px;
-}
-
-.tag {
-    padding: 7px 11px;
-
-    border-radius: 999px;
-
-    background: var(--surface);
-
-    border: 1px solid var(--border);
 
     color: var(--muted);
 
-    font-size: .75rem;
+    font-size: 1rem;
+
+    line-height: 1.8;
 }
 
-.project-visual {
-    min-height: 350px;
-
-    position: relative;
-
-    display: grid;
-    place-items: center;
-
-    perspective: 1000px;
-}
-
-.farm-cube {
-    width: 190px;
-    height: 190px;
-
-    position: relative;
-
-    transform-style: preserve-3d;
-
-    transform:
-        rotateX(58deg)
-        rotateZ(-35deg);
-
-    animation:
-        cubeFloat 8s ease-in-out infinite;
-}
-
-.farm-face {
-    position: absolute;
-
-    inset: 0;
-
-    border: 1px solid rgba(72,232,223,.25);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(72,232,223,.15),
-            rgba(113,135,255,.09)
-        );
-
-    backdrop-filter: blur(10px);
-}
-
-.farm-face.front {
-    transform: translateZ(95px);
-}
-
-.farm-face.back {
-    transform: rotateY(180deg) translateZ(95px);
-}
-
-.farm-face.left {
-    transform:
-        rotateY(-90deg)
-        translateZ(95px);
-}
-
-.farm-face.right {
-    transform:
-        rotateY(90deg)
-        translateZ(95px);
-}
-
-.farm-face.top {
-    transform:
-        rotateX(90deg)
-        translateZ(95px);
-}
-
-.farm-face.bottom {
-    transform:
-        rotateX(-90deg)
-        translateZ(95px);
-}
-
-@keyframes cubeFloat {
-    0%,100% {
-        transform:
-            rotateX(58deg)
-            rotateZ(-35deg)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            rotateX(62deg)
-            rotateZ(-28deg)
-            translateY(-20px);
-    }
-}
-
-.project-stats {
+.project-features {
     display: grid;
 
     grid-template-columns:
         repeat(2,1fr);
 
-    gap: 12px;
+    gap: 10px;
 
-    margin-top: 22px;
+    margin-top: 26px;
 }
 
-.stat {
-    padding: 17px;
+.feature {
+    padding: 14px;
 
-    border-radius: 18px;
+    border:
+        1px solid var(--border);
 
-    background: var(--surface);
+    border-radius: 15px;
 
-    border: 1px solid var(--border);
-}
+    background: rgba(255,255,255,.035);
 
-.stat strong {
-    display: block;
-
-    font-size: 1.2rem;
-}
-
-.stat span {
     color: var(--muted);
 
-    font-size: .75rem;
+    font-size: .82rem;
 }
 
+.feature strong {
+    display: block;
+
+    color: var(--text);
+
+    margin-bottom: 4px;
+}
+
+
 /* ============================================================
-   TEAM
+   14 — TEAM
    ============================================================ */
 
 .team-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(5, minmax(0,1fr));
+        repeat(5,1fr);
 
     gap: 12px;
 }
 
 .team-card {
-    padding: 20px;
+    min-height: 180px;
 
-    text-align: center;
-
-    transition:
-        transform .35s var(--transition);
+    padding: 24px;
 }
 
-.team-card:hover {
-    transform: translateY(-8px);
-}
-
-.avatar {
-    width: 60px;
-    height: 60px;
-
-    margin: 0 auto 13px;
+.team-avatar {
+    width: 55px;
+    height: 55px;
 
     display: grid;
     place-items: center;
 
-    border-radius: 20px;
+    border-radius: 18px;
 
     background:
         linear-gradient(
@@ -1343,53 +1475,70 @@ section {
             var(--cyan)
         );
 
-    color: #06101b;
+    color: #071019;
 
     font-weight: 1000;
 
     box-shadow:
-        0 12px 35px rgba(72,232,223,.15);
+        0 15px 30px rgba(83,231,223,.13);
+
+    margin-bottom: 22px;
 }
 
-.team-card h4 {
-    font-size: .9rem;
+.team-card h3 {
+    font-size: 1rem;
 }
 
-.team-card p {
-    margin-top: 4px;
-
+.team-role {
     color: var(--muted);
 
-    font-size: .7rem;
+    font-size: .76rem;
+
+    margin-top: 5px;
 }
 
+
 /* ============================================================
-   ETERNAL
+   15 — ETERNAL COMMUNITY
    ============================================================ */
 
 .eternal {
-    padding: 40px;
-
-    display: grid;
-
-    grid-template-columns:
-        1fr
-        1fr;
-
-    gap: 30px;
-
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(173,124,255,.12),
-            transparent 35%
-        ),
-        var(--surface);
+    padding-top: 60px;
 }
 
-.eternal-title {
+.eternal-card {
+    position: relative;
+
+    padding: 55px;
+
+    overflow: hidden;
+}
+
+.eternal-card::before {
+    content: "ETERNAL";
+
+    position: absolute;
+
+    right: -30px;
+    bottom: -65px;
+
+    font-size:
+        clamp(
+            5rem,
+            18vw,
+            13rem
+        );
+
+    font-weight: 1000;
+
+    letter-spacing: -.08em;
+
+    color: rgba(255,255,255,.025);
+
+    pointer-events: none;
+}
+
+.eternal-logo {
     font-size:
         clamp(
             3rem,
@@ -1397,15 +1546,18 @@ section {
             6rem
         );
 
+    line-height: .9;
+
     font-weight: 1000;
 
-    letter-spacing: -.07em;
+    letter-spacing: -.08em;
 
     background:
         linear-gradient(
             100deg,
-            var(--purple),
-            var(--cyan)
+            var(--blue),
+            var(--cyan),
+            var(--violet)
         );
 
     -webkit-background-clip: text;
@@ -1414,72 +1566,96 @@ section {
     color: transparent;
 }
 
-.eternal p {
-    margin-top: 12px;
+.eternal-card p {
+    max-width: 750px;
+
+    margin-top: 22px;
 
     color: var(--muted);
+
+    font-size: 1rem;
 }
 
-.community-list {
-    display: grid;
-    gap: 10px;
-}
-
-.community-item {
-    padding: 16px;
-
+.eternal-meta {
     display: flex;
-    justify-content: space-between;
 
-    border-radius: 16px;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+.meta-pill {
+    padding: 8px 12px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 999px;
 
     background: var(--surface);
 
-    border: 1px solid var(--border);
+    color: var(--muted);
+
+    font-size: .75rem;
 }
 
-.community-item span:last-child {
-    color: var(--cyan);
-    font-size: .8rem;
-}
 
 /* ============================================================
-   CONTACT
+   16 — CONTACT
    ============================================================ */
 
 .contact-grid {
     display: grid;
 
     grid-template-columns:
-        1fr
-        1fr;
+        1fr 1fr;
 
     gap: 18px;
 }
 
 .contact-card {
-    padding: 30px;
+    padding: 35px;
+}
+
+.contact-card h3 {
+    font-size: 1.8rem;
+
+    letter-spacing: -.04em;
+}
+
+.contact-card p {
+    color: var(--muted);
+
+    margin-top: 10px;
+}
+
+.contact-links {
+    display: grid;
+
+    gap: 10px;
+
+    margin-top: 25px;
 }
 
 .contact-link {
     display: flex;
 
     align-items: center;
+    justify-content: space-between;
 
-    gap: 15px;
+    padding: 15px 17px;
 
-    padding: 15px;
+    border:
+        1px solid var(--border);
 
-    margin-top: 10px;
-
-    border-radius: 17px;
+    border-radius: 16px;
 
     background: var(--surface);
 
-    border: 1px solid var(--border);
-
     transition:
-        transform .3s var(--transition),
+        transform .3s var(--spring),
         background .3s ease;
 }
 
@@ -1489,167 +1665,145 @@ section {
     background: var(--surface-2);
 }
 
-.contact-icon {
-    width: 42px;
-    height: 42px;
+.contact-label {
+    color: var(--muted);
+
+    font-size: .75rem;
+}
+
+.contact-value {
+    font-weight: 800;
+
+    margin-top: 3px;
+}
+
+
+/* ============================================================
+   17 — FOOTER
+   ============================================================ */
+
+footer {
+    padding:
+        55px 0
+        120px;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    border-top:
+        1px solid var(--border);
+}
+
+.footer-name {
+    color: var(--text);
+
+    font-weight: 900;
+}
+
+
+/* ============================================================
+   18 — ADVANCED SCROLL ACTION
+   ============================================================ */
+
+.scroll-action {
+    --progress: 0deg;
+
+    position: fixed;
+
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 1000;
+
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(7,11,20,.58);
+
+    color: var(--text);
 
     display: grid;
     place-items: center;
 
-    border-radius: 13px;
+    cursor: pointer;
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(113,135,255,.18),
-            rgba(72,232,223,.12)
-        );
-}
+    backdrop-filter:
+        blur(18px)
+        saturate(150%);
 
-.contact-link small {
-    display: block;
-
-    color: var(--muted);
-}
-
-.contact-link strong {
-    font-size: .92rem;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
-footer {
-    padding: 50px 0;
-
-    border-top: 1px solid var(--border-soft);
-
-    color: var(--muted);
-
-    font-size: .8rem;
-}
-
-.footer-inner {
-    display: flex;
-
-    justify-content: space-between;
-
-    gap: 20px;
-
-    flex-wrap: wrap;
-}
-
-/* ============================================================
-   SCROLL REVEAL
-   IntersectionObserver controlled
-   ============================================================ */
-
-.reveal {
-    opacity: 0;
+    box-shadow:
+        0 18px 50px rgba(0,0,0,.25);
 
     transform:
-        translateY(35px)
-        scale(.98);
+        translateY(120px)
+        scale(.82);
+
+    opacity: 0;
+
+    pointer-events: none;
 
     transition:
-        opacity .8s ease,
-        transform .8s var(--transition);
+        opacity .35s ease,
+        transform .45s var(--spring),
+        width .45s var(--spring),
+        border-radius .45s var(--spring);
 }
 
-.reveal.visible {
+.scroll-action.visible {
     opacity: 1;
 
     transform:
         translateY(0)
         scale(1);
+
+    pointer-events: auto;
 }
 
-/* ============================================================
-   FLOATING ACTION BUTTON
-   ============================================================ */
+.scroll-action:hover {
+    width: 148px;
 
-.floating {
-    position: fixed;
-
-    right: 20px;
-    bottom: 20px;
-
-    z-index: 900;
-
-    width: 64px;
-    height: 64px;
-
-    border-radius: 50%;
-
-    display: grid;
-    place-items: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--cyan)
-        );
-
-    color: #06101b;
-
-    box-shadow:
-        0 18px 60px rgba(71,145,255,.32);
-
-    transition:
-        transform .4s var(--transition),
-        width .45s var(--transition),
-        border-radius .45s var(--transition),
-        opacity .3s ease;
+    border-radius: 999px;
 }
 
-.floating:hover {
-    width: 160px;
-    border-radius: 24px;
-}
-
-.floating .label {
+.scroll-action-label {
     position: absolute;
+
+    right: 50px;
+
+    width: 0;
 
     opacity: 0;
 
     white-space: nowrap;
 
+    overflow: hidden;
+
+    font-size: .75rem;
     font-weight: 900;
 
-    transform: translateX(8px);
-
-    transition: opacity .3s ease;
+    transition:
+        width .4s var(--ease),
+        opacity .25s ease;
 }
 
-.floating:hover .label {
+.scroll-action:hover
+.scroll-action-label {
+    width: 82px;
     opacity: 1;
 }
 
-.floating .arrow {
-    transition: opacity .2s ease;
-}
-
-.floating:hover .arrow {
-    opacity: 0;
-}
-
-/* ============================================================
-   SVG PROGRESS RING
-   ============================================================ */
-
 .progress-ring {
     position: absolute;
-
-    inset: -5px;
-
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
+    inset: 0;
 
     transform: rotate(-90deg);
-
-    pointer-events: none;
 }
 
 .progress-ring circle {
@@ -1660,26 +1814,49 @@ footer {
     stroke-linecap: round;
 }
 
-.progress-bg {
-    stroke: rgba(255,255,255,.15);
+.progress-track {
+    stroke:
+        rgba(255,255,255,.08);
 }
 
-.progress-fill {
-    stroke: #fff;
+.progress-value {
+    stroke:
+        url(#progressGradient);
 
-    stroke-dasharray: 210;
-
-    stroke-dashoffset: 210;
+    stroke-dasharray: 163;
+    stroke-dashoffset:
+        calc(
+            163 - (163 * var(--scroll-progress,0))
+        );
 
     transition:
-        stroke-dashoffset .15s linear;
+        stroke-dashoffset .1s linear;
 }
 
+
 /* ============================================================
-   PARTICLES
+   19 — CANVAS TRAIL
    ============================================================ */
 
-.particle {
+#trailCanvas {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 999;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   20 — PARTICLES
+   ============================================================ */
+
+.spark {
     position: fixed;
 
     width: 5px;
@@ -1689,42 +1866,52 @@ footer {
 
     pointer-events: none;
 
-    z-index: 2000;
+    z-index: 1200;
 
-    background: var(--cyan);
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--blue)
+        );
 
     box-shadow:
-        0 0 10px var(--cyan);
-
-    animation:
-        particleBlast .8s ease-out forwards;
+        0 0 14px var(--cyan);
 }
 
-@keyframes particleBlast {
-    from {
-        opacity: 1;
-
-        transform:
-            translate(0,0)
-            rotate(0)
-            scale(1);
-    }
-
-    to {
-        opacity: 0;
-
-        transform:
-            translate(
-                var(--x),
-                var(--y)
-            )
-            rotate(180deg)
-            scale(.1);
-    }
-}
 
 /* ============================================================
-   REDUCED MOTION
+   21 — REVEAL ENGINE
+   ============================================================ */
+
+.reveal {
+    opacity: 0;
+
+    transform:
+        translateY(28px)
+        scale(.985);
+
+    filter: blur(5px);
+
+    transition:
+        opacity .8s var(--ease),
+        transform .8s var(--ease),
+        filter .8s var(--ease);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+    filter: blur(0);
+}
+
+
+/* ============================================================
+   22 — REDUCED MOTION
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1737,20 +1924,25 @@ footer {
         animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
     }
+
+    #trailCanvas {
+        display: none;
+    }
 }
 
+
 /* ============================================================
-   TABLET
+   23 — TABLET
    ============================================================ */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
 
-    .hero-grid {
+    .hero-layout {
         grid-template-columns: 1fr;
     }
 
     .scene {
-        min-height: 430px;
+        min-height: 470px;
     }
 
     .expertise-grid {
@@ -1758,16 +1950,12 @@ footer {
             repeat(2,1fr);
     }
 
-    .project {
-        grid-template-columns: 1fr;
-    }
-
     .team-grid {
         grid-template-columns:
             repeat(3,1fr);
     }
 
-    .eternal {
+    .project-shell {
         grid-template-columns: 1fr;
     }
 
@@ -1776,70 +1964,130 @@ footer {
     }
 }
 
+
 /* ============================================================
-   MOBILE
+   24 — MOBILE
    ============================================================ */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
-    :root {
-        --nav-height: 64px;
+    .nav-links {
+        position: fixed;
+
+        top: 78px;
+        left: 4%;
+
+        width: 92%;
+
+        padding: 15px;
+
+        display: grid;
+
+        gap: 5px;
+
+        background:
+            rgba(8,12,24,.82);
+
+        border:
+            1px solid var(--border);
+
+        border-radius: 20px;
+
+        backdrop-filter: blur(24px);
+
+        transform:
+            translateY(-15px)
+            scale(.98);
+
+        opacity: 0;
+        pointer-events: none;
+
+        transition:
+            opacity .3s ease,
+            transform .3s var(--spring);
     }
 
-    .container {
-        width: min(91%, 1180px);
+    html[data-theme="light"] .nav-links {
+        background:
+            rgba(255,255,255,.82);
+    }
+
+    .nav-links.open {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+        pointer-events: auto;
+    }
+
+    .nav-links a {
+        padding: 14px;
+
+        border-radius: 13px;
+    }
+
+    .nav-links a:hover {
+        background: var(--surface);
+    }
+
+    .menu-button {
+        display: grid;
     }
 
     .hero {
-        padding-top:
-            calc(var(--nav-height) + 45px);
+        padding-top: 120px;
     }
 
-    .hero-title {
+    .hero h1 {
         font-size:
             clamp(
-                3.3rem,
+                3.1rem,
                 18vw,
-                5rem
+                5.5rem
             );
     }
 
-    .hero-description {
+    .hero-copy {
         font-size: .98rem;
-        line-height: 1.75;
     }
 
-    .hero-actions {
-        flex-direction: column;
+    .hero-buttons {
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
-    .magnetic {
+    .glass-button {
         width: 100%;
     }
 
     .scene {
         min-height: 390px;
-        transform: scale(.78);
     }
 
-    section {
-        padding: 75px 0;
+    .webgl-shell {
+        width: 330px;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
     }
 
     .expertise-grid {
         grid-template-columns: 1fr;
     }
 
-    .expertise-card {
-        min-height: auto;
-    }
-
-    .project {
-        padding: 23px;
-    }
-
     .project-visual {
-        min-height: 270px;
+        min-height: 390px;
+    }
+
+    .project-content {
+        padding: 27px;
+    }
+
+    .project-features {
+        grid-template-columns: 1fr;
     }
 
     .team-grid {
@@ -1847,54 +2095,51 @@ footer {
             repeat(2,1fr);
     }
 
-    .eternal {
-        padding: 25px;
+    .eternal-card {
+        padding: 30px;
     }
 
     .contact-card {
-        padding: 22px;
+        padding: 27px;
     }
 
-    .floating {
+    section {
+        padding: 80px 0;
+    }
+
+    .scroll-action {
         right: 15px;
         bottom: 15px;
-
-        width: 58px;
-        height: 58px;
-    }
-
-    .floating:hover {
-        width: 58px;
-        border-radius: 50%;
-    }
-
-    .floating:hover .label {
-        opacity: 0;
-    }
-
-    .floating:hover .arrow {
-        opacity: 1;
-    }
-
-    .core {
-        width: 190px;
-        height: 190px;
-    }
-
-    .ring {
-        width: 340px;
-    }
-
-    .ring.r2 {
-        width: 300px;
-    }
-
-    .ring.r3 {
-        width: 370px;
     }
 }
+
+
+/* ============================================================
+   25 — VERY SMALL DEVICES
+   ============================================================ */
+
+@media (max-width: 390px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scene {
+        min-height: 340px;
+    }
+
+    .webgl-shell {
+        width: 290px;
+    }
+}
+
 </style>
 </head>
+
 
 <body>
 
@@ -1902,13 +2147,14 @@ footer {
      BACKGROUND
      ============================================================ -->
 
-<div class="background" aria-hidden="true">
-    <div class="grid"></div>
+<div class="background-grid"></div>
 
-    <div class="orb a"></div>
-    <div class="orb b"></div>
-    <div class="orb c"></div>
-</div>
+<div class="ambient-orb orb-a"></div>
+<div class="ambient-orb orb-b"></div>
+<div class="ambient-orb orb-c"></div>
+
+<canvas id="trailCanvas"></canvas>
+
 
 <!-- ============================================================
      NAVIGATION
@@ -1918,24 +2164,46 @@ footer {
 
     <div class="container nav-inner">
 
-        <a href="#home" class="brand">
-            RAGHAVAN
+        <a
+            class="brand"
+            href="#top"
+            aria-label="RAGHAVAN home"
+        >
+            <span class="brand-name">RAGHAVAN</span>
         </a>
+
+        <nav
+            class="nav-links"
+            id="navLinks"
+            aria-label="Main navigation"
+        >
+
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#project">Project</a>
+            <a href="#eternal">ETERNAL</a>
+            <a href="#team">Team</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
 
         <div class="nav-actions">
 
             <button
-                class="icon-button"
+                class="icon-btn"
                 id="themeButton"
-                aria-label="Toggle theme"
-                title="Toggle light and dark mode">
-                ☀
+                aria-label="Toggle light and dark mode"
+                title="Toggle theme"
+            >
+                ◐
             </button>
 
             <button
-                class="icon-button"
+                class="icon-btn menu-button"
                 id="menuButton"
-                aria-label="Open navigation">
+                aria-label="Open menu"
+                aria-expanded="false"
+            >
                 ☰
             </button>
 
@@ -1945,99 +2213,137 @@ footer {
 
 </header>
 
-<!-- ============================================================
-     MENU
-     ============================================================ -->
-
-<nav class="menu" id="menu">
-
-    <a href="#home">Home</a>
-    <a href="#expertise">Expertise</a>
-    <a href="#kaggriculture">Kaggriculture</a>
-    <a href="#team">Team</a>
-    <a href="#eternal">ETERNAL</a>
-    <a href="#contact">Contact</a>
-
-</nav>
 
 <!-- ============================================================
      HERO
      ============================================================ -->
 
-<main>
+<main id="top">
 
-<section class="hero" id="home">
+<section class="hero" id="about">
 
-    <div class="container hero-grid">
+    <div class="container hero-layout">
 
-        <div class="reveal">
+        <div class="hero-content reveal">
 
             <div class="eyebrow">
-                <span class="status-dot"></span>
-                Building • Learning • Engineering
+
+                <span class="eyebrow-dot"></span>
+
+                ENGINEERING • SOFTWARE • INTELLIGENT SYSTEMS
+
             </div>
 
-            <h1 class="hero-title">
-                RAGHAVAN
-                <span class="dynamic">
-                    builds intelligence.
+            <h1>
+
+                Building
+                <span class="hero-title-gradient">
+                    intelligent
                 </span>
+
+                systems.
+
             </h1>
 
-            <p class="hero-description">
-                Software-focused developer building Python systems,
-                intelligent decision architectures, automation,
-                experimental engineering projects and
-                high-performance digital experiences.
+            <p class="hero-copy">
+
+                RAGHAVAN is a software-focused developer exploring
+                Python, intelligent decision systems, automation,
+                machine learning concepts and advanced software
+                architecture — with a focus on building systems
+                that are practical, adaptive and engineered to scale.
+
             </p>
 
-            <div class="hero-actions">
+            <div class="hero-buttons">
 
                 <a
-                    href="#kaggriculture"
-                    class="magnetic"
-                    data-magnetic>
-
-                    <span>
-                        Explore Kaggriculture
-                    </span>
-
-                    <span>→</span>
-
+                    class="glass-button primary magnetic"
+                    href="#project"
+                    data-audio="click"
+                >
+                    <span>Explore Kaggriculture →</span>
                 </a>
 
                 <a
-                    href="#eternal"
-                    class="magnetic secondary"
-                    data-magnetic>
-
-                    <span>
-                        Explore ETERNAL
-                    </span>
-
-                    <span>↗</span>
-
+                    class="glass-button magnetic"
+                    href="#contact"
+                    data-audio="click"
+                >
+                    <span>Connect with RAGHAVAN</span>
                 </a>
 
             </div>
 
         </div>
 
-        <!-- 3D CORE -->
 
-        <div class="scene reveal">
+        <!-- 3D ENGINE -->
 
-            <div class="ring"></div>
-            <div class="ring r2"></div>
-            <div class="ring r3"></div>
+        <div
+            class="scene reveal"
+            id="heroScene"
+        >
 
-            <div class="orbit-dot"></div>
-            <div class="orbit-dot d2"></div>
+            <div class="webgl-shell">
 
-            <div class="core"></div>
+                <canvas id="shaderCanvas"></canvas>
 
-            <div class="core-label">
-                SOFTWARE • SYSTEMS • ENGINEERING
+            </div>
+
+            <div class="core-glow"></div>
+
+            <div class="scene-ring"></div>
+            <div class="scene-ring r2"></div>
+            <div class="scene-ring r3"></div>
+
+            <div class="scene-label">
+                SYSTEM • ACTIVE
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+
+        <div class="status-grid">
+
+            <div class="status-card reveal">
+
+                <div class="status-number">
+                    Python
+                </div>
+
+                <div class="status-label">
+                    Primary engineering language
+                </div>
+
+            </div>
+
+            <div class="status-card reveal">
+
+                <div class="status-number">
+                    Kaggriculture
+                </div>
+
+                <div class="status-label">
+                    Featured engineering project
+                </div>
+
+            </div>
+
+            <div class="status-card reveal">
+
+                <div class="status-number">
+                    ETERNAL
+                </div>
+
+                <div class="status-label">
+                    Technical community
+                </div>
+
             </div>
 
         </div>
@@ -2045,6 +2351,7 @@ footer {
     </div>
 
 </section>
+
 
 <!-- ============================================================
      EXPERTISE
@@ -2054,100 +2361,134 @@ footer {
 
     <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
             <div class="section-kicker">
-                Expertise
+                Capability Matrix
             </div>
 
-            <h2 class="section-title">
-                Engineering beyond the surface.
+            <h2>
+                Engineering across multiple layers.
             </h2>
 
-            <p class="section-text">
-                A broad technical foundation focused on building
-                reliable software systems and continuously improving
-                engineering capability.
+            <p>
+                A broad technical foundation spanning programming,
+                intelligent systems, data-driven development,
+                automation and software engineering.
             </p>
 
         </div>
 
+
         <div class="expertise-grid">
 
-            <article class="glass expertise-card reveal">
+            <article class="glass-card expertise-card reveal">
 
-                <div class="card-icon">🐍</div>
+                <div class="expertise-icon">⌘</div>
 
                 <h3>Python Engineering</h3>
 
                 <p>
-                    Structured Python development, automation,
-                    data processing, architecture and system design.
+                    Modular software, automation, data processing,
+                    system logic and engineering workflows.
                 </p>
 
             </article>
 
-            <article class="glass expertise-card reveal">
 
-                <div class="card-icon">🧠</div>
+            <article class="glass-card expertise-card reveal">
+
+                <div class="expertise-icon">◈</div>
 
                 <h3>Intelligent Systems</h3>
 
                 <p>
-                    Decision systems, adaptive logic, autonomous
-                    workflows and experimental intelligent architectures.
+                    Decision systems, adaptive logic, agents and
+                    experimental intelligent architectures.
                 </p>
 
             </article>
 
-            <article class="glass expertise-card reveal">
 
-                <div class="card-icon">⚙️</div>
+            <article class="glass-card expertise-card reveal">
 
-                <h3>Software Engineering</h3>
+                <div class="expertise-icon">◉</div>
+
+                <h3>Machine Learning</h3>
 
                 <p>
-                    Modular architecture, interfaces, testing,
-                    integration, validation and maintainable systems.
+                    Learning pipelines, evaluation concepts,
+                    experimentation and model-driven systems.
                 </p>
 
             </article>
 
-            <article class="glass expertise-card reveal">
 
-                <div class="card-icon">📊</div>
+            <article class="glass-card expertise-card reveal">
 
-                <h3>Data & Analysis</h3>
+                <div class="expertise-icon">⚙</div>
+
+                <h3>Software Architecture</h3>
 
                 <p>
-                    Data-oriented workflows, evaluation pipelines,
-                    metrics and analytical engineering.
+                    Modular design, testing, interfaces, Git,
+                    integration and maintainable engineering.
                 </p>
 
             </article>
 
-            <article class="glass expertise-card reveal">
 
-                <div class="card-icon">🔗</div>
+            <article class="glass-card expertise-card reveal">
+
+                <div class="expertise-icon">▣</div>
+
+                <h3>Data Engineering</h3>
+
+                <p>
+                    Structured data, pipelines, analysis and
+                    reliable data-oriented workflows.
+                </p>
+
+            </article>
+
+
+            <article class="glass-card expertise-card reveal">
+
+                <div class="expertise-icon">↗</div>
+
+                <h3>Automation</h3>
+
+                <p>
+                    Engineering repetitive workflows into efficient,
+                    measurable and reusable systems.
+                </p>
+
+            </article>
+
+
+            <article class="glass-card expertise-card reveal">
+
+                <div class="expertise-icon">⌘</div>
 
                 <h3>Git & GitHub</h3>
 
                 <p>
                     Version control, collaborative development,
-                    repositories, branches, commits and deployment.
+                    branches, commits and project delivery.
                 </p>
 
             </article>
 
-            <article class="glass expertise-card reveal">
 
-                <div class="card-icon">🛡️</div>
+            <article class="glass-card expertise-card reveal">
 
-                <h3>Ethical Cybersecurity</h3>
+                <div class="expertise-icon">◇</div>
+
+                <h3>Experimental Engineering</h3>
 
                 <p>
-                    Security-minded engineering and responsible
-                    exploration through the ETERNAL community.
+                    Turning ideas into prototypes and progressively
+                    refining them into stronger systems.
                 </p>
 
             </article>
@@ -2157,133 +2498,244 @@ footer {
     </div>
 
 </section>
+
 
 <!-- ============================================================
      KAGGRICULTURE
      ============================================================ -->
 
-<section id="kaggriculture">
+<section id="project">
 
     <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
             <div class="section-kicker">
                 Featured Project
             </div>
 
-            <h2 class="section-title">
+            <h2>
                 Crop Coders — Kaggriculture.
             </h2>
 
-            <p class="section-text">
-                The current flagship project and primary engineering
-                focus of this portfolio.
+            <p>
+                The current flagship project showcased on this
+                portfolio.
             </p>
 
         </div>
 
-        <article class="glass project reveal">
 
-            <div>
+        <div class="project-shell">
 
-                <span class="project-badge">
-                    Flagship Project
+            <div class="glass-card project-visual reveal">
+
+                <div class="farm-3d">
+
+                    <div class="farm-plane"></div>
+
+                    <div class="farm-grid">
+
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+                        <div class="farm-cell"></div>
+
+                    </div>
+
+                    <div class="farm-orb"></div>
+
+                </div>
+
+            </div>
+
+
+            <article class="glass-card project-content reveal">
+
+                <span class="project-tag">
+                    CROP CODERS
                 </span>
 
                 <h3>
-                    Crop Coders
-                    <br>
                     Kaggriculture
                 </h3>
 
-                <p class="project-description">
-                    Kaggriculture is a simulation-based agricultural
-                    decision environment where an intelligent agent
-                    operates through a turn-based season.
-                    The Crop Coders architecture focuses on building
-                    a modular decision system capable of observing
-                    the environment, generating strategies,
-                    planning actions, learning from feedback,
-                    evaluating performance and improving its
-                    behaviour over repeated interactions.
+                <p>
+                    Crop Coders — Kaggriculture is an engineering
+                    project focused on building an intelligent
+                    decision-making system for a simulated farming
+                    environment.
                 </p>
 
-                <p class="project-description">
-                    The architecture is organized around specialized
-                    phases covering strategy generation,
-                    optimization and planning, observation and
-                    feedback, learning and adaptation, unit and
-                    integration testing, and system-level performance
-                    evaluation.
+                <p>
+                    The architecture explores environment
+                    observation, strategic decision-making,
+                    optimization, feedback, learning, validation,
+                    testing and system-level evaluation.
                 </p>
 
-                <div class="project-stack">
 
-                    <span class="tag">Python</span>
-                    <span class="tag">AI Systems</span>
-                    <span class="tag">Decision Engine</span>
-                    <span class="tag">Planning</span>
-                    <span class="tag">Evaluation</span>
-                    <span class="tag">Testing</span>
-                    <span class="tag">GitHub</span>
+                <div class="project-features">
 
-                </div>
-
-                <div class="project-stats">
-
-                    <div class="stat">
-                        <strong>20</strong>
-                        <span>
-                            Architecture phases
-                        </span>
+                    <div class="feature">
+                        <strong>Decision Engine</strong>
+                        Strategy generation and planning.
                     </div>
 
-                    <div class="stat">
-                        <strong>P11–P16</strong>
-                        <span>
-                            Raghavan engineering scope
-                        </span>
+                    <div class="feature">
+                        <strong>Learning Loop</strong>
+                        Observation, feedback and adaptation.
                     </div>
 
-                    <div class="stat">
-                        <strong>720</strong>
-                        <span>
-                            Simulation turns
-                        </span>
+                    <div class="feature">
+                        <strong>Testing Engine</strong>
+                        Unit, integration and system validation.
                     </div>
 
-                    <div class="stat">
-                        <strong>Modular</strong>
-                        <span>
-                            System architecture
-                        </span>
+                    <div class="feature">
+                        <strong>Architecture</strong>
+                        Modular engineering with clear boundaries.
                     </div>
 
                 </div>
 
-            </div>
 
-            <div class="project-visual">
+                <div style="margin-top:28px">
 
-                <div class="farm-cube">
-
-                    <div class="farm-face front"></div>
-                    <div class="farm-face back"></div>
-                    <div class="farm-face left"></div>
-                    <div class="farm-face right"></div>
-                    <div class="farm-face top"></div>
-                    <div class="farm-face bottom"></div>
+                    <a
+                        class="glass-button primary magnetic"
+                        href="https://github.com/sidhudumi-web/crop-coders-kaggriculture"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-audio="click"
+                    >
+                        <span>View Project on GitHub ↗</span>
+                    </a>
 
                 </div>
 
-            </div>
+            </article>
 
-        </article>
+        </div>
 
     </div>
 
 </section>
+
+
+<!-- ============================================================
+     ETERNAL
+     ============================================================ -->
+
+<section id="eternal" class="eternal">
+
+    <div class="container">
+
+        <div class="glass-card eternal-card reveal">
+
+            <div class="section-kicker">
+                Technical Community
+            </div>
+
+            <div class="eternal-logo">
+                ETERNAL
+            </div>
+
+            <p>
+                ETERNAL is a technical community created around
+                learning, engineering, cybersecurity awareness,
+                experimentation and collaboration. The community
+                is designed to encourage responsible technical
+                exploration, problem-solving and knowledge sharing.
+            </p>
+
+            <p>
+                Its goal is not simply to use technology, but to
+                understand how systems work, how they can be
+                engineered responsibly, and how developers can
+                continuously improve their technical skills.
+            </p>
+
+
+            <div class="eternal-meta">
+
+                <span class="meta-pill">
+                    Responsible Security
+                </span>
+
+                <span class="meta-pill">
+                    Software Engineering
+                </span>
+
+                <span class="meta-pill">
+                    Technical Learning
+                </span>
+
+                <span class="meta-pill">
+                    Collaboration
+                </span>
+
+                <span class="meta-pill">
+                    Research & Experimentation
+                </span>
+
+            </div>
+
+
+            <div style="margin-top:32px">
+
+                <div class="team-role">
+                    Creator
+                </div>
+
+                <strong>
+                    Shanmugam
+                </strong>
+
+                <div
+                    class="team-role"
+                    style="margin-top:14px"
+                >
+                    Technical Leader
+                </div>
+
+                <strong>
+                    RAGHAVAN
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 <!-- ============================================================
      TEAM
@@ -2293,87 +2745,82 @@ footer {
 
     <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
             <div class="section-kicker">
                 Crop Coders
             </div>
 
-            <h2 class="section-title">
-                The team behind the build.
+            <h2>
+                The team behind the project.
             </h2>
 
         </div>
 
+
         <div class="team-grid">
 
-            <article class="glass team-card reveal">
+            <article class="glass-card team-card reveal">
 
-                <div class="avatar">
-                    R
-                </div>
+                <div class="team-avatar">R</div>
 
-                <h4>Raghavan</h4>
+                <h3>Raghavan</h3>
 
-                <p>
+                <div class="team-role">
                     Technical Engineering
-                </p>
+                </div>
 
             </article>
 
-            <article class="glass team-card reveal">
 
-                <div class="avatar">
-                    S
+            <article class="glass-card team-card reveal">
+
+                <div class="team-avatar">S</div>
+
+                <h3>Shanmugam</h3>
+
+                <div class="team-role">
+                    Team Member
                 </div>
-
-                <h4>Shanmugam</h4>
-
-                <p>
-                    Strategy / Growth
-                </p>
 
             </article>
 
-            <article class="glass team-card reveal">
 
-                <div class="avatar">
-                    S
-                </div>
+            <article class="glass-card team-card reveal">
 
-                <h4>Sithananthan</h4>
+                <div class="team-avatar">S</div>
 
-                <p>
+                <h3>Sithananthan</h3>
+
+                <div class="team-role">
                     Strategy Research
-                </p>
+                </div>
 
             </article>
 
-            <article class="glass team-card reveal">
 
-                <div class="avatar">
-                    S
+            <article class="glass-card team-card reveal">
+
+                <div class="team-avatar">S</div>
+
+                <h3>Sumaiyah</h3>
+
+                <div class="team-role">
+                    Coordination & Evaluation
                 </div>
-
-                <h4>Sumaiyah</h4>
-
-                <p>
-                    Coordination / Testing
-                </p>
 
             </article>
 
-            <article class="glass team-card reveal">
 
-                <div class="avatar">
-                    D
+            <article class="glass-card team-card reveal">
+
+                <div class="team-avatar">D</div>
+
+                <h3>Dhanvanthraj</h3>
+
+                <div class="team-role">
+                    Engineering Team
                 </div>
-
-                <h4>Dhanvanthraj</h4>
-
-                <p>
-                    Engineering
-                </p>
 
             </article>
 
@@ -2383,71 +2830,6 @@ footer {
 
 </section>
 
-<!-- ============================================================
-     ETERNAL
-     ============================================================ -->
-
-<section id="eternal">
-
-    <div class="container">
-
-        <article class="glass eternal reveal">
-
-            <div>
-
-                <div class="section-kicker">
-                    Community
-                </div>
-
-                <div class="eternal-title">
-                    ETERNAL
-                </div>
-
-                <p>
-                    A new ethical cybersecurity and technology
-                    community created to explore security,
-                    technology, responsible experimentation,
-                    learning and collaboration.
-                </p>
-
-                <p>
-                    ETERNAL is intended as a responsible space for
-                    learning cybersecurity concepts and developing
-                    security awareness without promoting harmful
-                    or unauthorized activity.
-                </p>
-
-            </div>
-
-            <div class="community-list">
-
-                <div class="community-item">
-                    <span>Creator</span>
-                    <span>Shanmugam</span>
-                </div>
-
-                <div class="community-item">
-                    <span>Technical Leader</span>
-                    <span>Raghavan</span>
-                </div>
-
-                <div class="community-item">
-                    <span>Focus</span>
-                    <span>Ethical Security</span>
-                </div>
-
-                <div class="community-item">
-                    <span>Mission</span>
-                    <span>Learn • Build • Secure</span>
-                </div>
-
-            </div>
-
-        </article>
-
-    </div>
-
-</section>
 
 <!-- ============================================================
      CONTACT
@@ -2457,110 +2839,124 @@ footer {
 
     <div class="container">
 
-        <div class="section-head reveal">
+        <div class="section-heading reveal">
 
             <div class="section-kicker">
                 Contact
             </div>
 
-            <h2 class="section-title">
-                Let's connect.
+            <h2>
+                Let's build something meaningful.
             </h2>
 
-            <p class="section-text">
-                Interested in technology, software engineering,
-                collaboration or the projects above?
+            <p>
+                Connect through the professional profile below.
             </p>
 
         </div>
 
+
         <div class="contact-grid">
 
-            <article class="glass contact-card reveal">
+            <article class="glass-card contact-card reveal">
 
-                <div class="contact-link">
+                <h3>
+                    Professional network
+                </h3>
 
-                    <div class="contact-icon">
-                        ☎
-                    </div>
+                <p>
+                    Find RAGHAVAN on LinkedIn.
+                </p>
 
-                    <div>
-                        <small>Phone</small>
 
-                        <strong>
-                            +91 9626638296
-                        </strong>
-                    </div>
+                <div class="contact-links">
+
+                    <a
+                        class="contact-link magnetic"
+                        href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+
+                        <div>
+
+                            <div class="contact-label">
+                                LinkedIn
+                            </div>
+
+                            <div class="contact-value">
+                                Raghavan Ganesan
+                            </div>
+
+                        </div>
+
+                        <span>↗</span>
+
+                    </a>
 
                 </div>
 
-                <a
-                    class="contact-link"
-                    href="tel:+919626638296">
-
-                    <div class="contact-icon">
-                        📞
-                    </div>
-
-                    <div>
-                        <small>
-                            Call Raghavan
-                        </small>
-
-                        <strong>
-                            +91 9626638296
-                        </strong>
-                    </div>
-
-                </a>
-
             </article>
 
-            <article class="glass contact-card reveal">
 
-                <a
-                    class="contact-link"
-                    href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-                    target="_blank"
-                    rel="noopener noreferrer">
+            <article class="glass-card contact-card reveal">
 
-                    <div class="contact-icon">
-                        in
-                    </div>
+                <h3>
+                    Current focus
+                </h3>
 
-                    <div>
-                        <small>
-                            LinkedIn
-                        </small>
+                <p>
+                    Building stronger software engineering,
+                    intelligent systems and experimental projects.
+                </p>
 
-                        <strong>
-                            Raghavan Ganesan
-                        </strong>
-                    </div>
 
-                </a>
+                <div class="contact-links">
 
-                <a
-                    class="contact-link"
-                    href="https://github.com/ragavan994463-max"
-                    target="_blank"
-                    rel="noopener noreferrer">
+                    <a
+                        class="contact-link"
+                        href="#project"
+                    >
 
-                    <div class="contact-icon">
-                        ◉
-                    </div>
+                        <div>
 
-                    <div>
-                        <small>
-                            GitHub
-                        </small>
+                            <div class="contact-label">
+                                Featured
+                            </div>
 
-                        <strong>
-                            ragavan994463-max
-                        </strong>
-                    </div>
+                            <div class="contact-value">
+                                Crop Coders — Kaggriculture
+                            </div>
 
-                </a>
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a
+                        class="contact-link"
+                        href="#eternal"
+                    >
+
+                        <div>
+
+                            <div class="contact-label">
+                                Community
+                            </div>
+
+                            <div class="contact-value">
+                                ETERNAL
+                            </div>
+
+                        </div>
+
+                        <span>→</span>
+
+                    </a>
+
+                </div>
 
             </article>
 
@@ -2572,46 +2968,6 @@ footer {
 
 </main>
 
-<!-- ============================================================
-     FLOATING SCROLL BUTTON
-     ============================================================ -->
-
-<button
-    class="floating"
-    id="floatingButton"
-    aria-label="Scroll to top">
-
-    <svg
-        class="progress-ring"
-        viewBox="0 0 70 70"
-        aria-hidden="true">
-
-        <circle
-            class="progress-bg"
-            cx="35"
-            cy="35"
-            r="33">
-        </circle>
-
-        <circle
-            class="progress-fill"
-            id="progressFill"
-            cx="35"
-            cy="35"
-            r="33">
-        </circle>
-
-    </svg>
-
-    <span class="arrow">
-        ↑
-    </span>
-
-    <span class="label">
-        Back to top
-    </span>
-
-</button>
 
 <!-- ============================================================
      FOOTER
@@ -2619,144 +2975,234 @@ footer {
 
 <footer>
 
-    <div class="container footer-inner">
+    <div class="container">
 
-        <span>
-            © <span id="year"></span> RAGHAVAN
-        </span>
+        <div class="footer-name">
+            RAGHAVAN
+        </div>
 
-        <span>
-            Built with HTML • CSS • JavaScript
-        </span>
+        <div style="margin-top:7px">
+            Engineering intelligence through software.
+        </div>
 
-        <span>
-            ETERNAL • Crop Coders
-        </span>
+        <div style="margin-top:18px;font-size:.75rem">
+            © <span id="year"></span> RAGHAVAN. Built with HTML,
+            CSS and JavaScript.
+        </div>
 
     </div>
 
 </footer>
 
+
+<!-- ============================================================
+     ADVANCED SCROLL BUTTON
+     ============================================================ -->
+
+<button
+    class="scroll-action"
+    id="scrollAction"
+    aria-label="Scroll to top"
+    title="Back to top"
+>
+
+    <svg
+        class="progress-ring"
+        width="58"
+        height="58"
+        viewBox="0 0 58 58"
+        aria-hidden="true"
+    >
+
+        <defs>
+
+            <linearGradient
+                id="progressGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+            >
+
+                <stop
+                    offset="0%"
+                    stop-color="#728cff"
+                />
+
+                <stop
+                    offset="50%"
+                    stop-color="#53e7df"
+                />
+
+                <stop
+                    offset="100%"
+                    stop-color="#a77cff"
+                />
+
+            </linearGradient>
+
+        </defs>
+
+        <circle
+            class="progress-track"
+            cx="29"
+            cy="29"
+            r="26"
+        ></circle>
+
+        <circle
+            class="progress-value"
+            cx="29"
+            cy="29"
+            r="26"
+        ></circle>
+
+    </svg>
+
+
+    <svg
+        id="directionIcon"
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+
+        <path
+            id="directionPath"
+            d="M6 9l6 6 6-6"
+        ></path>
+
+    </svg>
+
+    <span class="scroll-action-label">
+        Back to top
+    </span>
+
+</button>
+
+
+<!-- ============================================================
+     JAVASCRIPT ENGINE
+     ============================================================ -->
+
 <script>
+
 /* ============================================================
-   RAGHAVAN PORTFOLIO ENGINE
+   01 — SAFE HELPERS
    ============================================================ */
 
 "use strict";
 
-/* ============================================================
-   ELEMENTS
-   ============================================================ */
+const $ = (selector, root = document) =>
+    root.querySelector(selector);
 
-const body =
-    document.body;
+const $$ = (selector, root = document) =>
+    [...root.querySelectorAll(selector)];
 
-const navbar =
-    document.getElementById("navbar");
-
-const menu =
-    document.getElementById("menu");
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const themeButton =
-    document.getElementById("themeButton");
-
-const floatingButton =
-    document.getElementById("floatingButton");
-
-const progressFill =
-    document.getElementById("progressFill");
-
-const year =
-    document.getElementById("year");
 
 /* ============================================================
-   YEAR
+   02 — YEAR
    ============================================================ */
 
-year.textContent =
+$("#year").textContent =
     new Date().getFullYear();
 
+
 /* ============================================================
-   MENU
+   03 — THEME ENGINE
    ============================================================ */
+
+const themeButton = $("#themeButton");
+
+const savedTheme =
+    localStorage.getItem("raghavan-theme");
+
+if (savedTheme === "light") {
+    document.documentElement.dataset.theme = "light";
+}
+
+function updateThemeIcon() {
+
+    const light =
+        document.documentElement.dataset.theme === "light";
+
+    themeButton.textContent =
+        light ? "☀" : "◐";
+}
+
+updateThemeIcon();
+
+themeButton.addEventListener("click", () => {
+
+    const root =
+        document.documentElement;
+
+    const light =
+        root.dataset.theme === "light";
+
+    root.dataset.theme =
+        light ? "dark" : "light";
+
+    localStorage.setItem(
+        "raghavan-theme",
+        root.dataset.theme
+    );
+
+    updateThemeIcon();
+
+    playAudio("click");
+});
+
+
+/* ============================================================
+   04 — MOBILE NAV
+   ============================================================ */
+
+const menuButton = $("#menuButton");
+const navLinks = $("#navLinks");
 
 menuButton.addEventListener("click", () => {
 
-    const isOpen =
-        menu.classList.toggle("open");
+    const open =
+        navLinks.classList.toggle("open");
 
     menuButton.setAttribute(
         "aria-expanded",
-        String(isOpen)
+        String(open)
     );
+
+    menuButton.textContent =
+        open ? "×" : "☰";
 });
 
-document.querySelectorAll(".menu a")
-.forEach(link => {
+$$(".nav-links a").forEach(link => {
 
     link.addEventListener("click", () => {
 
-        menu.classList.remove("open");
+        navLinks.classList.remove("open");
 
         menuButton.setAttribute(
             "aria-expanded",
             "false"
         );
 
+        menuButton.textContent = "☰";
     });
 
 });
 
-/* ============================================================
-   THEME ENGINE
-   ============================================================ */
-
-const savedTheme =
-    localStorage.getItem(
-        "raghavan-theme"
-    );
-
-if (savedTheme === "light") {
-    body.classList.add("light");
-}
-
-function updateThemeIcon() {
-
-    themeButton.textContent =
-        body.classList.contains("light")
-            ? "☾"
-            : "☀";
-}
-
-updateThemeIcon();
-
-themeButton.addEventListener(
-    "click",
-    () => {
-
-        body.classList.toggle("light");
-
-        localStorage.setItem(
-            "raghavan-theme",
-            body.classList.contains("light")
-                ? "light"
-                : "dark"
-        );
-
-        updateThemeIcon();
-
-    }
-);
 
 /* ============================================================
-   INTERSECTION OBSERVER
-   Lightweight visibility system
+   05 — INTERSECTION OBSERVER
+   No heavy scroll visibility listeners.
    ============================================================ */
 
-const observer =
+const revealObserver =
     new IntersectionObserver(
         entries => {
 
@@ -2765,227 +3211,444 @@ const observer =
                 if (entry.isIntersecting) {
 
                     entry.target.classList.add(
-                        "visible"
+                        "is-visible"
                     );
 
-                    observer.unobserve(
+                    revealObserver.unobserve(
                         entry.target
                     );
-
                 }
 
             });
 
         },
         {
-            threshold: .12
+            threshold: .12,
+            rootMargin: "0px 0px -45px 0px"
         }
     );
 
-document
-    .querySelectorAll(".reveal")
-    .forEach(element => {
+$$(".reveal").forEach(element => {
 
-        observer.observe(element);
+    revealObserver.observe(element);
 
-    });
+});
+
 
 /* ============================================================
-   MAGNETIC HOVER
+   06 — AUDIO ENGINE
+   Web Audio API.
    ============================================================ */
 
-const magneticElements =
-    document.querySelectorAll(
-        "[data-magnetic]"
+let audioContext = null;
+
+function getAudioContext() {
+
+    if (!audioContext) {
+
+        const AudioCtx =
+            window.AudioContext ||
+            window.webkitAudioContext;
+
+        if (!AudioCtx) {
+            return null;
+        }
+
+        audioContext =
+            new AudioCtx();
+    }
+
+    if (audioContext.state === "suspended") {
+        audioContext.resume().catch(() => {});
+    }
+
+    return audioContext;
+}
+
+function playAudio(type = "click") {
+
+    const ctx =
+        getAudioContext();
+
+    if (!ctx) return;
+
+    const oscillator =
+        ctx.createOscillator();
+
+    const gain =
+        ctx.createGain();
+
+    oscillator.connect(gain);
+    gain.connect(ctx.destination);
+
+    const now =
+        ctx.currentTime;
+
+    if (type === "hover") {
+
+        oscillator.type = "sine";
+
+        oscillator.frequency.setValueAtTime(
+            520,
+            now
+        );
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            690,
+            now + .055
+        );
+
+        gain.gain.setValueAtTime(
+            .0001,
+            now
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .035,
+            now + .008
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            now + .065
+        );
+
+        oscillator.start(now);
+        oscillator.stop(now + .07);
+
+    } else {
+
+        oscillator.type = "triangle";
+
+        oscillator.frequency.setValueAtTime(
+            180,
+            now
+        );
+
+        oscillator.frequency.exponentialRampToValueAtTime(
+            90,
+            now + .09
+        );
+
+        gain.gain.setValueAtTime(
+            .0001,
+            now
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .045,
+            now + .006
+        );
+
+        gain.gain.exponentialRampToValueAtTime(
+            .0001,
+            now + .11
+        );
+
+        oscillator.start(now);
+        oscillator.stop(now + .12);
+    }
+}
+
+
+/* ============================================================
+   07 — BUTTON AUDIO
+   ============================================================ */
+
+$$("[data-audio]").forEach(button => {
+
+    let hoverPlayed = false;
+
+    button.addEventListener(
+        "mouseenter",
+        () => {
+
+            if (!hoverPlayed) {
+
+                playAudio("hover");
+
+                hoverPlayed = true;
+            }
+
+        }
     );
 
-magneticElements.forEach(element => {
+    button.addEventListener(
+        "mouseleave",
+        () => {
+
+            hoverPlayed = false;
+
+        }
+    );
+
+    button.addEventListener(
+        "click",
+        () => playAudio("click")
+    );
+
+});
+
+
+/* ============================================================
+   08 — MAGNETIC HOVER
+   ============================================================ */
+
+function activateMagnetic(element) {
+
+    let raf = 0;
+
+    function move(event) {
+
+        const rect =
+            element.getBoundingClientRect();
+
+        const centerX =
+            rect.left + rect.width / 2;
+
+        const centerY =
+            rect.top + rect.height / 2;
+
+        const dx =
+            event.clientX - centerX;
+
+        const dy =
+            event.clientY - centerY;
+
+        const strength = 0.16;
+
+        cancelAnimationFrame(raf);
+
+        raf = requestAnimationFrame(() => {
+
+            element.style.transform =
+                `translate3d(${dx * strength}px,
+                              ${dy * strength}px,
+                              0)
+                 scale(1.025)`;
+
+        });
+    }
+
+    function reset() {
+
+        cancelAnimationFrame(raf);
+
+        element.style.transform = "";
+
+    }
 
     element.addEventListener(
+        "mousemove",
+        move
+    );
+
+    element.addEventListener(
+        "mouseleave",
+        reset
+    );
+}
+
+$$(".magnetic").forEach(activateMagnetic);
+
+
+/* ============================================================
+   09 — 3D TILT
+   ============================================================ */
+
+$$(".glass-card").forEach(card => {
+
+    card.addEventListener(
         "pointermove",
         event => {
 
-            if (
-                window.matchMedia(
-                    "(pointer: coarse)"
-                ).matches
-            ) return;
+            if (event.pointerType === "touch") {
+                return;
+            }
 
             const rect =
-                element.getBoundingClientRect();
+                card.getBoundingClientRect();
 
             const x =
-                event.clientX -
-                (rect.left + rect.width / 2);
+                (event.clientX - rect.left)
+                / rect.width;
 
             const y =
-                event.clientY -
-                (rect.top + rect.height / 2);
+                (event.clientY - rect.top)
+                / rect.height;
 
-            const strength = .14;
+            const rotateY =
+                (x - .5) * 8;
 
-            element.style.transform =
-                `translate3d(
-                    ${x * strength}px,
-                    ${y * strength}px,
-                    0
-                )`;
+            const rotateX =
+                (.5 - y) * 7;
 
+            card.style.transform =
+                `perspective(900px)
+                 translateY(-5px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
         }
     );
 
-    element.addEventListener(
+    card.addEventListener(
         "pointerleave",
         () => {
 
-            element.style.transform =
-                "";
+            card.style.transform = "";
 
         }
     );
 
 });
 
-/* ============================================================
-   CLICK PARTICLE EXHAUST
-   ============================================================ */
-
-function createParticles(
-    x,
-    y
-) {
-
-    const count = 18;
-
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
-
-        const particle =
-            document.createElement("span");
-
-        particle.className =
-            "particle";
-
-        const angle =
-            Math.random() *
-            Math.PI * 2;
-
-        const distance =
-            40 +
-            Math.random() * 100;
-
-        const dx =
-            Math.cos(angle) *
-            distance;
-
-        const dy =
-            Math.sin(angle) *
-            distance;
-
-        particle.style.left =
-            `${x}px`;
-
-        particle.style.top =
-            `${y}px`;
-
-        particle.style.setProperty(
-            "--x",
-            `${dx}px`
-        );
-
-        particle.style.setProperty(
-            "--y",
-            `${dy}px`
-        );
-
-        particle.style.width =
-            `${3 + Math.random() * 5}px`;
-
-        particle.style.height =
-            `${3 + Math.random() * 5}px`;
-
-        document.body.appendChild(
-            particle
-        );
-
-        particle.addEventListener(
-            "animationend",
-            () => particle.remove(),
-            {
-                once: true
-            }
-        );
-
-    }
-
-}
-
-document
-    .querySelectorAll(
-        ".magnetic, .floating"
-    )
-    .forEach(button => {
-
-        button.addEventListener(
-            "click",
-            event => {
-
-                createParticles(
-                    event.clientX,
-                    event.clientY
-                );
-
-            }
-        );
-
-    });
 
 /* ============================================================
-   SCROLL DIRECTION REVEAL
-   Uses requestAnimationFrame instead of
-   heavy continuous DOM updates
+   10 — SCROLL PHYSICS
    ============================================================ */
+
+const scrollAction =
+    $("#scrollAction");
 
 let lastScrollY =
     window.scrollY;
 
-let scrollTick =
-    false;
+let scrollVelocity = 0;
 
-function handleScrollDirection() {
+let velocityTarget = 0;
 
-    const currentY =
+function updateScrollPhysics() {
+
+    const y =
         window.scrollY;
 
-    if (
-        currentY > lastScrollY &&
-        currentY > 180
-    ) {
+    velocityTarget =
+        y - lastScrollY;
 
-        navbar.classList.add(
-            "hide"
+    scrollVelocity +=
+        (velocityTarget - scrollVelocity)
+        * .18;
+
+    lastScrollY = y;
+
+    const speed =
+        Math.min(
+            Math.abs(scrollVelocity),
+            45
+        );
+
+    const scaleY =
+        1 + speed * .006;
+
+    const scaleX =
+        1 - speed * .0015;
+
+    scrollAction.style.scale =
+        `${scaleX} ${scaleY}`;
+
+    requestAnimationFrame(
+        updateScrollPhysics
+    );
+}
+
+requestAnimationFrame(
+    updateScrollPhysics
+);
+
+
+/* ============================================================
+   11 — SCROLL PROGRESS + DIRECTION
+   ============================================================ */
+
+let previousScroll =
+    window.scrollY;
+
+function updateScrollUI() {
+
+    const doc =
+        document.documentElement;
+
+    const max =
+        doc.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        max > 0
+            ? Math.min(
+                Math.max(
+                    window.scrollY / max,
+                    0
+                ),
+                1
+            )
+            : 0;
+
+    scrollAction.style
+        .setProperty(
+            "--scroll-progress",
+            progress
+        );
+
+    const goingUp =
+        window.scrollY < previousScroll;
+
+    const shouldShow =
+        window.scrollY > 260;
+
+    if (shouldShow) {
+
+        scrollAction.classList.add(
+            "visible"
         );
 
     } else {
 
-        navbar.classList.remove(
-            "hide"
+        scrollAction.classList.remove(
+            "visible"
         );
-
     }
 
-    lastScrollY =
-        Math.max(
-            currentY,
-            0
+    const path =
+        $("#directionPath");
+
+    if (goingUp) {
+
+        path.setAttribute(
+            "d",
+            "M6 15l6-6 6 6"
         );
 
-    scrollTick =
-        false;
+        scrollAction
+            .setAttribute(
+                "aria-label",
+                "Back to top"
+            );
+
+    } else {
+
+        path.setAttribute(
+            "d",
+            "M6 9l6 6 6-6"
+        );
+
+        scrollAction
+            .setAttribute(
+                "aria-label",
+                "Scroll down"
+            );
+    }
+
+    previousScroll =
+        window.scrollY;
 }
+
+
+/*
+   Lightweight scroll listener only updates numeric UI state.
+   Visibility of sections is handled by IntersectionObserver.
+*/
+
+let scrollTick = false;
 
 window.addEventListener(
     "scroll",
@@ -2993,13 +3656,295 @@ window.addEventListener(
 
         if (!scrollTick) {
 
-            requestAnimationFrame(
-                handleScrollDirection
-            );
-
             scrollTick = true;
 
+            requestAnimationFrame(() => {
+
+                updateScrollUI();
+
+                scrollTick = false;
+
+            });
         }
+
+    },
+    { passive: true }
+);
+
+updateScrollUI();
+
+
+/* ============================================================
+   12 — SCROLL BUTTON
+   ============================================================ */
+
+scrollAction.addEventListener(
+    "click",
+    () => {
+
+        playAudio("click");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        particleBlast(
+            window.innerWidth - 50,
+            window.innerHeight - 50
+        );
+    }
+);
+
+
+/* ============================================================
+   13 — CANVAS PARTICLE ENGINE
+   ============================================================ */
+
+const trailCanvas =
+    $("#trailCanvas");
+
+const trailContext =
+    trailCanvas.getContext(
+        "2d",
+        {
+            alpha: true
+        }
+    );
+
+let trailParticles = [];
+
+function resizeTrailCanvas() {
+
+    const dpr =
+        Math.min(
+            window.devicePixelRatio || 1,
+            2
+        );
+
+    trailCanvas.width =
+        Math.floor(
+            window.innerWidth * dpr
+        );
+
+    trailCanvas.height =
+        Math.floor(
+            window.innerHeight * dpr
+        );
+
+    trailContext.setTransform(
+        dpr,
+        0,
+        0,
+        dpr,
+        0,
+        0
+    );
+}
+
+resizeTrailCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeTrailCanvas,
+    {
+        passive: true
+    }
+);
+
+
+function particleBlast(x,y) {
+
+    const count =
+        window.innerWidth < 600
+            ? 18
+            : 32;
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        const angle =
+            Math.random()
+            * Math.PI
+            * 2;
+
+        const speed =
+            1.5 +
+            Math.random() * 5;
+
+        trailParticles.push({
+
+            x,
+            y,
+
+            vx:
+                Math.cos(angle)
+                * speed,
+
+            vy:
+                Math.sin(angle)
+                * speed
+                - 1.5,
+
+            life: 1,
+
+            size:
+                1 +
+                Math.random() * 3,
+
+            rotation:
+                Math.random()
+                * Math.PI,
+
+            spin:
+                (Math.random()-.5)
+                * .2
+        });
+    }
+}
+
+
+function renderParticles() {
+
+    trailContext.clearRect(
+        0,
+        0,
+        window.innerWidth,
+        window.innerHeight
+    );
+
+    trailParticles =
+        trailParticles.filter(
+            particle =>
+                particle.life > 0
+        );
+
+    for (
+        const particle
+        of trailParticles
+    ) {
+
+        particle.x +=
+            particle.vx;
+
+        particle.y +=
+            particle.vy;
+
+        particle.vy += .045;
+
+        particle.life -= .022;
+
+        particle.rotation +=
+            particle.spin;
+
+        trailContext.save();
+
+        trailContext.translate(
+            particle.x,
+            particle.y
+        );
+
+        trailContext.rotate(
+            particle.rotation
+        );
+
+        trailContext.globalAlpha =
+            Math.max(
+                particle.life,
+                0
+            );
+
+        trailContext.fillStyle =
+            "rgba(83,231,223,.9)";
+
+        trailContext.fillRect(
+            -particle.size / 2,
+            -particle.size / 2,
+            particle.size,
+            particle.size
+        );
+
+        trailContext.restore();
+    }
+
+    requestAnimationFrame(
+        renderParticles
+    );
+}
+
+requestAnimationFrame(
+    renderParticles
+);
+
+
+/* ============================================================
+   14 — BUTTON PARTICLE BLAST
+   ============================================================ */
+
+$$(".glass-button").forEach(button => {
+
+    button.addEventListener(
+        "click",
+        event => {
+
+            particleBlast(
+                event.clientX,
+                event.clientY
+            );
+
+        }
+    );
+
+});
+
+
+/* ============================================================
+   15 — POINTER TRAIL
+   ============================================================ */
+
+let lastPointerTime = 0;
+
+window.addEventListener(
+    "pointermove",
+    event => {
+
+        if (
+            event.pointerType !== "mouse"
+        ) {
+            return;
+        }
+
+        const now =
+            performance.now();
+
+        if (
+            now - lastPointerTime < 45
+        ) {
+            return;
+        }
+
+        lastPointerTime = now;
+
+        trailParticles.push({
+
+            x: event.clientX,
+            y: event.clientY,
+
+            vx: 0,
+            vy: .2,
+
+            life: .28,
+
+            size:
+                .7 +
+                Math.random() * 1.7,
+
+            rotation: 0,
+            spin: 0
+        });
 
     },
     {
@@ -3007,171 +3952,613 @@ window.addEventListener(
     }
 );
 
-/* ============================================================
-   SCROLL PROGRESS
-   ============================================================ */
-
-function updateProgress() {
-
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
-
-    const current =
-        window.scrollY;
-
-    const progress =
-        documentHeight > 0
-            ? current / documentHeight
-            : 0;
-
-    const circumference =
-        2 * Math.PI * 33;
-
-    progressFill.style.strokeDasharray =
-        circumference;
-
-    progressFill.style.strokeDashoffset =
-        circumference *
-        (1 - progress);
-
-}
-
-window.addEventListener(
-    "scroll",
-    updateProgress,
-    {
-        passive: true
-    }
-);
-
-updateProgress();
 
 /* ============================================================
-   FLOATING BUTTON
+   16 — WEBGL SHADER ENGINE
+   Lightweight liquid / holographic surface.
    ============================================================ */
 
-floatingButton.addEventListener(
-    "click",
-    () => {
+const shaderCanvas =
+    $("#shaderCanvas");
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    }
-);
-
-/* ============================================================
-   3D CORE MOUSE PARALLAX
-   ============================================================ */
-
-const scene =
-    document.querySelector(".scene");
-
-if (scene) {
-
-    scene.addEventListener(
-        "pointermove",
-        event => {
-
-            if (
-                window.matchMedia(
-                    "(pointer: coarse)"
-                ).matches
-            ) return;
-
-            const rect =
-                scene.getBoundingClientRect();
-
-            const px =
-                (event.clientX - rect.left) /
-                rect.width;
-
-            const py =
-                (event.clientY - rect.top) /
-                rect.height;
-
-            const rotateY =
-                (px - .5) * 10;
-
-            const rotateX =
-                (.5 - py) * 8;
-
-            scene.style.transform =
-                `perspective(1400px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)`;
-
+const gl =
+    shaderCanvas.getContext(
+        "webgl",
+        {
+            alpha: true,
+            antialias: true,
+            premultipliedAlpha: false
         }
     );
 
-    scene.addEventListener(
-        "pointerleave",
-        () => {
 
-            scene.style.transform =
-                "";
+if (gl) {
+
+    const vertexSource = `
+        attribute vec2 position;
+
+        void main() {
+
+            gl_Position =
+                vec4(position,0.0,1.0);
 
         }
-    );
+    `;
+
+
+    const fragmentSource = `
+        precision highp float;
+
+        uniform float uTime;
+        uniform vec2 uResolution;
+        uniform vec2 uPointer;
+
+        float hash(vec2 p) {
+
+            return fract(
+                sin(
+                    dot(
+                        p,
+                        vec2(
+                            127.1,
+                            311.7
+                        )
+                    )
+                )
+                * 43758.5453123
+            );
+        }
+
+        float noise(vec2 p) {
+
+            vec2 i =
+                floor(p);
+
+            vec2 f =
+                fract(p);
+
+            f =
+                f*f*(3.0-2.0*f);
+
+            return mix(
+                mix(
+                    hash(i),
+                    hash(i+vec2(1.0,0.0)),
+                    f.x
+                ),
+                mix(
+                    hash(i+vec2(0.0,1.0)),
+                    hash(i+vec2(1.0,1.0)),
+                    f.x
+                ),
+                f.y
+            );
+        }
+
+        void main() {
+
+            vec2 uv =
+                gl_FragCoord.xy
+                / uResolution.xy;
+
+            vec2 centered =
+                uv - .5;
+
+            centered.x *=
+                uResolution.x
+                / uResolution.y;
+
+            float dist =
+                length(centered);
+
+            float pointerDistance =
+                distance(
+                    uv,
+                    uPointer
+                );
+
+            float ripple =
+                sin(
+                    dist * 18.0
+                    - uTime * 1.5
+                    - pointerDistance * 12.0
+                );
+
+            float n =
+                noise(
+                    centered * 4.0
+                    + uTime * .08
+                );
+
+            vec3 blue =
+                vec3(
+                    .16,
+                    .25,
+                    .95
+                );
+
+            vec3 cyan =
+                vec3(
+                    .15,
+                    .88,
+                    .84
+                );
+
+            vec3 violet =
+                vec3(
+                    .54,
+                    .28,
+                    .95
+                );
+
+            float mixA =
+                smoothstep(
+                    -.8,
+                    .8,
+                    ripple
+                );
+
+            vec3 color =
+                mix(
+                    blue,
+                    cyan,
+                    mixA
+                );
+
+            color =
+                mix(
+                    color,
+                    violet,
+                    n * .35
+                );
+
+            float glow =
+                smoothstep(
+                    .82,
+                    .05,
+                    dist
+                );
+
+            float edge =
+                smoothstep(
+                    .52,
+                    .18,
+                    dist
+                );
+
+            color *=
+                .32
+                + glow * .75
+                + edge * .2;
+
+            float alpha =
+                smoothstep(
+                    .55,
+                    .34,
+                    dist
+                );
+
+            gl_FragColor =
+                vec4(
+                    color,
+                    alpha * .95
+                );
+        }
+    `;
+
+
+    function compileShader(
+        type,
+        source
+    ) {
+
+        const shader =
+            gl.createShader(type);
+
+        gl.shaderSource(
+            shader,
+            source
+        );
+
+        gl.compileShader(
+            shader
+        );
+
+        if (
+            !gl.getShaderParameter(
+                shader,
+                gl.COMPILE_STATUS
+            )
+        ) {
+
+            gl.deleteShader(shader);
+
+            return null;
+        }
+
+        return shader;
+    }
+
+
+    const vertexShader =
+        compileShader(
+            gl.VERTEX_SHADER,
+            vertexSource
+        );
+
+    const fragmentShader =
+        compileShader(
+            gl.FRAGMENT_SHADER,
+            fragmentSource
+        );
+
+
+    if (
+        vertexShader &&
+        fragmentShader
+    ) {
+
+        const program =
+            gl.createProgram();
+
+        gl.attachShader(
+            program,
+            vertexShader
+        );
+
+        gl.attachShader(
+            program,
+            fragmentShader
+        );
+
+        gl.linkProgram(program);
+
+
+        if (
+            gl.getProgramParameter(
+                program,
+                gl.LINK_STATUS
+            )
+        ) {
+
+            gl.useProgram(program);
+
+
+            const buffer =
+                gl.createBuffer();
+
+            gl.bindBuffer(
+                gl.ARRAY_BUFFER,
+                buffer
+            );
+
+            gl.bufferData(
+                gl.ARRAY_BUFFER,
+                new Float32Array([
+                    -1,-1,
+                     1,-1,
+                    -1, 1,
+                    -1, 1,
+                     1,-1,
+                     1, 1
+                ]),
+                gl.STATIC_DRAW
+            );
+
+
+            const position =
+                gl.getAttribLocation(
+                    program,
+                    "position"
+                );
+
+            gl.enableVertexAttribArray(
+                position
+            );
+
+            gl.vertexAttribPointer(
+                position,
+                2,
+                gl.FLOAT,
+                false,
+                0,
+                0
+            );
+
+
+            const timeLocation =
+                gl.getUniformLocation(
+                    program,
+                    "uTime"
+                );
+
+            const resolutionLocation =
+                gl.getUniformLocation(
+                    program,
+                    "uResolution"
+                );
+
+            const pointerLocation =
+                gl.getUniformLocation(
+                    program,
+                    "uPointer"
+                );
+
+
+            let pointerX = .5;
+            let pointerY = .5;
+
+
+            shaderCanvas.addEventListener(
+                "pointermove",
+                event => {
+
+                    const rect =
+                        shaderCanvas
+                            .getBoundingClientRect();
+
+                    pointerX =
+                        (
+                            event.clientX
+                            - rect.left
+                        )
+                        / rect.width;
+
+                    pointerY =
+                        1 -
+                        (
+                            event.clientY
+                            - rect.top
+                        )
+                        / rect.height;
+
+                },
+                {
+                    passive: true
+                }
+            );
+
+
+            function resizeShader() {
+
+                const rect =
+                    shaderCanvas
+                        .getBoundingClientRect();
+
+                const dpr =
+                    Math.min(
+                        window.devicePixelRatio || 1,
+                        2
+                    );
+
+                shaderCanvas.width =
+                    Math.max(
+                        1,
+                        Math.floor(
+                            rect.width * dpr
+                        )
+                    );
+
+                shaderCanvas.height =
+                    Math.max(
+                        1,
+                        Math.floor(
+                            rect.height * dpr
+                        )
+                    );
+
+                gl.viewport(
+                    0,
+                    0,
+                    shaderCanvas.width,
+                    shaderCanvas.height
+                );
+            }
+
+
+            resizeShader();
+
+            window.addEventListener(
+                "resize",
+                resizeShader,
+                {
+                    passive: true
+                }
+            );
+
+
+            const start =
+                performance.now();
+
+
+            function renderShader() {
+
+                const time =
+                    (
+                        performance.now()
+                        - start
+                    )
+                    / 1000;
+
+
+                gl.useProgram(program);
+
+                gl.uniform1f(
+                    timeLocation,
+                    time
+                );
+
+                gl.uniform2f(
+                    resolutionLocation,
+                    shaderCanvas.width,
+                    shaderCanvas.height
+                );
+
+                gl.uniform2f(
+                    pointerLocation,
+                    pointerX,
+                    pointerY
+                );
+
+                gl.drawArrays(
+                    gl.TRIANGLES,
+                    0,
+                    6
+                );
+
+                requestAnimationFrame(
+                    renderShader
+                );
+            }
+
+
+            renderShader();
+
+        }
+
+    }
 
 }
 
+
 /* ============================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
+   17 — HERO 3D MOUSE PARALLAX
    ============================================================ */
 
-document.addEventListener(
-    "click",
+const heroScene =
+    $("#heroScene");
+
+let heroRaf = 0;
+
+heroScene.addEventListener(
+    "pointermove",
     event => {
 
         if (
-            menu.classList.contains("open") &&
-            !menu.contains(event.target) &&
-            !menuButton.contains(event.target)
+            event.pointerType === "touch"
         ) {
-
-            menu.classList.remove(
-                "open"
-            );
-
+            return;
         }
+
+        const rect =
+            heroScene.getBoundingClientRect();
+
+        const x =
+            (
+                event.clientX
+                - rect.left
+            )
+            / rect.width
+            - .5;
+
+        const y =
+            (
+                event.clientY
+                - rect.top
+            )
+            / rect.height
+            - .5;
+
+        cancelAnimationFrame(heroRaf);
+
+        heroRaf =
+            requestAnimationFrame(
+                () => {
+
+                    heroScene.style.transform =
+                        `perspective(1200px)
+                         rotateX(${y * -4}deg)
+                         rotateY(${x * 5}deg)`;
+
+                }
+            );
+    }
+);
+
+
+heroScene.addEventListener(
+    "pointerleave",
+    () => {
+
+        heroScene.style.transform = "";
 
     }
 );
 
+
 /* ============================================================
-   KEYBOARD ACCESSIBILITY
+   18 — KEYBOARD ACCESSIBILITY
    ============================================================ */
 
 document.addEventListener(
     "keydown",
     event => {
 
-        if (event.key === "Escape") {
+        if (
+            event.key === "Escape"
+        ) {
 
-            menu.classList.remove(
+            navLinks.classList.remove(
                 "open"
             );
 
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.textContent =
+                "☰";
         }
 
     }
 );
 
+
 /* ============================================================
-   INITIALIZATION
+   19 — INITIAL PARTICLE BURST
    ============================================================ */
 
-requestAnimationFrame(() => {
+setTimeout(() => {
 
-    document
-        .querySelector(".hero .reveal")
-        ?.classList.add("visible");
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) {
+        return;
+    }
 
-});
+    const rect =
+        $("#heroScene")
+            .getBoundingClientRect();
+
+    particleBlast(
+        rect.left + rect.width / 2,
+        rect.top + rect.height / 2
+    );
+
+}, 900);
+
+
+/* ============================================================
+   20 — PERFORMANCE SAFETY
+   ============================================================ */
+
+document.addEventListener(
+    "visibilitychange",
+    () => {
+
+        if (
+            document.hidden
+        ) {
+
+            trailParticles.length = 0;
+
+        }
+
+    }
+);
 
 </script>
 
