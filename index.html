@@ -2,104 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<meta
-  name="theme-color"
-  content="#08111f"
->
-
-<meta
-  name="description"
-  content="Raghavan — Python, software engineering, intelligent systems and Crop Coders Kaggriculture."
->
-
+<meta name="theme-color" content="#07101f">
+<meta name="description"
+      content="Raghavan — AI, Python, software engineering and Kaggriculture project portfolio.">
 <meta name="author" content="Raghavan">
 
 <title>RAGHAVAN — Engineering Portfolio</title>
 
 <style>
+/* =========================================================
+   RAGHAVAN // ULTRA ENGINEERING PORTFOLIO
+   Single-file / GitHub Pages / No external dependencies
+   ========================================================= */
 
-/* ============================================================
-   RAGHAVAN ENGINEERING PORTFOLIO
-   Ultra Advanced Single File Edition
-   Zero external libraries
-   ============================================================ */
+:root{
+  --bg:#050813;
+  --bg2:#08111f;
+  --panel:rgba(14,24,42,.60);
+  --panel2:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.12);
 
-:root {
-  --bg: #050914;
-  --bg-2: #081323;
+  --text:#f7faff;
+  --muted:#9ba9bd;
 
-  --glass: rgba(255,255,255,.075);
-  --glass-strong: rgba(255,255,255,.115);
-  --glass-dark: rgba(5,10,22,.78);
+  --accent:#4e8cff;
+  --accent2:#67e8f9;
+  --accent3:#8b5cf6;
 
-  --border: rgba(255,255,255,.13);
-  --border-bright: rgba(115,190,255,.35);
+  --success:#52f5a0;
+  --warning:#ffd166;
 
-  --text: #f7faff;
-  --muted: #aab6ca;
+  --mx:50%;
+  --my:50%;
+  --tiltX:0deg;
+  --tiltY:0deg;
 
-  --blue: #7c8cff;
-  --cyan: #42e8ff;
-  --violet: #a66cff;
-  --green: #67f3a6;
+  --scroll:0;
+  --velocity:0;
+
+  --radius:26px;
+  --max:1200px;
 
   --shadow:
-    0 30px 100px rgba(0,0,0,.38);
+    0 30px 90px rgba(0,0,0,.45);
 
-  --radius: 28px;
-
-  --mx: 50%;
-  --my: 50%;
-
-  --tilt-x: 0deg;
-  --tilt-y: 0deg;
-
-  --scroll-scale: 1;
-
-  --max: 1180px;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:90px;
 }
 
-body {
-  min-height: 100vh;
-  overflow-x: hidden;
-
-  color: var(--text);
-
+body{
+  min-height:100vh;
+  color:var(--text);
   background:
     radial-gradient(
-      circle at 15% 5%,
-      rgba(124,140,255,.16),
-      transparent 30%
+      circle at var(--mx) var(--my),
+      rgba(78,140,255,.12),
+      transparent 28%
     ),
     radial-gradient(
-      circle at 90% 25%,
-      rgba(66,232,255,.10),
+      circle at 80% 20%,
+      rgba(103,232,249,.08),
       transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      var(--bg),
-      var(--bg-2) 45%,
-      var(--bg)
-    );
-
+    linear-gradient(135deg,var(--bg),var(--bg2));
   font-family:
     Inter,
     ui-sans-serif,
@@ -108,2340 +85,1359 @@ body {
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-
-  line-height: 1.6;
-
+  overflow-x:hidden;
   transition:
-    background .7s ease,
+    background .8s ease,
     color .4s ease;
 }
 
-body.light {
-  --bg: #edf5ff;
-  --bg-2: #dcecff;
-
-  --glass: rgba(255,255,255,.62);
-  --glass-strong: rgba(255,255,255,.78);
-  --glass-dark: rgba(255,255,255,.70);
-
-  --border: rgba(30,60,100,.14);
-  --border-bright: rgba(65,120,220,.30);
-
-  --text: #101827;
-  --muted: #526079;
+body.light{
+  --bg:#eef4ff;
+  --bg2:#dfe9f8;
+  --panel:rgba(255,255,255,.62);
+  --panel2:rgba(255,255,255,.5);
+  --line:rgba(10,25,50,.13);
+  --text:#0a1220;
+  --muted:#506078;
+  --shadow:0 30px 80px rgba(30,60,100,.16);
 }
 
-body.low-battery *,
-body.reduced-motion * {
-  animation-duration: .01ms !important;
-  transition-duration: .01ms !important;
+body.xray *{
+  border-radius:0!important;
 }
 
-body.reduced-motion {
-  scroll-behavior: auto;
+body.xray .glass{
+  outline:1px dashed rgba(103,232,249,.5);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body.reduced-motion *,
+body.reduced-motion *::before,
+body.reduced-motion *::after{
+  animation-duration:.001ms!important;
+  animation-iteration-count:1!important;
+  transition-duration:.001ms!important;
+  scroll-behavior:auto!important;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
 button,
-input {
-  font: inherit;
+input{
+  font:inherit;
 }
 
-button {
-  cursor: pointer;
+button{
+  border:0;
+  cursor:pointer;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+::selection{
+  background:var(--accent);
+  color:#fff;
 }
 
-.container {
-  width: min(92%, var(--max));
-  margin-inline: auto;
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+#particles{
+  position:fixed;
+  inset:0;
+  z-index:-4;
+  pointer-events:none;
 }
 
-/* ============================================================
-   GLOBAL GRID
-   ============================================================ */
-
-.grid-bg {
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-  z-index: -5;
-
-  opacity: .18;
-
+.grid{
+  position:fixed;
+  inset:0;
+  z-index:-3;
+  pointer-events:none;
+  opacity:.18;
   background-image:
-    linear-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:42px 42px;
+  mask-image:linear-gradient(to bottom,#000,transparent 88%);
+}
 
-  background-size: 45px 45px;
-
-  mask-image:
-    linear-gradient(
+.scanline{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:10000;
+  opacity:.035;
+  background:
+    repeating-linear-gradient(
       to bottom,
-      black,
-      transparent 88%
+      transparent 0,
+      transparent 3px,
+      rgba(255,255,255,.3) 4px
     );
 }
 
-/* ============================================================
-   AMBIENT LIGHT
-   ============================================================ */
-
-.ambient {
-  position: fixed;
-
-  width: 420px;
-  height: 420px;
-
-  border-radius: 50%;
-
-  filter: blur(110px);
-
-  opacity: .10;
-
-  pointer-events: none;
-
-  z-index: -4;
-}
-
-.ambient.a {
-  background: var(--blue);
-  left: -180px;
-  top: 15%;
-}
-
-.ambient.b {
-  background: var(--cyan);
-  right: -180px;
-  top: 50%;
-}
-
-.ambient.c {
-  background: var(--violet);
-  left: 40%;
-  bottom: -250px;
-}
-
-/* ============================================================
+/* =========================================================
    NAVIGATION
-   ============================================================ */
+   ========================================================= */
 
-.navbar {
-  position: fixed;
+.nav{
+  position:fixed;
+  top:14px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(94%,1160px);
+  z-index:5000;
 
-  top: 0;
-  left: 0;
-  width: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 
-  z-index: 1000;
+  padding:12px 14px;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,9,20,.78),
-      rgba(5,9,20,.45)
-    );
+  background:rgba(5,10,20,.55);
+  border:1px solid var(--line);
+  border-radius:22px;
 
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter:blur(24px) saturate(150%);
+  -webkit-backdrop-filter:blur(24px) saturate(150%);
 
-  border-bottom:
-    1px solid rgba(255,255,255,.08);
+  box-shadow:0 15px 60px rgba(0,0,0,.25);
 }
 
-body.light .navbar {
-  background:
-    rgba(240,247,255,.72);
+body.light .nav{
+  background:rgba(255,255,255,.65);
 }
 
-.nav-inner {
-  min-height: 82px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 20px;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  letter-spacing:-.04em;
 }
 
-.logo {
-  font-size: 1.25rem;
-  font-weight: 900;
-
-  letter-spacing: -.04em;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--blue),
-      var(--cyan),
-      var(--violet)
-    );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  background-size: 200%;
-
-  animation:
-    logoFlow 5s ease infinite;
-}
-
-@keyframes logoFlow {
-  0%,100% {
-    background-position: 0%;
-  }
-
-  50% {
-    background-position: 100%;
-  }
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.icon-button {
-  width: 58px;
-  height: 58px;
-
-  border-radius: 20px;
-
-  border:
-    1px solid var(--border);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.10),
-      rgba(255,255,255,.035)
-    );
-
-  color: var(--text);
-
-  display: grid;
-  place-items: center;
-
+.logo-dot{
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:var(--accent2);
   box-shadow:
-    inset 0 1px rgba(255,255,255,.08),
-    0 15px 40px rgba(0,0,0,.18);
-
-  transition:
-    transform .3s cubic-bezier(.2,.8,.2,1),
-    background .3s ease,
-    border .3s ease;
+    0 0 10px var(--accent2),
+    0 0 30px var(--accent2);
+  animation:breathe 2.5s ease-in-out infinite;
 }
 
-.icon-button:hover {
-  transform:
-    translateY(-4px)
-    scale(1.03);
+.logo-name{
+  color:var(--text);
+}
 
+.logo-name span{
+  color:var(--accent2);
+}
+
+.nav-actions{
+  display:flex;
+  gap:7px;
+  align-items:center;
+}
+
+.nav-btn,
+.menu-btn{
+  padding:9px 12px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  color:var(--text);
+  background:var(--panel2);
+  transition:.3s var(--ease);
+}
+
+.nav-btn:hover,
+.menu-btn:hover{
+  transform:translateY(-2px);
+  border-color:rgba(103,232,249,.45);
+  box-shadow:0 0 30px rgba(78,140,255,.15);
+}
+
+.menu-btn{
+  display:none;
+}
+
+/* =========================================================
+   COMMON
+   ========================================================= */
+
+.container{
+  width:min(92%,var(--max));
+  margin:auto;
+}
+
+section{
+  position:relative;
+  padding:120px 0;
+}
+
+.glass{
+  position:relative;
   background:
     linear-gradient(
-      145deg,
-      rgba(100,180,255,.18),
-      rgba(120,100,255,.08)
-    );
-
-  border-color:
-    var(--border-bright);
-}
-
-.menu-lines {
-  width: 24px;
-  display: grid;
-  gap: 5px;
-}
-
-.menu-lines span {
-  height: 2px;
-  border-radius: 10px;
-  background: currentColor;
-}
-
-/* ============================================================
-   MENU PANEL
-   ============================================================ */
-
-.menu-panel {
-  position: fixed;
-
-  top: 96px;
-  right: 4%;
-
-  width: min(360px, 90vw);
-
-  padding: 20px;
-
-  border-radius: 28px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(32,48,88,.94),
-      rgba(7,14,28,.96)
-    );
-
-  border:
-    1px solid rgba(100,190,255,.28);
-
-  box-shadow:
-    0 40px 120px rgba(0,0,0,.55),
-    inset 0 1px rgba(255,255,255,.12);
-
-  backdrop-filter: blur(30px);
-
-  opacity: 0;
-  pointer-events: none;
-
-  transform:
-    translateY(-15px)
-    scale(.96);
-
-  transition:
-    .35s cubic-bezier(.2,.8,.2,1);
-
-  z-index: 999;
-}
-
-body.light .menu-panel {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.96),
-      rgba(222,236,255,.96)
-    );
-}
-
-.menu-panel.open {
-  opacity: 1;
-  pointer-events: auto;
-
-  transform:
-    translateY(0)
-    scale(1);
-}
-
-.menu-title {
-  font-size: .72rem;
-  letter-spacing: .18em;
-  color: var(--cyan);
-  margin-bottom: 14px;
-  text-transform: uppercase;
-}
-
-.menu-link {
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 14px 15px;
-
-  border-radius: 15px;
-
-  color: var(--muted);
-
-  transition:
-    .25s ease;
-}
-
-.menu-link:hover {
-  color: var(--text);
-
-  background:
-    rgba(255,255,255,.08);
-
-  transform:
-    translateX(5px);
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-
-.hero {
-  min-height: 100vh;
-
-  padding-top: 150px;
-  padding-bottom: 90px;
-
-  display: flex;
-  align-items: center;
-
-  position: relative;
-}
-
-.hero-grid {
-  display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    minmax(320px, .8fr);
-
-  gap: 70px;
-
-  align-items: center;
-}
-
-.eyebrow {
-  display: inline-flex;
-
-  padding: 8px 13px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius: 999px;
-
-  background:
-    rgba(255,255,255,.055);
-
-  color: var(--cyan);
-
-  font-size: .75rem;
-  font-weight: 800;
-
-  letter-spacing: .13em;
-  text-transform: uppercase;
-
-  box-shadow:
-    inset 0 0 20px rgba(66,232,255,.04);
-}
-
-.hero h1 {
-  margin-top: 24px;
-
-  font-size:
-    clamp(
-      3.2rem,
-      8vw,
-      7.4rem
-    );
-
-  line-height: .90;
-
-  letter-spacing: -.075em;
-
-  max-width: 950px;
-}
-
-.hero h1 .gradient {
-  background:
-    linear-gradient(
-      90deg,
-      #fff,
-      var(--blue),
-      var(--cyan),
-      var(--violet)
-    );
-
-  background-size: 250%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  animation:
-    heroGradient 7s ease infinite;
-}
-
-@keyframes heroGradient {
-  0%,100% {
-    background-position: 0%;
-  }
-
-  50% {
-    background-position: 100%;
-  }
-}
-
-.hero-description {
-  margin-top: 28px;
-
-  max-width: 720px;
-
-  font-size:
-    clamp(
-      1.05rem,
-      2vw,
-      1.35rem
-    );
-
-  color: var(--muted);
-}
-
-.hero-actions {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 14px;
-
-  margin-top: 34px;
-}
-
-.primary-button,
-.secondary-button {
-  position: relative;
-
-  min-height: 58px;
-
-  padding:
-    0 23px;
-
-  border-radius: 18px;
-
-  border:
-    1px solid var(--border);
-
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  overflow: hidden;
-
-  transition:
-    transform .3s cubic-bezier(.2,.8,.2,1),
-    border .3s ease;
-}
-
-.primary-button {
-  background:
-    linear-gradient(
-      110deg,
-      var(--blue),
-      var(--cyan)
-    );
-
-  color: #06101c;
-
-  font-weight: 900;
-
-  box-shadow:
-    0 15px 50px rgba(70,150,255,.20);
-}
-
-.secondary-button {
-  background:
-    rgba(255,255,255,.055);
-
-  color: var(--text);
-}
-
-.primary-button:hover,
-.secondary-button:hover {
-  transform:
-    translateY(-5px);
-}
-
-/* ============================================================
-   HOLOGRAPHIC SHIMMER
-   ============================================================ */
-
-.shimmer::after {
-  content: "";
-
-  position: absolute;
-
-  inset: -100%;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 42%,
-      rgba(255,255,255,.48) 50%,
-      transparent 58%
-    );
-
-  transform:
-    translateX(-100%)
-    rotate(12deg);
-
-  animation:
-    shimmer 5s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0%,55% {
-    transform:
-      translateX(-100%)
-      rotate(12deg);
-  }
-
-  75%,100% {
-    transform:
-      translateX(100%)
-      rotate(12deg);
-  }
-}
-
-/* ============================================================
-   3D CORE
-   ============================================================ */
-
-.core-stage {
-  min-height: 590px;
-
-  position: relative;
-
-  display: grid;
-  place-items: center;
-
-  perspective: 1200px;
-
-  --core-tilt-x: 0deg;
-  --core-tilt-y: 0deg;
-}
-
-.core-scene {
-  width: 380px;
-  height: 380px;
-
-  max-width: 80vw;
-  max-height: 80vw;
-
-  position: relative;
-
-  transform-style: preserve-3d;
-
-  transform:
-    rotateX(var(--core-tilt-x))
-    rotateY(var(--core-tilt-y));
-
-  transition:
-    transform .25s ease-out;
-}
-
-/* glowing environment */
-
-.core-glow {
-  position: absolute;
-
-  inset: -50px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(70,160,255,.32),
-      rgba(65,220,255,.16) 30%,
-      rgba(100,80,255,.10) 55%,
-      transparent 72%
-    );
-
-  filter: blur(30px);
-
-  animation:
-    coreGlow 4s ease-in-out infinite;
-}
-
-@keyframes coreGlow {
-  0%,100% {
-    transform: scale(.95);
-    opacity: .65;
-  }
-
-  50% {
-    transform: scale(1.08);
-    opacity: 1;
-  }
-}
-
-/* central sphere */
-
-.core-sphere {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 205px;
-  height: 205px;
-
-  transform:
-    translate(-50%,-50%)
-    translateZ(45px);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 32% 25%,
-      #eaffff 0%,
-      #9eeeff 3%,
-      #3f8cff 16%,
-      #273a91 38%,
-      #10152e 70%,
-      #030612 100%
-    );
-
-  box-shadow:
-    inset -25px -30px 60px rgba(0,0,0,.72),
-    inset 20px 15px 30px rgba(255,255,255,.12),
-    0 0 45px rgba(75,170,255,.45),
-    0 0 110px rgba(70,100,255,.18);
-
-  animation:
-    coreFloat 5s ease-in-out infinite;
-}
-
-@keyframes coreFloat {
-  0%,100% {
-    transform:
-      translate(-50%,-50%)
-      translateZ(45px)
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      translate(-50%,-50%)
-      translateZ(60px)
-      translateY(-9px);
-  }
-}
-
-/* ============================================================
-   BIOS LIGHT
-   ============================================================ */
-
-.bios-light {
-  position: absolute;
-
-  width: 70px;
-  height: 70px;
-
-  top: 26%;
-  left: 30%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      white,
-      #9df8ff 15%,
-      rgba(75,180,255,.45) 35%,
-      transparent 70%
-    );
-
-  filter: blur(2px);
-
-  animation:
-    biosBlink 2.6s ease-in-out infinite;
-}
-
-@keyframes biosBlink {
-  0%,100% {
-    opacity: .45;
-    transform: scale(.9);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.18);
-  }
-}
-
-/* ============================================================
-   CONCENTRIC RADAR
-   ============================================================ */
-
-.radar {
-  position: absolute;
-
-  inset: 20px;
-
-  border-radius: 50%;
-
-  transform:
-    translateZ(10px);
-}
-
-.radar-ring {
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 190px;
-  height: 190px;
-
-  border:
-    1px solid rgba(95,190,255,.50);
-
-  border-radius: 50%;
-
-  transform:
-    translate(-50%,-50%)
-    scale(.45);
-
-  opacity: 0;
-
-  animation:
-    radarPulse 4.2s
-    cubic-bezier(.16,1,.3,1)
-    infinite;
-}
-
-.radar-ring:nth-child(2) {
-  animation-delay: 1.4s;
-}
-
-.radar-ring:nth-child(3) {
-  animation-delay: 2.8s;
-}
-
-@keyframes radarPulse {
-  0% {
-    transform:
-      translate(-50%,-50%)
-      scale(.42);
-
-    opacity: .85;
-  }
-
-  70% {
-    opacity: .18;
-  }
-
-  100% {
-    transform:
-      translate(-50%,-50%)
-      scale(1.95);
-
-    opacity: 0;
-  }
-}
-
-/* ============================================================
-   3D FLOOR
-   ============================================================ */
-
-.core-floor {
-  position: absolute;
-
-  bottom: 10px;
-  left: 50%;
-
-  width: 330px;
-  height: 100px;
-
-  transform:
-    translateX(-50%)
-    rotateX(72deg)
-    translateZ(-20px);
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(60,170,255,.25),
-      transparent 70%
-    );
-
-  filter: blur(8px);
-}
-
-/* ============================================================
-   SYSTEM BADGE
-   ============================================================ */
-
-.system-badge {
-  position: absolute;
-
-  bottom: -30px;
-  left: 50%;
-
-  transform:
-    translateX(-50%);
-
-  padding:
-    12px 22px;
-
-  border-radius: 999px;
-
-  white-space: nowrap;
-
-  background:
-    rgba(4,10,23,.72);
-
-  border:
-    1px solid rgba(100,180,255,.25);
-
-  backdrop-filter: blur(20px);
-
-  font-size: .72rem;
-
-  font-weight: 800;
-
-  letter-spacing: .16em;
-
-  color: #cfe8ff;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.25);
-}
-
-/* ============================================================
-   SECTIONS
-   ============================================================ */
-
-section {
-  position: relative;
-
-  padding:
-    120px 0;
-}
-
-.section-heading {
-  margin-bottom: 50px;
-}
-
-.section-label {
-  color: var(--cyan);
-
-  font-size: .72rem;
-
-  font-weight: 900;
-
-  letter-spacing: .18em;
-
-  text-transform: uppercase;
-}
-
-.section-heading h2 {
-  margin-top: 12px;
-
-  font-size:
-    clamp(
-      2.5rem,
-      6vw,
-      5rem
-    );
-
-  line-height: .95;
-
-  letter-spacing: -.06em;
-}
-
-.section-heading p {
-  margin-top: 20px;
-
-  max-width: 700px;
-
-  color: var(--muted);
-
-  font-size: 1.1rem;
-}
-
-/* ============================================================
-   GLASS CARD
-   ============================================================ */
-
-.glass-card {
-  position: relative;
-
-  border-radius: var(--radius);
-
-  border:
-    1px solid var(--border);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.095),
+      135deg,
+      rgba(255,255,255,.085),
       rgba(255,255,255,.025)
     );
-
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-
-  box-shadow:
-    var(--shadow),
-    inset 0 1px rgba(255,255,255,.10);
-
-  overflow: hidden;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(25px) saturate(150%);
+  -webkit-backdrop-filter:blur(25px) saturate(150%);
+  overflow:hidden;
 }
 
-.glass-card::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
+.glass::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
   background:
     radial-gradient(
       circle at var(--mx) var(--my),
-      rgba(90,200,255,.14),
-      transparent 35%
+      rgba(255,255,255,.12),
+      transparent 25%
     );
+  opacity:.7;
 }
 
-/* ============================================================
-   KAGGRICULTURE
-   ============================================================ */
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:7px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--panel2);
+  color:var(--accent2);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
 
-.project-card {
-  padding: 32px;
+.title{
+  margin-top:18px;
+  font-size:clamp(2.4rem,7vw,6rem);
+  line-height:.95;
+  letter-spacing:-.07em;
+}
+
+.subtitle{
+  max-width:700px;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+.gradient-text{
+  background:
+    linear-gradient(
+      100deg,
+      var(--text),
+      var(--accent2),
+      var(--accent),
+      var(--accent3)
+    );
+  background-size:300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:gradientMove 8s linear infinite;
+}
+
+.btn-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+.btn{
+  position:relative;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  min-height:48px;
+  padding:0 18px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:15px;
+  color:#fff;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(78,140,255,.85),
+      rgba(139,92,246,.8)
+    );
+  box-shadow:
+    0 12px 40px rgba(78,140,255,.2);
+  overflow:hidden;
+  transition:.35s var(--ease);
+}
+
+.btn::after{
+  content:"";
+  position:absolute;
+  inset:-100% -20%;
+  background:
+    linear-gradient(
+      110deg,
+      transparent 42%,
+      rgba(255,255,255,.5),
+      transparent 58%
+    );
+  transform:translateX(-100%);
+  animation:shimmer 4s infinite;
+}
+
+.btn:hover{
+  transform:translateY(-4px) scale(1.02);
+  box-shadow:
+    0 20px 60px rgba(78,140,255,.3);
+}
+
+.btn.secondary{
+  background:var(--panel2);
+  color:var(--text);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  padding-top:120px;
+}
+
+.hero-layout{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:50px;
+  align-items:center;
+}
+
+.hero-status{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--success);
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.1em;
+}
+
+.status-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--success);
+  box-shadow:0 0 18px var(--success);
+  animation:breathe 1.8s infinite;
+}
+
+/* =========================================================
+   3D CORE
+   ========================================================= */
+
+.core-stage{
+  min-height:510px;
+  display:grid;
+  place-items:center;
+  perspective:1300px;
+}
+
+.core{
+  position:relative;
+  width:330px;
+  height:330px;
 
   transform:
     perspective(1100px)
-    rotateX(var(--tilt-x))
-    rotateY(var(--tilt-y));
+    rotateX(var(--tiltX))
+    rotateY(var(--tiltY));
 
-  transition:
-    transform .35s ease,
-    border .3s ease;
+  transform-style:preserve-3d;
+
+  transition:transform .18s ease-out;
 }
 
-.project-card:hover {
-  border-color:
-    rgba(80,200,255,.35);
+.core::before{
+  content:"";
+  position:absolute;
+  inset:25px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(103,232,249,.3),
+      rgba(78,140,255,.1) 35%,
+      transparent 65%
+    );
+  filter:blur(15px);
 }
 
-.project-visual {
-  min-height: 430px;
+.core-shell{
+  position:absolute;
+  inset:45px;
+  border-radius:50%;
 
-  border-radius: 24px;
-
-  position: relative;
-
-  overflow: hidden;
+  border:1px solid rgba(103,232,249,.4);
 
   background:
     radial-gradient(
-      circle at 25% 25%,
-      rgba(80,170,255,.16),
-      transparent 28%
-    ),
-    linear-gradient(
-      145deg,
-      #14284a,
-      #081221 60%,
-      #030710
-    );
-
-  border:
-    1px solid rgba(100,190,255,.18);
-}
-
-/* abstract agricultural grid */
-
-.farm-grid {
-  position: absolute;
-
-  left: 50%;
-  top: 55%;
-
-  width: 420px;
-  height: 280px;
-
-  transform:
-    translate(-50%,-50%)
-    rotateX(58deg)
-    rotateZ(-8deg);
-
-  transform-style: preserve-3d;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(6,1fr);
-
-  gap: 12px;
-
-  padding: 20px;
-
-  border:
-    1px solid rgba(80,230,190,.25);
-
-  border-radius: 25px;
-
-  background:
-    rgba(30,170,120,.08);
-
-  box-shadow:
-    0 0 80px rgba(30,220,180,.10);
-}
-
-.farm-cell {
-  border-radius: 11px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(83,241,183,.50),
-      rgba(55,120,110,.25)
-    );
-
-  border:
-    1px solid rgba(130,255,220,.18);
-
-  box-shadow:
-    inset 0 1px rgba(255,255,255,.15),
-    0 8px 20px rgba(0,0,0,.15);
-
-  animation:
-    farmPulse 3s ease-in-out infinite;
-}
-
-.farm-cell:nth-child(3n) {
-  animation-delay: .5s;
-}
-
-.farm-cell:nth-child(4n) {
-  animation-delay: 1s;
-}
-
-@keyframes farmPulse {
-  0%,100% {
-    transform:
-      translateZ(0)
-      scale(1);
-  }
-
-  50% {
-    transform:
-      translateZ(12px)
-      scale(1.04);
-  }
-}
-
-.project-orb {
-  position: absolute;
-
-  width: 120px;
-  height: 120px;
-
-  top: 60px;
-  left: 65px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 30% 25%,
-      #e7ffff,
-      #4fe6d4 9%,
-      #506bff 38%,
-      #161c50 70%,
-      #050817
+      circle at 35% 30%,
+      rgba(255,255,255,.25),
+      rgba(78,140,255,.08) 30%,
+      rgba(5,15,30,.7) 70%
     );
 
   box-shadow:
-    0 0 50px rgba(80,190,255,.25);
+    inset 0 0 50px rgba(103,232,249,.12),
+    0 0 80px rgba(78,140,255,.3);
 
-  animation:
-    orbFloat 5s ease-in-out infinite;
+  transform:translateZ(30px);
 }
 
-@keyframes orbFloat {
-  0%,100% {
-    transform:
-      translateY(0)
-      rotate(0);
-  }
-
-  50% {
-    transform:
-      translateY(-14px)
-      rotate(6deg);
-  }
+.core-shell::after{
+  content:"";
+  position:absolute;
+  inset:35%;
+  border-radius:50%;
+  background:var(--accent2);
+  box-shadow:
+    0 0 12px var(--accent2),
+    0 0 35px var(--accent2),
+    0 0 80px rgba(103,232,249,.6);
+  animation:breathe 2.1s ease-in-out infinite;
 }
 
-.project-content {
-  padding:
-    38px 5px 10px;
+.radar{
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  border:1px solid rgba(103,232,249,.2);
+  transform:translateZ(10px);
+  animation:radar 3.6s ease-out infinite;
 }
 
-.project-content h3 {
-  font-size:
-    clamp(
-      2rem,
-      5vw,
-      4rem
-    );
-
-  line-height: .95;
-
-  letter-spacing: -.06em;
+.radar:nth-child(2){
+  animation-delay:1.2s;
 }
 
-.project-content p {
-  max-width: 780px;
-
-  margin-top: 20px;
-
-  color: var(--muted);
-
-  font-size: 1.08rem;
+.radar:nth-child(3){
+  animation-delay:2.4s;
 }
 
-.tech-stack {
-  display: flex;
+/* only concentric rings — no revolving ellipses */
 
-  flex-wrap: wrap;
-
-  gap: 9px;
-
-  margin-top: 24px;
+.core-label{
+  position:absolute;
+  left:50%;
+  top:50%;
+  z-index:5;
+  transform:translate(-50%,-50%) translateZ(80px);
+  text-align:center;
+  pointer-events:none;
 }
 
-.tech {
-  padding:
-    8px 12px;
-
-  border:
-    1px solid var(--border);
-
-  border-radius: 999px;
-
-  color: var(--muted);
-
-  background:
-    rgba(255,255,255,.045);
-
-  font-size: .78rem;
+.core-label strong{
+  display:block;
+  font-size:1.1rem;
+  letter-spacing:.14em;
 }
 
-/* ============================================================
-   TEAM
-   ============================================================ */
-
-.team-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
-  gap: 14px;
+.core-label small{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:.62rem;
+  letter-spacing:.15em;
 }
 
-.team-card {
-  padding: 22px;
-
-  min-height: 170px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: space-between;
-
-  transition:
-    transform .35s ease,
-    border .3s ease;
+.core-data{
+  position:absolute;
+  bottom:-10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:290px;
+  padding:13px 16px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:rgba(5,10,20,.65);
+  backdrop-filter:blur(15px);
+  font-family:ui-monospace,monospace;
+  font-size:.68rem;
+  color:var(--muted);
 }
 
-.team-card:hover {
-  transform:
-    translateY(-8px)
-    rotateX(3deg)
-    rotateY(-3deg);
-
-  border-color:
-    var(--border-bright);
+.core-data span{
+  color:var(--success);
 }
 
-.team-index {
-  font-size: .68rem;
+/* =========================================================
+   SYSTEM STATUS
+   ========================================================= */
 
-  color: var(--cyan);
-
-  letter-spacing: .14em;
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-top:45px;
 }
 
-.team-card h3 {
-  font-size: 1.1rem;
+.stat{
+  padding:20px;
+  text-align:center;
 }
 
-.team-card p {
-  color: var(--muted);
-
-  font-size: .82rem;
+.stat strong{
+  display:block;
+  font-size:1.5rem;
 }
 
-/* ============================================================
-   ETERNAL
-   ============================================================ */
-
-.eternal {
-  padding: 40px;
-
-  display: grid;
-
-  grid-template-columns:
-    1fr .8fr;
-
-  gap: 40px;
-
-  align-items: center;
+.stat span{
+  color:var(--muted);
+  font-size:.75rem;
 }
 
-.eternal-symbol {
-  width: 190px;
-  height: 190px;
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
 
-  margin-inline: auto;
-
-  border-radius: 50%;
-
-  display: grid;
-  place-items: center;
-
-  font-size: 3rem;
-  font-weight: 1000;
-
-  color: transparent;
-
-  background:
-    conic-gradient(
-      var(--blue),
-      var(--cyan),
-      var(--violet),
-      var(--blue)
-    );
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  position: relative;
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:45px;
 }
 
-.eternal-symbol::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 5px;
-
-  border-radius: inherit;
-
-  background:
-    var(--bg-2);
-
-  z-index: -1;
+.section-title{
+  font-size:clamp(2rem,5vw,4rem);
+  letter-spacing:-.06em;
 }
 
-.eternal h2 {
-  font-size:
-    clamp(
-      2.4rem,
-      5vw,
-      4rem
-    );
-
-  letter-spacing: -.06em;
+.section-description{
+  max-width:550px;
+  color:var(--muted);
 }
 
-.eternal p {
-  margin-top: 15px;
+/* =========================================================
+   KAGGRICULTURE
+   ========================================================= */
 
-  color: var(--muted);
+.project{
+  padding:30px;
 }
 
-/* ============================================================
-   EXPERTISE
-   ============================================================ */
-
-.expertise-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap: 16px;
+.project-top{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:start;
 }
 
-.expertise {
-  padding: 25px;
-
-  min-height: 180px;
+.project h3{
+  font-size:2rem;
 }
 
-.expertise-number {
-  color: var(--cyan);
-
-  font-size: .7rem;
-
-  letter-spacing: .14em;
+.project p{
+  margin-top:10px;
+  color:var(--muted);
+  max-width:720px;
 }
 
-.expertise h3 {
-  margin-top: 35px;
-
-  font-size: 1.35rem;
+.project-badge{
+  padding:8px 11px;
+  border-radius:999px;
+  border:1px solid rgba(82,245,160,.25);
+  color:var(--success);
+  background:rgba(82,245,160,.06);
+  font-size:.7rem;
+  font-weight:800;
+  white-space:nowrap;
 }
 
-.expertise p {
-  margin-top: 8px;
-
-  color: var(--muted);
-
-  font-size: .9rem;
+.architecture{
+  position:relative;
+  min-height:470px;
+  margin-top:35px;
+  display:grid;
+  place-items:center;
+  perspective:1000px;
 }
 
-/* ============================================================
-   ADVANCED TIMELINE
-   ============================================================ */
-
-.timeline {
-  position: relative;
-
-  min-height: 800px;
-
-  padding: 80px 0;
-}
-
-.timeline-line {
-  position: absolute;
-
-  top: 0;
-  bottom: 0;
-
-  left: 50%;
-
-  width: 2px;
-
-  transform:
-    translateX(-50%);
-
+.arch-line{
+  position:absolute;
+  width:2px;
+  height:75%;
   background:
     linear-gradient(
       transparent,
-      var(--cyan),
-      var(--blue),
+      var(--accent2),
+      var(--accent),
       transparent
     );
-
-  box-shadow:
-    0 0 20px rgba(60,220,255,.3);
+  opacity:.35;
 }
 
-.timeline-item {
-  width: 44%;
-
-  margin-bottom: 80px;
-
-  padding: 26px;
-
-  transform:
-    translateZ(0);
-
-  transition:
-    transform .5s cubic-bezier(.2,.8,.2,1),
-    opacity .5s ease;
-}
-
-.timeline-item:nth-child(even) {
-  margin-left: 56%;
-}
-
-.timeline-item.deconstructed {
-  transform:
-    translate3d(
-      calc(var(--scatter-x, 0px)),
-      calc(var(--scatter-y, 0px)),
-      calc(var(--scatter-z, 0px))
-    )
-    rotateX(var(--scatter-rx, 0deg))
-    rotateY(var(--scatter-ry, 0deg));
-}
-
-/* ============================================================
-   TERMINAL
-   ============================================================ */
-
-.terminal {
-  padding: 0;
-
-  overflow: hidden;
-
-  border-radius: 24px;
-}
-
-.terminal-head {
-  display: flex;
-
-  align-items: center;
-
-  gap: 7px;
-
-  padding: 13px 17px;
-
-  border-bottom:
-    1px solid var(--border);
-
+.arch-node{
+  position:absolute;
+  width:155px;
+  padding:16px 13px;
+  text-align:center;
+  border:1px solid rgba(103,232,249,.2);
+  border-radius:17px;
   background:
-    rgba(0,0,0,.16);
-}
-
-.dot {
-  width: 9px;
-  height: 9px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.35);
-}
-
-.terminal-body {
-  padding: 20px;
-
-  min-height: 190px;
-
-  font-family:
-    "SFMono-Regular",
-    Consolas,
-    monospace;
-
-  font-size: .82rem;
-
-  color: #9df8ff;
-
-  overflow: auto;
-}
-
-.cursor {
-  display: inline-block;
-
-  width: 7px;
-  height: 15px;
-
-  background: var(--cyan);
-
-  vertical-align: middle;
-
-  animation:
-    blink .8s steps(1) infinite;
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-
-footer {
-  padding:
-    80px 0 120px;
-}
-
-.footer-card {
-  padding: 35px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 25px;
-
-  flex-wrap: wrap;
-}
-
-.footer-title {
-  font-size:
-    clamp(
-      2rem,
-      5vw,
-      4rem
+    linear-gradient(
+      135deg,
+      rgba(78,140,255,.12),
+      rgba(255,255,255,.035)
     );
-
-  letter-spacing: -.06em;
-}
-
-.contact-links {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 10px;
-}
-
-.contact-link {
-  padding:
-    12px 16px;
-
-  border-radius: 14px;
-
-  border:
-    1px solid var(--border);
-
-  color: var(--muted);
-
-  transition:
-    .25s ease;
-}
-
-.contact-link:hover {
-  color: var(--text);
-
-  border-color:
-    var(--cyan);
-
+  backdrop-filter:blur(18px);
   transform:
-    translateY(-3px);
+    translate3d(var(--x),var(--y),var(--z))
+    rotateX(calc(var(--scroll) * 1deg));
+  transition:.6s var(--ease);
+  cursor:pointer;
 }
 
-/* ============================================================
-   MAGNETIC FLOATING BUTTON
-   ============================================================ */
+.arch-node:hover{
+  border-color:var(--accent2);
+  box-shadow:
+    0 0 35px rgba(103,232,249,.22);
+  transform:
+    translate3d(var(--x),var(--y),calc(var(--z) + 35px))
+    scale(1.06);
+}
 
-.floating-action {
-  position: fixed;
+.arch-node strong{
+  display:block;
+  font-size:.85rem;
+}
 
-  right: 24px;
-  bottom: 24px;
+.arch-node small{
+  display:block;
+  margin-top:5px;
+  color:var(--muted);
+  font-size:.65rem;
+}
 
-  width: 72px;
-  height: 72px;
+.n1{--x:0;--y:-185px;--z:70px}
+.n2{--x:-230px;--y:-75px;--z:20px}
+.n3{--x:230px;--y:-75px;--z:20px}
+.n4{--x:-160px;--y:100px;--z:40px}
+.n5{--x:160px;--y:100px;--z:40px}
+.n6{--x:0;--y:205px;--z:80px}
 
-  z-index: 950;
+/* =========================================================
+   SKILLS
+   ========================================================= */
 
-  border-radius: 50%;
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+}
 
-  border:
-    1px solid rgba(120,190,255,.35);
+.skill{
+  min-height:160px;
+  padding:24px;
+  transition:.4s var(--ease);
+}
+
+.skill:hover{
+  transform:
+    perspective(800px)
+    rotateX(3deg)
+    rotateY(-3deg)
+    translateY(-8px);
+  border-color:rgba(103,232,249,.3);
+}
+
+.skill h3{
+  font-size:1.05rem;
+}
+
+.skill p{
+  margin-top:9px;
+  color:var(--muted);
+  font-size:.82rem;
+}
+
+.skill-meter{
+  height:4px;
+  margin-top:22px;
+  overflow:hidden;
+  border-radius:99px;
+  background:rgba(255,255,255,.08);
+}
+
+.skill-meter i{
+  display:block;
+  width:var(--level);
+  height:100%;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  box-shadow:0 0 14px var(--accent2);
+}
+
+/* =========================================================
+   COMMUNITY
+   ========================================================= */
+
+.community{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.community-card{
+  padding:30px;
+}
+
+.community-card h3{
+  font-size:2rem;
+}
+
+.member-list{
+  margin-top:24px;
+  display:grid;
+  gap:10px;
+}
+
+.member{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:var(--panel2);
+}
+
+.member span:last-child{
+  color:var(--accent2);
+  font-size:.72rem;
+}
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+.terminal{
+  padding:0;
+  overflow:hidden;
+}
+
+.terminal-head{
+  display:flex;
+  gap:7px;
+  align-items:center;
+  padding:13px 15px;
+  border-bottom:1px solid var(--line);
+}
+
+.term-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--accent);
+}
+
+.terminal-body{
+  min-height:260px;
+  padding:20px;
+  background:rgba(0,0,0,.25);
+  font-family:ui-monospace,SFMono-Regular,monospace;
+  font-size:.8rem;
+}
+
+.term-line{
+  margin:4px 0;
+  color:#b9c7dc;
+}
+
+.term-line .green{
+  color:var(--success);
+}
+
+.term-input{
+  width:100%;
+  margin-top:10px;
+  border:0;
+  outline:0;
+  color:var(--accent2);
+  background:transparent;
+  font-family:inherit;
+}
+
+/* =========================================================
+   DIAGNOSTICS
+   ========================================================= */
+
+.diagnostics{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+
+.diag{
+  display:flex;
+  justify-content:space-between;
+  padding:12px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:var(--panel2);
+  font-family:ui-monospace,monospace;
+  font-size:.72rem;
+}
+
+.ok{
+  color:var(--success);
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact{
+  padding:45px;
+  text-align:center;
+}
+
+.contact h2{
+  font-size:clamp(2.3rem,6vw,5rem);
+  letter-spacing:-.07em;
+}
+
+.contact p{
+  margin:18px auto 0;
+  max-width:600px;
+  color:var(--muted);
+}
+
+.contact-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
+
+/* =========================================================
+   FLOATING ACTION BUTTON
+   ========================================================= */
+
+#floatAction{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:6000;
+
+  width:58px;
+  height:58px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+  color:#fff;
 
   background:
     linear-gradient(
-      145deg,
-      rgba(20,35,65,.92),
-      rgba(5,12,25,.96)
+      135deg,
+      rgba(78,140,255,.95),
+      rgba(139,92,246,.95)
     );
 
-  color: white;
-
   box-shadow:
-    0 20px 70px rgba(0,0,0,.4),
-    inset 0 1px rgba(255,255,255,.15);
-
-  backdrop-filter: blur(20px);
+    0 12px 40px rgba(78,140,255,.3);
 
   transform:
-    translate3d(0,0,0)
-    scale(var(--scroll-scale));
+    perspective(700px)
+    rotateX(var(--tiltX))
+    rotateY(var(--tiltY))
+    scaleY(calc(1 + min(var(--velocity),1) * .35));
 
   transition:
-    width .35s cubic-bezier(.2,.8,.2,1),
-    border-radius .35s ease,
-    transform .18s ease,
-    opacity .3s ease;
+    opacity .35s var(--ease),
+    width .4s var(--ease),
+    border-radius .4s var(--ease);
 }
 
-.floating-action:hover {
-  width: 150px;
-
-  border-radius: 999px;
-
-  transform:
-    translate3d(
-      var(--mag-x,0px),
-      var(--mag-y,0px),
-      0
-    )
-    scale(1.03);
+#floatAction.visible{
+  opacity:1;
 }
 
-.floating-label {
-  opacity: 0;
-
-  max-width: 0;
-
-  overflow: hidden;
-
-  white-space: nowrap;
-
-  transition:
-    .3s ease;
+#floatAction.hidden{
+  opacity:0;
+  pointer-events:none;
 }
 
-.floating-action:hover .floating-label {
-  opacity: 1;
-
-  max-width: 80px;
-
-  margin-left: 7px;
+#floatAction:hover{
+  width:145px;
+  border-radius:999px;
 }
 
-.floating-inner {
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
+#floatAction .label{
+  max-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  opacity:0;
+  transition:.35s var(--ease);
 }
 
-.floating-arrow {
-  width: 22px;
-  height: 22px;
-
-  transition:
-    transform .4s ease;
+#floatAction:hover .label{
+  max-width:100px;
+  opacity:1;
+  margin-left:8px;
 }
 
-.floating-action.up .floating-arrow {
-  transform:
-    rotate(180deg);
+/* SVG progress ring */
+.progress-ring{
+  position:absolute;
+  inset:-4px;
+  transform:rotate(-90deg);
 }
 
-/* ============================================================
-   SCROLL RING
-   ============================================================ */
-
-.progress-ring {
-  position: absolute;
-
-  inset: -4px;
-
-  pointer-events: none;
-
-  transform: rotate(-90deg);
+.progress-ring circle{
+  fill:none;
+  stroke:rgba(255,255,255,.7);
+  stroke-width:2;
+  stroke-dasharray:163;
+  stroke-dashoffset:calc(163 - (163 * var(--scroll)));
+  transition:stroke-dashoffset .15s linear;
 }
 
-.progress-ring circle {
-  fill: none;
+/* =========================================================
+   COMMAND PALETTE
+   ========================================================= */
 
-  stroke: var(--cyan);
-
-  stroke-width: 2;
-
-  stroke-linecap: round;
-
-  stroke-dasharray: 207;
-
-  stroke-dashoffset:
-    calc(
-      207 - (207 * var(--progress,0))
-    );
-
-  filter:
-    drop-shadow(
-      0 0 5px var(--cyan)
-    );
+.overlay{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  display:none;
+  place-items:start center;
+  padding-top:14vh;
+  background:rgba(0,0,0,.55);
+  backdrop-filter:blur(10px);
 }
 
-/* ============================================================
-   PARTICLE CANVAS
-   ============================================================ */
-
-#particleCanvas {
-  position: fixed;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-
-  z-index: 949;
+.overlay.open{
+  display:grid;
 }
 
-/* ============================================================
-   CUSTOM CONTEXT MENU
-   ============================================================ */
-
-.context-menu {
-  position: fixed;
-
-  width: 230px;
-
-  padding: 8px;
-
-  border-radius: 18px;
-
-  background:
-    rgba(8,15,30,.94);
-
-  border:
-    1px solid rgba(100,190,255,.25);
-
-  box-shadow:
-    0 30px 80px rgba(0,0,0,.55);
-
-  backdrop-filter: blur(24px);
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  transform:
-    scale(.94);
-
-  transform-origin:
-    top left;
-
-  transition:
-    .18s ease;
-
-  z-index: 2000;
+.palette{
+  width:min(92%,650px);
+  padding:12px;
 }
 
-.context-menu.open {
-  opacity: 1;
-
-  pointer-events: auto;
-
-  transform:
-    scale(1);
+.palette input{
+  width:100%;
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  outline:0;
+  color:var(--text);
+  background:rgba(0,0,0,.2);
 }
 
-.context-item {
-  width: 100%;
-
-  border: 0;
-
-  background: transparent;
-
-  color: #cbd7e9;
-
-  padding: 11px;
-
-  border-radius: 11px;
-
-  text-align: left;
+.commands{
+  display:grid;
+  gap:6px;
+  margin-top:8px;
 }
 
-.context-item:hover {
-  background:
-    rgba(80,180,255,.12);
-
-  color: white;
+.command{
+  padding:13px;
+  border-radius:12px;
+  cursor:pointer;
+  color:var(--muted);
 }
 
-/* ============================================================
-   PORTAL STATUS
-   ============================================================ */
-
-.portal-status {
-  position: fixed;
-
-  left: 18px;
-  bottom: 18px;
-
-  z-index: 900;
-
-  padding:
-    8px 12px;
-
-  border-radius: 999px;
-
-  font-size: .65rem;
-
-  letter-spacing: .08em;
-
-  color: var(--muted);
-
-  background:
-    rgba(5,12,24,.72);
-
-  border:
-    1px solid var(--border);
-
-  backdrop-filter: blur(15px);
+.command:hover{
+  color:var(--text);
+  background:var(--panel2);
 }
 
-/* ============================================================
-   GHOST CURSORS
-   ============================================================ */
+/* =========================================================
+   X-RAY / DEVELOPER HUD
+   ========================================================= */
 
-.ghost {
-  position: fixed;
-
-  width: 10px;
-  height: 10px;
-
-  border-radius: 50%;
-
-  pointer-events: none;
-
-  background: var(--cyan);
-
-  box-shadow:
-    0 0 15px var(--cyan);
-
-  z-index: 800;
-
-  opacity: .5;
-
-  transition:
-    left .15s linear,
-    top .15s linear;
+.hud{
+  position:fixed;
+  top:95px;
+  right:18px;
+  z-index:7000;
+  width:250px;
+  padding:17px;
+  display:none;
+  font-family:ui-monospace,monospace;
+  font-size:.68rem;
 }
 
-/* ============================================================
-   SELF WRITING OVERLAY
-   ============================================================ */
-
-.boot-screen {
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 3000;
-
-  display: grid;
-
-  place-items: center;
-
-  background:
-    #030711;
-
-  transition:
-    opacity .8s ease,
-    visibility .8s ease;
+.hud.open{
+  display:block;
 }
 
-.boot-screen.done {
-  opacity: 0;
-
-  visibility: hidden;
-
-  pointer-events: none;
+.hud-title{
+  color:var(--accent2);
+  margin-bottom:12px;
 }
 
-.boot-terminal {
-  width: min(760px,90vw);
-
-  padding: 25px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(8,15,28,.92);
-
-  border:
-    1px solid rgba(100,200,255,.2);
-
-  box-shadow:
-    0 40px 120px rgba(0,0,0,.5);
-
-  font-family:
-    Consolas,
-    monospace;
-
-  color: #9df8ff;
+.hud-row{
+  display:flex;
+  justify-content:space-between;
+  padding:6px 0;
+  border-bottom:1px solid var(--line);
 }
 
-.boot-title {
-  color: #fff;
-
-  margin-bottom: 15px;
+.context{
+  position:fixed;
+  z-index:10000;
+  display:none;
+  min-width:220px;
+  padding:8px;
 }
 
-.boot-code {
-  min-height: 120px;
-
-  white-space: pre-wrap;
-
-  font-size: .76rem;
+.context.open{
+  display:block;
 }
 
-/* ============================================================
-   VISIBILITY
-   ============================================================ */
-
-.reveal {
-  opacity: 0;
-
-  transform:
-    translateY(35px)
-    scale(.98);
-
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.2,.8,.2,1);
+.context button{
+  width:100%;
+  padding:11px;
+  text-align:left;
+  color:var(--text);
+  background:transparent;
+  border-radius:10px;
 }
 
-.reveal.visible {
-  opacity: 1;
-
-  transform:
-    translateY(0)
-    scale(1);
+.context button:hover{
+  background:var(--panel2);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-@media(max-width:900px) {
+footer{
+  padding:35px 0 70px;
+  text-align:center;
+  color:var(--muted);
+  font-size:.75rem;
+}
 
-  .hero-grid {
-    grid-template-columns: 1fr;
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes breathe{
+  0%,100%{opacity:.55;transform:scale(.92)}
+  50%{opacity:1;transform:scale(1.08)}
+}
+
+@keyframes radar{
+  0%{
+    transform:scale(.35);
+    opacity:.8;
   }
-
-  .core-stage {
-    min-height: 520px;
-  }
-
-  .team-grid {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .expertise-grid {
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .eternal {
-    grid-template-columns: 1fr;
-  }
-
-  .timeline-item,
-  .timeline-item:nth-child(even) {
-    width: 88%;
-
-    margin-left: 12%;
-  }
-
-  .timeline-line {
-    left: 4%;
+  100%{
+    transform:scale(1.25);
+    opacity:0;
   }
 }
 
-@media(max-width:600px) {
+@keyframes shimmer{
+  0%,45%{transform:translateX(-100%)}
+  70%,100%{transform:translateX(100%)}
+}
 
-  .nav-inner {
-    min-height: 72px;
+@keyframes gradientMove{
+  to{background-position:300%}
+}
+
+@keyframes pulseLine{
+  0%,100%{opacity:.2}
+  50%{opacity:1}
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:850px){
+
+  .nav{
+    top:8px;
   }
 
-  .icon-button {
-    width: 54px;
-    height: 54px;
+  .nav-actions .nav-btn{
+    display:none;
   }
 
-  .hero {
-    padding-top: 125px;
+  .menu-btn{
+    display:block;
   }
 
-  .hero h1 {
-    font-size:
-      clamp(
-        3rem,
-        16vw,
-        5rem
-      );
+  .hero-layout{
+    grid-template-columns:1fr;
   }
 
-  section {
-    padding:
-      80px 0;
+  .core-stage{
+    min-height:400px;
+    transform:scale(.84);
   }
 
-  .core-scene {
-    width: 300px;
-    height: 300px;
+  .stats{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .core-sphere {
-    width: 165px;
-    height: 165px;
+  .skills-grid{
+    grid-template-columns:1fr;
   }
 
-  .core-floor {
-    width: 270px;
+  .community{
+    grid-template-columns:1fr;
   }
 
-  .project-card {
-    padding: 16px;
+  .section-head{
+    display:block;
   }
 
-  .project-visual {
-    min-height: 340px;
+  .section-description{
+    margin-top:15px;
   }
 
-  .farm-grid {
-    width: 300px;
-    height: 210px;
-
-    gap: 7px;
-
-    padding: 13px;
+  .architecture{
+    transform:scale(.68);
+    min-height:390px;
+    margin-left:-70px;
+    margin-right:-70px;
   }
 
-  .project-orb {
-    width: 80px;
-    height: 80px;
-
-    left: 35px;
-    top: 40px;
+  .project{
+    padding:20px;
   }
 
-  .team-grid,
-  .expertise-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .eternal {
-    padding: 25px;
-  }
-
-  .floating-action {
-    right: 17px;
-    bottom: 17px;
-  }
-
-  .portal-status {
-    display: none;
+  .contact{
+    padding:30px 20px;
   }
 }
 
+@media(max-width:500px){
+
+  section{
+    padding:90px 0;
+  }
+
+  .title{
+    font-size:3.2rem;
+  }
+
+  .core-stage{
+    transform:scale(.68);
+    margin:-30px 0;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .diagnostics{
+    grid-template-columns:1fr;
+  }
+
+  #floatAction{
+    right:15px;
+    bottom:15px;
+  }
+}
+
+/* =========================================================
+   LOW POWER
+   ========================================================= */
+
+body.low-power #particles{
+  display:none;
+}
+
+body.low-power .grid{
+  opacity:.08;
+}
+
+body.low-power *,
+body.low-power *::before,
+body.low-power *::after{
+  animation-duration:4s!important;
+}
+
+body.low-power .core{
+  transition:none;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ============================================================
-     BACKGROUND
-     ============================================================ -->
+<canvas id="particles"></canvas>
+<div class="grid"></div>
+<div class="scanline"></div>
 
-<div class="grid-bg"></div>
-
-<div class="ambient a"></div>
-<div class="ambient b"></div>
-<div class="ambient c"></div>
-
-<canvas id="particleCanvas"></canvas>
-
-<!-- ============================================================
-     SELF-WRITING INTRO
-     ============================================================ -->
-
-<div class="boot-screen" id="bootScreen">
-
-  <div class="boot-terminal">
-
-    <div class="boot-title">
-      RAGHAVAN // SYSTEM INITIALIZATION
-    </div>
-
-    <div id="bootCode" class="boot-code"></div>
-
-    <span class="cursor"></span>
-
-  </div>
-
-</div>
-
-<!-- ============================================================
+<!-- =======================================================
      NAV
-     ============================================================ -->
+     ======================================================= -->
 
-<header class="navbar">
+<nav class="nav">
 
-  <div class="container nav-inner">
+  <a href="#home" class="logo">
+    <i class="logo-dot"></i>
+    <span class="logo-name">RAGHAVAN<span>.</span></span>
+  </a>
 
-    <a
-      href="#home"
-      class="logo"
-      aria-label="Raghavan home"
-    >
-      RAGHAVAN
+  <div class="nav-actions">
+
+    <a class="nav-btn" href="#kaggriculture">
+      Kaggriculture
     </a>
 
-    <div class="nav-actions">
+    <a class="nav-btn" href="#eternal">
+      ETERNAL
+    </a>
 
-      <button
-        class="icon-button"
-        id="themeButton"
-        aria-label="Toggle theme"
-      >
-        ◐
-      </button>
+    <button class="nav-btn" id="themeBtn">
+      ◐
+    </button>
 
-      <button
-        class="icon-button"
-        id="menuButton"
-        aria-label="Open menu"
-      >
+    <button class="nav-btn" id="xrayBtn">
+      X-RAY
+    </button>
 
-        <span class="menu-lines">
-          <span></span>
-          <span></span>
-          <span></span>
-        </span>
+    <button class="nav-btn" id="cmdBtn">
+      ⌘ K
+    </button>
 
-      </button>
-
-    </div>
+    <button class="menu-btn" id="mobileMenu">
+      MENU
+    </button>
 
   </div>
-
-</header>
-
-<!-- ============================================================
-     MENU
-     ============================================================ -->
-
-<nav
-  class="menu-panel"
-  id="menuPanel"
-  aria-label="Main navigation"
->
-
-  <div class="menu-title">
-    RAGHAVAN / NAVIGATION
-  </div>
-
-  <a class="menu-link" href="#home">
-    Home
-    <span>01</span>
-  </a>
-
-  <a class="menu-link" href="#expertise">
-    Expertise
-    <span>02</span>
-  </a>
-
-  <a class="menu-link" href="#project">
-    Kaggriculture
-    <span>03</span>
-  </a>
-
-  <a class="menu-link" href="#team">
-    Team
-    <span>04</span>
-  </a>
-
-  <a class="menu-link" href="#eternal">
-    ETERNAL
-    <span>05</span>
-  </a>
-
-  <a class="menu-link" href="#contact">
-    Contact
-    <span>06</span>
-  </a>
 
 </nav>
 
-<!-- ============================================================
+
+<!-- =======================================================
      HERO
-     ============================================================ -->
+     ======================================================= -->
 
 <main>
 
-<section
-  class="hero"
-  id="home"
-  data-color="#08111f"
->
+<section class="hero" id="home">
 
-  <div class="container hero-grid">
+  <div class="container hero-layout">
 
     <div>
 
-      <span class="eyebrow">
-        SOFTWARE ENGINEERING / INTELLIGENT SYSTEMS
-      </span>
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        SYSTEM ONLINE
+      </div>
 
-      <h1>
-        Engineering
-        <span class="gradient">
-          intelligence.
-        </span>
+      <div class="eyebrow" style="margin-top:20px">
+        SOFTWARE • AI • PYTHON
+      </div>
+
+      <h1 class="title">
+        <span class="gradient-text">RAGHAVAN</span>
+        <br>
+        builds systems.
       </h1>
 
-      <p
-        class="hero-description"
-        id="adaptiveGreeting"
-      >
-        AI-focused developer building Python systems,
-        intelligent decision engines, autonomous architectures
-        and experimental software engineering projects.
+      <p class="subtitle">
+        Engineering-focused portfolio exploring AI systems,
+        Python development, intelligent agents and experimental
+        software architecture.
       </p>
 
-      <div class="hero-actions">
+      <div class="btn-row">
 
-        <a
-          href="#project"
-          class="primary-button shimmer magnetic"
-        >
-          Explore Kaggriculture
+        <a class="btn magnetic" href="#kaggriculture">
+          Explore Kaggriculture →
         </a>
 
-        <button
-          class="secondary-button magnetic"
-          id="terminalButton"
-        >
-          Open Engineering Terminal
+        <button class="btn secondary magnetic" id="simulateBtn">
+          Run Simulation
         </button>
 
       </div>
 
+      <div class="stats">
+
+        <div class="stat glass">
+          <strong>AI</strong>
+          <span>Systems</span>
+        </div>
+
+        <div class="stat glass">
+          <strong>PY</strong>
+          <span>Python</span>
+        </div>
+
+        <div class="stat glass">
+          <strong>ML</strong>
+          <span>Intelligence</span>
+        </div>
+
+        <div class="stat glass">
+          <strong>∞</strong>
+          <span>Learning</span>
+        </div>
+
+      </div>
+
     </div>
 
-    <!-- ======================================================
-         3D CORE
-         ====================================================== -->
 
-    <div
-      class="core-stage"
-      id="coreStage"
-      aria-label="Interactive 3D system visualization"
-    >
+    <!-- 3D CORE -->
 
-      <div class="core-scene">
+    <div class="core-stage">
 
-        <div class="core-glow"></div>
+      <div class="core" id="core">
 
-        <div class="radar">
+        <div class="radar"></div>
+        <div class="radar"></div>
+        <div class="radar"></div>
 
-          <div class="radar-ring"></div>
-          <div class="radar-ring"></div>
-          <div class="radar-ring"></div>
+        <div class="core-shell"></div>
 
+        <div class="core-label">
+          <strong>RAGHAVAN</strong>
+          <small>ENGINEERING CORE</small>
         </div>
 
-        <div class="core-sphere">
-
-          <div class="bios-light"></div>
-
-        </div>
-
-        <div class="core-floor"></div>
-
-        <div class="system-badge">
-          SYSTEM • ACTIVE
+        <div class="core-data">
+          STATUS:
+          <span>ACTIVE</span>
+          <br>
+          RENDER:
+          <span id="renderMode">ADAPTIVE</span>
+          <br>
+          MOTION:
+          <span id="motionMode">ENABLED</span>
         </div>
 
       </div>
@@ -2452,318 +1448,105 @@ footer {
 
 </section>
 
-<!-- ============================================================
-     EXPERTISE
-     ============================================================ -->
 
-<section
-  id="expertise"
-  data-color="#15134c"
->
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        CAPABILITY MATRIX
-      </div>
-
-      <h2>
-        Built beyond
-        templates.
-      </h2>
-
-      <p>
-        A broad engineering foundation focused on Python,
-        intelligent systems, software architecture,
-        experimentation and modern web engineering.
-      </p>
-
-    </div>
-
-    <div class="expertise-grid">
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">01</span>
-        <h3>Python Engineering</h3>
-        <p>
-          Modular software, automation, data workflows,
-          architecture and production-oriented development.
-        </p>
-      </article>
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">02</span>
-        <h3>Intelligent Systems</h3>
-        <p>
-          Decision systems, learning loops, agents,
-          optimization and adaptive architectures.
-        </p>
-      </article>
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">03</span>
-        <h3>Machine Learning</h3>
-        <p>
-          Model experimentation, evaluation pipelines,
-          reinforcement-learning concepts and data systems.
-        </p>
-      </article>
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">04</span>
-        <h3>Software Architecture</h3>
-        <p>
-          Contracts, modular boundaries, testing,
-          integration layers and maintainable systems.
-        </p>
-      </article>
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">05</span>
-        <h3>Web Engineering</h3>
-        <p>
-          Advanced HTML, CSS, JavaScript, responsive systems,
-          animation and browser APIs.
-        </p>
-      </article>
-
-      <article class="glass-card expertise reveal">
-        <span class="expertise-number">06</span>
-        <h3>Ethical Cybersecurity</h3>
-        <p>
-          Security-minded engineering, experimentation,
-          responsible research and defensive thinking.
-        </p>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================================================
+<!-- =======================================================
      KAGGRICULTURE
-     ============================================================ -->
+     ======================================================= -->
 
-<section
-  id="project"
-  data-color="#10251f"
->
+<section id="kaggriculture">
 
   <div class="container">
 
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        FLAGSHIP PROJECT
-      </div>
-
-      <h2>
-        Crop Coders —
-        Kaggriculture.
-      </h2>
-
-      <p>
-        The current flagship project showcased on this portfolio.
-      </p>
-
-    </div>
-
-    <article
-      class="glass-card project-card reveal"
-      data-color="#10251f"
-    >
-
-      <div class="project-visual">
-
-        <div class="project-orb"></div>
-
-        <div class="farm-grid">
-
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-          <div class="farm-cell"></div>
-
-        </div>
-
-      </div>
-
-      <div class="project-content">
-
-        <h3>
-          Kaggriculture
-        </h3>
-
-        <p>
-          Crop Coders — Kaggriculture is an experimental
-          intelligent-agent project focused on decision making
-          inside a turn-based agricultural simulation.
-          The architecture explores environment interaction,
-          observation, strategy generation, planning,
-          adaptation, evaluation and testing as connected
-          engineering systems.
-        </p>
-
-        <p>
-          The project is designed around modular engineering:
-          intelligent decision engines observe the environment,
-          evaluate possible actions, learn from feedback and
-          continuously improve their strategy under dynamic
-          constraints.
-        </p>
-
-        <div class="tech-stack">
-
-          <span class="tech">Python</span>
-          <span class="tech">Machine Learning</span>
-          <span class="tech">Agent Systems</span>
-          <span class="tech">Optimization</span>
-          <span class="tech">Simulation</span>
-          <span class="tech">Testing</span>
-          <span class="tech">GitHub</span>
-
-        </div>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-<!-- ============================================================
-     TEAM
-     ============================================================ -->
-
-<section
-  id="team"
-  data-color="#161b3d"
->
-
-  <div class="container">
-
-    <div class="section-heading reveal">
-
-      <div class="section-label">
-        CROP CODERS
-      </div>
-
-      <h2>
-        The team.
-      </h2>
-
-      <p>
-        The people behind the Crop Coders engineering effort.
-      </p>
-
-    </div>
-
-    <div class="team-grid">
-
-      <article class="glass-card team-card reveal">
-        <span class="team-index">01 / TEAM</span>
-        <h3>Raghavan</h3>
-        <p>Technical Leader</p>
-      </article>
-
-      <article class="glass-card team-card reveal">
-        <span class="team-index">02 / TEAM</span>
-        <h3>Shanmugam</h3>
-        <p>Creator</p>
-      </article>
-
-      <article class="glass-card team-card reveal">
-        <span class="team-index">03 / TEAM</span>
-        <h3>Sithananthan</h3>
-        <p>Strategy Research</p>
-      </article>
-
-      <article class="glass-card team-card reveal">
-        <span class="team-index">04 / TEAM</span>
-        <h3>Sumaiyah</h3>
-        <p>Team Coordination</p>
-      </article>
-
-      <article class="glass-card team-card reveal">
-        <span class="team-index">05 / TEAM</span>
-        <h3>Dhanvanthraj</h3>
-        <p>Engineering Contributor</p>
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ============================================================
-     ETERNAL
-     ============================================================ -->
-
-<section
-  id="eternal"
-  data-color="#171033"
->
-
-  <div class="container">
-
-    <article class="glass-card eternal reveal">
+    <div class="section-head">
 
       <div>
-
-        <div class="section-label">
-          SECURITY COMMUNITY
+        <div class="eyebrow">
+          FLAGSHIP PROJECT
         </div>
 
-        <h2>
-          ETERNAL.
+        <h2 class="section-title">
+          KAGGRICULTURE
         </h2>
+      </div>
 
-        <p>
-          ETERNAL is an emerging ethical hacking and
-          cybersecurity community focused on responsible
-          security learning, technical experimentation,
-          defensive awareness and collaborative growth.
-        </p>
+      <p class="section-description">
+        An intelligent farming simulation system focused on
+        state understanding, strategy, memory, prediction,
+        evaluation and adaptive decision-making.
+      </p>
 
-        <p>
-          The goal is to build a community where curiosity
-          becomes technical skill while keeping experimentation
-          responsible and ethical.
-        </p>
+    </div>
+
+
+    <article class="project glass">
+
+      <div class="project-top">
+
+        <div>
+          <h3>Crop Coders Kaggriculture</h3>
+
+          <p>
+            A research-oriented intelligent agent architecture
+            designed around environmental state, decision
+            policies, experience, memory and evaluation.
+          </p>
+        </div>
+
+        <div class="project-badge">
+          ACTIVE SYSTEM
+        </div>
 
       </div>
 
-      <div class="eternal-symbol">
-        E
+
+      <div class="architecture" id="architecture">
+
+        <div class="arch-line"></div>
+
+        <div class="arch-node n1" data-info="Environment provides the simulation state.">
+          <strong>ENVIRONMENT</strong>
+          <small>WORLD STATE</small>
+        </div>
+
+        <div class="arch-node n2" data-info="Core transforms raw state into structured information.">
+          <strong>STATE ENGINE</strong>
+          <small>INTELLIGENCE</small>
+        </div>
+
+        <div class="arch-node n3" data-info="Prediction estimates possible future outcomes.">
+          <strong>PREDICTION</strong>
+          <small>FORECASTING</small>
+        </div>
+
+        <div class="arch-node n4" data-info="Strategy selects actions under constraints.">
+          <strong>STRATEGY</strong>
+          <small>DECISION</small>
+        </div>
+
+        <div class="arch-node n5" data-info="Memory stores useful experience and discovered skills.">
+          <strong>MEMORY</strong>
+          <small>EXPERIENCE</small>
+        </div>
+
+        <div class="arch-node n6" data-info="Evaluation measures performance and improvement.">
+          <strong>EVALUATION</strong>
+          <small>FEEDBACK</small>
+        </div>
+
+      </div>
+
+
+      <div class="glass" style="padding:20px">
+
+        <strong id="simulationTitle">
+          SYSTEM READY
+        </strong>
+
+        <p id="simulationText"
+           style="margin-top:8px">
+          Click "Run Simulation" to visualize the decision loop.
+        </p>
+
       </div>
 
     </article>
@@ -2772,97 +1555,101 @@ footer {
 
 </section>
 
-<!-- ============================================================
-     SCROLL ENGINEERING TIMELINE
-     ============================================================ -->
 
-<section id="architecture">
+<!-- =======================================================
+     SKILLS
+     ======================================================= -->
+
+<section id="skills">
 
   <div class="container">
 
-    <div class="section-heading reveal">
+    <div class="section-head">
 
-      <div class="section-label">
-        SYSTEM ARCHITECTURE
+      <div>
+        <div class="eyebrow">
+          ENGINEERING
+        </div>
+
+        <h2 class="section-title">
+          Technical Stack
+        </h2>
       </div>
 
-      <h2>
-        Engineering
-        under the surface.
-      </h2>
+      <p class="section-description">
+        Focused on building systems rather than simply
+        collecting technologies.
+      </p>
 
     </div>
 
-    <div class="timeline">
 
-      <div class="timeline-line"></div>
+    <div class="skills-grid">
 
-      <article
-        class="glass-card timeline-item reveal"
-      >
-        <span class="section-label">
-          LAYER 01
-        </span>
-
-        <h3>
-          Observe
-        </h3>
-
+      <article class="skill glass">
+        <h3>Python</h3>
         <p>
-          Collect structured observations from the environment
-          and convert them into usable state representations.
+          Core language for automation, intelligent systems,
+          experimentation and backend logic.
         </p>
+        <div class="skill-meter">
+          <i style="--level:94%"></i>
+        </div>
       </article>
 
-      <article
-        class="glass-card timeline-item reveal"
-      >
-        <span class="section-label">
-          LAYER 02
-        </span>
-
-        <h3>
-          Decide
-        </h3>
-
+      <article class="skill glass">
+        <h3>AI Systems</h3>
         <p>
-          Generate candidate strategies and evaluate possible
-          actions against objectives and constraints.
+          Agent architecture, state processing,
+          decision systems and adaptive workflows.
         </p>
+        <div class="skill-meter">
+          <i style="--level:90%"></i>
+        </div>
       </article>
 
-      <article
-        class="glass-card timeline-item reveal"
-      >
-        <span class="section-label">
-          LAYER 03
-        </span>
-
-        <h3>
-          Adapt
-        </h3>
-
+      <article class="skill glass">
+        <h3>Machine Learning</h3>
         <p>
-          Use feedback and experience to modify future
-          decisions and improve system behaviour.
+          Learning pipelines, evaluation and
+          model-driven experimentation.
         </p>
+        <div class="skill-meter">
+          <i style="--level:82%"></i>
+        </div>
       </article>
 
-      <article
-        class="glass-card timeline-item reveal"
-      >
-        <span class="section-label">
-          LAYER 04
-        </span>
-
-        <h3>
-          Validate
-        </h3>
-
+      <article class="skill glass">
+        <h3>Git / GitHub</h3>
         <p>
-          Test decisions, integrations and performance before
-          accepting changes into the larger system.
+          Version control, project architecture,
+          collaboration and engineering workflows.
         </p>
+        <div class="skill-meter">
+          <i style="--level:88%"></i>
+        </div>
+      </article>
+
+      <article class="skill glass">
+        <h3>Web Engineering</h3>
+        <p>
+          HTML, CSS, JavaScript, responsive interfaces
+          and browser APIs.
+        </p>
+        <div class="skill-meter">
+          <i style="--level:84%"></i>
+        </div>
+      </article>
+
+      <article class="skill glass">
+        <h3>Problem Solving</h3>
+        <p>
+          Breaking complex systems into testable,
+          maintainable components.
+        </p>
+        <div class="skill-meter">
+          <i style="--level:92%"></i>
+        </div>
       </article>
 
     </div>
@@ -2871,45 +1658,202 @@ footer {
 
 </section>
 
-<!-- ============================================================
-     ENGINEERING TERMINAL
-     ============================================================ -->
+
+<!-- =======================================================
+     ETERNAL
+     ======================================================= -->
+
+<section id="eternal">
+
+  <div class="container">
+
+    <div class="section-head">
+
+      <div>
+        <div class="eyebrow">
+          COMMUNITY
+        </div>
+
+        <h2 class="section-title">
+          ETERNAL
+        </h2>
+      </div>
+
+      <p class="section-description">
+        A technology and hacking community focused on
+        learning, experimentation and collaborative growth.
+      </p>
+
+    </div>
+
+
+    <div class="community">
+
+      <article class="community-card glass">
+
+        <h3>ETERNAL</h3>
+
+        <p style="margin-top:12px;color:var(--muted)">
+          A community built around technology,
+          cybersecurity learning, development and
+          responsible experimentation.
+        </p>
+
+        <div class="member-list">
+
+          <div class="member">
+            <span>Shanmugam</span>
+            <span>CREATOR</span>
+          </div>
+
+          <div class="member">
+            <span>Raghavan</span>
+            <span>TECHNICAL LEADER</span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <article class="community-card glass">
+
+        <h3>Team</h3>
+
+        <div class="member-list">
+
+          <div class="member">
+            <span>Raghavan</span>
+            <span>TECHNICAL</span>
+          </div>
+
+          <div class="member">
+            <span>Shanmugam</span>
+            <span>CREATOR</span>
+          </div>
+
+          <div class="member">
+            <span>Sithananthan</span>
+            <span>TEAM</span>
+          </div>
+
+          <div class="member">
+            <span>Sumaiyah</span>
+            <span>TEAM</span>
+          </div>
+
+          <div class="member">
+            <span>Dhanvanthraj</span>
+            <span>TEAM</span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     TERMINAL + DIAGNOSTICS
+     ======================================================= -->
 
 <section id="terminal">
 
   <div class="container">
 
-    <div class="section-heading reveal">
+    <div class="section-head">
 
-      <div class="section-label">
-        INTERACTIVE SYSTEM
+      <div>
+        <div class="eyebrow">
+          DEVELOPER MODE
+        </div>
+
+        <h2 class="section-title">
+          System Console
+        </h2>
       </div>
 
-      <h2>
-        Engineering
-        terminal.
-      </h2>
+      <p class="section-description">
+        Try commands such as
+        <b>help</b>, <b>kaggriculture</b>,
+        <b>skills</b>, <b>contact</b>,
+        <b>theme</b> and <b>clear</b>.
+      </p>
 
     </div>
 
-    <div class="glass-card terminal reveal">
+
+    <div class="terminal glass">
 
       <div class="terminal-head">
+        <i class="term-dot"></i>
+        <i class="term-dot"></i>
+        <i class="term-dot"></i>
+        <span style="margin-left:8px;color:var(--muted)">
+          raghavan://terminal
+        </span>
+      </div>
 
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+      <div class="terminal-body" id="terminalBody">
+
+        <div class="term-line">
+          <span class="green">SYSTEM</span>
+          initialized successfully.
+        </div>
+
+        <div class="term-line">
+          Type <span class="green">help</span>
+          to begin.
+        </div>
+
+        <input
+          id="terminalInput"
+          class="term-input"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="> enter command..."
+        >
 
       </div>
 
-      <div
-        class="terminal-body"
-        id="terminalOutput"
-      >
-        RAGHAVAN TERMINAL v1.0<br>
-        Type <b>help</b> to inspect available commands.
-        <br><br>
-        <span class="cursor"></span>
+    </div>
+
+
+    <div class="diagnostics">
+
+      <div class="diag">
+        <span>HTML ENGINE</span>
+        <span class="ok">ONLINE</span>
+      </div>
+
+      <div class="diag">
+        <span>CSS ENGINE</span>
+        <span class="ok">ONLINE</span>
+      </div>
+
+      <div class="diag">
+        <span>CANVAS</span>
+        <span class="ok">ONLINE</span>
+      </div>
+
+      <div class="diag">
+        <span>WEB AUDIO</span>
+        <span id="audioStatus">READY</span>
+      </div>
+
+      <div class="diag">
+        <span>DEVICE MOTION</span>
+        <span id="motionStatus">AVAILABLE</span>
+      </div>
+
+      <div class="diag">
+        <span>PERFORMANCE</span>
+        <span id="performanceStatus">ADAPTIVE</span>
       </div>
 
     </div>
@@ -2918,44 +1862,45 @@ footer {
 
 </section>
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
 
-<footer id="contact">
+<!-- =======================================================
+     CONTACT
+     ======================================================= -->
+
+<section id="contact">
 
   <div class="container">
 
-    <div class="glass-card footer-card reveal">
+    <div class="contact glass">
 
-      <div>
-
-        <div class="section-label">
-          CONNECTION
-        </div>
-
-        <div class="footer-title">
-          Connect with
-          RAGHAVAN.
-        </div>
-
+      <div class="eyebrow">
+        CONNECTION
       </div>
+
+      <h2>
+        Let's build something
+        <span class="gradient-text">interesting.</span>
+      </h2>
+
+      <p>
+        Interested in software engineering, AI systems,
+        technology projects or collaboration?
+      </p>
 
       <div class="contact-links">
 
+        <!-- Replace YOUR_PHONE_NUMBER with your public number -->
         <a
-          class="contact-link"
-          href="tel:+919626638296"
-        >
-          +91 9626638296
+          class="btn magnetic"
+          href="tel:YOUR_PHONE_NUMBER">
+          ☎ Contact
         </a>
 
         <a
-          class="contact-link"
+          class="btn secondary magnetic"
           href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener">
           LinkedIn
         </a>
 
@@ -2965,173 +1910,491 @@ footer {
 
   </div>
 
-</footer>
+</section>
 
 </main>
 
-<!-- ============================================================
+
+<footer>
+  © <span id="year"></span> RAGHAVAN · ENGINEERED WITH HTML / CSS / JAVASCRIPT
+</footer>
+
+
+<!-- =======================================================
      FLOATING ACTION
-     ============================================================ -->
+     ======================================================= -->
 
-<button
-  class="floating-action"
-  id="floatingAction"
-  aria-label="Scroll control"
->
+<button id="floatAction" class="hidden" aria-label="Scroll">
 
-  <svg
-    class="progress-ring"
-    viewBox="0 0 72 72"
-  >
+  <svg class="progress-ring"
+       viewBox="0 0 58 58">
     <circle
-      cx="36"
-      cy="36"
-      r="33"
-    />
+      cx="29"
+      cy="29"
+      r="26">
+    </circle>
   </svg>
 
-  <span class="floating-inner">
-
-    <svg
-      class="floating-arrow"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.5"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M6 9l6 6 6-6"></path>
-
-    </svg>
-
-    <span class="floating-label">
-      TOP
-    </span>
-
-  </span>
+  <span id="floatIcon">↓</span>
+  <span class="label">TOP</span>
 
 </button>
 
-<!-- ============================================================
-     PORTAL STATUS
-     ============================================================ -->
 
-<div
-  class="portal-status"
-  id="portalStatus"
->
-  PORTAL • SINGLE WINDOW
+<!-- =======================================================
+     COMMAND PALETTE
+     ======================================================= -->
+
+<div class="overlay" id="commandOverlay">
+
+  <div class="palette glass">
+
+    <input
+      id="commandSearch"
+      placeholder="Search portfolio commands..."
+      autocomplete="off"
+    >
+
+    <div class="commands">
+
+      <div class="command"
+           data-action="kaggriculture">
+        🚜 Open Kaggriculture
+      </div>
+
+      <div class="command"
+           data-action="skills">
+        🧠 Technical Stack
+      </div>
+
+      <div class="command"
+           data-action="eternal">
+        ⚡ ETERNAL Community
+      </div>
+
+      <div class="command"
+           data-action="terminal">
+        ⌘ Developer Console
+      </div>
+
+      <div class="command"
+           data-action="contact">
+        ✉ Contact
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
-<!-- ============================================================
+
+<!-- =======================================================
+     DEVELOPER HUD
+     ======================================================= -->
+
+<div class="hud glass" id="hud">
+
+  <div class="hud-title">
+    RAGHAVAN // SYSTEM MONITOR
+  </div>
+
+  <div class="hud-row">
+    <span>SCROLL</span>
+    <span id="hudScroll">0%</span>
+  </div>
+
+  <div class="hud-row">
+    <span>VELOCITY</span>
+    <span id="hudVelocity">0</span>
+  </div>
+
+  <div class="hud-row">
+    <span>VIEWPORT</span>
+    <span id="hudViewport">-</span>
+  </div>
+
+  <div class="hud-row">
+    <span>PIXEL RATIO</span>
+    <span id="hudDpr">-</span>
+  </div>
+
+  <div class="hud-row">
+    <span>THEME</span>
+    <span id="hudTheme">NIGHT</span>
+  </div>
+
+  <div class="hud-row">
+    <span>RENDER</span>
+    <span id="hudRender">ADAPTIVE</span>
+  </div>
+
+</div>
+
+
+<!-- =======================================================
      CUSTOM CONTEXT MENU
-     ============================================================ -->
+     ======================================================= -->
 
-<div
-  class="context-menu"
-  id="contextMenu"
->
+<div class="context glass" id="contextMenu">
 
-  <button
-    class="context-item"
-    data-command="top"
-  >
+  <button data-context="top">
     ↑ Back to top
   </button>
 
-  <button
-    class="context-item"
-    data-command="project"
-  >
-    ◈ Open Kaggriculture
+  <button data-context="kagg">
+    🚜 Open Kaggriculture
   </button>
 
-  <button
-    class="context-item"
-    data-command="eternal"
-  >
-    ◇ Open ETERNAL
-  </button>
-
-  <button
-    class="context-item"
-    data-command="theme"
-  >
+  <button data-context="theme">
     ◐ Toggle theme
   </button>
 
-  <button
-    class="context-item"
-    data-command="mute"
-  >
-    ♪ Toggle interface sound
+  <button data-context="xray">
+    ◈ Toggle X-Ray
+  </button>
+
+  <button data-context="contact">
+    ✉ Contact
   </button>
 
 </div>
 
-<script>
 
-/* ============================================================
-   RAGHAVAN PORTFOLIO ENGINE
-   Vanilla JavaScript
-   ============================================================ */
+<script>
+/* =========================================================
+   RAGHAVAN // CORE ENGINE
+   ========================================================= */
 
 (() => {
 
 "use strict";
 
-/* ============================================================
+/* =========================================================
    HELPERS
-   ============================================================ */
+   ========================================================= */
 
-const $ = (selector, root = document) =>
-  root.querySelector(selector);
+const $ = selector => document.querySelector(selector);
+const $$ = selector => [...document.querySelectorAll(selector)];
 
-const $$ = (selector, root = document) =>
-  [...root.querySelectorAll(selector)];
-
-const clamp = (value, min, max) =>
-  Math.min(Math.max(value, min), max);
-
-/* ============================================================
-   DOM
-   ============================================================ */
-
+const root = document.documentElement;
 const body = document.body;
 
-const menuButton = $("#menuButton");
-const menuPanel = $("#menuPanel");
-const themeButton = $("#themeButton");
 
-const floatingAction = $("#floatingAction");
+/* =========================================================
+   YEAR
+   ========================================================= */
 
-const canvas = $("#particleCanvas");
-const ctx = canvas.getContext("2d", {
-  alpha: true
+$("#year").textContent = new Date().getFullYear();
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+if(
+  window.matchMedia &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches
+){
+  body.classList.add("reduced-motion");
+  $("#motionMode").textContent = "REDUCED";
+}
+
+
+/* =========================================================
+   PERFORMANCE ADAPTATION
+   ========================================================= */
+
+const cores = navigator.hardwareConcurrency || 4;
+
+if(cores <= 2){
+  body.classList.add("low-power");
+  $("#performanceStatus").textContent = "SAFE";
+  $("#renderMode").textContent = "SAFE";
+}
+
+if(navigator.connection){
+
+  const connection = navigator.connection;
+
+  if(
+    connection.saveData ||
+    /2g/.test(connection.effectiveType || "")
+  ){
+    body.classList.add("low-power");
+    $("#performanceStatus").textContent = "LOW POWER";
+  }
+}
+
+
+/* =========================================================
+   MOUSE POSITION
+   ========================================================= */
+
+let mouseX = innerWidth / 2;
+let mouseY = innerHeight / 2;
+
+window.addEventListener(
+  "pointermove",
+  event => {
+
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+
+    root.style.setProperty(
+      "--mx",
+      `${(mouseX / innerWidth) * 100}%`
+    );
+
+    root.style.setProperty(
+      "--my",
+      `${(mouseY / innerHeight) * 100}%`
+    );
+
+  },
+  {passive:true}
+);
+
+
+/* =========================================================
+   3D CORE TILT
+   ========================================================= */
+
+const core = $("#core");
+
+window.addEventListener(
+  "pointermove",
+  event => {
+
+    const x =
+      event.clientX / innerWidth - .5;
+
+    const y =
+      event.clientY / innerHeight - .5;
+
+    root.style.setProperty(
+      "--tiltY",
+      `${x * 12}deg`
+    );
+
+    root.style.setProperty(
+      "--tiltX",
+      `${-y * 12}deg`
+    );
+
+  },
+  {passive:true}
+);
+
+
+/* =========================================================
+   MAGNETIC BUTTONS
+   ========================================================= */
+
+$$(".magnetic").forEach(button => {
+
+  button.addEventListener(
+    "pointermove",
+    event => {
+
+      if(event.pointerType === "touch") return;
+
+      const rect =
+        button.getBoundingClientRect();
+
+      const dx =
+        event.clientX -
+        (rect.left + rect.width / 2);
+
+      const dy =
+        event.clientY -
+        (rect.top + rect.height / 2);
+
+      button.style.transform =
+        `translate(${dx * .12}px,${dy * .12}px)`;
+
+    }
+  );
+
+  button.addEventListener(
+    "pointerleave",
+    () => {
+      button.style.transform = "";
+    }
+  );
+
 });
 
-const portalStatus = $("#portalStatus");
 
-const contextMenu = $("#contextMenu");
+/* =========================================================
+   SCROLL ENGINE
+   ========================================================= */
 
-const terminalOutput = $("#terminalOutput");
+let lastScroll = window.scrollY;
+let scrollVelocity = 0;
+let scrollDirection = "down";
 
-const coreStage = $("#coreStage");
+function updateScroll(){
 
-/* ============================================================
-   THEME ENGINE
-   ============================================================ */
+  const max =
+    document.documentElement.scrollHeight -
+    innerHeight;
+
+  const progress =
+    max > 0
+      ? Math.min(1,Math.max(0,window.scrollY / max))
+      : 0;
+
+  const current = window.scrollY;
+
+  scrollVelocity =
+    Math.min(
+      1,
+      Math.abs(current - lastScroll) / 80
+    );
+
+  scrollDirection =
+    current > lastScroll
+      ? "down"
+      : "up";
+
+  root.style.setProperty(
+    "--scroll",
+    progress
+  );
+
+  root.style.setProperty(
+    "--velocity",
+    scrollVelocity
+  );
+
+  $("#hudScroll").textContent =
+    `${Math.round(progress * 100)}%`;
+
+  $("#hudVelocity").textContent =
+    scrollVelocity.toFixed(2);
+
+  $("#floatIcon").textContent =
+    scrollDirection === "down"
+      ? "↓"
+      : "↑";
+
+  $("#floatAction").classList.toggle(
+    "hidden",
+    scrollDirection === "down" &&
+    current < 350
+  );
+
+  $("#floatAction").classList.toggle(
+    "visible",
+    current >= 350
+  );
+
+  lastScroll = current;
+
+}
+
+window.addEventListener(
+  "scroll",
+  updateScroll,
+  {passive:true}
+);
+
+updateScroll();
+
+
+/* =========================================================
+   FLOATING ACTION
+   ========================================================= */
+
+$("#floatAction").addEventListener(
+  "click",
+  () => {
+
+    if(window.scrollY > 500){
+      window.scrollTo({
+        top:0,
+        behavior:"smooth"
+      });
+    }else{
+      $("#kaggriculture")
+        .scrollIntoView({behavior:"smooth"});
+    }
+
+    uiSound(500,.045);
+
+  }
+);
+
+
+/* =========================================================
+   INTERSECTION OBSERVER
+   DYNAMIC THEME
+   ========================================================= */
+
+const themeMeta =
+  document.querySelector(
+    'meta[name="theme-color"]'
+  );
+
+const observer =
+  new IntersectionObserver(
+    entries => {
+
+      entries.forEach(entry => {
+
+        if(!entry.isIntersecting) return;
+
+        const colors = {
+          kaggriculture:"#07162b",
+          skills:"#100d28",
+          eternal:"#071d19",
+          terminal:"#090d17",
+          contact:"#101021"
+        };
+
+        const id =
+          entry.target.id;
+
+        if(colors[id]){
+          themeMeta.setAttribute(
+            "content",
+            colors[id]
+          );
+        }
+
+      });
+
+    },
+    {
+      threshold:.35
+    }
+  );
+
+["kaggriculture","skills","eternal","terminal","contact"]
+.forEach(id => {
+
+  const element = document.getElementById(id);
+
+  if(element){
+    observer.observe(element);
+  }
+
+});
+
+
+/* =========================================================
+   THEME
+   ========================================================= */
 
 const savedTheme =
   localStorage.getItem("raghavan-theme");
 
-if (savedTheme === "light") {
+if(savedTheme === "light"){
   body.classList.add("light");
 }
 
-themeButton.addEventListener("click", () => {
+function toggleTheme(){
 
   body.classList.toggle("light");
 
@@ -3142,856 +2405,713 @@ themeButton.addEventListener("click", () => {
       : "dark"
   );
 
-  playTone(520, .055);
-
-});
-
-/* ============================================================
-   MENU
-   ============================================================ */
-
-menuButton.addEventListener("click", () => {
-
-  menuPanel.classList.toggle("open");
-
-  playTone(
-    menuPanel.classList.contains("open")
-      ? 620
-      : 440,
-    .045
-  );
-
-});
-
-$$(".menu-link").forEach(link => {
-
-  link.addEventListener("click", () => {
-    menuPanel.classList.remove("open");
-  });
-
-});
-
-/* ============================================================
-   AUDIO ENGINE
-   User interaction required
-   ============================================================ */
-
-let audioContext = null;
-
-let audioEnabled =
-  localStorage.getItem("raghavan-audio") !== "off";
-
-function getAudioContext() {
-
-  if (!audioContext) {
-
-    const AudioCtx =
-      window.AudioContext ||
-      window.webkitAudioContext;
-
-    if (!AudioCtx) {
-      return null;
-    }
-
-    audioContext = new AudioCtx();
-
-  }
-
-  return audioContext;
-}
-
-function playTone(
-  frequency = 500,
-  duration = .05
-) {
-
-  if (!audioEnabled) {
-    return;
-  }
-
-  const ac = getAudioContext();
-
-  if (!ac) {
-    return;
-  }
-
-  if (ac.state === "suspended") {
-    ac.resume().catch(() => {});
-  }
-
-  const oscillator =
-    ac.createOscillator();
-
-  const gain =
-    ac.createGain();
-
-  oscillator.type = "sine";
-
-  oscillator.frequency.setValueAtTime(
-    frequency,
-    ac.currentTime
-  );
-
-  gain.gain.setValueAtTime(
-    .0001,
-    ac.currentTime
-  );
-
-  gain.gain.exponentialRampToValueAtTime(
-    .035,
-    ac.currentTime + .008
-  );
-
-  gain.gain.exponentialRampToValueAtTime(
-    .0001,
-    ac.currentTime + duration
-  );
-
-  oscillator.connect(gain);
-  gain.connect(ac.destination);
-
-  oscillator.start();
-
-  oscillator.stop(
-    ac.currentTime + duration + .02
-  );
-}
-
-/* ============================================================
-   MAGNETIC BUTTONS
-   ============================================================ */
-
-$$(".magnetic").forEach(button => {
-
-  button.addEventListener(
-    "pointermove",
-    event => {
-
-      const rect =
-        button.getBoundingClientRect();
-
-      const x =
-        event.clientX -
-        (rect.left + rect.width / 2);
-
-      const y =
-        event.clientY -
-        (rect.top + rect.height / 2);
-
-      button.style.transform =
-        `translate(${x * .12}px,${y * .12}px) translateY(-3px)`;
-
-    }
-  );
-
-  button.addEventListener(
-    "pointerleave",
-    () => {
-
-      button.style.transform = "";
-
-    }
-  );
-
-  button.addEventListener(
-    "pointerenter",
-    () => {
-      playTone(740, .035);
-    }
-  );
-
-});
-
-/* ============================================================
-   CORE 3D MOUSE ORIENTATION
-   ============================================================ */
-
-if (coreStage) {
-
-  coreStage.addEventListener(
-    "pointermove",
-    event => {
-
-      const rect =
-        coreStage.getBoundingClientRect();
-
-      const px =
-        (event.clientX - rect.left) /
-        rect.width;
-
-      const py =
-        (event.clientY - rect.top) /
-        rect.height;
-
-      const rotateY =
-        (px - .5) * 18;
-
-      const rotateX =
-        (.5 - py) * 18;
-
-      coreStage.style.setProperty(
-        "--core-tilt-x",
-        `${rotateX}deg`
-      );
-
-      coreStage.style.setProperty(
-        "--core-tilt-y",
-        `${rotateY}deg`
-      );
-
-      body.style.setProperty(
-        "--mx",
-        `${px * 100}%`
-      );
-
-      body.style.setProperty(
-        "--my",
-        `${py * 100}%`
-      );
-
-    }
-  );
-
-  coreStage.addEventListener(
-    "pointerleave",
-    () => {
-
-      coreStage.style.setProperty(
-        "--core-tilt-x",
-        "0deg"
-      );
-
-      coreStage.style.setProperty(
-        "--core-tilt-y",
-        "0deg"
-      );
-
-    }
-  );
+  $("#hudTheme").textContent =
+    body.classList.contains("light")
+      ? "LIGHT"
+      : "NIGHT";
+
+  uiSound(650,.035);
 
 }
 
-/* ============================================================
-   CARD 3D TILT
-   ============================================================ */
-
-$$(".project-card, .team-card").forEach(card => {
-
-  card.addEventListener(
-    "pointermove",
-    event => {
-
-      const rect =
-        card.getBoundingClientRect();
-
-      const x =
-        (event.clientX - rect.left) /
-        rect.width;
-
-      const y =
-        (event.clientY - rect.top) /
-        rect.height;
-
-      const rx =
-        (.5 - y) * 5;
-
-      const ry =
-        (x - .5) * 5;
-
-      card.style.setProperty(
-        "--tilt-x",
-        `${rx}deg`
-      );
-
-      card.style.setProperty(
-        "--tilt-y",
-        `${ry}deg`
-      );
-
-      card.style.setProperty(
-        "--mx",
-        `${x * 100}%`
-      );
-
-      card.style.setProperty(
-        "--my",
-        `${y * 100}%`
-      );
-
-    }
-  );
-
-  card.addEventListener(
-    "pointerleave",
-    () => {
-
-      card.style.setProperty(
-        "--tilt-x",
-        "0deg"
-      );
-
-      card.style.setProperty(
-        "--tilt-y",
-        "0deg"
-      );
-
-    }
-  );
-
-});
-
-/* ============================================================
-   INTERSECTION OBSERVER
-   ============================================================ */
-
-const observer =
-  new IntersectionObserver(
-    entries => {
-
-      entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-          entry.target.classList.add(
-            "visible"
-          );
-
-          const color =
-            entry.target.dataset.color;
-
-          if (color) {
-            updateThemeColor(color);
-          }
-
-        }
-
-      });
-
-    },
-    {
-      threshold: .16
-    }
-  );
-
-$$(".reveal, section").forEach(
-  element => observer.observe(element)
-);
-
-/* ============================================================
-   DYNAMIC BROWSER THEME
-   ============================================================ */
-
-function updateThemeColor(color) {
-
-  const meta =
-    document.querySelector(
-      'meta[name="theme-color"]'
-    );
-
-  if (meta) {
-    meta.setAttribute(
-      "content",
-      color
-    );
-  }
-
-}
-
-/* ============================================================
-   SCROLL ENGINE
-   ============================================================ */
-
-let lastScrollY =
-  window.scrollY;
-
-let scrollVelocity = 0;
-
-let scrollDirection = "down";
-
-let scrollFrame = null;
-
-function scrollUpdate() {
-
-  const y =
-    window.scrollY;
-
-  const max =
-    document.documentElement.scrollHeight -
-    window.innerHeight;
-
-  const progress =
-    max > 0
-      ? clamp(y / max, 0, 1)
-      : 0;
-
-  scrollVelocity =
-    y - lastScrollY;
-
-  scrollDirection =
-    scrollVelocity < 0
-      ? "up"
-      : "down";
-
-  lastScrollY = y;
-
-  document.documentElement.style
-    .setProperty(
-      "--progress",
-      progress
-    );
-
-  const scale =
-    1 +
-    clamp(
-      Math.abs(scrollVelocity) * .003,
-      0,
-      .20
-    );
-
-  document.documentElement.style
-    .setProperty(
-      "--scroll-scale",
-      scale
-    );
-
-  if (y > 400) {
-
-    floatingAction.classList.add("up");
-
-    floatingAction.style.opacity =
-      "1";
-
-  } else {
-
-    floatingAction.classList.remove("up");
-
-  }
-
-  scrollFrame = null;
-
-}
-
-window.addEventListener(
-  "scroll",
-  () => {
-
-    if (!scrollFrame) {
-
-      scrollFrame =
-        requestAnimationFrame(
-          scrollUpdate
-        );
-
-    }
-
-  },
-  {
-    passive: true
-  }
-);
-
-/* ============================================================
-   FLOATING ACTION
-   ============================================================ */
-
-floatingAction.addEventListener(
+$("#themeBtn").addEventListener(
   "click",
-  () => {
-
-    if (window.scrollY > 500) {
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    } else {
-
-      document
-        .querySelector("#expertise")
-        ?.scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-    createParticleBurst(
-      window.innerWidth - 60,
-      window.innerHeight - 60
-    );
-
-    playTone(680, .07);
-
-  }
+  toggleTheme
 );
 
-/* ============================================================
-   MAGNETIC FLOAT BUTTON
-   ============================================================ */
 
-floatingAction.addEventListener(
-  "pointermove",
-  event => {
+/* =========================================================
+   X-RAY
+   ========================================================= */
 
-    const rect =
-      floatingAction.getBoundingClientRect();
+function toggleXray(){
 
-    const x =
-      event.clientX -
-      (rect.left + rect.width / 2);
+  body.classList.toggle("xray");
 
-    const y =
-      event.clientY -
-      (rect.top + rect.height / 2);
-
-    floatingAction.style.setProperty(
-      "--mag-x",
-      `${x * .16}px`
-    );
-
-    floatingAction.style.setProperty(
-      "--mag-y",
-      `${y * .16}px`
-    );
-
-  }
-);
-
-floatingAction.addEventListener(
-  "pointerleave",
-  () => {
-
-    floatingAction.style.setProperty(
-      "--mag-x",
-      "0px"
-    );
-
-    floatingAction.style.setProperty(
-      "--mag-y",
-      "0px"
-    );
-
-  }
-);
-
-/* ============================================================
-   PARTICLE ENGINE
-   ============================================================ */
-
-let particles = [];
-
-function resizeCanvas() {
-
-  const dpr =
-    Math.min(
-      window.devicePixelRatio || 1,
-      2
-    );
-
-  canvas.width =
-    window.innerWidth * dpr;
-
-  canvas.height =
-    window.innerHeight * dpr;
-
-  canvas.style.width =
-    `${window.innerWidth}px`;
-
-  canvas.style.height =
-    `${window.innerHeight}px`;
-
-  ctx.setTransform(
-    dpr,
-    0,
-    0,
-    dpr,
-    0,
-    0
+  $("#hud").classList.toggle(
+    "open",
+    body.classList.contains("xray")
   );
+
+  uiSound(300,.035);
+
+}
+
+$("#xrayBtn").addEventListener(
+  "click",
+  toggleXray
+);
+
+
+/* =========================================================
+   HUD DATA
+   ========================================================= */
+
+function updateHUD(){
+
+  $("#hudViewport").textContent =
+    `${innerWidth}×${innerHeight}`;
+
+  $("#hudDpr").textContent =
+    window.devicePixelRatio.toFixed(2);
 
 }
 
 window.addEventListener(
   "resize",
-  resizeCanvas
+  updateHUD,
+  {passive:true}
 );
+
+updateHUD();
+
+
+/* =========================================================
+   WEB AUDIO
+   ========================================================= */
+
+let audioContext = null;
+
+function getAudio(){
+
+  if(!audioContext){
+
+    const AudioCtx =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    if(!AudioCtx) return null;
+
+    audioContext = new AudioCtx();
+
+    $("#audioStatus").textContent =
+      "ACTIVE";
+  }
+
+  return audioContext;
+}
+
+function uiSound(
+  frequency = 440,
+  volume = .025
+){
+
+  const ctx = getAudio();
+
+  if(!ctx) return;
+
+  if(ctx.state === "suspended"){
+    ctx.resume();
+  }
+
+  const oscillator =
+    ctx.createOscillator();
+
+  const gain =
+    ctx.createGain();
+
+  oscillator.type = "sine";
+
+  oscillator.frequency.setValueAtTime(
+    frequency,
+    ctx.currentTime
+  );
+
+  gain.gain.setValueAtTime(
+    0.0001,
+    ctx.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    volume,
+    ctx.currentTime + .008
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .0001,
+    ctx.currentTime + .09
+  );
+
+  oscillator.connect(gain);
+  gain.connect(ctx.destination);
+
+  oscillator.start();
+  oscillator.stop(
+    ctx.currentTime + .1
+  );
+}
+
+
+/* =========================================================
+   HOVER SOUND
+   ========================================================= */
+
+$$(".btn,.nav-btn,.arch-node").forEach(
+  element => {
+
+    element.addEventListener(
+      "pointerenter",
+      () => uiSound(720,.012),
+      {passive:true}
+    );
+
+  }
+);
+
+
+/* =========================================================
+   PARTICLE ENGINE
+   ========================================================= */
+
+const canvas =
+  document.getElementById("particles");
+
+const ctx =
+  canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas(){
+
+  const ratio =
+    Math.min(window.devicePixelRatio || 1,2);
+
+  canvas.width =
+    innerWidth * ratio;
+
+  canvas.height =
+    innerHeight * ratio;
+
+  canvas.style.width =
+    innerWidth + "px";
+
+  canvas.style.height =
+    innerHeight + "px";
+
+  ctx.setTransform(
+    ratio,0,0,ratio,0,0
+  );
+
+}
 
 resizeCanvas();
 
-function createParticleBurst(
-  x,
-  y
-) {
+window.addEventListener(
+  "resize",
+  resizeCanvas,
+  {passive:true}
+);
 
-  for (
-    let i = 0;
-    i < 28;
-    i++
-  ) {
+function createParticles(){
 
-    const angle =
-      Math.random() *
-      Math.PI *
-      2;
-
-    const speed =
-      1 +
-      Math.random() * 4;
-
-    particles.push({
-
-      x,
-      y,
-
-      vx:
-        Math.cos(angle) *
-        speed,
-
-      vy:
-        Math.sin(angle) *
-        speed,
-
-      life: 1,
-
-      size:
-        1 +
-        Math.random() * 3
-
-    });
-
-  }
-
-}
-
-function particleLoop() {
-
-  ctx.clearRect(
-    0,
-    0,
-    window.innerWidth,
-    window.innerHeight
-  );
+  const count =
+    body.classList.contains("low-power")
+      ? 25
+      : Math.min(
+          75,
+          Math.floor(innerWidth / 16)
+        );
 
   particles =
-    particles.filter(
-      particle =>
-        particle.life > 0
+    Array.from(
+      {length:count},
+      () => ({
+        x:Math.random()*innerWidth,
+        y:Math.random()*innerHeight,
+        vx:(Math.random()-.5)*.25,
+        vy:(Math.random()-.5)*.25,
+        r:Math.random()*1.7+.4,
+        a:Math.random()*.55+.15
+      })
     );
-
-  particles.forEach(
-    particle => {
-
-      particle.x +=
-        particle.vx;
-
-      particle.y +=
-        particle.vy;
-
-      particle.vy +=
-        .035;
-
-      particle.life -=
-        .025;
-
-      ctx.globalAlpha =
-        particle.life;
-
-      ctx.fillStyle =
-        "#64eaff";
-
-      ctx.beginPath();
-
-      ctx.arc(
-        particle.x,
-        particle.y,
-        particle.size,
-        0,
-        Math.PI * 2
-      );
-
-      ctx.fill();
-
-    }
-  );
-
-  ctx.globalAlpha = 1;
-
-  requestAnimationFrame(
-    particleLoop
-  );
 
 }
 
-particleLoop();
+createParticles();
 
-floatingAction.addEventListener(
-  "click",
-  () => {
+function drawParticles(){
 
-    const rect =
-      floatingAction.getBoundingClientRect();
-
-    createParticleBurst(
-      rect.left + rect.width / 2,
-      rect.top + rect.height / 2
-    );
-
-  }
-);
-
-/* ============================================================
-   CANVAS POINTER TRAIL
-   ============================================================ */
-
-let trailPoints = [];
-
-window.addEventListener(
-  "pointermove",
-  event => {
-
-    trailPoints.push({
-      x: event.clientX,
-      y: event.clientY,
-      life: 1
-    });
-
-    if (
-      trailPoints.length >
-      35
-    ) {
-      trailPoints.shift();
-    }
-
-  },
-  {
-    passive: true
-  }
-);
-
-function drawTrail() {
-
-  trailPoints =
-    trailPoints.filter(
-      point => point.life > 0
-    );
-
-  trailPoints.forEach(
-    point => {
-      point.life -= .055;
-    }
+  ctx.clearRect(
+    0,0,innerWidth,innerHeight
   );
 
-  if (trailPoints.length > 1) {
+  particles.forEach(p => {
+
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if(p.x < 0) p.x = innerWidth;
+    if(p.x > innerWidth) p.x = 0;
+    if(p.y < 0) p.y = innerHeight;
+    if(p.y > innerHeight) p.y = 0;
+
+    const dx = mouseX - p.x;
+    const dy = mouseY - p.y;
+
+    const distance =
+      Math.hypot(dx,dy);
+
+    if(distance < 150){
+
+      p.x -= dx * .0006;
+      p.y -= dy * .0006;
+
+    }
 
     ctx.beginPath();
 
-    trailPoints.forEach(
-      (point,index) => {
+    ctx.arc(
+      p.x,
+      p.y,
+      p.r,
+      0,
+      Math.PI*2
+    );
 
-        if (index === 0) {
-          ctx.moveTo(
-            point.x,
-            point.y
-          );
-        } else {
-          ctx.lineTo(
-            point.x,
-            point.y
-          );
+    ctx.fillStyle =
+      `rgba(103,232,249,${p.a})`;
+
+    ctx.fill();
+
+  });
+
+  if(!body.classList.contains("low-power")){
+    requestAnimationFrame(drawParticles);
+  }
+
+}
+
+drawParticles();
+
+
+/* =========================================================
+   DEVICE ORIENTATION
+   ========================================================= */
+
+function orientationHandler(event){
+
+  const gamma =
+    Math.max(-50,Math.min(50,event.gamma || 0));
+
+  const beta =
+    Math.max(-50,Math.min(50,event.beta || 0));
+
+  root.style.setProperty(
+    "--tiltY",
+    `${gamma / 5}deg`
+  );
+
+  root.style.setProperty(
+    "--tiltX",
+    `${beta / 8}deg`
+  );
+
+}
+
+if("DeviceOrientationEvent" in window){
+
+  window.addEventListener(
+    "deviceorientation",
+    orientationHandler,
+    {passive:true}
+  );
+
+}else{
+
+  $("#motionStatus").textContent =
+    "UNAVAILABLE";
+
+}
+
+
+/* =========================================================
+   KAGGRICULTURE SIMULATION
+   ========================================================= */
+
+const simulationSteps = [
+
+  [
+    "ENVIRONMENT SCAN",
+    "Reading farming-world state..."
+  ],
+
+  [
+    "STATE ESTIMATION",
+    "Converting environment data into structured state..."
+  ],
+
+  [
+    "PREDICTION",
+    "Estimating future economic and resource outcomes..."
+  ],
+
+  [
+    "STRATEGY",
+    "Selecting an action under current constraints..."
+  ],
+
+  [
+    "ACTION",
+    "Executing the selected farming decision..."
+  ],
+
+  [
+    "MEMORY",
+    "Recording experience for future decisions..."
+  ],
+
+  [
+    "EVALUATION",
+    "Measuring reward and updating system knowledge..."
+  ]
+
+];
+
+let simulationTimer = null;
+
+$("#simulateBtn").addEventListener(
+  "click",
+  () => {
+
+    clearInterval(simulationTimer);
+
+    let index = 0;
+
+    const title =
+      $("#simulationTitle");
+
+    const text =
+      $("#simulationText");
+
+    simulationTimer =
+      setInterval(() => {
+
+        const step =
+          simulationSteps[index];
+
+        title.textContent =
+          step[0];
+
+        text.textContent =
+          step[1];
+
+        uiSound(
+          350 + index * 65,
+          .025
+        );
+
+        index++;
+
+        if(index >= simulationSteps.length){
+
+          clearInterval(simulationTimer);
+
+          setTimeout(() => {
+
+            title.textContent =
+              "SIMULATION COMPLETE";
+
+            text.textContent =
+              "Decision → action → feedback loop completed.";
+
+          },500);
+
         }
+
+      },650);
+
+  }
+);
+
+
+/* =========================================================
+   ARCHITECTURE NODE DETAILS
+   ========================================================= */
+
+$$(".arch-node").forEach(
+  node => {
+
+    node.addEventListener(
+      "click",
+      () => {
+
+        const info =
+          node.dataset.info || "";
+
+        $("#simulationTitle").textContent =
+          node.querySelector("strong").textContent;
+
+        $("#simulationText").textContent =
+          info;
+
+        uiSound(550,.025);
 
       }
     );
 
-    ctx.strokeStyle =
-      "rgba(75,220,255,.18)";
-
-    ctx.lineWidth = 1.5;
-
-    ctx.stroke();
-
-  }
-
-  requestAnimationFrame(
-    drawTrail
-  );
-
-}
-
-drawTrail();
-
-/* ============================================================
-   DEVICE ORIENTATION
-   ============================================================ */
-
-function enableOrientation() {
-
-  if (
-    typeof DeviceOrientationEvent ===
-    "undefined"
-  ) {
-    return;
-  }
-
-  window.addEventListener(
-    "deviceorientation",
-    event => {
-
-      const beta =
-        clamp(
-          event.beta || 0,
-          -50,
-          50
-        );
-
-      const gamma =
-        clamp(
-          event.gamma || 0,
-          -50,
-          50
-        );
-
-      document.documentElement.style
-        .setProperty(
-          "--tilt-x",
-          `${beta * .15}deg`
-        );
-
-      document.documentElement.style
-        .setProperty(
-          "--tilt-y",
-          `${gamma * .15}deg`
-        );
-
-      coreStage?.style.setProperty(
-        "--core-tilt-x",
-        `${beta * .10}deg`
-      );
-
-      coreStage?.style.setProperty(
-        "--core-tilt-y",
-        `${gamma * .10}deg`
-      );
-
-    },
-    {
-      passive: true
-    }
-  );
-
-}
-
-document.addEventListener(
-  "click",
-  enableOrientation,
-  {
-    once: true
   }
 );
 
-/* ============================================================
-   CUSTOM CONTEXT MENU
-   ============================================================ */
+
+/* =========================================================
+   COMMAND PALETTE
+   ========================================================= */
+
+const overlay =
+  $("#commandOverlay");
+
+const search =
+  $("#commandSearch");
+
+function openCommandPalette(){
+
+  overlay.classList.add("open");
+
+  setTimeout(
+    () => search.focus(),
+    50
+  );
+
+}
+
+function closeCommandPalette(){
+  overlay.classList.remove("open");
+}
+
+$("#cmdBtn").addEventListener(
+  "click",
+  openCommandPalette
+);
+
+overlay.addEventListener(
+  "click",
+  event => {
+
+    if(event.target === overlay){
+      closeCommandPalette();
+    }
+
+  }
+);
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if(
+      (event.ctrlKey || event.metaKey) &&
+      event.key.toLowerCase() === "k"
+    ){
+
+      event.preventDefault();
+
+      if(overlay.classList.contains("open")){
+        closeCommandPalette();
+      }else{
+        openCommandPalette();
+      }
+
+    }
+
+    if(event.key === "Escape"){
+      closeCommandPalette();
+      $("#contextMenu").classList.remove("open");
+    }
+
+  }
+);
+
+search.addEventListener(
+  "input",
+  () => {
+
+    const value =
+      search.value.toLowerCase().trim();
+
+    $$(".command").forEach(command => {
+
+      command.style.display =
+        command.textContent
+          .toLowerCase()
+          .includes(value)
+            ? ""
+            : "none";
+
+    });
+
+  }
+);
+
+function navigateTo(id){
+
+  closeCommandPalette();
+
+  const target =
+    document.getElementById(id);
+
+  if(target){
+    target.scrollIntoView({
+      behavior:"smooth"
+    });
+  }
+
+}
+
+$$(".command").forEach(
+  command => {
+
+    command.addEventListener(
+      "click",
+      () => {
+
+        const action =
+          command.dataset.action;
+
+        navigateTo(
+          action === "kaggriculture"
+            ? "kaggriculture"
+            : action === "skills"
+            ? "skills"
+            : action === "eternal"
+            ? "eternal"
+            : action === "terminal"
+            ? "terminal"
+            : "contact"
+        );
+
+      }
+    );
+
+  }
+);
+
+
+/* =========================================================
+   TERMINAL
+   ========================================================= */
+
+const terminalInput =
+  $("#terminalInput");
+
+const terminalBody =
+  $("#terminalBody");
+
+function terminalPrint(text){
+
+  const line =
+    document.createElement("div");
+
+  line.className =
+    "term-line";
+
+  line.innerHTML =
+    text;
+
+  terminalBody.insertBefore(
+    line,
+    terminalInput
+  );
+
+}
+
+terminalInput.addEventListener(
+  "keydown",
+  event => {
+
+    if(event.key !== "Enter") return;
+
+    const command =
+      terminalInput.value
+        .trim()
+        .toLowerCase();
+
+    terminalInput.value = "";
+
+    if(!command) return;
+
+    terminalPrint(
+      `<span class="green">&gt;</span> ${command}`
+    );
+
+    switch(command){
+
+      case "help":
+
+        terminalPrint(
+          "commands: help · kaggriculture · skills · eternal · contact · theme · xray · top · clear"
+        );
+
+        break;
+
+      case "kaggriculture":
+
+        navigateTo("kaggriculture");
+        break;
+
+      case "skills":
+
+        navigateTo("skills");
+        break;
+
+      case "eternal":
+
+        navigateTo("eternal");
+        break;
+
+      case "contact":
+
+        navigateTo("contact");
+        break;
+
+      case "theme":
+
+        toggleTheme();
+        terminalPrint("theme toggled.");
+        break;
+
+      case "xray":
+
+        toggleXray();
+        terminalPrint("x-ray mode toggled.");
+        break;
+
+      case "top":
+
+        window.scrollTo({
+          top:0,
+          behavior:"smooth"
+        });
+
+        break;
+
+      case "clear":
+
+        $$(".term-line").forEach(
+          line => line.remove()
+        );
+
+        break;
+
+      default:
+
+        terminalPrint(
+          `unknown command: ${command}`
+        );
+
+    }
+
+    uiSound(480,.025);
+
+  }
+);
+
+
+/* =========================================================
+   CUSTOM RIGHT CLICK
+   ========================================================= */
+
+const contextMenu =
+  $("#contextMenu");
 
 document.addEventListener(
   "contextmenu",
@@ -3999,136 +3119,69 @@ document.addEventListener(
 
     event.preventDefault();
 
-    const width =
-      230;
-
-    const height =
-      270;
-
-    const x =
-      Math.min(
-        event.clientX,
-        window.innerWidth - width - 10
-      );
-
-    const y =
-      Math.min(
-        event.clientY,
-        window.innerHeight - height - 10
-      );
+    contextMenu.classList.add("open");
 
     contextMenu.style.left =
-      `${x}px`;
+      `${Math.min(
+        event.clientX,
+        innerWidth - 240
+      )}px`;
 
     contextMenu.style.top =
-      `${y}px`;
-
-    contextMenu.classList.add(
-      "open"
-    );
-
-  }
-);
-
-document.addEventListener(
-  "click",
-  event => {
-
-    if (
-      !contextMenu.contains(
-        event.target
-      )
-    ) {
-      contextMenu.classList.remove(
-        "open"
-      );
-    }
+      `${Math.min(
+        event.clientY,
+        innerHeight - 260
+      )}px`;
 
   }
 );
 
 document.addEventListener(
-  "keydown",
+  "pointerdown",
   event => {
 
-    if (
-      event.key === "Escape"
-    ) {
-
-      contextMenu.classList.remove(
-        "open"
-      );
-
+    if(
+      !contextMenu.contains(event.target)
+    ){
+      contextMenu.classList.remove("open");
     }
 
   }
 );
 
-$$(".context-item").forEach(
+$$("[data-context]").forEach(
   button => {
 
     button.addEventListener(
       "click",
       () => {
 
-        const command =
-          button.dataset.command;
+        const action =
+          button.dataset.context;
 
-        contextMenu.classList.remove(
-          "open"
-        );
+        contextMenu.classList.remove("open");
 
-        switch(command) {
+        if(action === "top"){
+          window.scrollTo({
+            top:0,
+            behavior:"smooth"
+          });
+        }
 
-          case "top":
+        if(action === "kagg"){
+          navigateTo("kaggriculture");
+        }
 
-            window.scrollTo({
-              top: 0,
-              behavior: "smooth"
-            });
+        if(action === "theme"){
+          toggleTheme();
+        }
 
-            break;
+        if(action === "xray"){
+          toggleXray();
+        }
 
-          case "project":
-
-            document
-              .querySelector("#project")
-              ?.scrollIntoView({
-                behavior: "smooth"
-              });
-
-            break;
-
-          case "eternal":
-
-            document
-              .querySelector("#eternal")
-              ?.scrollIntoView({
-                behavior: "smooth"
-              });
-
-            break;
-
-          case "theme":
-
-            themeButton.click();
-
-            break;
-
-          case "mute":
-
-            audioEnabled =
-              !audioEnabled;
-
-            localStorage.setItem(
-              "raghavan-audio",
-              audioEnabled
-                ? "on"
-                : "off"
-            );
-
-            break;
-
+        if(action === "contact"){
+          navigateTo("contact");
         }
 
       }
@@ -4137,578 +3190,219 @@ $$(".context-item").forEach(
   }
 );
 
-/* ============================================================
-   TERMINAL
-   ============================================================ */
 
-const commands = {
-
-  help:
-    "Available: help, about, project, team, eternal, contact, clear",
-
-  about:
-    "RAGHAVAN — Python, intelligent systems, software architecture and experimental engineering.",
-
-  project:
-    "Crop Coders — Kaggriculture is the current flagship project.",
-
-  team:
-    "Team: Raghavan, Shanmugam, Sithananthan, Sumaiyah, Dhanvanthraj.",
-
-  eternal:
-    "ETERNAL — emerging ethical cybersecurity community.",
-
-  contact:
-    "Phone: +91 9626638296 | LinkedIn: Raghavan Ganesan"
-
-};
-
-function terminalPrint(text) {
-
-  terminalOutput.innerHTML +=
-    `<br><span>› ${text}</span>`;
-
-  terminalOutput.scrollTop =
-    terminalOutput.scrollHeight;
-
-}
-
-document.addEventListener(
-  "keydown",
-  event => {
-
-    if (
-      event.key === "`"
-    ) {
-
-      document
-        .querySelector("#terminal")
-        ?.scrollIntoView({
-          behavior: "smooth"
-        });
-
-    }
-
-  }
-);
-
-$("#terminalButton")
-  ?.addEventListener(
-    "click",
-    () => {
-
-      document
-        .querySelector("#terminal")
-        ?.scrollIntoView({
-          behavior: "smooth"
-        });
-
-      playTone(580, .06);
-
-    }
-  );
-
-/* ============================================================
-   TERMINAL CLICK COMMANDS
-   ============================================================ */
-
-terminalOutput.addEventListener(
-  "click",
-  () => {
-
-    const input =
-      prompt(
-        "RAGHAVAN TERMINAL\n\nEnter command:"
-      );
-
-    if (!input) {
-      return;
-    }
-
-    const command =
-      input
-        .trim()
-        .toLowerCase();
-
-    if (
-      command === "clear"
-    ) {
-
-      terminalOutput.innerHTML =
-        '<span class="cursor"></span>';
-
-      return;
-
-    }
-
-    if (
-      commands[command]
-    ) {
-
-      terminalPrint(
-        commands[command]
-      );
-
-    } else {
-
-      terminalPrint(
-        `Unknown command: ${command}`
-      );
-
-    }
-
-    playTone(620, .04);
-
-  }
-);
-
-/* ============================================================
-   CROSS TAB PORTAL
-   ============================================================ */
-
-let portalChannel = null;
-
-try {
-
-  if (
-    "BroadcastChannel"
-    in window
-  ) {
-
-    portalChannel =
-      new BroadcastChannel(
-        "raghavan-portal"
-      );
-
-    const portalId =
-      `${Date.now()}-${Math.random()}`;
-
-    portalChannel.postMessage({
-      type: "hello",
-      id: portalId
-    });
-
-    portalChannel.addEventListener(
-      "message",
-      event => {
-
-        if (
-          event.data?.type ===
-          "hello"
-        ) {
-
-          portalStatus.textContent =
-            "PORTAL • MULTI-WINDOW ACTIVE";
-
-          playTone(430, .025);
-
-        }
-
-      }
-    );
-
-  }
-
-} catch {
-  /* Browser may block BroadcastChannel */
-}
-
-/* ============================================================
-   LOCAL CURSOR PRESENCE
-   Only communicates between own open tabs.
-   No external tracking service.
-   ============================================================ */
-
-try {
-
-  const presenceChannel =
-    "BroadcastChannel" in window
-      ? new BroadcastChannel(
-          "raghavan-presence"
-        )
-      : null;
-
-  if (presenceChannel) {
-
-    let lastBroadcast = 0;
-
-    window.addEventListener(
-      "pointermove",
-      event => {
-
-        const now =
-          performance.now();
-
-        if (
-          now - lastBroadcast <
-          80
-        ) {
-          return;
-        }
-
-        lastBroadcast = now;
-
-        presenceChannel.postMessage({
-
-          x:
-            event.clientX /
-            window.innerWidth,
-
-          y:
-            event.clientY /
-            window.innerHeight
-
-        });
-
-      },
-      {
-        passive: true
-      }
-    );
-
-    presenceChannel.addEventListener(
-      "message",
-      event => {
-
-        const data =
-          event.data;
-
-        if (
-          !data ||
-          typeof data.x !== "number"
-        ) {
-          return;
-        }
-
-        let ghost =
-          document.querySelector(
-            ".ghost"
-          );
-
-        if (!ghost) {
-
-          ghost =
-            document.createElement(
-              "div"
-            );
-
-          ghost.className =
-            "ghost";
-
-          document.body.appendChild(
-            ghost
-          );
-
-        }
-
-        ghost.style.left =
-          `${data.x * 100}%`;
-
-        ghost.style.top =
-          `${data.y * 100}%`;
-
-      }
-    );
-
-  }
-
-} catch {
-  /* Optional feature */
-}
-
-/* ============================================================
-   LOW BATTERY MODE
-   ============================================================ */
-
-if (
-  "getBattery" in navigator
-) {
-
-  navigator
-    .getBattery()
-    .then(
-      battery => {
-
-        const updateBattery =
-          () => {
-
-            if (
-              battery.level <
-              .15
-            ) {
-
-              body.classList.add(
-                "low-battery"
-              );
-
-            } else {
-
-              body.classList.remove(
-                "low-battery"
-              );
-
-            }
-
-          };
-
-        updateBattery();
-
-        battery.addEventListener(
-          "levelchange",
-          updateBattery
-        );
-
-      }
-    )
-    .catch(() => {});
-
-}
-
-/* ============================================================
-   ADAPTIVE TIME MESSAGE
-   ============================================================ */
+/* =========================================================
+   LOCAL TIME ADAPTATION
+   ========================================================= */
 
 const hour =
   new Date().getHours();
 
-const greeting =
-  $("#adaptiveGreeting");
-
-if (greeting) {
-
-  if (hour < 12) {
-
-    greeting.textContent =
-      "Good morning. Building Python systems, intelligent architectures and experimental software.";
-
-  } else if (hour < 18) {
-
-    greeting.textContent =
-      "Building intelligent systems, software architecture and experimental engineering projects.";
-
-  } else {
-
-    greeting.textContent =
-      "Engineering after hours — Python systems, intelligent architectures and experimental software.";
-
-  }
-
+if(hour >= 0 && hour < 6){
+  $("#simulationText").textContent =
+    "Night engineering mode detected.";
 }
 
-/* ============================================================
-   REDUCED MOTION
-   ============================================================ */
 
-if (
-  window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches
-) {
+/* =========================================================
+   BATTERY ADAPTATION
+   ========================================================= */
 
-  body.classList.add(
-    "reduced-motion"
-  );
+if(
+  navigator.getBattery
+){
 
-}
+  navigator.getBattery()
+    .then(battery => {
 
-/* ============================================================
-   SELF-WRITING INTRO
-   ============================================================ */
+      function checkBattery(){
 
-const bootScreen =
-  $("#bootScreen");
+        if(
+          battery.level < .15 &&
+          !battery.charging
+        ){
 
-const bootCode =
-  $("#bootCode");
+          body.classList.add("low-power");
 
-const bootText =
-`> INITIALIZING RAGHAVAN ENGINEERING PORTFOLIO
-> loading visual systems...
-> loading interaction engine...
-> loading browser-native interfaces...
-> loading Crop Coders / Kaggriculture...
-> loading ETERNAL...
-> SYSTEM READY`;
+          $("#performanceStatus").textContent =
+            "BATTERY SAFE";
 
-let bootIndex = 0;
+        }
 
-function bootType() {
+      }
 
-  if (
-    bootIndex <
-    bootText.length
-  ) {
+      checkBattery();
 
-    bootCode.textContent =
-      bootText.slice(
-        0,
-        bootIndex + 1
+      battery.addEventListener(
+        "levelchange",
+        checkBattery
       );
 
-    bootIndex++;
+      battery.addEventListener(
+        "chargingchange",
+        checkBattery
+      );
 
-    setTimeout(
-      bootType,
-      8
-    );
+    })
+    .catch(() => {});
 
-  } else {
+}
 
-    setTimeout(
+
+/* =========================================================
+   BROADCAST CHANNEL
+   ========================================================= */
+
+if("BroadcastChannel" in window){
+
+  try{
+
+    const channel =
+      new BroadcastChannel(
+        "raghavan-portfolio"
+      );
+
+    channel.postMessage({
+      type:"presence",
+      time:Date.now()
+    });
+
+    window.addEventListener(
+      "beforeunload",
       () => {
 
-        bootScreen.classList.add(
-          "done"
-        );
+        channel.postMessage({
+          type:"leave",
+          time:Date.now()
+        });
 
-      },
-      500
+      }
     );
 
-  }
+  }catch(error){}
 
 }
 
-if (
-  sessionStorage.getItem(
-    "raghavan-boot-seen"
-  )
-) {
 
-  bootScreen.classList.add(
-    "done"
-  );
+/* =========================================================
+   OFFLINE SUPPORT
+   ========================================================= */
 
-} else {
+if("serviceWorker" in navigator){
 
-  sessionStorage.setItem(
-    "raghavan-boot-seen",
-    "1"
-  );
+  window.addEventListener(
+    "load",
+    () => {
 
-  bootType();
+      const swCode = `
+        const CACHE = "raghavan-portfolio-v1";
 
-}
+        self.addEventListener("install", event => {
+          self.skipWaiting();
+        });
 
-/* ============================================================
-   SCROLL DECONSTRUCTION
-   ============================================================ */
+        self.addEventListener("activate", event => {
+          event.waitUntil(
+            caches.keys().then(keys =>
+              Promise.all(
+                keys
+                  .filter(key => key !== CACHE)
+                  .map(key => caches.delete(key))
+              )
+            )
+          );
+        });
 
-const timelineItems =
-  $$(".timeline-item");
+        self.addEventListener("fetch", event => {
 
-function deconstructTimeline() {
+          if(event.request.method !== "GET"){
+            return;
+          }
 
-  const center =
-    window.innerHeight * .5;
+          event.respondWith(
+            fetch(event.request)
+              .then(response => {
 
-  timelineItems.forEach(
-    (item,index) => {
+                const copy =
+                  response.clone();
 
-      const rect =
-        item.getBoundingClientRect();
+                caches.open(CACHE)
+                  .then(cache =>
+                    cache.put(
+                      event.request,
+                      copy
+                    )
+                  );
 
-      const itemCenter =
-        rect.top +
-        rect.height / 2;
+                return response;
 
-      const distance =
-        (itemCenter - center) /
-        window.innerHeight;
+              })
+              .catch(() =>
+                caches.match(event.request)
+              )
+          );
 
-      const strength =
-        clamp(
-          Math.abs(distance),
-          0,
-          1
-        );
+        });
+      `;
 
-      const direction =
-        index % 2 === 0
-          ? -1
-          : 1;
+      try{
 
-      item.style.setProperty(
-        "--scatter-x",
-        `${strength * direction * 70}px`
-      );
+        const blob =
+          new Blob(
+            [swCode],
+            {type:"text/javascript"}
+          );
 
-      item.style.setProperty(
-        "--scatter-y",
-        `${strength * 25}px`
-      );
+        const url =
+          URL.createObjectURL(blob);
 
-      item.style.setProperty(
-        "--scatter-z",
-        `${strength * -120}px`
-      );
+        navigator.serviceWorker
+          .register(url)
+          .catch(() => {});
 
-      item.style.setProperty(
-        "--scatter-rx",
-        `${strength * 8}deg`
-      );
-
-      item.style.setProperty(
-        "--scatter-ry",
-        `${strength * direction * 10}deg`
-      );
+      }catch(error){}
 
     }
   );
 
 }
 
-let deconstructFrame = null;
 
-window.addEventListener(
-  "scroll",
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+$("#mobileMenu").addEventListener(
+  "click",
   () => {
 
-    if (
-      !deconstructFrame
-    ) {
+    openCommandPalette();
 
-      deconstructFrame =
-        requestAnimationFrame(
-          () => {
-
-            deconstructTimeline();
-
-            deconstructFrame =
-              null;
-
-          }
-        );
-
-    }
-
-  },
-  {
-    passive: true
   }
 );
 
-deconstructTimeline();
 
-/* ============================================================
-   CLEANUP
-   ============================================================ */
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
 
-window.addEventListener(
-  "pagehide",
-  () => {
+$("#hudTheme").textContent =
+  body.classList.contains("light")
+    ? "LIGHT"
+    : "NIGHT";
 
-    try {
+updateScroll();
 
-      portalChannel?.close();
+console.log(
+  "%c RAGHAVAN PORTFOLIO ",
+  "background:#07162b;color:#67e8f9;font-size:18px;padding:10px"
+);
 
-    } catch {}
-
-  }
+console.log(
+  "Engineering systems initialized."
 );
 
 })();
-
 </script>
 
 </body>
