@@ -3,4311 +3,3175 @@
 <head>
 <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta
-  name="description"
-  content="Raghavan — software developer portfolio featuring Kaggriculture, Python, intelligent systems, software engineering and ETERNAL."
->
+<meta name="theme-color" content="#070a12">
+
+<meta name="description"
+      content="Raghavan — Python, AI, software engineering, Kaggriculture and ETERNAL community portfolio.">
 
 <meta name="author" content="Raghavan">
 
-<meta
-  name="theme-color"
-  content="#070b14"
->
-
-<meta
-  name="color-scheme"
-  content="dark light"
->
-
-<title>RAGHAVAN — Developer Portfolio</title>
+<title>RAGHAVAN — Software Engineer</title>
 
 <style>
-
-/* =========================================================
-   RAGHAVAN PORTFOLIO
-   Ultra Advanced Single-File Edition
-   Version 10X
-   Zero External Dependencies
-   ========================================================= */
-
-
-/* =========================================================
-   DESIGN TOKENS
-   ========================================================= */
+/* ============================================================
+   RAGHAVAN PORTFOLIO — ULTRA ADVANCED EDITION
+   Single-file architecture
+   No frameworks
+   No external dependencies
+   ============================================================ */
 
 :root {
+    --bg: #050711;
+    --bg-2: #080d19;
 
-  --bg: #050812;
-  --bg-2: #090e1c;
-  --surface: rgba(255,255,255,.055);
-  --surface-strong: rgba(255,255,255,.085);
+    --surface: rgba(255,255,255,.055);
+    --surface-2: rgba(255,255,255,.085);
+    --surface-3: rgba(255,255,255,.12);
 
-  --border: rgba(255,255,255,.12);
-  --border-bright: rgba(255,255,255,.22);
+    --border: rgba(255,255,255,.13);
+    --border-soft: rgba(255,255,255,.07);
 
-  --text: #f6f8ff;
-  --muted: #aeb7ca;
-  --muted-2: #7d879d;
+    --text: #f7f9ff;
+    --muted: #aab4c9;
 
-  --accent: #7c8cff;
-  --accent-2: #5ee7df;
-  --accent-3: #b68cff;
+    --blue: #7187ff;
+    --cyan: #48e8df;
+    --purple: #ad7cff;
+    --green: #65e7a2;
 
-  --success: #67e8a5;
+    --danger: #ff6d91;
 
-  --shadow:
-    0 30px 100px rgba(0,0,0,.42);
+    --shadow:
+        0 30px 90px rgba(0,0,0,.42);
 
-  --glass-shadow:
-    0 20px 80px rgba(0,0,0,.28);
+    --glass-shadow:
+        inset 0 1px 0 rgba(255,255,255,.12),
+        0 30px 90px rgba(0,0,0,.32);
 
-  --radius: 28px;
-  --max: 1200px;
+    --radius: 28px;
+    --max: 1180px;
 
-  --nav-height: 76px;
+    --nav-height: 74px;
 
-  --ease:
-    cubic-bezier(.16,1,.3,1);
+    --transition:
+        cubic-bezier(.2,.8,.2,1);
 }
 
-
-/* LIGHT MODE */
+/* ============================================================
+   LIGHT MODE
+   ============================================================ */
 
 body.light {
+    --bg: #eef3ff;
+    --bg-2: #f7f9ff;
 
-  --bg: #eef3ff;
-  --bg-2: #f8faff;
+    --surface: rgba(255,255,255,.55);
+    --surface-2: rgba(255,255,255,.72);
+    --surface-3: rgba(255,255,255,.9);
 
-  --surface: rgba(255,255,255,.55);
-  --surface-strong: rgba(255,255,255,.75);
+    --border: rgba(40,50,90,.14);
+    --border-soft: rgba(40,50,90,.08);
 
-  --border: rgba(30,40,80,.12);
-  --border-bright: rgba(30,40,80,.22);
+    --text: #101526;
+    --muted: #536079;
 
-  --text: #101526;
-  --muted: #596277;
-  --muted-2: #788197;
+    --shadow:
+        0 30px 80px rgba(60,80,130,.18);
 
-  --shadow:
-    0 30px 100px rgba(35,50,100,.16);
-
-  --glass-shadow:
-    0 20px 80px rgba(35,50,100,.12);
+    --glass-shadow:
+        inset 0 1px 0 rgba(255,255,255,.8),
+        0 30px 80px rgba(60,80,130,.14);
 }
 
-
-/* =========================================================
+/* ============================================================
    RESET
-   ========================================================= */
+   ============================================================ */
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 15% 10%,
+            rgba(113,135,255,.16),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(72,232,223,.10),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(173,124,255,.08),
+            transparent 30%
+        ),
+        var(--bg);
 
-  min-height: 100vh;
+    color: var(--text);
 
-  background:
-    radial-gradient(
-      circle at 10% 10%,
-      rgba(124,140,255,.15),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 90% 20%,
-      rgba(94,231,223,.10),
-      transparent 30%
-    ),
-    var(--bg);
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-  color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
 
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-
-  line-height: 1.6;
-
-  overflow-x: hidden;
-
-  transition:
-    background .5s ease,
-    color .5s ease;
+    transition:
+        background .5s ease,
+        color .5s ease;
 }
 
-body::selection {
-  background: var(--accent);
-  color: white;
+body.no-scroll {
+    overflow: hidden;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
-  font: inherit;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
 }
 
 img {
-  max-width: 100%;
-  display: block;
+    max-width: 100%;
+    display: block;
 }
 
-ul {
-  list-style: none;
+::selection {
+    background: rgba(72,232,223,.3);
 }
 
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-
-/* =========================================================
+/* ============================================================
    GLOBAL BACKGROUND
-   ========================================================= */
+   ============================================================ */
 
 .background {
-
-  position: fixed;
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: -10;
-
-  overflow: hidden;
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -10;
+    overflow: hidden;
 }
 
 .grid {
+    position: absolute;
+    inset: 0;
 
-  position: absolute;
-  inset: 0;
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,.025) 1px,
+            transparent 1px
+        );
 
-  opacity: .20;
+    background-size: 44px 44px;
 
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    );
-
-  background-size: 50px 50px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent 90%
-    );
+    mask-image:
+        linear-gradient(
+            to bottom,
+            black,
+            transparent 88%
+        );
 }
 
 body.light .grid {
-  opacity: .08;
+    background-image:
+        linear-gradient(
+            rgba(50,70,120,.035) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(50,70,120,.035) 1px,
+            transparent 1px
+        );
 }
-
 
 .orb {
-
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  border-radius: 50%;
-
-  filter: blur(100px);
-
-  opacity: .12;
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: .16;
+    animation: orbFloat 14s ease-in-out infinite;
 }
 
-.orb.one {
-
-  left: -200px;
-  top: 10%;
-
-  background: var(--accent);
+.orb.a {
+    width: 360px;
+    height: 360px;
+    background: var(--blue);
+    left: -160px;
+    top: 15%;
 }
 
-.orb.two {
-
-  right: -200px;
-  top: 45%;
-
-  background: var(--accent-2);
+.orb.b {
+    width: 320px;
+    height: 320px;
+    background: var(--cyan);
+    right: -140px;
+    top: 42%;
+    animation-delay: -5s;
 }
 
-.orb.three {
-
-  left: 40%;
-  bottom: -300px;
-
-  background: var(--accent-3);
+.orb.c {
+    width: 280px;
+    height: 280px;
+    background: var(--purple);
+    left: 35%;
+    bottom: -160px;
+    animation-delay: -9s;
 }
 
+@keyframes orbFloat {
+    0%,100% {
+        transform: translate3d(0,0,0) scale(1);
+    }
 
-/* =========================================================
-   PARTICLES
-   ========================================================= */
-
-#particles {
-
-  position: absolute;
-
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
+    50% {
+        transform: translate3d(30px,-25px,0) scale(1.08);
+    }
 }
 
+/* ============================================================
+   CONTAINER
+   ============================================================ */
 
-/* =========================================================
+.container {
+    width: min(92%, var(--max));
+    margin-inline: auto;
+}
+
+/* ============================================================
    NAVIGATION
-   ========================================================= */
+   ============================================================ */
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 
-  position: fixed;
+    z-index: 1000;
 
-  top: 0;
-  left: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(5,7,17,.86),
+            rgba(5,7,17,.58)
+        );
 
-  width: 100%;
+    backdrop-filter: blur(22px) saturate(140%);
+    -webkit-backdrop-filter: blur(22px) saturate(140%);
 
-  height: var(--nav-height);
+    border-bottom: 1px solid var(--border-soft);
 
-  z-index: 1000;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(5,8,18,.80),
-      rgba(5,8,18,.45)
-    );
-
-  backdrop-filter:
-    blur(22px)
-    saturate(150%);
-
-  -webkit-backdrop-filter:
-    blur(22px)
-    saturate(150%);
-
-  border-bottom:
-    1px solid
-    var(--border);
+    transform: translateY(0);
+    transition:
+        transform .4s var(--transition),
+        background .4s ease;
 }
 
 body.light .navbar {
+    background:
+        rgba(245,248,255,.72);
+}
 
-  background:
-    rgba(245,248,255,.72);
+.navbar.hide {
+    transform: translateY(-110%);
 }
 
 .nav-inner {
+    min-height: var(--nav-height);
 
-  width: min(92%, var(--max));
-
-  height: 100%;
-
-  margin: auto;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-
-
-/* BRAND */
 
 .brand {
+    font-size: 1.12rem;
+    font-weight: 950;
+    letter-spacing: -.04em;
 
-  position: relative;
+    background:
+        linear-gradient(
+            100deg,
+            #fff 0%,
+            var(--blue) 35%,
+            var(--cyan) 68%,
+            var(--purple) 100%
+        );
 
-  font-size: 1.25rem;
+    background-size: 220% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 
-  font-weight: 950;
-
-  letter-spacing: -.055em;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 8px;
+    animation:
+        brandFlow 5s linear infinite;
 }
 
-.brand-name {
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--accent),
-      var(--accent-2),
-      var(--accent),
-      var(--accent-3)
-    );
-
-  background-size: 300% 100%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  animation:
-    nameFlow 6s ease infinite;
-
-  text-shadow:
-    0 0 30px
-    rgba(124,140,255,.15);
+@keyframes brandFlow {
+    to {
+        background-position: 220% center;
+    }
 }
 
-@keyframes nameFlow {
-
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.brand-dot {
-
-  width: 7px;
-  height: 7px;
-
-  border-radius: 50%;
-
-  background: var(--accent-2);
-
-  box-shadow:
-    0 0 16px var(--accent-2);
-
-  animation:
-    pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-
-  50% {
-    transform: scale(1.5);
-    opacity: .6;
-  }
-}
-
-
-/* NAV LINKS */
-
-.nav-links {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
-}
-
-.nav-links a {
-
-  padding: 9px 13px;
-
-  border-radius: 12px;
-
-  color: var(--muted);
-
-  font-size: .84rem;
-
-  transition:
-    color .3s ease,
-    background .3s ease,
-    transform .3s var(--ease);
-}
-
-.nav-links a:hover {
-
-  color: var(--text);
-
-  background:
-    rgba(255,255,255,.07);
-
-  transform:
-    translateY(-2px);
-}
-
-
-/* NAV CONTROLS */
-
-.nav-controls {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 8px;
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .icon-button {
+    width: 44px;
+    height: 44px;
 
-  width: 42px;
-  height: 42px;
+    display: grid;
+    place-items: center;
 
-  display: grid;
-  place-items: center;
+    border-radius: 15px;
 
-  border:
-    1px solid
-    var(--border);
+    background: var(--surface);
+    border: 1px solid var(--border);
 
-  border-radius: 14px;
+    backdrop-filter: blur(18px);
 
-  background:
-    var(--surface);
-
-  color: var(--text);
-
-  cursor: pointer;
-
-  backdrop-filter: blur(16px);
-
-  transition:
-    transform .3s var(--ease),
-    background .3s ease,
-    border-color .3s ease;
+    transition:
+        transform .3s var(--transition),
+        background .3s ease;
 }
 
 .icon-button:hover {
-
-  transform:
-    translateY(-3px)
-    rotate(3deg);
-
-  background:
-    var(--surface-strong);
-
-  border-color:
-    var(--border-bright);
+    transform: translateY(-3px);
+    background: var(--surface-2);
 }
 
+/* ============================================================
+   MENU
+   ============================================================ */
 
-/* MOBILE MENU */
+.menu {
+    position: fixed;
+    top: calc(var(--nav-height) + 12px);
+    right: 4%;
 
-.menu-button {
-  display: none;
+    width: min(320px, 90vw);
+
+    padding: 16px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 24px;
+
+    background:
+        rgba(8,12,25,.88);
+
+    backdrop-filter: blur(30px) saturate(160%);
+    -webkit-backdrop-filter: blur(30px) saturate(160%);
+
+    box-shadow: var(--shadow);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform:
+        translateY(-12px)
+        scale(.96);
+
+    transition:
+        opacity .3s ease,
+        transform .3s var(--transition);
 }
 
+body.light .menu {
+    background: rgba(245,248,255,.9);
+}
 
-/* =========================================================
+.menu.open {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.menu a {
+    display: block;
+    padding: 13px 14px;
+
+    border-radius: 14px;
+
+    color: var(--muted);
+
+    transition:
+        background .25s ease,
+        color .25s ease,
+        transform .25s ease;
+}
+
+.menu a:hover {
+    background: var(--surface-2);
+    color: var(--text);
+    transform: translateX(4px);
+}
+
+/* ============================================================
    HERO
-   ========================================================= */
+   ============================================================ */
 
 .hero {
+    min-height: 100svh;
 
-  position: relative;
+    display: flex;
+    align-items: center;
 
-  min-height:
-    max(760px, 100vh);
+    padding:
+        calc(var(--nav-height) + 60px)
+        0
+        70px;
 
-  padding-top:
-    calc(var(--nav-height) + 80px);
-
-  display: flex;
-
-  align-items: center;
-
-  overflow: hidden;
+    position: relative;
 }
 
-.hero-inner {
+.hero-grid {
+    display: grid;
 
-  width: min(92%, var(--max));
+    grid-template-columns:
+        minmax(0,1.05fr)
+        minmax(340px,.95fr);
 
-  margin: auto;
+    gap: 55px;
 
-  display: grid;
-
-  grid-template-columns:
-    1.05fr
-    .95fr;
-
-  align-items: center;
-
-  gap: 60px;
-}
-
-
-/* HERO CONTENT */
-
-.hero-content {
-
-  position: relative;
-
-  z-index: 5;
-}
-
-.status {
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 10px;
-
-  padding:
-    8px 13px;
-
-  margin-bottom: 25px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 999px;
-
-  background:
-    var(--surface);
-
-  backdrop-filter:
-    blur(20px);
-
-  color: var(--muted);
-
-  font-size: .78rem;
-
-  box-shadow:
-    var(--glass-shadow);
-}
-
-.status-dot {
-
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: var(--success);
-
-  box-shadow:
-    0 0 16px var(--success);
-}
-
-
-.hero h1 {
-
-  font-size:
-    clamp(
-      4rem,
-      8vw,
-      7.5rem
-    );
-
-  line-height: .88;
-
-  letter-spacing: -.085em;
-
-  font-weight: 950;
-
-  margin-bottom: 30px;
-}
-
-.hero-title {
-
-  display: block;
-
-  color: var(--text);
-}
-
-.hero-gradient {
-
-  display: block;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--accent),
-      var(--accent-2),
-      var(--accent-3),
-      var(--accent)
-    );
-
-  background-size: 300% 100%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  animation:
-    nameFlow 7s ease infinite;
-}
-
-
-/* IMPORTANT:
-   RAGHAVAN dynamically follows same color system
-*/
-
-.hero-raghavan {
-
-  display: inline-block;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--accent),
-      var(--accent-2),
-      var(--accent-3)
-    );
-
-  background-size: 220% 100%;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  animation:
-    nameFlow 5s ease infinite;
-
-  filter:
-    drop-shadow(
-      0 0 25px
-      rgba(124,140,255,.15)
-    );
-}
-
-
-.hero-description {
-
-  max-width: 700px;
-
-  color: var(--muted);
-
-  font-size:
-    clamp(
-      1rem,
-      2vw,
-      1.22rem
-    );
-
-  line-height: 1.85;
-
-  margin-bottom: 34px;
-}
-
-
-/* HERO ACTIONS */
-
-.actions {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 13px;
-}
-
-.btn {
-
-  position: relative;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 10px;
-
-  min-height: 54px;
-
-  padding:
-    0 21px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 16px;
-
-  background:
-    var(--surface);
-
-  color: var(--text);
-
-  cursor: pointer;
-
-  overflow: hidden;
-
-  backdrop-filter:
-    blur(18px);
-
-  transition:
-    box-shadow .35s ease,
-    background .35s ease,
-    border-color .35s ease;
-}
-
-.btn::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  background:
-    linear-gradient(
-      110deg,
-      transparent 20%,
-      rgba(255,255,255,.18),
-      transparent 80%
-    );
-
-  transform:
-    translateX(-120%);
-
-  transition:
-    transform .8s var(--ease);
-}
-
-.btn:hover::before {
-
-  transform:
-    translateX(120%);
-}
-
-.btn:hover {
-
-  border-color:
-    var(--border-bright);
-
-  box-shadow:
-    0 15px 45px
-    rgba(0,0,0,.20);
-}
-
-.btn.primary {
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent-2)
-    );
-
-  color: #07101a;
-
-  border-color:
-    transparent;
-
-  font-weight: 850;
-
-  box-shadow:
-    0 15px 50px
-    rgba(124,140,255,.20);
-}
-
-.btn.primary:hover {
-
-  box-shadow:
-    0 20px 65px
-    rgba(124,140,255,.35);
-}
-
-
-/* =========================================================
-   3D HERO SYSTEM
-   ========================================================= */
-
-.scene {
-
-  position: relative;
-
-  width: min(100%, 560px);
-
-  aspect-ratio: 1;
-
-  margin: auto;
-
-  perspective:
-    1400px;
-}
-
-.scene::before {
-
-  content: "";
-
-  position: absolute;
-
-  inset: 12%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(124,140,255,.20),
-      transparent 65%
-    );
-
-  filter: blur(30px);
-}
-
-
-/* CORE */
-
-.core {
-
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  width: 190px;
-  height: 190px;
-
-  transform:
-    translate(-50%, -50%)
-    translateZ(30px);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 30% 25%,
-      rgba(255,255,255,.95),
-      rgba(124,140,255,.8) 8%,
-      rgba(85,98,220,.75) 30%,
-      rgba(20,29,75,.95) 70%,
-      #030611 100%
-    );
-
-  box-shadow:
-    inset -25px -35px 70px rgba(0,0,0,.75),
-    inset 20px 15px 45px rgba(255,255,255,.12),
-    0 0 50px rgba(124,140,255,.35),
-    0 0 130px rgba(94,231,223,.14);
-
-  animation:
-    coreFloat 6s ease-in-out infinite;
-
-  transform-style:
-    preserve-3d;
-}
-
-@keyframes coreFloat {
-
-  0%,100% {
-    transform:
-      translate(-50%,-50%)
-      translateY(0)
-      rotateX(0deg)
-      rotateY(0deg);
-  }
-
-  50% {
-    transform:
-      translate(-50%,-50%)
-      translateY(-15px)
-      rotateX(8deg)
-      rotateY(10deg);
-  }
-}
-
-
-/* CORE HIGHLIGHT */
-
-.core::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 45px;
-  height: 45px;
-
-  top: 22px;
-  left: 35px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(255,255,255,.8);
-
-  filter: blur(10px);
-
-  opacity: .65;
-}
-
-
-/* ORBITS */
-
-.orbit {
-
-  position: absolute;
-
-  left: 50%;
-  top: 50%;
-
-  border:
-    1px solid
-    rgba(124,140,255,.55);
-
-  border-radius: 50%;
-
-  transform-style:
-    preserve-3d;
-
-  box-shadow:
-    0 0 20px
-    rgba(124,140,255,.08);
-}
-
-.orbit.one {
-
-  width: 390px;
-  height: 150px;
-
-  transform:
-    translate(-50%,-50%)
-    rotateX(66deg)
-    rotateZ(18deg);
-
-  animation:
-    orbitA 10s linear infinite;
-}
-
-.orbit.two {
-
-  width: 420px;
-  height: 170px;
-
-  transform:
-    translate(-50%,-50%)
-    rotateX(70deg)
-    rotateY(35deg)
-    rotateZ(-35deg);
-
-  animation:
-    orbitB 13s linear infinite reverse;
-}
-
-.orbit.three {
-
-  width: 330px;
-  height: 330px;
-
-  transform:
-    translate(-50%,-50%)
-    rotateX(72deg)
-    rotateY(15deg);
-
-  border-color:
-    rgba(94,231,223,.35);
-
-  animation:
-    orbitC 17s linear infinite;
-}
-
-@keyframes orbitA {
-
-  to {
-    transform:
-      translate(-50%,-50%)
-      rotateX(66deg)
-      rotateZ(378deg);
-  }
-}
-
-@keyframes orbitB {
-
-  to {
-    transform:
-      translate(-50%,-50%)
-      rotateX(70deg)
-      rotateY(35deg)
-      rotateZ(-395deg);
-  }
-}
-
-@keyframes orbitC {
-
-  to {
-    transform:
-      translate(-50%,-50%)
-      rotateX(72deg)
-      rotateY(375deg);
-  }
-}
-
-
-/* ORBIT PARTICLES */
-
-.node {
-
-  position: absolute;
-
-  width: 15px;
-  height: 15px;
-
-  border-radius: 50%;
-
-  background:
-    var(--accent-2);
-
-  box-shadow:
-    0 0 25px
-    var(--accent-2);
-}
-
-.node.a {
-
-  top: 14%;
-  left: 75%;
-
-  animation:
-    nodeFloat 4s ease-in-out infinite;
-}
-
-.node.b {
-
-  top: 73%;
-  left: 18%;
-
-  background:
-    var(--accent);
-
-  box-shadow:
-    0 0 25px
-    var(--accent);
-
-  animation:
-    nodeFloat 5s ease-in-out infinite reverse;
-}
-
-.node.c {
-
-  top: 35%;
-  left: 13%;
-
-  background:
-    var(--accent-3);
-
-  box-shadow:
-    0 0 25px
-    var(--accent-3);
-
-  animation:
-    nodeFloat 4.5s ease-in-out infinite;
-}
-
-@keyframes nodeFloat {
-
-  50% {
-    transform:
-      translateY(-18px)
-      scale(1.25);
-  }
-}
-
-
-/* 3D FLOOR */
-
-.floor {
-
-  position: absolute;
-
-  width: 520px;
-  height: 250px;
-
-  left: 50%;
-  top: 70%;
-
-  transform:
-    translateX(-50%)
-    perspective(500px)
-    rotateX(65deg);
-
-  background-image:
-    linear-gradient(
-      rgba(124,140,255,.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(124,140,255,.08) 1px,
-      transparent 1px
-    );
-
-  background-size:
-    45px 45px;
-
-  mask-image:
-    linear-gradient(
-      to bottom,
-      black,
-      transparent
-    );
-
-  opacity: .5;
-}
-
-
-/* 3D LABEL */
-
-.scene-label {
-
-  position: absolute;
-
-  left: 50%;
-  top: 88%;
-
-  transform:
-    translateX(-50%);
-
-  padding:
-    8px 14px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius:
-    999px;
-
-  background:
-    rgba(0,0,0,.25);
-
-  backdrop-filter:
-    blur(14px);
-
-  font-size: .65rem;
-
-  letter-spacing: .16em;
-
-  color: var(--muted);
-
-  white-space: nowrap;
-}
-
-
-/* =========================================================
-   SECTION SYSTEM
-   ========================================================= */
-
-section {
-
-  position: relative;
-
-  width: min(92%, var(--max));
-
-  margin:
-    0 auto;
-
-  padding:
-    130px 0;
-
-  scroll-margin-top: 80px;
-}
-
-.section-heading {
-
-  max-width: 800px;
-
-  margin-bottom: 50px;
+    align-items: center;
 }
 
 .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
 
-  display: inline-block;
+    padding: 8px 13px;
 
-  margin-bottom: 13px;
+    border-radius: 999px;
 
-  color:
-    var(--accent-2);
+    background: var(--surface);
+    border: 1px solid var(--border);
 
-  font-size: .75rem;
+    color: var(--muted);
 
-  font-weight: 900;
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 
-  letter-spacing: .16em;
+    backdrop-filter: blur(18px);
 
-  text-transform: uppercase;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08);
 }
 
-.section-heading h2 {
+.status-dot {
+    width: 8px;
+    height: 8px;
 
-  font-size:
-    clamp(
-      2.4rem,
-      6vw,
-      4.8rem
-    );
+    border-radius: 50%;
 
-  line-height: .95;
+    background: var(--green);
 
-  letter-spacing: -.065em;
+    box-shadow:
+        0 0 0 5px rgba(101,231,162,.09),
+        0 0 18px var(--green);
 
-  margin-bottom: 20px;
+    animation: pulse 2s infinite;
 }
 
-.section-heading p {
-
-  color: var(--muted);
-
-  max-width: 720px;
-
-  font-size: 1.05rem;
+@keyframes pulse {
+    50% {
+        transform: scale(1.3);
+        opacity: .65;
+    }
 }
 
+.hero-title {
+    margin-top: 22px;
 
-/* =========================================================
+    font-size:
+        clamp(
+            3.7rem,
+            10vw,
+            8.5rem
+        );
+
+    line-height: .86;
+    letter-spacing: -.075em;
+
+    font-weight: 1000;
+}
+
+.hero-title .dynamic {
+    display: block;
+
+    background:
+        linear-gradient(
+            100deg,
+            var(--blue),
+            var(--cyan),
+            var(--purple),
+            var(--blue)
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation:
+        gradientFlow 7s linear infinite;
+}
+
+@keyframes gradientFlow {
+    to {
+        background-position: 300% center;
+    }
+}
+
+.hero-description {
+    max-width: 690px;
+
+    margin-top: 28px;
+
+    color: var(--muted);
+
+    font-size:
+        clamp(
+            1rem,
+            2vw,
+            1.25rem
+        );
+
+    line-height: 1.85;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    margin-top: 34px;
+}
+
+/* ============================================================
+   ADVANCED BUTTON
+   ============================================================ */
+
+.magnetic {
+    position: relative;
+
+    min-height: 56px;
+
+    padding: 0 23px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    background:
+        linear-gradient(
+            110deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    color: #06101b;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 15px 45px rgba(71,145,255,.22),
+        inset 0 1px 0 rgba(255,255,255,.45);
+
+    transition:
+        transform .25s var(--transition),
+        border-radius .45s var(--transition),
+        box-shadow .35s ease;
+}
+
+.magnetic.secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.1),
+        0 20px 50px rgba(0,0,0,.18);
+}
+
+.magnetic:hover {
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 65px rgba(71,145,255,.3),
+        inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.magnetic::before {
+    content: "";
+
+    position: absolute;
+    inset: -50%;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent 38%,
+            rgba(255,255,255,.6) 49%,
+            transparent 60%
+        );
+
+    transform:
+        translateX(-90%)
+        rotate(10deg);
+
+    animation:
+        shimmer 4.5s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+@keyframes shimmer {
+    0%,55% {
+        transform:
+            translateX(-100%)
+            rotate(10deg);
+    }
+
+    75%,100% {
+        transform:
+            translateX(100%)
+            rotate(10deg);
+    }
+}
+
+.magnetic span {
+    position: relative;
+    z-index: 2;
+}
+
+/* ============================================================
+   3D HERO CORE
+   ============================================================ */
+
+.scene {
+    position: relative;
+
+    min-height: 530px;
+
+    display: grid;
+    place-items: center;
+
+    perspective: 1400px;
+
+    transform-style: preserve-3d;
+}
+
+.core {
+    position: relative;
+
+    width: 235px;
+    height: 235px;
+
+    border-radius: 50%;
+
+    transform-style: preserve-3d;
+
+    background:
+        radial-gradient(
+            circle at 32% 25%,
+            rgba(255,255,255,.75),
+            rgba(116,138,255,.8) 7%,
+            rgba(72,232,223,.18) 28%,
+            rgba(20,29,70,.92) 65%,
+            #050815 100%
+        );
+
+    box-shadow:
+        inset -30px -40px 70px rgba(0,0,0,.72),
+        inset 25px 20px 55px rgba(255,255,255,.12),
+        0 0 80px rgba(93,120,255,.5),
+        0 0 180px rgba(72,232,223,.13);
+
+    animation:
+        coreFloat 7s ease-in-out infinite;
+}
+
+.core::before {
+    content: "";
+
+    position: absolute;
+    inset: -18px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(116,140,255,.22),
+            transparent 65%
+        );
+
+    filter: blur(14px);
+
+    z-index: -1;
+}
+
+.core::after {
+    content: "";
+
+    position: absolute;
+
+    width: 60px;
+    height: 60px;
+
+    top: 18%;
+    left: 24%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9),
+            rgba(255,255,255,.08) 45%,
+            transparent 70%
+        );
+
+    filter: blur(3px);
+}
+
+@keyframes coreFloat {
+    0%,100% {
+        transform:
+            translateY(0)
+            rotateX(0)
+            rotateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            rotateX(7deg)
+            rotateY(12deg);
+    }
+}
+
+.ring {
+    position: absolute;
+
+    width: 430px;
+    height: 170px;
+
+    border:
+        1px solid rgba(112,139,255,.6);
+
+    border-radius: 50%;
+
+    transform:
+        rotateX(70deg)
+        rotateZ(8deg);
+
+    box-shadow:
+        0 0 30px rgba(112,139,255,.12);
+
+    animation:
+        ringSpin 9s linear infinite;
+}
+
+.ring.r2 {
+    width: 390px;
+    height: 150px;
+
+    transform:
+        rotateX(70deg)
+        rotateZ(62deg);
+
+    border-color: rgba(72,232,223,.55);
+
+    animation-duration: 12s;
+    animation-direction: reverse;
+}
+
+.ring.r3 {
+    width: 470px;
+    height: 190px;
+
+    transform:
+        rotateX(70deg)
+        rotateZ(-30deg);
+
+    border-color: rgba(173,124,255,.4);
+
+    animation-duration: 16s;
+}
+
+@keyframes ringSpin {
+    to {
+        transform:
+            rotateX(70deg)
+            rotateZ(368deg);
+    }
+}
+
+.orbit-dot {
+    position: absolute;
+
+    width: 15px;
+    height: 15px;
+
+    border-radius: 50%;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 25px var(--cyan);
+
+    animation:
+        orbit 6s linear infinite;
+}
+
+.orbit-dot.d2 {
+    background: var(--purple);
+    box-shadow: 0 0 25px var(--purple);
+    animation-duration: 8s;
+    animation-delay: -2s;
+}
+
+@keyframes orbit {
+    from {
+        transform:
+            rotate(0deg)
+            translateX(220px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg)
+            translateX(220px)
+            rotate(-360deg);
+    }
+}
+
+.core-label {
+    position: absolute;
+
+    bottom: 30px;
+
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(0,0,0,.38);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    backdrop-filter: blur(15px);
+
+    font-size: .72rem;
+    font-weight: 800;
+
+    letter-spacing: .12em;
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.75);
+}
+
+/* ============================================================
+   SECTION
+   ============================================================ */
+
+section {
+    padding: 105px 0;
+}
+
+.section-head {
+    margin-bottom: 45px;
+}
+
+.section-kicker {
+    color: var(--cyan);
+
+    font-size: .75rem;
+    font-weight: 900;
+
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-top: 8px;
+
+    font-size:
+        clamp(
+            2.2rem,
+            5vw,
+            4rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -.055em;
+}
+
+.section-text {
+    max-width: 680px;
+
+    margin-top: 15px;
+
+    color: var(--muted);
+}
+
+/* ============================================================
    GLASS CARDS
-   ========================================================= */
+   ============================================================ */
 
 .glass {
+    position: relative;
 
-  position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
 
-  border:
-    1px solid
-    var(--border);
+    border: 1px solid var(--border);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.09),
-      rgba(255,255,255,.025)
-    );
+    border-radius: var(--radius);
 
-  box-shadow:
-    var(--glass-shadow);
+    backdrop-filter:
+        blur(25px)
+        saturate(150%);
 
-  backdrop-filter:
-    blur(25px)
-    saturate(140%);
+    -webkit-backdrop-filter:
+        blur(25px)
+        saturate(150%);
 
-  -webkit-backdrop-filter:
-    blur(25px)
-    saturate(140%);
+    box-shadow: var(--glass-shadow);
 
-  overflow: hidden;
+    overflow: hidden;
 }
 
 .glass::before {
+    content: "";
 
-  content: "";
+    position: absolute;
 
-  position: absolute;
+    inset: 0;
 
-  inset: 0;
+    pointer-events: none;
 
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      115deg,
-      rgba(255,255,255,.12),
-      transparent 30%
-    );
-
-  opacity: .5;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.09),
+            transparent 30%,
+            transparent 70%,
+            rgba(72,232,223,.04)
+        );
 }
 
-.glass-card {
-
-  border-radius:
-    var(--radius);
-
-  padding:
-    30px;
-
-  transition:
-    transform .5s var(--ease),
-    border-color .4s ease,
-    box-shadow .4s ease;
+.glass:hover {
+    border-color:
+        rgba(113,135,255,.28);
 }
 
-.glass-card:hover {
+/* ============================================================
+   EXPERTISE
+   ============================================================ */
 
-  transform:
-    translateY(-8px);
+.expertise-grid {
+    display: grid;
 
-  border-color:
-    var(--border-bright);
+    grid-template-columns:
+        repeat(3, minmax(0,1fr));
 
-  box-shadow:
-    0 30px 90px
-    rgba(0,0,0,.30);
+    gap: 18px;
 }
 
+.expertise-card {
+    padding: 28px;
 
-/* =========================================================
-   ABOUT
-   ========================================================= */
+    min-height: 230px;
 
-.about-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 20px;
+    transition:
+        transform .45s var(--transition),
+        border-color .3s ease;
 }
 
-.about-card h3 {
-
-  font-size: 1.35rem;
-
-  margin-bottom: 15px;
+.expertise-card:hover {
+    transform:
+        translateY(-10px)
+        rotateX(2deg)
+        rotateY(-2deg);
 }
 
-.about-card p {
+.card-icon {
+    width: 48px;
+    height: 48px;
 
-  color: var(--muted);
+    display: grid;
+    place-items: center;
 
-  line-height: 1.8;
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(113,135,255,.18),
+            rgba(72,232,223,.08)
+        );
+
+    border: 1px solid var(--border);
+
+    margin-bottom: 20px;
+
+    font-size: 1.3rem;
 }
 
-.stat-grid {
+.expertise-card h3 {
+    font-size: 1.1rem;
+}
 
-  display: grid;
+.expertise-card p {
+    margin-top: 10px;
 
-  grid-template-columns:
-    repeat(2,1fr);
+    color: var(--muted);
 
-  gap: 14px;
+    font-size: .92rem;
+}
 
-  margin-top: 25px;
+/* ============================================================
+   KAGGRICULTURE
+   ============================================================ */
+
+.project {
+    padding: 35px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.1fr
+        .9fr;
+
+    gap: 35px;
+}
+
+.project-badge {
+    display: inline-flex;
+
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    background: rgba(101,231,162,.08);
+
+    border:
+        1px solid rgba(101,231,162,.18);
+
+    color: var(--green);
+
+    font-size: .72rem;
+    font-weight: 900;
+
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+.project h3 {
+    margin-top: 18px;
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.2rem
+        );
+
+    line-height: 1;
+
+    letter-spacing: -.055em;
+}
+
+.project-description {
+    margin-top: 18px;
+
+    color: var(--muted);
+
+    line-height: 1.85;
+}
+
+.project-stack {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top: 22px;
+}
+
+.tag {
+    padding: 7px 11px;
+
+    border-radius: 999px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    color: var(--muted);
+
+    font-size: .75rem;
+}
+
+.project-visual {
+    min-height: 350px;
+
+    position: relative;
+
+    display: grid;
+    place-items: center;
+
+    perspective: 1000px;
+}
+
+.farm-cube {
+    width: 190px;
+    height: 190px;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transform:
+        rotateX(58deg)
+        rotateZ(-35deg);
+
+    animation:
+        cubeFloat 8s ease-in-out infinite;
+}
+
+.farm-face {
+    position: absolute;
+
+    inset: 0;
+
+    border: 1px solid rgba(72,232,223,.25);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(72,232,223,.15),
+            rgba(113,135,255,.09)
+        );
+
+    backdrop-filter: blur(10px);
+}
+
+.farm-face.front {
+    transform: translateZ(95px);
+}
+
+.farm-face.back {
+    transform: rotateY(180deg) translateZ(95px);
+}
+
+.farm-face.left {
+    transform:
+        rotateY(-90deg)
+        translateZ(95px);
+}
+
+.farm-face.right {
+    transform:
+        rotateY(90deg)
+        translateZ(95px);
+}
+
+.farm-face.top {
+    transform:
+        rotateX(90deg)
+        translateZ(95px);
+}
+
+.farm-face.bottom {
+    transform:
+        rotateX(-90deg)
+        translateZ(95px);
+}
+
+@keyframes cubeFloat {
+    0%,100% {
+        transform:
+            rotateX(58deg)
+            rotateZ(-35deg)
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            rotateX(62deg)
+            rotateZ(-28deg)
+            translateY(-20px);
+    }
+}
+
+.project-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap: 12px;
+
+    margin-top: 22px;
 }
 
 .stat {
+    padding: 17px;
 
-  padding: 18px;
+    border-radius: 18px;
 
-  border:
-    1px solid
-    var(--border);
+    background: var(--surface);
 
-  border-radius: 18px;
-
-  background:
-    rgba(255,255,255,.035);
+    border: 1px solid var(--border);
 }
 
 .stat strong {
+    display: block;
 
-  display: block;
-
-  font-size: 1.5rem;
-
-  color: var(--text);
+    font-size: 1.2rem;
 }
 
 .stat span {
+    color: var(--muted);
 
-  color: var(--muted-2);
-
-  font-size: .78rem;
+    font-size: .75rem;
 }
 
+/* ============================================================
+   TEAM
+   ============================================================ */
 
-/* =========================================================
-   EXPERTISE
-   ========================================================= */
+.team-grid {
+    display: grid;
 
-.expertise-grid {
+    grid-template-columns:
+        repeat(5, minmax(0,1fr));
 
-  display: grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap: 18px;
+    gap: 12px;
 }
 
-.expertise {
+.team-card {
+    padding: 20px;
 
-  min-height: 230px;
+    text-align: center;
+
+    transition:
+        transform .35s var(--transition);
 }
 
-.expertise-icon {
-
-  width: 50px;
-  height: 50px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 16px;
-
-  margin-bottom: 22px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent-2)
-    );
-
-  color: #07101a;
-
-  font-weight: 950;
-
-  box-shadow:
-    0 12px 35px
-    rgba(124,140,255,.18);
+.team-card:hover {
+    transform: translateY(-8px);
 }
 
-.expertise h3 {
+.avatar {
+    width: 60px;
+    height: 60px;
 
-  margin-bottom: 10px;
+    margin: 0 auto 13px;
 
-  font-size: 1.15rem;
+    display: grid;
+    place-items: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    color: #06101b;
+
+    font-weight: 1000;
+
+    box-shadow:
+        0 12px 35px rgba(72,232,223,.15);
 }
 
-.expertise p {
-
-  color: var(--muted);
-
-  font-size: .9rem;
+.team-card h4 {
+    font-size: .9rem;
 }
 
+.team-card p {
+    margin-top: 4px;
 
-/* =========================================================
-   KAGGRICULTURE
-   ========================================================= */
+    color: var(--muted);
 
-.kagg-wrap {
-
-  display: grid;
-
-  grid-template-columns:
-    1.1fr
-    .9fr;
-
-  gap: 20px;
+    font-size: .7rem;
 }
 
-.kagg-main {
-
-  min-height: 540px;
-
-  padding: 40px;
-
-  border-radius:
-    32px;
-
-  background:
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(94,231,223,.12),
-      transparent 35%
-    ),
-    linear-gradient(
-      145deg,
-      rgba(124,140,255,.12),
-      rgba(255,255,255,.035)
-    );
-}
-
-.kagg-badge {
-
-  display: inline-flex;
-
-  padding:
-    7px 12px;
-
-  border:
-    1px solid
-    rgba(103,232,165,.25);
-
-  border-radius:
-    999px;
-
-  color:
-    var(--success);
-
-  background:
-    rgba(103,232,165,.07);
-
-  font-size: .7rem;
-
-  font-weight: 850;
-
-  letter-spacing: .08em;
-}
-
-.kagg-main h3 {
-
-  margin-top: 24px;
-
-  font-size:
-    clamp(2rem,4vw,3.2rem);
-
-  line-height: 1;
-
-  letter-spacing: -.05em;
-}
-
-.kagg-main > p {
-
-  margin-top: 20px;
-
-  color: var(--muted);
-
-  line-height: 1.8;
-}
-
-.kagg-points {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap: 12px;
-
-  margin-top: 30px;
-}
-
-.kagg-point {
-
-  padding: 16px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 17px;
-
-  background:
-    rgba(255,255,255,.035);
-}
-
-.kagg-point strong {
-
-  display: block;
-
-  font-size: .85rem;
-
-  margin-bottom: 5px;
-}
-
-.kagg-point span {
-
-  color: var(--muted-2);
-
-  font-size: .75rem;
-}
-
-
-/* KAGG SIDE */
-
-.kagg-side {
-
-  display: grid;
-
-  gap: 20px;
-}
-
-.kagg-side-card {
-
-  padding: 28px;
-
-  border-radius:
-    var(--radius);
-}
-
-.kagg-side-card h4 {
-
-  margin-bottom: 14px;
-
-  font-size: 1.1rem;
-}
-
-.kagg-side-card p {
-
-  color: var(--muted);
-
-  font-size: .9rem;
-
-  line-height: 1.75;
-}
-
-
-/* ARCHITECTURE */
-
-.architecture {
-
-  display: flex;
-
-  flex-wrap: wrap;
-
-  gap: 8px;
-
-  margin-top: 20px;
-}
-
-.arch-node {
-
-  padding:
-    8px 11px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius:
-    10px;
-
-  background:
-    rgba(255,255,255,.035);
-
-  color: var(--muted);
-
-  font-size: .7rem;
-}
-
-.arch-node.active {
-
-  color: var(--text);
-
-  border-color:
-    rgba(124,140,255,.45);
-
-  background:
-    rgba(124,140,255,.09);
-}
-
-
-/* =========================================================
+/* ============================================================
    ETERNAL
-   ========================================================= */
+   ============================================================ */
 
 .eternal {
+    padding: 40px;
 
-  position: relative;
+    display: grid;
 
-  overflow: hidden;
+    grid-template-columns:
+        1fr
+        1fr;
 
-  padding: 45px;
+    gap: 30px;
 
-  border-radius:
-    34px;
+    align-items: center;
 
-  background:
-    radial-gradient(
-      circle at 20% 0%,
-      rgba(124,140,255,.17),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(94,231,223,.12),
-      transparent 35%
-    );
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(173,124,255,.12),
+            transparent 35%
+        ),
+        var(--surface);
 }
 
 .eternal-title {
+    font-size:
+        clamp(
+            3rem,
+            8vw,
+            6rem
+        );
 
-  display: flex;
+    font-weight: 1000;
 
-  align-items: center;
+    letter-spacing: -.07em;
 
-  gap: 14px;
+    background:
+        linear-gradient(
+            100deg,
+            var(--purple),
+            var(--cyan)
+        );
 
-  flex-wrap: wrap;
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
 }
 
-.eternal-title h3 {
+.eternal p {
+    margin-top: 12px;
 
-  font-size:
-    clamp(2.4rem,6vw,5rem);
-
-  letter-spacing:
-    -.07em;
-
-  line-height: .9;
+    color: var(--muted);
 }
 
-.eternal-symbol {
-
-  width: 48px;
-  height: 48px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 15px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent-2)
-    );
-
-  color: #07101a;
-
-  font-weight: 950;
+.community-list {
+    display: grid;
+    gap: 10px;
 }
 
-.eternal > p {
+.community-item {
+    padding: 16px;
 
-  max-width: 800px;
+    display: flex;
+    justify-content: space-between;
 
-  margin-top: 22px;
+    border-radius: 16px;
 
-  color: var(--muted);
+    background: var(--surface);
 
-  line-height: 1.85;
+    border: 1px solid var(--border);
 }
 
-.community-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(5,1fr);
-
-  gap: 12px;
-
-  margin-top: 35px;
+.community-item span:last-child {
+    color: var(--cyan);
+    font-size: .8rem;
 }
 
-.member {
-
-  padding: 20px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 19px;
-
-  background:
-    rgba(255,255,255,.035);
-
-  transition:
-    transform .4s var(--ease),
-    background .3s ease;
-}
-
-.member:hover {
-
-  transform:
-    translateY(-7px);
-
-  background:
-    rgba(255,255,255,.075);
-}
-
-.member-avatar {
-
-  width: 42px;
-  height: 42px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  margin-bottom: 14px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent-2)
-    );
-
-  color: #07101a;
-
-  font-weight: 900;
-}
-
-.member strong {
-
-  display: block;
-
-  margin-bottom: 4px;
-
-  font-size: .88rem;
-}
-
-.member span {
-
-  color: var(--muted-2);
-
-  font-size: .7rem;
-}
-
-
-/* =========================================================
+/* ============================================================
    CONTACT
-   ========================================================= */
+   ============================================================ */
 
 .contact-grid {
+    display: grid;
 
-  display: grid;
+    grid-template-columns:
+        1fr
+        1fr;
 
-  grid-template-columns:
-    1fr
-    1fr;
-
-  gap: 20px;
+    gap: 18px;
 }
 
 .contact-card {
-
-  padding: 34px;
-
-  border-radius:
-    var(--radius);
-}
-
-.contact-card h3 {
-
-  font-size: 1.7rem;
-
-  margin-bottom: 12px;
-}
-
-.contact-card p {
-
-  color: var(--muted);
-
-  margin-bottom: 25px;
-}
-
-.contact-links {
-
-  display: grid;
-
-  gap: 10px;
+    padding: 30px;
 }
 
 .contact-link {
+    display: flex;
 
-  display: flex;
+    align-items: center;
 
-  align-items: center;
+    gap: 15px;
 
-  justify-content: space-between;
+    padding: 15px;
 
-  padding:
-    16px 18px;
+    margin-top: 10px;
 
-  border:
-    1px solid
-    var(--border);
+    border-radius: 17px;
 
-  border-radius:
-    15px;
+    background: var(--surface);
 
-  background:
-    rgba(255,255,255,.035);
+    border: 1px solid var(--border);
 
-  transition:
-    transform .35s var(--ease),
-    border-color .3s ease;
+    transition:
+        transform .3s var(--transition),
+        background .3s ease;
 }
 
 .contact-link:hover {
+    transform: translateX(6px);
 
-  transform:
-    translateX(6px);
+    background: var(--surface-2);
+}
 
-  border-color:
-    var(--border-bright);
+.contact-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(113,135,255,.18),
+            rgba(72,232,223,.12)
+        );
 }
 
 .contact-link small {
+    display: block;
 
-  display: block;
-
-  color: var(--muted-2);
-
-  font-size: .68rem;
+    color: var(--muted);
 }
 
 .contact-link strong {
-
-  font-size: .86rem;
+    font-size: .92rem;
 }
 
-
-/* =========================================================
+/* ============================================================
    FOOTER
-   ========================================================= */
+   ============================================================ */
 
 footer {
+    padding: 50px 0;
 
-  width: min(92%, var(--max));
+    border-top: 1px solid var(--border-soft);
 
-  margin:
-    auto;
+    color: var(--muted);
 
-  padding:
-    50px 0 80px;
-
-  border-top:
-    1px solid
-    var(--border);
-
-  color: var(--muted);
-
-  font-size: .78rem;
+    font-size: .8rem;
 }
 
 .footer-inner {
+    display: flex;
 
-  display: flex;
+    justify-content: space-between;
 
-  justify-content: space-between;
+    gap: 20px;
 
-  gap: 20px;
-
-  flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
-
-/* =========================================================
-   REVEAL ENGINE
-   ========================================================= */
+/* ============================================================
+   SCROLL REVEAL
+   IntersectionObserver controlled
+   ============================================================ */
 
 .reveal {
+    opacity: 0;
 
-  opacity: 0;
+    transform:
+        translateY(35px)
+        scale(.98);
 
-  transform:
-    translate3d(0,35px,0)
-    scale(.985);
-
-  transition:
-    opacity .8s var(--ease),
-    transform .8s var(--ease);
+    transition:
+        opacity .8s ease,
+        transform .8s var(--transition);
 }
 
-.reveal.is-visible {
-
-  opacity: 1;
-
-  transform:
-    translate3d(0,0,0)
-    scale(1);
-}
-
-
-.reveal-group > * {
-
-  opacity: 0;
-
-  transform:
-    translate3d(0,25px,0);
-
-  transition:
-    opacity .7s var(--ease),
-    transform .7s var(--ease);
-}
-
-.reveal-group.is-visible > * {
-
-  opacity: 1;
-
-  transform:
-    translate3d(0,0,0);
-}
-
-.reveal-group.is-visible > *:nth-child(1) {
-  transition-delay: .05s;
-}
-
-.reveal-group.is-visible > *:nth-child(2) {
-  transition-delay: .12s;
-}
-
-.reveal-group.is-visible > *:nth-child(3) {
-  transition-delay: .19s;
-}
-
-.reveal-group.is-visible > *:nth-child(4) {
-  transition-delay: .26s;
-}
-
-.reveal-group.is-visible > *:nth-child(5) {
-  transition-delay: .33s;
-}
-
-
-/* =========================================================
-   MAGNETIC FLOATING ETERNAL BUTTON
-   ========================================================= */
-
-.eternal-fab {
-
-  position: fixed;
-
-  right: 25px;
-  bottom: 25px;
-
-  z-index: 9999;
-
-  width: 59px;
-  height: 59px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  gap: 8px;
-
-  border:
-    1px solid
-    var(--border-bright);
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(124,140,255,.30),
-      rgba(94,231,223,.20)
-    );
-
-  color: var(--text);
-
-  backdrop-filter:
-    blur(22px)
-    saturate(150%);
-
-  -webkit-backdrop-filter:
-    blur(22px)
-    saturate(150%);
-
-  box-shadow:
-    0 18px 60px rgba(0,0,0,.38),
-    inset 0 1px 0 rgba(255,255,255,.18);
-
-  cursor: pointer;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  transform:
-    translate3d(0,30px,0)
-    scale(.75);
-
-  transition:
-    width .55s var(--ease),
-    border-radius .55s var(--ease),
-    opacity .4s ease,
-    transform .18s var(--ease),
-    box-shadow .35s ease;
-}
-
-.eternal-fab.fab-visible {
-
-  opacity: 1;
-
-  pointer-events: auto;
-
-  transform:
-    translate3d(0,0,0)
-    scale(1);
-}
-
-.eternal-fab:hover,
-.eternal-fab.fab-expanded {
-
-  width: 155px;
-
-  border-radius:
-    999px;
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.45),
-    0 0 40px rgba(124,140,255,.20);
-}
-
-.fab-icon {
-
-  width: 35px;
-  height: 35px;
-
-  flex: 0 0 auto;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--accent),
-      var(--accent-2)
-    );
-
-  color: #07101a;
-
-  font-weight: 950;
-
-  transition:
-    transform .5s var(--ease);
-}
-
-.eternal-fab:hover .fab-icon {
-
-  transform:
-    rotate(180deg)
-    scale(1.08);
-}
-
-.fab-label {
-
-  max-width: 0;
-
-  opacity: 0;
-
-  overflow: hidden;
-
-  white-space: nowrap;
-
-  font-size: .72rem;
-
-  font-weight: 900;
-
-  letter-spacing: .12em;
-
-  transition:
-    max-width .5s var(--ease),
-    opacity .3s ease;
-}
-
-.eternal-fab:hover .fab-label,
-.eternal-fab.fab-expanded .fab-label {
-
-  max-width: 80px;
-
-  opacity: 1;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .nav-links {
-    display: none;
-  }
-
-  .menu-button {
-    display: grid;
-  }
-
-  .hero-inner {
-
-    grid-template-columns:
-      1fr;
-
-    text-align: center;
-  }
-
-  .hero-description {
-
-    margin-inline: auto;
-  }
-
-  .actions {
-
-    justify-content: center;
-  }
-
-  .scene {
-
-    max-width: 480px;
-  }
-
-  .about-grid,
-  .kagg-wrap,
-  .contact-grid {
-
-    grid-template-columns:
-      1fr;
-  }
-
-  .expertise-grid {
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .community-grid {
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-}
-
-
-@media (max-width: 600px) {
-
-  :root {
-    --nav-height: 68px;
-  }
-
-  section {
-
-    padding:
-      90px 0;
-  }
-
-  .hero {
-
-    min-height:
-      auto;
-
-    padding-top:
-      130px;
-
-    padding-bottom:
-      80px;
-  }
-
-  .hero h1 {
-
-    font-size:
-      clamp(
-        3.5rem,
-        18vw,
-        5.3rem
-      );
-  }
-
-  .hero-description {
-
-    font-size:
-      .96rem;
-
-    line-height:
-      1.75;
-  }
-
-  .actions {
-
-    flex-direction:
-      column;
-  }
-
-  .btn {
-
-    width: 100%;
-  }
-
-  .scene {
-
-    width: 100%;
-  }
-
-  .core {
-
-    width: 140px;
-    height: 140px;
-  }
-
-  .orbit.one {
-
-    width: 280px;
-    height: 115px;
-  }
-
-  .orbit.two {
-
-    width: 300px;
-    height: 125px;
-  }
-
-  .orbit.three {
-
-    width: 240px;
-    height: 240px;
-  }
-
-  .floor {
-
-    width: 330px;
-  }
-
-  .about-grid,
-  .expertise-grid,
-  .community-grid {
-
-    grid-template-columns:
-      1fr;
-  }
-
-  .kagg-main,
-  .eternal,
-  .contact-card {
-
-    padding:
-      25px;
-  }
-
-  .kagg-points {
-
-    grid-template-columns:
-      1fr;
-  }
-
-  .eternal-fab {
-
-    right: 17px;
-    bottom: 17px;
-  }
-}
-
-
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-
-    animation-duration:
-      .01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      .01ms !important;
-  }
-
-  .reveal,
-  .reveal-group > * {
-
+.reveal.visible {
     opacity: 1;
 
     transform:
-      none;
-  }
+        translateY(0)
+        scale(1);
 }
 
+/* ============================================================
+   FLOATING ACTION BUTTON
+   ============================================================ */
+
+.floating {
+    position: fixed;
+
+    right: 20px;
+    bottom: 20px;
+
+    z-index: 900;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--blue),
+            var(--cyan)
+        );
+
+    color: #06101b;
+
+    box-shadow:
+        0 18px 60px rgba(71,145,255,.32);
+
+    transition:
+        transform .4s var(--transition),
+        width .45s var(--transition),
+        border-radius .45s var(--transition),
+        opacity .3s ease;
+}
+
+.floating:hover {
+    width: 160px;
+    border-radius: 24px;
+}
+
+.floating .label {
+    position: absolute;
+
+    opacity: 0;
+
+    white-space: nowrap;
+
+    font-weight: 900;
+
+    transform: translateX(8px);
+
+    transition: opacity .3s ease;
+}
+
+.floating:hover .label {
+    opacity: 1;
+}
+
+.floating .arrow {
+    transition: opacity .2s ease;
+}
+
+.floating:hover .arrow {
+    opacity: 0;
+}
+
+/* ============================================================
+   SVG PROGRESS RING
+   ============================================================ */
+
+.progress-ring {
+    position: absolute;
+
+    inset: -5px;
+
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+
+    transform: rotate(-90deg);
+
+    pointer-events: none;
+}
+
+.progress-ring circle {
+    fill: none;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+}
+
+.progress-bg {
+    stroke: rgba(255,255,255,.15);
+}
+
+.progress-fill {
+    stroke: #fff;
+
+    stroke-dasharray: 210;
+
+    stroke-dashoffset: 210;
+
+    transition:
+        stroke-dashoffset .15s linear;
+}
+
+/* ============================================================
+   PARTICLES
+   ============================================================ */
+
+.particle {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 2px;
+
+    pointer-events: none;
+
+    z-index: 2000;
+
+    background: var(--cyan);
+
+    box-shadow:
+        0 0 10px var(--cyan);
+
+    animation:
+        particleBlast .8s ease-out forwards;
+}
+
+@keyframes particleBlast {
+    from {
+        opacity: 1;
+
+        transform:
+            translate(0,0)
+            rotate(0)
+            scale(1);
+    }
+
+    to {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            rotate(180deg)
+            scale(.1);
+    }
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scene {
+        min-height: 430px;
+    }
+
+    .expertise-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .project {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .eternal {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    :root {
+        --nav-height: 64px;
+    }
+
+    .container {
+        width: min(91%, 1180px);
+    }
+
+    .hero {
+        padding-top:
+            calc(var(--nav-height) + 45px);
+    }
+
+    .hero-title {
+        font-size:
+            clamp(
+                3.3rem,
+                18vw,
+                5rem
+            );
+    }
+
+    .hero-description {
+        font-size: .98rem;
+        line-height: 1.75;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+
+    .magnetic {
+        width: 100%;
+    }
+
+    .scene {
+        min-height: 390px;
+        transform: scale(.78);
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expertise-card {
+        min-height: auto;
+    }
+
+    .project {
+        padding: 23px;
+    }
+
+    .project-visual {
+        min-height: 270px;
+    }
+
+    .team-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .eternal {
+        padding: 25px;
+    }
+
+    .contact-card {
+        padding: 22px;
+    }
+
+    .floating {
+        right: 15px;
+        bottom: 15px;
+
+        width: 58px;
+        height: 58px;
+    }
+
+    .floating:hover {
+        width: 58px;
+        border-radius: 50%;
+    }
+
+    .floating:hover .label {
+        opacity: 0;
+    }
+
+    .floating:hover .arrow {
+        opacity: 1;
+    }
+
+    .core {
+        width: 190px;
+        height: 190px;
+    }
+
+    .ring {
+        width: 340px;
+    }
+
+    .ring.r2 {
+        width: 300px;
+    }
+
+    .ring.r3 {
+        width: 370px;
+    }
+}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =======================================================
+<!-- ============================================================
      BACKGROUND
-     ======================================================= -->
+     ============================================================ -->
 
-<div class="background">
+<div class="background" aria-hidden="true">
+    <div class="grid"></div>
 
-  <div class="grid"></div>
-
-  <div class="orb one"></div>
-  <div class="orb two"></div>
-  <div class="orb three"></div>
-
-  <canvas id="particles"></canvas>
-
+    <div class="orb a"></div>
+    <div class="orb b"></div>
+    <div class="orb c"></div>
 </div>
 
-
-<!-- =======================================================
+<!-- ============================================================
      NAVIGATION
-     ======================================================= -->
+     ============================================================ -->
 
-<nav class="navbar">
+<header class="navbar" id="navbar">
 
-  <div class="nav-inner">
+    <div class="container nav-inner">
 
-    <a
-      href="#home"
-      class="brand"
-      aria-label="Raghavan home"
-    >
+        <a href="#home" class="brand">
+            RAGHAVAN
+        </a>
 
-      <span class="brand-name">
-        RAGHAVAN
-      </span>
+        <div class="nav-actions">
 
-      <span class="brand-dot"></span>
+            <button
+                class="icon-button"
+                id="themeButton"
+                aria-label="Toggle theme"
+                title="Toggle light and dark mode">
+                ☀
+            </button>
 
-    </a>
+            <button
+                class="icon-button"
+                id="menuButton"
+                aria-label="Open navigation">
+                ☰
+            </button>
 
-
-    <div class="nav-links">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#expertise">
-        Expertise
-      </a>
-
-      <a href="#kaggriculture">
-        Kaggriculture
-      </a>
-
-      <a href="#eternal">
-        ETERNAL
-      </a>
-
-      <a href="#contact">
-        Contact
-      </a>
+        </div>
 
     </div>
 
+</header>
 
-    <div class="nav-controls">
+<!-- ============================================================
+     MENU
+     ============================================================ -->
 
-      <button
-        class="icon-button"
-        id="themeToggle"
-        type="button"
-        aria-label="Toggle theme"
-      >
-        ☼
-      </button>
+<nav class="menu" id="menu">
 
-      <button
-        class="icon-button menu-button"
-        id="mobileMenu"
-        type="button"
-        aria-label="Open navigation"
-      >
-        ☰
-      </button>
-
-    </div>
-
-  </div>
+    <a href="#home">Home</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#kaggriculture">Kaggriculture</a>
+    <a href="#team">Team</a>
+    <a href="#eternal">ETERNAL</a>
+    <a href="#contact">Contact</a>
 
 </nav>
 
-
-<!-- =======================================================
+<!-- ============================================================
      HERO
-     ======================================================= -->
+     ============================================================ -->
 
 <main>
 
-<section
-  class="hero"
-  id="home"
->
+<section class="hero" id="home">
 
-  <div class="hero-inner">
+    <div class="container hero-grid">
 
+        <div class="reveal">
 
-    <div class="hero-content reveal">
+            <div class="eyebrow">
+                <span class="status-dot"></span>
+                Building • Learning • Engineering
+            </div>
 
-      <div class="status">
+            <h1 class="hero-title">
+                RAGHAVAN
+                <span class="dynamic">
+                    builds intelligence.
+                </span>
+            </h1>
 
-        <span class="status-dot"></span>
+            <p class="hero-description">
+                Software-focused developer building Python systems,
+                intelligent decision architectures, automation,
+                experimental engineering projects and
+                high-performance digital experiences.
+            </p>
 
-        Building • Learning • Engineering
+            <div class="hero-actions">
 
-      </div>
+                <a
+                    href="#kaggriculture"
+                    class="magnetic"
+                    data-magnetic>
 
+                    <span>
+                        Explore Kaggriculture
+                    </span>
 
-      <h1>
+                    <span>→</span>
 
-        <span class="hero-raghavan">
-          RAGHAVAN
-        </span>
+                </a>
 
-        <span class="hero-title">
-          builds
-        </span>
+                <a
+                    href="#eternal"
+                    class="magnetic secondary"
+                    data-magnetic>
 
-        <span class="hero-gradient">
-          intelligence.
-        </span>
+                    <span>
+                        Explore ETERNAL
+                    </span>
 
-      </h1>
+                    <span>↗</span>
 
+                </a>
 
-      <p class="hero-description">
+            </div>
 
-        Developer focused on Python, intelligent systems,
-        software engineering, automation, machine learning,
-        experimental architectures and real-world problem solving.
+        </div>
 
-      </p>
+        <!-- 3D CORE -->
 
+        <div class="scene reveal">
 
-      <div class="actions">
+            <div class="ring"></div>
+            <div class="ring r2"></div>
+            <div class="ring r3"></div>
 
-        <a
-          href="#kaggriculture"
-          class="btn primary magnetic"
-        >
-          Explore Kaggriculture
-          <span>↗</span>
-        </a>
+            <div class="orbit-dot"></div>
+            <div class="orbit-dot d2"></div>
 
-        <a
-          href="#expertise"
-          class="btn magnetic"
-        >
-          Explore Expertise
-          <span>↓</span>
-        </a>
+            <div class="core"></div>
 
-      </div>
+            <div class="core-label">
+                SOFTWARE • SYSTEMS • ENGINEERING
+            </div>
+
+        </div>
 
     </div>
 
-
-    <!-- =================================================
-         3D ENVIRONMENT
-         ================================================= -->
-
-    <div
-      class="scene reveal"
-      id="scene"
-      aria-label="Interactive 3D technology environment"
-    >
-
-      <div class="floor"></div>
-
-      <div class="orbit one"></div>
-
-      <div class="orbit two"></div>
-
-      <div class="orbit three"></div>
-
-      <div class="core"></div>
-
-      <span class="node a"></span>
-      <span class="node b"></span>
-      <span class="node c"></span>
-
-      <div class="scene-label">
-        SYSTEM • ENGINEERING • ACTIVE
-      </div>
-
-    </div>
-
-  </div>
-
 </section>
 
-
-<!-- =======================================================
-     ABOUT
-     ======================================================= -->
-
-<section id="about">
-
-  <div class="section-heading reveal">
-
-    <span class="eyebrow">
-      About
-    </span>
-
-    <h2>
-      Engineering with curiosity.
-    </h2>
-
-    <p>
-      Raghavan is building a practical engineering path
-      around Python, intelligent software, experimentation,
-      problem solving and continuous technical growth.
-    </p>
-
-  </div>
-
-
-  <div class="about-grid reveal-group">
-
-
-    <article class="glass glass-card about-card">
-
-      <h3>
-        Who is RAGHAVAN?
-      </h3>
-
-      <p>
-
-        A developer interested in understanding how software
-        systems work from the inside — from clean Python
-        architecture and algorithms to intelligent decision
-        systems and experimental projects.
-
-      </p>
-
-      <div class="stat-grid">
-
-        <div class="stat">
-          <strong>Python</strong>
-          <span>Primary language</span>
-        </div>
-
-        <div class="stat">
-          <strong>AI/ML</strong>
-          <span>Core interest</span>
-        </div>
-
-        <div class="stat">
-          <strong>GitHub</strong>
-          <span>Engineering workflow</span>
-        </div>
-
-        <div class="stat">
-          <strong>Build</strong>
-          <span>Learn by creating</span>
-        </div>
-
-      </div>
-
-    </article>
-
-
-    <article class="glass glass-card about-card">
-
-      <h3>
-        Engineering philosophy
-      </h3>
-
-      <p>
-
-        Build systems that are understandable, testable,
-        extensible and useful. Experiment aggressively,
-        learn from failures and improve the architecture
-        instead of simply adding complexity.
-
-      </p>
-
-      <div class="architecture">
-
-        <span class="arch-node active">
-          THINK
-        </span>
-
-        <span class="arch-node">
-          DESIGN
-        </span>
-
-        <span class="arch-node">
-          BUILD
-        </span>
-
-        <span class="arch-node">
-          TEST
-        </span>
-
-        <span class="arch-node">
-          MEASURE
-        </span>
-
-        <span class="arch-node active">
-          IMPROVE
-        </span>
-
-      </div>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
+<!-- ============================================================
      EXPERTISE
-     ======================================================= -->
+     ============================================================ -->
 
 <section id="expertise">
 
-  <div class="section-heading reveal">
+    <div class="container">
 
-    <span class="eyebrow">
-      Expertise
-    </span>
+        <div class="section-head reveal">
 
-    <h2>
-      More than one technology.
-    </h2>
+            <div class="section-kicker">
+                Expertise
+            </div>
 
-    <p>
-      Kaggriculture is the featured project, but the
-      engineering foundation extends across multiple areas.
-    </p>
+            <h2 class="section-title">
+                Engineering beyond the surface.
+            </h2>
 
-  </div>
+            <p class="section-text">
+                A broad technical foundation focused on building
+                reliable software systems and continuously improving
+                engineering capability.
+            </p>
 
+        </div>
 
-  <div class="expertise-grid reveal-group">
+        <div class="expertise-grid">
 
+            <article class="glass expertise-card reveal">
 
-    <article class="glass glass-card expertise">
+                <div class="card-icon">🐍</div>
 
-      <div class="expertise-icon">
-        Py
-      </div>
+                <h3>Python Engineering</h3>
 
-      <h3>
-        Python Development
-      </h3>
+                <p>
+                    Structured Python development, automation,
+                    data processing, architecture and system design.
+                </p>
 
-      <p>
-        Modular programming, automation, data processing,
-        application logic and engineering-oriented Python.
-      </p>
+            </article>
 
-    </article>
+            <article class="glass expertise-card reveal">
 
+                <div class="card-icon">🧠</div>
 
-    <article class="glass glass-card expertise">
+                <h3>Intelligent Systems</h3>
 
-      <div class="expertise-icon">
-        AI
-      </div>
+                <p>
+                    Decision systems, adaptive logic, autonomous
+                    workflows and experimental intelligent architectures.
+                </p>
 
-      <h3>
-        AI & Machine Learning
-      </h3>
+            </article>
 
-      <p>
-        Intelligent decision systems, experimentation,
-        learning workflows and practical AI architectures.
-      </p>
+            <article class="glass expertise-card reveal">
 
-    </article>
+                <div class="card-icon">⚙️</div>
 
+                <h3>Software Engineering</h3>
 
-    <article class="glass glass-card expertise">
+                <p>
+                    Modular architecture, interfaces, testing,
+                    integration, validation and maintainable systems.
+                </p>
 
-      <div class="expertise-icon">
-        SE
-      </div>
+            </article>
 
-      <h3>
-        Software Engineering
-      </h3>
+            <article class="glass expertise-card reveal">
 
-      <p>
-        Architecture, modularity, interfaces, testing,
-        maintainability and systematic development.
-      </p>
+                <div class="card-icon">📊</div>
 
-    </article>
+                <h3>Data & Analysis</h3>
 
+                <p>
+                    Data-oriented workflows, evaluation pipelines,
+                    metrics and analytical engineering.
+                </p>
 
-    <article class="glass glass-card expertise">
+            </article>
 
-      <div class="expertise-icon">
-        GH
-      </div>
+            <article class="glass expertise-card reveal">
 
-      <h3>
-        Git & GitHub
-      </h3>
+                <div class="card-icon">🔗</div>
 
-      <p>
-        Version control, repositories, branches,
-        commits, collaboration and deployment workflows.
-      </p>
+                <h3>Git & GitHub</h3>
 
-    </article>
+                <p>
+                    Version control, collaborative development,
+                    repositories, branches, commits and deployment.
+                </p>
 
+            </article>
 
-    <article class="glass glass-card expertise">
+            <article class="glass expertise-card reveal">
 
-      <div class="expertise-icon">
-        AU
-      </div>
+                <div class="card-icon">🛡️</div>
 
-      <h3>
-        Automation
-      </h3>
+                <h3>Ethical Cybersecurity</h3>
 
-      <p>
-        Designing repeatable workflows that reduce manual
-        work and improve engineering consistency.
-      </p>
+                <p>
+                    Security-minded engineering and responsible
+                    exploration through the ETERNAL community.
+                </p>
 
-    </article>
+            </article>
 
+        </div>
 
-    <article class="glass glass-card expertise">
-
-      <div class="expertise-icon">
-        CY
-      </div>
-
-      <h3>
-        Cybersecurity Concepts
-      </h3>
-
-      <p>
-        Ethical security learning, defensive thinking,
-        secure development and cybersecurity community work.
-      </p>
-
-    </article>
-
-
-  </div>
+    </div>
 
 </section>
 
-
-<!-- =======================================================
+<!-- ============================================================
      KAGGRICULTURE
-     ======================================================= -->
+     ============================================================ -->
 
 <section id="kaggriculture">
 
-  <div class="section-heading reveal">
+    <div class="container">
 
-    <span class="eyebrow">
-      Featured Project
-    </span>
+        <div class="section-head reveal">
 
-    <h2>
-      Crop Coders —
-      Kaggriculture.
-    </h2>
+            <div class="section-kicker">
+                Featured Project
+            </div>
 
-    <p>
-      The primary project currently featured on this portfolio.
-      A serious engineering project built around an intelligent
-      agent operating inside a simulated agricultural environment.
-    </p>
+            <h2 class="section-title">
+                Crop Coders — Kaggriculture.
+            </h2>
 
-  </div>
-
-
-  <div class="kagg-wrap reveal-group">
-
-
-    <article class="glass kagg-main">
-
-      <span class="kagg-badge">
-        CROP CODERS • KAGGRICULTURE
-      </span>
-
-      <h3>
-        Intelligent agricultural
-        decision system.
-      </h3>
-
-      <p>
-
-        Kaggriculture is a simulation-based environment where
-        an agent must make decisions across a season while
-        managing resources, actions, planning, learning and
-        economic trade-offs.
-
-      </p>
-
-      <div class="kagg-points">
-
-        <div class="kagg-point">
-
-          <strong>
-            Decision Engine
-          </strong>
-
-          <span>
-            Strategy generation and decision selection
-          </span>
+            <p class="section-text">
+                The current flagship project and primary engineering
+                focus of this portfolio.
+            </p>
 
         </div>
 
+        <article class="glass project reveal">
 
-        <div class="kagg-point">
+            <div>
 
-          <strong>
-            Planning
-          </strong>
+                <span class="project-badge">
+                    Flagship Project
+                </span>
 
-          <span>
-            Optimization and multi-step reasoning
-          </span>
+                <h3>
+                    Crop Coders
+                    <br>
+                    Kaggriculture
+                </h3>
 
-        </div>
+                <p class="project-description">
+                    Kaggriculture is a simulation-based agricultural
+                    decision environment where an intelligent agent
+                    operates through a turn-based season.
+                    The Crop Coders architecture focuses on building
+                    a modular decision system capable of observing
+                    the environment, generating strategies,
+                    planning actions, learning from feedback,
+                    evaluating performance and improving its
+                    behaviour over repeated interactions.
+                </p>
 
+                <p class="project-description">
+                    The architecture is organized around specialized
+                    phases covering strategy generation,
+                    optimization and planning, observation and
+                    feedback, learning and adaptation, unit and
+                    integration testing, and system-level performance
+                    evaluation.
+                </p>
 
-        <div class="kagg-point">
+                <div class="project-stack">
 
-          <strong>
-            Feedback
-          </strong>
+                    <span class="tag">Python</span>
+                    <span class="tag">AI Systems</span>
+                    <span class="tag">Decision Engine</span>
+                    <span class="tag">Planning</span>
+                    <span class="tag">Evaluation</span>
+                    <span class="tag">Testing</span>
+                    <span class="tag">GitHub</span>
 
-          <span>
-            Observation and adaptive learning loops
-          </span>
+                </div>
 
-        </div>
+                <div class="project-stats">
 
+                    <div class="stat">
+                        <strong>20</strong>
+                        <span>
+                            Architecture phases
+                        </span>
+                    </div>
 
-        <div class="kagg-point">
+                    <div class="stat">
+                        <strong>P11–P16</strong>
+                        <span>
+                            Raghavan engineering scope
+                        </span>
+                    </div>
 
-          <strong>
-            Testing
-          </strong>
+                    <div class="stat">
+                        <strong>720</strong>
+                        <span>
+                            Simulation turns
+                        </span>
+                    </div>
 
-          <span>
-            Unit, integration and system validation
-          </span>
+                    <div class="stat">
+                        <strong>Modular</strong>
+                        <span>
+                            System architecture
+                        </span>
+                    </div>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
+            <div class="project-visual">
 
-      <div class="architecture">
+                <div class="farm-cube">
 
-        <span class="arch-node active">
-          ENVIRONMENT
-        </span>
+                    <div class="farm-face front"></div>
+                    <div class="farm-face back"></div>
+                    <div class="farm-face left"></div>
+                    <div class="farm-face right"></div>
+                    <div class="farm-face top"></div>
+                    <div class="farm-face bottom"></div>
 
-        <span class="arch-node">
-          OBSERVE
-        </span>
+                </div>
 
-        <span class="arch-node">
-          PLAN
-        </span>
+            </div>
 
-        <span class="arch-node">
-          DECIDE
-        </span>
-
-        <span class="arch-node">
-          ACT
-        </span>
-
-        <span class="arch-node">
-          EVALUATE
-        </span>
-
-        <span class="arch-node active">
-          ADAPT
-        </span>
-
-      </div>
-
-    </article>
-
-
-    <div class="kagg-side">
-
-
-      <article class="glass kagg-side-card">
-
-        <h4>
-          Engineering approach
-        </h4>
-
-        <p>
-
-          The architecture focuses on separating state,
-          actions, evaluation, integration, memory and
-          decision logic so that complex behavior can evolve
-          without destroying the system foundation.
-
-        </p>
-
-      </article>
-
-
-      <article class="glass kagg-side-card">
-
-        <h4>
-          Current focus
-        </h4>
-
-        <p>
-
-          Raghavan's contribution focuses on decision engines,
-          feedback and learning loops, testing systems,
-          integration boundaries and performance-oriented
-          engineering.
-
-        </p>
-
-      </article>
-
-
-      <article class="glass kagg-side-card">
-
-        <h4>
-          Project mindset
-        </h4>
-
-        <p>
-
-          Build → validate → measure → improve.
-
-          The goal is not simply to make an agent run,
-          but to build an architecture that can be studied,
-          tested and improved systematically.
-
-        </p>
-
-      </article>
+        </article>
 
     </div>
 
-  </div>
+</section>
+
+<!-- ============================================================
+     TEAM
+     ============================================================ -->
+
+<section id="team">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div class="section-kicker">
+                Crop Coders
+            </div>
+
+            <h2 class="section-title">
+                The team behind the build.
+            </h2>
+
+        </div>
+
+        <div class="team-grid">
+
+            <article class="glass team-card reveal">
+
+                <div class="avatar">
+                    R
+                </div>
+
+                <h4>Raghavan</h4>
+
+                <p>
+                    Technical Engineering
+                </p>
+
+            </article>
+
+            <article class="glass team-card reveal">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <h4>Shanmugam</h4>
+
+                <p>
+                    Strategy / Growth
+                </p>
+
+            </article>
+
+            <article class="glass team-card reveal">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <h4>Sithananthan</h4>
+
+                <p>
+                    Strategy Research
+                </p>
+
+            </article>
+
+            <article class="glass team-card reveal">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <h4>Sumaiyah</h4>
+
+                <p>
+                    Coordination / Testing
+                </p>
+
+            </article>
+
+            <article class="glass team-card reveal">
+
+                <div class="avatar">
+                    D
+                </div>
+
+                <h4>Dhanvanthraj</h4>
+
+                <p>
+                    Engineering
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
 
 </section>
 
-
-<!-- =======================================================
+<!-- ============================================================
      ETERNAL
-     ======================================================= -->
+     ============================================================ -->
 
 <section id="eternal">
 
-  <div class="glass eternal reveal">
+    <div class="container">
 
-    <div class="eternal-title">
+        <article class="glass eternal reveal">
 
-      <div class="eternal-symbol">
-        ∞
-      </div>
+            <div>
 
-      <h3>
-        ETERNAL
-      </h3>
+                <div class="section-kicker">
+                    Community
+                </div>
 
-    </div>
+                <div class="eternal-title">
+                    ETERNAL
+                </div>
 
+                <p>
+                    A new ethical cybersecurity and technology
+                    community created to explore security,
+                    technology, responsible experimentation,
+                    learning and collaboration.
+                </p>
 
-    <p>
+                <p>
+                    ETERNAL is intended as a responsible space for
+                    learning cybersecurity concepts and developing
+                    security awareness without promoting harmful
+                    or unauthorized activity.
+                </p>
 
-      ETERNAL is a new cybersecurity and hacking community
-      focused on learning, ethical security thinking,
-      technical exploration, responsible experimentation
-      and building a strong developer-security mindset.
+            </div>
 
-      The community is intended for ethical and educational
-      cybersecurity work — not malicious activity.
+            <div class="community-list">
 
-    </p>
+                <div class="community-item">
+                    <span>Creator</span>
+                    <span>Shanmugam</span>
+                </div>
 
+                <div class="community-item">
+                    <span>Technical Leader</span>
+                    <span>Raghavan</span>
+                </div>
 
-    <div class="community-grid">
+                <div class="community-item">
+                    <span>Focus</span>
+                    <span>Ethical Security</span>
+                </div>
 
+                <div class="community-item">
+                    <span>Mission</span>
+                    <span>Learn • Build • Secure</span>
+                </div>
 
-      <article class="member">
+            </div>
 
-        <div class="member-avatar">
-          R
-        </div>
-
-        <strong>
-          Raghavan
-        </strong>
-
-        <span>
-          Technical Leader
-        </span>
-
-      </article>
-
-
-      <article class="member">
-
-        <div class="member-avatar">
-          S
-        </div>
-
-        <strong>
-          Shanmugam
-        </strong>
-
-        <span>
-          Creator
-        </span>
-
-      </article>
-
-
-      <article class="member">
-
-        <div class="member-avatar">
-          S
-        </div>
-
-        <strong>
-          Sithananthan
-        </strong>
-
-        <span>
-          Team Member
-        </span>
-
-      </article>
-
-
-      <article class="member">
-
-        <div class="member-avatar">
-          S
-        </div>
-
-        <strong>
-          Sumaiyah
-        </strong>
-
-        <span>
-          Team Coordinator
-        </span>
-
-      </article>
-
-
-      <article class="member">
-
-        <div class="member-avatar">
-          D
-        </div>
-
-        <strong>
-          Dhanvanthraj
-        </strong>
-
-        <span>
-          Team Member
-        </span>
-
-      </article>
-
+        </article>
 
     </div>
-
-  </div>
 
 </section>
 
-
-<!-- =======================================================
+<!-- ============================================================
      CONTACT
-     ======================================================= -->
+     ============================================================ -->
 
 <section id="contact">
 
-  <div class="section-heading reveal">
+    <div class="container">
 
-    <span class="eyebrow">
-      Contact
-    </span>
+        <div class="section-head reveal">
 
-    <h2>
-      Let's connect.
-    </h2>
+            <div class="section-kicker">
+                Contact
+            </div>
 
-    <p>
-      Interested in software, projects, collaboration or
-      technical communities? Reach out.
-    </p>
+            <h2 class="section-title">
+                Let's connect.
+            </h2>
 
-  </div>
+            <p class="section-text">
+                Interested in technology, software engineering,
+                collaboration or the projects above?
+            </p>
 
+        </div>
 
-  <div class="contact-grid reveal-group">
+        <div class="contact-grid">
 
+            <article class="glass contact-card reveal">
 
-    <article class="glass contact-card">
+                <div class="contact-link">
 
-      <h3>
-        Direct contact
-      </h3>
+                    <div class="contact-icon">
+                        ☎
+                    </div>
 
-      <p>
-        Connect with Raghavan directly.
-      </p>
+                    <div>
+                        <small>Phone</small>
 
+                        <strong>
+                            +91 9626638296
+                        </strong>
+                    </div>
 
-      <div class="contact-links">
+                </div>
 
-        <a
-          class="contact-link magnetic"
-          href="tel:+919626638296"
-        >
+                <a
+                    class="contact-link"
+                    href="tel:+919626638296">
 
-          <div>
+                    <div class="contact-icon">
+                        📞
+                    </div>
 
-            <small>
-              Phone
-            </small>
+                    <div>
+                        <small>
+                            Call Raghavan
+                        </small>
 
-            <strong>
-              +91 96266 38296
-            </strong>
+                        <strong>
+                            +91 9626638296
+                        </strong>
+                    </div>
 
-          </div>
+                </a>
 
-          <span>
-            ↗
-          </span>
+            </article>
 
-        </a>
+            <article class="glass contact-card reveal">
 
+                <a
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+                    target="_blank"
+                    rel="noopener noreferrer">
 
-        <a
-          class="contact-link magnetic"
-          href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+                    <div class="contact-icon">
+                        in
+                    </div>
 
-          <div>
+                    <div>
+                        <small>
+                            LinkedIn
+                        </small>
 
-            <small>
-              LinkedIn
-            </small>
+                        <strong>
+                            Raghavan Ganesan
+                        </strong>
+                    </div>
 
-            <strong>
-              Raghavan Ganesan
-            </strong>
+                </a>
 
-          </div>
+                <a
+                    class="contact-link"
+                    href="https://github.com/ragavan994463-max"
+                    target="_blank"
+                    rel="noopener noreferrer">
 
-          <span>
-            ↗
-          </span>
+                    <div class="contact-icon">
+                        ◉
+                    </div>
 
-        </a>
+                    <div>
+                        <small>
+                            GitHub
+                        </small>
 
-      </div>
+                        <strong>
+                            ragavan994463-max
+                        </strong>
+                    </div>
 
-    </article>
+                </a>
 
+            </article>
 
-    <article class="glass contact-card">
+        </div>
 
-      <h3>
-        What I'm building
-      </h3>
-
-      <p>
-
-        Kaggriculture is currently the featured engineering
-        project, while ETERNAL represents the cybersecurity
-        community direction.
-
-      </p>
-
-
-      <a
-        href="#kaggriculture"
-        class="btn primary magnetic"
-      >
-        View Kaggriculture
-        <span>↗</span>
-      </a>
-
-    </article>
-
-
-  </div>
+    </div>
 
 </section>
 
 </main>
 
-
-<!-- =======================================================
-     FOOTER
-     ======================================================= -->
-
-<footer>
-
-  <div class="footer-inner">
-
-    <span>
-      © 2026 RAGHAVAN
-    </span>
-
-    <span>
-      Built with HTML • CSS • JavaScript
-    </span>
-
-    <span>
-      Engineering • Learning • Building
-    </span>
-
-  </div>
-
-</footer>
-
-
-<!-- =======================================================
-     ETERNAL FLOATING ACTION
-     ======================================================= -->
+<!-- ============================================================
+     FLOATING SCROLL BUTTON
+     ============================================================ -->
 
 <button
-  class="eternal-fab"
-  id="eternalFab"
-  type="button"
-  aria-label="Open ETERNAL"
-  data-target="#eternal"
->
+    class="floating"
+    id="floatingButton"
+    aria-label="Scroll to top">
 
-  <span class="fab-icon">
-    ∞
-  </span>
+    <svg
+        class="progress-ring"
+        viewBox="0 0 70 70"
+        aria-hidden="true">
 
-  <span class="fab-label">
-    ETERNAL
-  </span>
+        <circle
+            class="progress-bg"
+            cx="35"
+            cy="35"
+            r="33">
+        </circle>
+
+        <circle
+            class="progress-fill"
+            id="progressFill"
+            cx="35"
+            cy="35"
+            r="33">
+        </circle>
+
+    </svg>
+
+    <span class="arrow">
+        ↑
+    </span>
+
+    <span class="label">
+        Back to top
+    </span>
 
 </button>
 
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <span>
+            © <span id="year"></span> RAGHAVAN
+        </span>
+
+        <span>
+            Built with HTML • CSS • JavaScript
+        </span>
+
+        <span>
+            ETERNAL • Crop Coders
+        </span>
+
+    </div>
+
+</footer>
 
 <script>
-
-/* =========================================================
+/* ============================================================
    RAGHAVAN PORTFOLIO ENGINE
-   No external libraries
-   ========================================================= */
+   ============================================================ */
 
-(() => {
+"use strict";
 
-  "use strict";
+/* ============================================================
+   ELEMENTS
+   ============================================================ */
 
-
-  /* =======================================================
-     THEME ENGINE
-     ======================================================= */
-
-  const body =
+const body =
     document.body;
 
-  const themeToggle =
-    document.getElementById("themeToggle");
+const navbar =
+    document.getElementById("navbar");
 
+const menu =
+    document.getElementById("menu");
 
-  const savedTheme =
+const menuButton =
+    document.getElementById("menuButton");
+
+const themeButton =
+    document.getElementById("themeButton");
+
+const floatingButton =
+    document.getElementById("floatingButton");
+
+const progressFill =
+    document.getElementById("progressFill");
+
+const year =
+    document.getElementById("year");
+
+/* ============================================================
+   YEAR
+   ============================================================ */
+
+year.textContent =
+    new Date().getFullYear();
+
+/* ============================================================
+   MENU
+   ============================================================ */
+
+menuButton.addEventListener("click", () => {
+
+    const isOpen =
+        menu.classList.toggle("open");
+
+    menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+    );
+});
+
+document.querySelectorAll(".menu a")
+.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        menu.classList.remove("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+/* ============================================================
+   THEME ENGINE
+   ============================================================ */
+
+const savedTheme =
     localStorage.getItem(
-      "raghavan-theme"
+        "raghavan-theme"
     );
 
-
-  if (savedTheme === "light") {
-
+if (savedTheme === "light") {
     body.classList.add("light");
+}
 
-    themeToggle.textContent = "☾";
+function updateThemeIcon() {
 
-  }
+    themeButton.textContent =
+        body.classList.contains("light")
+            ? "☾"
+            : "☀";
+}
 
+updateThemeIcon();
 
-  themeToggle.addEventListener(
+themeButton.addEventListener(
     "click",
     () => {
 
-      body.classList.toggle("light");
+        body.classList.toggle("light");
 
-      const light =
-        body.classList.contains("light");
-
-      localStorage.setItem(
-        "raghavan-theme",
-        light
-          ? "light"
-          : "dark"
-      );
-
-      themeToggle.textContent =
-        light
-          ? "☾"
-          : "☼";
-
-    }
-  );
-
-
-  /* =======================================================
-     INTERSECTION OBSERVER
-     ======================================================= */
-
-  const revealItems =
-    document.querySelectorAll(
-      ".reveal, .reveal-group"
-    );
-
-
-  const observer =
-    new IntersectionObserver(
-      (entries, obs) => {
-
-        entries.forEach(
-          (entry) => {
-
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            entry.target.classList.add(
-              "is-visible"
-            );
-
-            obs.unobserve(
-              entry.target
-            );
-
-          }
+        localStorage.setItem(
+            "raghavan-theme",
+            body.classList.contains("light")
+                ? "light"
+                : "dark"
         );
 
-      },
-      {
-        threshold: .12,
-
-        rootMargin:
-          "0px 0px -50px 0px"
-      }
-    );
-
-
-  revealItems.forEach(
-    (element) => {
-
-      observer.observe(
-        element
-      );
+        updateThemeIcon();
 
     }
-  );
+);
 
+/* ============================================================
+   INTERSECTION OBSERVER
+   Lightweight visibility system
+   ============================================================ */
 
-  /* =======================================================
-     MAGNETIC ELEMENTS
-     ======================================================= */
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-  const magneticElements =
-    document.querySelectorAll(
-      ".magnetic"
-    );
+            entries.forEach(entry => {
 
+                if (entry.isIntersecting) {
 
-  const supportsFinePointer =
-    window.matchMedia(
-      "(pointer:fine)"
-    ).matches;
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-
-  if (supportsFinePointer) {
-
-    magneticElements.forEach(
-      (element) => {
-
-        let frame = null;
-
-
-        element.addEventListener(
-          "pointermove",
-          (event) => {
-
-            const rect =
-              element.getBoundingClientRect();
-
-
-            const x =
-              event.clientX -
-              (rect.left + rect.width / 2);
-
-
-            const y =
-              event.clientY -
-              (rect.top + rect.height / 2);
-
-
-            const strength =
-              .12;
-
-
-            if (frame) {
-
-              cancelAnimationFrame(
-                frame
-              );
-
-            }
-
-
-            frame =
-              requestAnimationFrame(
-                () => {
-
-                  element.style.transform =
-                    `translate3d(
-                      ${x * strength}px,
-                      ${y * strength}px,
-                      0
-                    )`;
+                    observer.unobserve(
+                        entry.target
+                    );
 
                 }
-              );
 
-          },
-          {
-            passive: true
-          }
-        );
+            });
 
+        },
+        {
+            threshold: .12
+        }
+    );
 
-        element.addEventListener(
-          "pointerleave",
-          () => {
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
 
-            if (frame) {
+        observer.observe(element);
 
-              cancelAnimationFrame(
-                frame
-              );
+    });
 
-            }
+/* ============================================================
+   MAGNETIC HOVER
+   ============================================================ */
+
+const magneticElements =
+    document.querySelectorAll(
+        "[data-magnetic]"
+    );
+
+magneticElements.forEach(element => {
+
+    element.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                window.matchMedia(
+                    "(pointer: coarse)"
+                ).matches
+            ) return;
+
+            const rect =
+                element.getBoundingClientRect();
+
+            const x =
+                event.clientX -
+                (rect.left + rect.width / 2);
+
+            const y =
+                event.clientY -
+                (rect.top + rect.height / 2);
+
+            const strength = .14;
 
             element.style.transform =
-              "translate3d(0,0,0)";
-
-          }
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     3D SCENE MOUSE PARALLAX
-     ======================================================= */
-
-  const scene =
-    document.getElementById(
-      "scene"
-    );
-
-
-  if (
-    scene &&
-    supportsFinePointer
-  ) {
-
-    let frame = null;
-
-
-    scene.addEventListener(
-      "pointermove",
-      (event) => {
-
-        const rect =
-          scene.getBoundingClientRect();
-
-
-        const x =
-          (
-            event.clientX -
-            rect.left
-          ) /
-          rect.width -
-          .5;
-
-
-        const y =
-          (
-            event.clientY -
-            rect.top
-          ) /
-          rect.height -
-          .5;
-
-
-        if (frame) {
-
-          cancelAnimationFrame(
-            frame
-          );
-
-        }
-
-
-        frame =
-          requestAnimationFrame(
-            () => {
-
-              scene.style.transform =
-                `rotateX(${y * -4}deg)
-                 rotateY(${x * 5}deg)`;
-
-            }
-          );
-
-      },
-      {
-        passive: true
-      }
-    );
-
-
-    scene.addEventListener(
-      "pointerleave",
-      () => {
-
-        if (frame) {
-
-          cancelAnimationFrame(
-            frame
-          );
-
-        }
-
-        scene.style.transform =
-          "rotateX(0deg) rotateY(0deg)";
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     ETERNAL FLOATING BUTTON
-     ======================================================= */
-
-  const fab =
-    document.getElementById(
-      "eternalFab"
-    );
-
-
-  const hero =
-    document.getElementById(
-      "home"
-    );
-
-
-  if (fab && hero) {
-
-    const fabObserver =
-      new IntersectionObserver(
-        (entries) => {
-
-          entries.forEach(
-            (entry) => {
-
-              if (
-                entry.isIntersecting
-              ) {
-
-                fab.classList.remove(
-                  "fab-visible"
-                );
-
-              } else {
-
-                fab.classList.add(
-                  "fab-visible"
-                );
-
-              }
-
-            }
-          );
-
-        },
-        {
-          threshold: 0
-        }
-      );
-
-
-    fabObserver.observe(
-      hero
-    );
-
-
-    /* MAGNETIC FAB */
-
-    if (supportsFinePointer) {
-
-      let fabFrame = null;
-
-
-      fab.addEventListener(
-        "pointermove",
-        (event) => {
-
-          const rect =
-            fab.getBoundingClientRect();
-
-
-          const x =
-            event.clientX -
-            (rect.left + rect.width / 2);
-
-
-          const y =
-            event.clientY -
-            (rect.top + rect.height / 2);
-
-
-          if (fabFrame) {
-
-            cancelAnimationFrame(
-              fabFrame
-            );
-
-          }
-
-
-          fabFrame =
-            requestAnimationFrame(
-              () => {
-
-                fab.style.transform =
-                  `translate3d(
-                    ${x * .18}px,
-                    ${y * .18}px,
+                `translate3d(
+                    ${x * strength}px,
+                    ${y * strength}px,
                     0
-                  )`;
+                )`;
 
-              }
-            );
-
-        },
-        {
-          passive: true
         }
-      );
+    );
 
-
-      fab.addEventListener(
+    element.addEventListener(
         "pointerleave",
         () => {
 
-          if (fabFrame) {
-
-            cancelAnimationFrame(
-              fabFrame
-            );
-
-          }
-
-          fab.style.transform =
-            "translate3d(0,0,0)";
+            element.style.transform =
+                "";
 
         }
-      );
+    );
+
+});
+
+/* ============================================================
+   CLICK PARTICLE EXHAUST
+   ============================================================ */
+
+function createParticles(
+    x,
+    y
+) {
+
+    const count = 18;
+
+    for (
+        let i = 0;
+        i < count;
+        i++
+    ) {
+
+        const particle =
+            document.createElement("span");
+
+        particle.className =
+            "particle";
+
+        const angle =
+            Math.random() *
+            Math.PI * 2;
+
+        const distance =
+            40 +
+            Math.random() * 100;
+
+        const dx =
+            Math.cos(angle) *
+            distance;
+
+        const dy =
+            Math.sin(angle) *
+            distance;
+
+        particle.style.left =
+            `${x}px`;
+
+        particle.style.top =
+            `${y}px`;
+
+        particle.style.setProperty(
+            "--x",
+            `${dx}px`
+        );
+
+        particle.style.setProperty(
+            "--y",
+            `${dy}px`
+        );
+
+        particle.style.width =
+            `${3 + Math.random() * 5}px`;
+
+        particle.style.height =
+            `${3 + Math.random() * 5}px`;
+
+        document.body.appendChild(
+            particle
+        );
+
+        particle.addEventListener(
+            "animationend",
+            () => particle.remove(),
+            {
+                once: true
+            }
+        );
 
     }
 
+}
 
-    /* CLICK */
-
-    fab.addEventListener(
-      "click",
-      () => {
-
-        const target =
-          document.querySelector(
-            fab.dataset.target
-          );
-
-
-        if (!target) {
-          return;
-        }
-
-
-        fab.classList.add(
-          "fab-expanded"
-        );
-
-
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-
-
-        window.setTimeout(
-          () => {
-
-            fab.classList.remove(
-              "fab-expanded"
-            );
-
-          },
-          900
-        );
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     SMOOTH ANCHOR NAVIGATION
-     ======================================================= */
-
-  document
+document
     .querySelectorAll(
-      'a[href^="#"]'
+        ".magnetic, .floating"
     )
-    .forEach(
-      (link) => {
+    .forEach(button => {
 
-        link.addEventListener(
-          "click",
-          (event) => {
-
-            const id =
-              link.getAttribute(
-                "href"
-              );
-
-
-            if (
-              !id ||
-              id === "#"
-            ) {
-              return;
-            }
-
-
-            const target =
-              document.querySelector(
-                id
-              );
-
-
-            if (!target) {
-              return;
-            }
-
-
-            event.preventDefault();
-
-
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          }
-        );
-
-      }
-    );
-
-
-  /* =======================================================
-     MOBILE MENU
-     ======================================================= */
-
-  const mobileMenu =
-    document.getElementById(
-      "mobileMenu"
-    );
-
-
-  const navLinks =
-    document.querySelector(
-      ".nav-links"
-    );
-
-
-  if (
-    mobileMenu &&
-    navLinks
-  ) {
-
-    mobileMenu.addEventListener(
-      "click",
-      () => {
-
-        const open =
-          navLinks.dataset.open === "true";
-
-
-        if (!open) {
-
-          navLinks.dataset.open =
-            "true";
-
-          navLinks.style.display =
-            "flex";
-
-          navLinks.style.position =
-            "absolute";
-
-          navLinks.style.top =
-            "calc(100% + 8px)";
-
-          navLinks.style.left =
-            "4%";
-
-          navLinks.style.right =
-            "4%";
-
-          navLinks.style.padding =
-            "12px";
-
-          navLinks.style.flexDirection =
-            "column";
-
-          navLinks.style.alignItems =
-            "stretch";
-
-          navLinks.style.border =
-            "1px solid var(--border)";
-
-          navLinks.style.borderRadius =
-            "20px";
-
-          navLinks.style.background =
-            "rgba(7,11,20,.88)";
-
-          navLinks.style.backdropFilter =
-            "blur(25px)";
-
-          navLinks.style.boxShadow =
-            "0 25px 80px rgba(0,0,0,.4)";
-
-          mobileMenu.textContent =
-            "×";
-
-        } else {
-
-          navLinks.dataset.open =
-            "false";
-
-          navLinks.style.display =
-            "";
-
-          navLinks.style.position =
-            "";
-
-          mobileMenu.textContent =
-            "☰";
-
-        }
-
-      }
-    );
-
-
-    navLinks
-      .querySelectorAll("a")
-      .forEach(
-        (link) => {
-
-          link.addEventListener(
+        button.addEventListener(
             "click",
-            () => {
+            event => {
 
-              navLinks.dataset.open =
-                "false";
-
-              navLinks.style.display =
-                "";
-
-              navLinks.style.position =
-                "";
-
-              mobileMenu.textContent =
-                "☰";
+                createParticles(
+                    event.clientX,
+                    event.clientY
+                );
 
             }
-          );
-
-        }
-      );
-
-  }
-
-
-  /* =======================================================
-     PARTICLE ENGINE
-     ======================================================= */
-
-  const canvas =
-    document.getElementById(
-      "particles"
-    );
-
-
-  const context =
-    canvas.getContext(
-      "2d"
-    );
-
-
-  const particles = [];
-
-
-  let width = 0;
-  let height = 0;
-
-
-  const isMobile =
-    window.matchMedia(
-      "(max-width:600px)"
-    ).matches;
-
-
-  const particleCount =
-    isMobile
-      ? 38
-      : 72;
-
-
-  function resizeCanvas() {
-
-    const ratio =
-      Math.min(
-        window.devicePixelRatio || 1,
-        2
-      );
-
-
-    width =
-      window.innerWidth;
-
-    height =
-      window.innerHeight;
-
-
-    canvas.width =
-      width * ratio;
-
-    canvas.height =
-      height * ratio;
-
-
-    canvas.style.width =
-      width + "px";
-
-    canvas.style.height =
-      height + "px";
-
-
-    context.setTransform(
-      ratio,
-      0,
-      0,
-      ratio,
-      0,
-      0
-    );
-
-  }
-
-
-  function createParticles() {
-
-    particles.length = 0;
-
-
-    for (
-      let i = 0;
-      i < particleCount;
-      i++
-    ) {
-
-      particles.push({
-
-        x:
-          Math.random() *
-          width,
-
-        y:
-          Math.random() *
-          height,
-
-        radius:
-          Math.random() *
-          1.5 + .4,
-
-        velocity:
-          Math.random() *
-          .25 + .05,
-
-        phase:
-          Math.random() *
-          Math.PI * 2
-
-      });
-
-    }
-
-  }
-
-
-  function drawParticles(
-    time
-  ) {
-
-    context.clearRect(
-      0,
-      0,
-      width,
-      height
-    );
-
-
-    const light =
-      body.classList.contains(
-        "light"
-      );
-
-
-    for (
-      const particle of particles
-    ) {
-
-      particle.y -=
-        particle.velocity;
-
-
-      if (
-        particle.y < -10
-      ) {
-
-        particle.y =
-          height + 10;
-
-        particle.x =
-          Math.random() * width;
-
-      }
-
-
-      const alpha =
-        (
-          .20 +
-          Math.sin(
-            time * .001 +
-            particle.phase
-          ) * .12
         );
 
+    });
 
-      context.beginPath();
+/* ============================================================
+   SCROLL DIRECTION REVEAL
+   Uses requestAnimationFrame instead of
+   heavy continuous DOM updates
+   ============================================================ */
 
+let lastScrollY =
+    window.scrollY;
 
-      context.arc(
-        particle.x,
-        particle.y,
-        particle.radius,
-        0,
-        Math.PI * 2
-      );
+let scrollTick =
+    false;
 
+function handleScrollDirection() {
 
-      context.fillStyle =
-        light
-          ? `rgba(70,90,170,${alpha})`
-          : `rgba(130,180,255,${alpha})`;
+    const currentY =
+        window.scrollY;
 
+    if (
+        currentY > lastScrollY &&
+        currentY > 180
+    ) {
 
-      context.fill();
+        navbar.classList.add(
+            "hide"
+        );
+
+    } else {
+
+        navbar.classList.remove(
+            "hide"
+        );
 
     }
 
+    lastScrollY =
+        Math.max(
+            currentY,
+            0
+        );
 
-    requestAnimationFrame(
-      drawParticles
-    );
+    scrollTick =
+        false;
+}
 
-  }
-
-
-  resizeCanvas();
-
-  createParticles();
-
-  window.addEventListener(
-    "resize",
+window.addEventListener(
+    "scroll",
     () => {
 
-      resizeCanvas();
+        if (!scrollTick) {
 
-      createParticles();
+            requestAnimationFrame(
+                handleScrollDirection
+            );
+
+            scrollTick = true;
+
+        }
 
     },
     {
-      passive: true
+        passive: true
     }
-  );
+);
 
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
 
-  requestAnimationFrame(
-    drawParticles
-  );
+function updateProgress() {
 
+    const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
 
-})();
+    const current =
+        window.scrollY;
+
+    const progress =
+        documentHeight > 0
+            ? current / documentHeight
+            : 0;
+
+    const circumference =
+        2 * Math.PI * 33;
+
+    progressFill.style.strokeDasharray =
+        circumference;
+
+    progressFill.style.strokeDashoffset =
+        circumference *
+        (1 - progress);
+
+}
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {
+        passive: true
+    }
+);
+
+updateProgress();
+
+/* ============================================================
+   FLOATING BUTTON
+   ============================================================ */
+
+floatingButton.addEventListener(
+    "click",
+    () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+);
+
+/* ============================================================
+   3D CORE MOUSE PARALLAX
+   ============================================================ */
+
+const scene =
+    document.querySelector(".scene");
+
+if (scene) {
+
+    scene.addEventListener(
+        "pointermove",
+        event => {
+
+            if (
+                window.matchMedia(
+                    "(pointer: coarse)"
+                ).matches
+            ) return;
+
+            const rect =
+                scene.getBoundingClientRect();
+
+            const px =
+                (event.clientX - rect.left) /
+                rect.width;
+
+            const py =
+                (event.clientY - rect.top) /
+                rect.height;
+
+            const rotateY =
+                (px - .5) * 10;
+
+            const rotateX =
+                (.5 - py) * 8;
+
+            scene.style.transform =
+                `perspective(1400px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)`;
+
+        }
+    );
+
+    scene.addEventListener(
+        "pointerleave",
+        () => {
+
+            scene.style.transform =
+                "";
+
+        }
+    );
+
+}
+
+/* ============================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+   ============================================================ */
+
+document.addEventListener(
+    "click",
+    event => {
+
+        if (
+            menu.classList.contains("open") &&
+            !menu.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
+
+            menu.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+/* ============================================================
+   KEYBOARD ACCESSIBILITY
+   ============================================================ */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key === "Escape") {
+
+            menu.classList.remove(
+                "open"
+            );
+
+        }
+
+    }
+);
+
+/* ============================================================
+   INITIALIZATION
+   ============================================================ */
+
+requestAnimationFrame(() => {
+
+    document
+        .querySelector(".hero .reveal")
+        ?.classList.add("visible");
+
+});
 
 </script>
 
