@@ -10,2535 +10,2439 @@
 
 <meta
   name="description"
-  content="Raghavan — AI, Python, autonomous systems and software engineering portfolio."
+  content="Raghavan — software developer portfolio featuring Kaggriculture, Python, intelligent systems, software engineering and ETERNAL."
 >
 
 <meta name="author" content="Raghavan">
 
 <meta
   name="theme-color"
-  content="#05070d"
+  content="#070b14"
 >
 
-<title>Raghavan | AI & Systems Engineer</title>
+<meta
+  name="color-scheme"
+  content="dark light"
+>
+
+<title>RAGHAVAN — Developer Portfolio</title>
 
 <style>
 
-/* ============================================================
+/* =========================================================
    RAGHAVAN PORTFOLIO
-   ULTRA GLASS / 3D ENGINE
-   SINGLE FILE
-   NO EXTERNAL DEPENDENCIES
-   ============================================================ */
+   Ultra Advanced Single-File Edition
+   Version 10X
+   Zero External Dependencies
+   ========================================================= */
 
-/* ============================================================
+
+/* =========================================================
    DESIGN TOKENS
-   ============================================================ */
+   ========================================================= */
 
 :root {
 
-    --bg:
-        #03050a;
+  --bg: #050812;
+  --bg-2: #090e1c;
+  --surface: rgba(255,255,255,.055);
+  --surface-strong: rgba(255,255,255,.085);
 
-    --bg-2:
-        #070b14;
+  --border: rgba(255,255,255,.12);
+  --border-bright: rgba(255,255,255,.22);
 
-    --bg-3:
-        #0b1120;
+  --text: #f6f8ff;
+  --muted: #aeb7ca;
+  --muted-2: #7d879d;
 
-    --surface:
-        rgba(255,255,255,0.055);
+  --accent: #7c8cff;
+  --accent-2: #5ee7df;
+  --accent-3: #b68cff;
 
-    --surface-2:
-        rgba(255,255,255,0.085);
+  --success: #67e8a5;
 
-    --surface-3:
-        rgba(255,255,255,0.12);
+  --shadow:
+    0 30px 100px rgba(0,0,0,.42);
 
-    --border:
-        rgba(255,255,255,0.13);
+  --glass-shadow:
+    0 20px 80px rgba(0,0,0,.28);
 
-    --border-soft:
-        rgba(255,255,255,0.07);
+  --radius: 28px;
+  --max: 1200px;
 
-    --text:
-        #f7f9ff;
+  --nav-height: 76px;
 
-    --muted:
-        #9da8bc;
-
-    --muted-2:
-        #6f7a8f;
-
-    --blue:
-        #7287ff;
-
-    --blue-2:
-        #4c62ff;
-
-    --cyan:
-        #5ceee0;
-
-    --purple:
-        #b78cff;
-
-    --green:
-        #67e6a1;
-
-    --pink:
-        #ff72b6;
-
-    --orange:
-        #ffb86b;
-
-    --danger:
-        #ff6685;
-
-    --shadow:
-        0 40px 120px rgba(0,0,0,0.55);
-
-    --shadow-soft:
-        0 20px 60px rgba(0,0,0,0.30);
-
-    --radius:
-        28px;
-
-    --radius-small:
-        16px;
-
-    --max:
-        1240px;
-
-    --ease:
-        cubic-bezier(.16,1,.3,1);
+  --ease:
+    cubic-bezier(.16,1,.3,1);
 }
 
 
-/* ============================================================
-   LIGHT MODE
-   ============================================================ */
+/* LIGHT MODE */
 
 body.light {
 
-    --bg:
-        #edf2fb;
+  --bg: #eef3ff;
+  --bg-2: #f8faff;
 
-    --bg-2:
-        #f6f8fd;
+  --surface: rgba(255,255,255,.55);
+  --surface-strong: rgba(255,255,255,.75);
 
-    --bg-3:
-        #ffffff;
+  --border: rgba(30,40,80,.12);
+  --border-bright: rgba(30,40,80,.22);
 
-    --surface:
-        rgba(255,255,255,0.62);
+  --text: #101526;
+  --muted: #596277;
+  --muted-2: #788197;
 
-    --surface-2:
-        rgba(255,255,255,0.78);
+  --shadow:
+    0 30px 100px rgba(35,50,100,.16);
 
-    --surface-3:
-        rgba(255,255,255,0.9);
-
-    --border:
-        rgba(30,45,75,0.14);
-
-    --border-soft:
-        rgba(30,45,75,0.08);
-
-    --text:
-        #111827;
-
-    --muted:
-        #536078;
-
-    --muted-2:
-        #7b879b;
-
-    --shadow:
-        0 35px 90px rgba(31,48,82,0.16);
-
-    --shadow-soft:
-        0 20px 55px rgba(31,48,82,0.12);
+  --glass-shadow:
+    0 20px 80px rgba(35,50,100,.12);
 }
 
 
-/* ============================================================
+/* =========================================================
    RESET
-   ============================================================ */
+   ========================================================= */
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
 
-    min-height: 100vh;
+  min-height: 100vh;
 
-    background:
-        radial-gradient(
-            circle at 10% 5%,
-            rgba(114,135,255,0.16),
-            transparent 28%
-        ),
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(124,140,255,.15),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(94,231,223,.10),
+      transparent 30%
+    ),
+    var(--bg);
 
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(92,238,224,0.11),
-            transparent 27%
-        ),
+  color: var(--text);
 
-        linear-gradient(
-            180deg,
-            var(--bg),
-            var(--bg-2)
-        );
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
-    color: var(--text);
+  line-height: 1.6;
 
-    font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+  overflow-x: hidden;
 
-    line-height: 1.6;
+  transition:
+    background .5s ease,
+    color .5s ease;
+}
 
-    overflow-x: hidden;
-
-    transition:
-        background .6s ease,
-        color .6s ease;
+body::selection {
+  background: var(--accent);
+  color: white;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
-}
-
-button,
-input {
-    font: inherit;
+  color: inherit;
+  text-decoration: none;
 }
 
 button {
-    cursor: pointer;
+  font: inherit;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
-.container {
-    width: min(92%, var(--max));
-    margin-inline: auto;
+ul {
+  list-style: none;
 }
 
-
-/* ============================================================
-   AMBIENT BACKGROUND
-   ============================================================ */
-
-#particleCanvas {
-
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    pointer-events: none;
-
-    z-index: -30;
-}
-
-.ambient {
-
-    position: fixed;
-
-    border-radius: 50%;
-
-    pointer-events: none;
-
-    filter: blur(120px);
-
-    opacity: .12;
-
-    z-index: -20;
-}
-
-.ambient.one {
-
-    width: 430px;
-    height: 430px;
-
-    background: var(--blue);
-
-    top: -200px;
-    left: -180px;
-}
-
-.ambient.two {
-
-    width: 400px;
-    height: 400px;
-
-    background: var(--cyan);
-
-    right: -180px;
-    top: 35%;
-}
-
-.ambient.three {
-
-    width: 360px;
-    height: 360px;
-
-    background: var(--purple);
-
-    bottom: -180px;
-    left: 35%;
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 
-/* ============================================================
-   3D GRID
-   ============================================================ */
+/* =========================================================
+   GLOBAL BACKGROUND
+   ========================================================= */
 
-.world-grid {
+.background {
 
-    position: fixed;
+  position: fixed;
+  inset: 0;
 
-    left: -15%;
-    right: -15%;
-    bottom: -17%;
+  pointer-events: none;
 
-    height: 55vh;
+  z-index: -10;
 
-    pointer-events: none;
-
-    z-index: -10;
-
-    background-image:
-
-        linear-gradient(
-            rgba(114,135,255,.13) 1px,
-            transparent 1px
-        ),
-
-        linear-gradient(
-            90deg,
-            rgba(92,238,224,.10) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        48px 48px;
-
-    transform:
-        perspective(700px)
-        rotateX(63deg)
-        translateZ(0);
-
-    transform-origin:
-        center bottom;
-
-    mask-image:
-        linear-gradient(
-            to top,
-            black,
-            transparent 88%
-        );
-
-    opacity: .7;
-
-    transition:
-        opacity .5s ease;
+  overflow: hidden;
 }
 
-body.light .world-grid {
-    opacity: .28;
+.grid {
+
+  position: absolute;
+  inset: 0;
+
+  opacity: .20;
+
+  background-image:
+    linear-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 50px 50px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 90%
+    );
+}
+
+body.light .grid {
+  opacity: .08;
 }
 
 
-/* ============================================================
-   NOISE
-   ============================================================ */
+.orb {
 
-.noise {
+  position: absolute;
 
-    position: fixed;
+  width: 420px;
+  height: 420px;
 
-    inset: 0;
+  border-radius: 50%;
 
-    pointer-events: none;
+  filter: blur(100px);
 
-    z-index: 50;
+  opacity: .12;
+}
 
-    opacity: .025;
+.orb.one {
 
-    background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  left: -200px;
+  top: 10%;
+
+  background: var(--accent);
+}
+
+.orb.two {
+
+  right: -200px;
+  top: 45%;
+
+  background: var(--accent-2);
+}
+
+.orb.three {
+
+  left: 40%;
+  bottom: -300px;
+
+  background: var(--accent-3);
 }
 
 
-/* ============================================================
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+#particles {
+
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* =========================================================
    NAVIGATION
-   ============================================================ */
+   ========================================================= */
 
 .navbar {
 
-    position: fixed;
+  position: fixed;
 
-    top: 0;
-    left: 0;
+  top: 0;
+  left: 0;
 
-    width: 100%;
+  width: 100%;
 
-    z-index: 1000;
+  height: var(--nav-height);
 
-    border-bottom:
-        1px solid var(--border-soft);
+  z-index: 1000;
 
-    background:
-        rgba(3,5,10,.60);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5,8,18,.80),
+      rgba(5,8,18,.45)
+    );
 
-    backdrop-filter:
-        blur(26px)
-        saturate(160%);
+  backdrop-filter:
+    blur(22px)
+    saturate(150%);
 
-    -webkit-backdrop-filter:
-        blur(26px)
-        saturate(160%);
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(150%);
 
-    transition:
-        background .5s ease;
+  border-bottom:
+    1px solid
+    var(--border);
 }
 
 body.light .navbar {
 
-    background:
-        rgba(246,248,253,.68);
+  background:
+    rgba(245,248,255,.72);
 }
 
-.nav {
+.nav-inner {
 
-    min-height: 76px;
+  width: min(92%, var(--max));
 
-    display: flex;
+  height: 100%;
 
-    align-items: center;
+  margin: auto;
 
-    justify-content: space-between;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
 }
 
-.logo {
 
-    font-size: 1.05rem;
+/* BRAND */
 
-    font-weight: 950;
+.brand {
 
-    letter-spacing:
-        -.055em;
+  position: relative;
+
+  font-size: 1.25rem;
+
+  font-weight: 950;
+
+  letter-spacing: -.055em;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
 }
 
-.logo span {
+.brand-name {
 
-    color:
-        var(--cyan);
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent),
+      var(--accent-3)
+    );
+
+  background-size: 300% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation:
+    nameFlow 6s ease infinite;
+
+  text-shadow:
+    0 0 30px
+    rgba(124,140,255,.15);
 }
 
-.navlinks {
+@keyframes nameFlow {
 
-    display: flex;
+  0% {
+    background-position: 0% 50%;
+  }
 
-    align-items: center;
+  50% {
+    background-position: 100% 50%;
+  }
 
-    gap: 22px;
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-.navlinks a {
+.brand-dot {
 
-    color:
-        var(--muted);
+  width: 7px;
+  height: 7px;
 
-    font-size:
-        .72rem;
+  border-radius: 50%;
 
-    font-weight:
-        650;
+  background: var(--accent-2);
 
-    transition:
-        color .25s ease;
+  box-shadow:
+    0 0 16px var(--accent-2);
+
+  animation:
+    pulse 2s ease-in-out infinite;
 }
 
-.navlinks a:hover {
+@keyframes pulse {
 
-    color:
-        var(--text);
+  50% {
+    transform: scale(1.5);
+    opacity: .6;
+  }
 }
 
-.nav-actions {
 
-    display: flex;
+/* NAV LINKS */
 
-    align-items: center;
+.nav-links {
 
-    gap: 8px;
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.nav-links a {
+
+  padding: 9px 13px;
+
+  border-radius: 12px;
+
+  color: var(--muted);
+
+  font-size: .84rem;
+
+  transition:
+    color .3s ease,
+    background .3s ease,
+    transform .3s var(--ease);
+}
+
+.nav-links a:hover {
+
+  color: var(--text);
+
+  background:
+    rgba(255,255,255,.07);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* NAV CONTROLS */
+
+.nav-controls {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
 }
 
 .icon-button {
 
-    width: 40px;
-    height: 40px;
+  width: 42px;
+  height: 42px;
 
-    display: grid;
+  display: grid;
+  place-items: center;
 
-    place-items: center;
+  border:
+    1px solid
+    var(--border);
 
-    border:
-        1px solid var(--border);
+  border-radius: 14px;
 
-    border-radius:
-        13px;
+  background:
+    var(--surface);
 
-    background:
-        var(--surface);
+  color: var(--text);
 
-    color:
-        var(--text);
+  cursor: pointer;
 
-    transition:
-        transform .3s var(--ease),
-        background .3s ease;
+  backdrop-filter: blur(16px);
+
+  transition:
+    transform .3s var(--ease),
+    background .3s ease,
+    border-color .3s ease;
 }
 
 .icon-button:hover {
 
-    transform:
-        translateY(-3px)
-        rotate(4deg);
+  transform:
+    translateY(-3px)
+    rotate(3deg);
 
-    background:
-        var(--surface-2);
+  background:
+    var(--surface-strong);
+
+  border-color:
+    var(--border-bright);
 }
 
-.menu {
 
-    display: none;
+/* MOBILE MENU */
+
+.menu-button {
+  display: none;
 }
 
 
-/* ============================================================
+/* =========================================================
    HERO
-   ============================================================ */
+   ========================================================= */
 
 .hero {
 
-    min-height:
-        100svh;
+  position: relative;
 
-    display:
-        flex;
+  min-height:
+    max(760px, 100vh);
 
-    align-items:
-        center;
+  padding-top:
+    calc(var(--nav-height) + 80px);
 
-    padding:
-        125px 0 80px;
+  display: flex;
 
-    position:
-        relative;
+  align-items: center;
+
+  overflow: hidden;
 }
 
-.hero-layout {
+.hero-inner {
 
-    display:
-        grid;
+  width: min(92%, var(--max));
 
-    grid-template-columns:
-        1.02fr
-        .98fr;
+  margin: auto;
 
-    gap:
-        50px;
+  display: grid;
 
-    align-items:
-        center;
+  grid-template-columns:
+    1.05fr
+    .95fr;
+
+  align-items: center;
+
+  gap: 60px;
 }
 
-.eyebrow {
 
-    display:
-        inline-flex;
+/* HERO CONTENT */
 
-    align-items:
-        center;
+.hero-content {
 
-    gap:
-        9px;
+  position: relative;
 
-    padding:
-        8px 13px;
+  z-index: 5;
+}
 
-    border:
-        1px solid
-        rgba(103,230,161,.27);
+.status {
 
-    border-radius:
-        999px;
+  display: inline-flex;
 
-    background:
-        rgba(103,230,161,.055);
+  align-items: center;
 
-    color:
-        var(--green);
+  gap: 10px;
 
-    font-size:
-        .65rem;
+  padding:
+    8px 13px;
 
-    font-weight:
-        800;
+  margin-bottom: 25px;
 
-    letter-spacing:
-        .08em;
+  border:
+    1px solid
+    var(--border);
 
-    margin-bottom:
-        24px;
+  border-radius: 999px;
+
+  background:
+    var(--surface);
+
+  backdrop-filter:
+    blur(20px);
+
+  color: var(--muted);
+
+  font-size: .78rem;
+
+  box-shadow:
+    var(--glass-shadow);
 }
 
 .status-dot {
 
-    width:
-        7px;
+  width: 8px;
+  height: 8px;
 
-    height:
-        7px;
+  border-radius: 50%;
 
-    border-radius:
-        50%;
+  background: var(--success);
 
-    background:
-        var(--green);
-
-    box-shadow:
-        0 0 18px
-        var(--green);
-
-    animation:
-        heartbeat 1.8s infinite;
+  box-shadow:
+    0 0 16px var(--success);
 }
 
-@keyframes heartbeat {
-
-    0%,
-    100% {
-        transform:
-            scale(1);
-    }
-
-    50% {
-        transform:
-            scale(1.5);
-
-        opacity:
-            .55;
-    }
-}
 
 .hero h1 {
 
-    font-size:
-        clamp(
-            3.4rem,
-            8vw,
-            7.7rem
-        );
+  font-size:
+    clamp(
+      4rem,
+      8vw,
+      7.5rem
+    );
 
-    line-height:
-        .87;
+  line-height: .88;
 
-    letter-spacing:
-        -.085em;
+  letter-spacing: -.085em;
 
-    max-width:
-        850px;
+  font-weight: 950;
 
-    margin-bottom:
-        28px;
+  margin-bottom: 30px;
 }
 
-.gradient {
+.hero-title {
 
-    background:
-        linear-gradient(
-            110deg,
-            #8293ff 0%,
-            #62eee0 45%,
-            #c194ff 80%
-        );
+  display: block;
 
-    -webkit-background-clip:
-        text;
-
-    background-clip:
-        text;
-
-    color:
-        transparent;
+  color: var(--text);
 }
+
+.hero-gradient {
+
+  display: block;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent-3),
+      var(--accent)
+    );
+
+  background-size: 300% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation:
+    nameFlow 7s ease infinite;
+}
+
+
+/* IMPORTANT:
+   RAGHAVAN dynamically follows same color system
+*/
+
+.hero-raghavan {
+
+  display: inline-block;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--accent),
+      var(--accent-2),
+      var(--accent-3)
+    );
+
+  background-size: 220% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  animation:
+    nameFlow 5s ease infinite;
+
+  filter:
+    drop-shadow(
+      0 0 25px
+      rgba(124,140,255,.15)
+    );
+}
+
 
 .hero-description {
 
-    max-width:
-        720px;
+  max-width: 700px;
 
-    color:
-        var(--muted);
+  color: var(--muted);
 
-    font-size:
-        clamp(
-            1rem,
-            2vw,
-            1.18rem
-        );
+  font-size:
+    clamp(
+      1rem,
+      2vw,
+      1.22rem
+    );
 
-    margin-bottom:
-        30px;
+  line-height: 1.85;
+
+  margin-bottom: 34px;
 }
+
+
+/* HERO ACTIONS */
 
 .actions {
 
-    display:
-        flex;
+  display: flex;
 
-    flex-wrap:
-        wrap;
+  flex-wrap: wrap;
 
-    gap:
-        11px;
+  gap: 13px;
 }
 
 .btn {
 
-    display:
-        inline-flex;
+  position: relative;
 
-    align-items:
-        center;
+  display: inline-flex;
 
-    justify-content:
-        center;
+  align-items: center;
 
-    min-height:
-        46px;
+  justify-content: center;
 
-    padding:
-        0 17px;
+  gap: 10px;
 
-    border:
-        1px solid
-        var(--border);
+  min-height: 54px;
 
-    border-radius:
-        14px;
+  padding:
+    0 21px;
 
-    background:
-        var(--surface);
+  border:
+    1px solid
+    var(--border);
 
-    color:
-        var(--text);
+  border-radius: 16px;
 
-    font-size:
-        .76rem;
+  background:
+    var(--surface);
 
-    font-weight:
-        750;
+  color: var(--text);
 
-    backdrop-filter:
-        blur(15px);
+  cursor: pointer;
 
-    transition:
-        transform .35s var(--ease),
-        background .35s ease,
-        box-shadow .35s ease;
+  overflow: hidden;
+
+  backdrop-filter:
+    blur(18px);
+
+  transition:
+    box-shadow .35s ease,
+    background .35s ease,
+    border-color .35s ease;
+}
+
+.btn::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 20%,
+      rgba(255,255,255,.18),
+      transparent 80%
+    );
+
+  transform:
+    translateX(-120%);
+
+  transition:
+    transform .8s var(--ease);
+}
+
+.btn:hover::before {
+
+  transform:
+    translateX(120%);
 }
 
 .btn:hover {
 
-    transform:
-        translateY(-5px);
+  border-color:
+    var(--border-bright);
 
-    background:
-        var(--surface-2);
-
-    box-shadow:
-        0 18px 45px
-        rgba(0,0,0,.25);
+  box-shadow:
+    0 15px 45px
+    rgba(0,0,0,.20);
 }
 
 .btn.primary {
 
-    border-color:
-        transparent;
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
 
-    color:
-        #05070c;
+  color: #07101a;
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--cyan)
-        );
+  border-color:
+    transparent;
 
-    box-shadow:
-        0 12px 35px
-        rgba(92,238,224,.12);
+  font-weight: 850;
+
+  box-shadow:
+    0 15px 50px
+    rgba(124,140,255,.20);
+}
+
+.btn.primary:hover {
+
+  box-shadow:
+    0 20px 65px
+    rgba(124,140,255,.35);
 }
 
 
-/* ============================================================
-   ADVANCED 3D CORE
-   ============================================================ */
+/* =========================================================
+   3D HERO SYSTEM
+   ========================================================= */
 
-.core-stage {
+.scene {
 
-    height:
-        560px;
+  position: relative;
 
-    display:
-        grid;
+  width: min(100%, 560px);
 
-    place-items:
-        center;
+  aspect-ratio: 1;
 
-    perspective:
-        1500px;
+  margin: auto;
 
-    position:
-        relative;
+  perspective:
+    1400px;
 }
 
-.core-scene {
+.scene::before {
 
-    width:
-        430px;
+  content: "";
 
-    height:
-        430px;
+  position: absolute;
 
-    position:
-        relative;
+  inset: 12%;
 
-    transform-style:
-        preserve-3d;
+  border-radius: 50%;
 
-    transition:
-        transform .18s ease-out;
+  background:
+    radial-gradient(
+      circle,
+      rgba(124,140,255,.20),
+      transparent 65%
+    );
+
+  filter: blur(30px);
 }
 
-.core-glow {
 
-    position:
-        absolute;
+/* CORE */
 
-    width:
-        260px;
+.core {
 
-    height:
-        260px;
+  position: absolute;
 
-    left:
-        50%;
+  left: 50%;
+  top: 50%;
 
-    top:
-        50%;
+  width: 190px;
+  height: 190px;
 
+  transform:
+    translate(-50%, -50%)
+    translateZ(30px);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255,255,255,.95),
+      rgba(124,140,255,.8) 8%,
+      rgba(85,98,220,.75) 30%,
+      rgba(20,29,75,.95) 70%,
+      #030611 100%
+    );
+
+  box-shadow:
+    inset -25px -35px 70px rgba(0,0,0,.75),
+    inset 20px 15px 45px rgba(255,255,255,.12),
+    0 0 50px rgba(124,140,255,.35),
+    0 0 130px rgba(94,231,223,.14);
+
+  animation:
+    coreFloat 6s ease-in-out infinite;
+
+  transform-style:
+    preserve-3d;
+}
+
+@keyframes coreFloat {
+
+  0%,100% {
     transform:
-        translate(-50%,-50%);
+      translate(-50%,-50%)
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
 
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(114,135,255,.55),
-            rgba(92,238,224,.16) 40%,
-            transparent 70%
-        );
-
-    filter:
-        blur(35px);
-
-    animation:
-        coreGlow 4s ease-in-out infinite;
-}
-
-@keyframes coreGlow {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%,-50%)
-            scale(.92);
-    }
-
-    50% {
-        transform:
-            translate(-50%,-50%)
-            scale(1.12);
-    }
-}
-
-.core-sphere {
-
-    position:
-        absolute;
-
-    width:
-        210px;
-
-    height:
-        210px;
-
-    left:
-        50%;
-
-    top:
-        50%;
-
+  50% {
     transform:
-        translate(-50%,-50%)
-        translateZ(40px);
-
-    border-radius:
-        50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 23%,
-            rgba(255,255,255,.95),
-            rgba(151,170,255,.95) 5%,
-            rgba(90,111,255,.78) 20%,
-            rgba(35,47,125,.72) 48%,
-            rgba(7,11,27,.95) 78%
-        );
-
-    box-shadow:
-
-        0 0 25px
-        rgba(114,135,255,.8),
-
-        0 0 80px
-        rgba(92,238,224,.35),
-
-        inset
-        -35px -35px 65px
-        rgba(0,0,0,.65),
-
-        inset
-        18px 12px 30px
-        rgba(255,255,255,.25);
-
-    animation:
-        sphereFloat 6s ease-in-out infinite;
-
-    overflow:
-        hidden;
-}
-
-.core-sphere::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    inset:
-        14px;
-
-    border-radius:
-        inherit;
-
-    border:
-        1px solid
-        rgba(255,255,255,.3);
-
-    background:
-        radial-gradient(
-            circle at 40% 35%,
-            transparent 20%,
-            rgba(92,238,224,.08) 60%,
-            transparent 70%
-        );
-
-    box-shadow:
-        inset
-        0 0 35px
-        rgba(92,238,224,.18);
-}
-
-.core-sphere::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        25px;
-
-    height:
-        25px;
-
-    border-radius:
-        50%;
-
-    top:
-        35px;
-
-    left:
-        45px;
-
-    background:
-        white;
-
-    opacity:
-        .55;
-
-    filter:
-        blur(5px);
-}
-
-@keyframes sphereFloat {
-
-    0%,
-    100% {
-        transform:
-            translate(-50%,-50%)
-            translateZ(40px)
-            translateY(0);
-    }
-
-    50% {
-        transform:
-            translate(-50%,-50%)
-            translateZ(70px)
-            translateY(-14px);
-    }
+      translate(-50%,-50%)
+      translateY(-15px)
+      rotateX(8deg)
+      rotateY(10deg);
+  }
 }
 
 
-/* ============================================================
-   ORBITAL RINGS
-   ============================================================ */
+/* CORE HIGHLIGHT */
+
+.core::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 45px;
+  height: 45px;
+
+  top: 22px;
+  left: 35px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,.8);
+
+  filter: blur(10px);
+
+  opacity: .65;
+}
+
+
+/* ORBITS */
 
 .orbit {
 
-    position:
-        absolute;
+  position: absolute;
 
-    left:
-        50%;
+  left: 50%;
+  top: 50%;
 
-    top:
-        50%;
+  border:
+    1px solid
+    rgba(124,140,255,.55);
 
-    border-radius:
-        50%;
+  border-radius: 50%;
 
-    border:
-        1px solid
-        rgba(114,135,255,.48);
+  transform-style:
+    preserve-3d;
 
-    transform-style:
-        preserve-3d;
-
-    box-shadow:
-        0 0 24px
-        rgba(114,135,255,.09);
+  box-shadow:
+    0 0 20px
+    rgba(124,140,255,.08);
 }
 
 .orbit.one {
 
-    width:
-        290px;
+  width: 390px;
+  height: 150px;
 
-    height:
-        290px;
+  transform:
+    translate(-50%,-50%)
+    rotateX(66deg)
+    rotateZ(18deg);
 
-    margin:
-        -145px;
-
-    transform:
-        rotateX(68deg);
-
-    animation:
-        orbitOne 9s linear infinite;
+  animation:
+    orbitA 10s linear infinite;
 }
 
 .orbit.two {
 
-    width:
-        340px;
+  width: 420px;
+  height: 170px;
 
-    height:
-        340px;
+  transform:
+    translate(-50%,-50%)
+    rotateX(70deg)
+    rotateY(35deg)
+    rotateZ(-35deg);
 
-    margin:
-        -170px;
-
-    transform:
-        rotateY(67deg)
-        rotateX(12deg);
-
-    border-color:
-        rgba(92,238,224,.42);
-
-    animation:
-        orbitTwo 12s linear infinite;
+  animation:
+    orbitB 13s linear infinite reverse;
 }
 
 .orbit.three {
 
-    width:
-        390px;
+  width: 330px;
+  height: 330px;
 
-    height:
-        390px;
+  transform:
+    translate(-50%,-50%)
+    rotateX(72deg)
+    rotateY(15deg);
 
-    margin:
-        -195px;
+  border-color:
+    rgba(94,231,223,.35);
 
+  animation:
+    orbitC 17s linear infinite;
+}
+
+@keyframes orbitA {
+
+  to {
     transform:
-        rotateX(72deg)
-        rotateY(22deg);
-
-    border-color:
-        rgba(183,140,255,.38);
-
-    animation:
-        orbitThree 15s linear infinite reverse;
+      translate(-50%,-50%)
+      rotateX(66deg)
+      rotateZ(378deg);
+  }
 }
 
-.orbit.four {
+@keyframes orbitB {
 
-    width:
-        250px;
-
-    height:
-        250px;
-
-    margin:
-        -125px;
-
+  to {
     transform:
-        rotateY(75deg);
-
-    border-style:
-        dashed;
-
-    opacity:
-        .45;
-
-    animation:
-        orbitFour 7s linear infinite;
+      translate(-50%,-50%)
+      rotateX(70deg)
+      rotateY(35deg)
+      rotateZ(-395deg);
+  }
 }
 
-@keyframes orbitOne {
+@keyframes orbitC {
 
-    to {
-        transform:
-            rotateX(68deg)
-            rotateZ(360deg);
-    }
-}
-
-@keyframes orbitTwo {
-
-    to {
-        transform:
-            rotateY(67deg)
-            rotateX(12deg)
-            rotateZ(360deg);
-    }
-}
-
-@keyframes orbitThree {
-
-    to {
-        transform:
-            rotateX(72deg)
-            rotateY(22deg)
-            rotateZ(360deg);
-    }
-}
-
-@keyframes orbitFour {
-
-    to {
-        transform:
-            rotateY(75deg)
-            rotateZ(360deg);
-    }
+  to {
+    transform:
+      translate(-50%,-50%)
+      rotateX(72deg)
+      rotateY(375deg);
+  }
 }
 
 
-/* ============================================================
-   3D NODES
-   ============================================================ */
+/* ORBIT PARTICLES */
 
 .node {
 
-    position:
-        absolute;
+  position: absolute;
 
-    width:
-        13px;
+  width: 15px;
+  height: 15px;
 
-    height:
-        13px;
+  border-radius: 50%;
 
-    border-radius:
-        50%;
+  background:
+    var(--accent-2);
 
-    background:
-        var(--cyan);
-
-    box-shadow:
-        0 0 10px
-        var(--cyan),
-        0 0 25px
-        var(--cyan);
-
-    transform-style:
-        preserve-3d;
+  box-shadow:
+    0 0 25px
+    var(--accent-2);
 }
 
 .node.a {
-    top:
-        17%;
 
-    left:
-        51%;
+  top: 14%;
+  left: 75%;
 
-    transform:
-        translateZ(150px);
+  animation:
+    nodeFloat 4s ease-in-out infinite;
 }
 
 .node.b {
-    top:
-        43%;
 
-    left:
-        3%;
+  top: 73%;
+  left: 18%;
 
-    transform:
-        translateZ(-80px);
+  background:
+    var(--accent);
+
+  box-shadow:
+    0 0 25px
+    var(--accent);
+
+  animation:
+    nodeFloat 5s ease-in-out infinite reverse;
 }
 
 .node.c {
-    bottom:
-        11%;
 
-    right:
-        7%;
+  top: 35%;
+  left: 13%;
 
+  background:
+    var(--accent-3);
+
+  box-shadow:
+    0 0 25px
+    var(--accent-3);
+
+  animation:
+    nodeFloat 4.5s ease-in-out infinite;
+}
+
+@keyframes nodeFloat {
+
+  50% {
     transform:
-        translateZ(120px);
-}
-
-.node.d {
-    bottom:
-        2%;
-
-    left:
-        39%;
-
-    transform:
-        translateZ(190px);
-}
-
-.node.e {
-    top:
-        28%;
-
-    right:
-        6%;
-
-    transform:
-        translateZ(-110px);
-}
-
-.node.f {
-    top:
-        7%;
-
-    left:
-        24%;
-
-    width:
-        7px;
-
-    height:
-        7px;
-
-    background:
-        var(--purple);
-
-    box-shadow:
-        0 0 18px
-        var(--purple);
-}
-
-.core-label {
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    bottom:
-        28px;
-
-    transform:
-        translateX(-50%);
-
-    padding:
-        8px 14px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        999px;
-
-    background:
-        rgba(5,8,16,.62);
-
-    backdrop-filter:
-        blur(18px);
-
-    color:
-        var(--muted);
-
-    font:
-        700 .61rem
-        ui-monospace,
-        monospace;
-
-    white-space:
-        nowrap;
+      translateY(-18px)
+      scale(1.25);
+  }
 }
 
 
-/* ============================================================
+/* 3D FLOOR */
+
+.floor {
+
+  position: absolute;
+
+  width: 520px;
+  height: 250px;
+
+  left: 50%;
+  top: 70%;
+
+  transform:
+    translateX(-50%)
+    perspective(500px)
+    rotateX(65deg);
+
+  background-image:
+    linear-gradient(
+      rgba(124,140,255,.08) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(124,140,255,.08) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    45px 45px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent
+    );
+
+  opacity: .5;
+}
+
+
+/* 3D LABEL */
+
+.scene-label {
+
+  position: absolute;
+
+  left: 50%;
+  top: 88%;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    8px 14px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(0,0,0,.25);
+
+  backdrop-filter:
+    blur(14px);
+
+  font-size: .65rem;
+
+  letter-spacing: .16em;
+
+  color: var(--muted);
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
    SECTION SYSTEM
-   ============================================================ */
+   ========================================================= */
 
 section {
 
-    padding:
-        115px 0;
+  position: relative;
+
+  width: min(92%, var(--max));
+
+  margin:
+    0 auto;
+
+  padding:
+    130px 0;
+
+  scroll-margin-top: 80px;
 }
 
-.section-label {
+.section-heading {
 
-    color:
-        var(--cyan);
+  max-width: 800px;
 
-    font-size:
-        .65rem;
-
-    letter-spacing:
-        .22em;
-
-    text-transform:
-        uppercase;
-
-    font-weight:
-        900;
-
-    margin-bottom:
-        12px;
+  margin-bottom: 50px;
 }
 
-.section-title {
+.eyebrow {
 
-    font-size:
-        clamp(
-            2.2rem,
-            5vw,
-            4rem
-        );
+  display: inline-block;
 
-    line-height:
-        .95;
+  margin-bottom: 13px;
 
-    letter-spacing:
-        -.065em;
+  color:
+    var(--accent-2);
 
-    margin-bottom:
-        18px;
+  font-size: .75rem;
+
+  font-weight: 900;
+
+  letter-spacing: .16em;
+
+  text-transform: uppercase;
 }
 
-.section-description {
+.section-heading h2 {
 
-    max-width:
-        760px;
+  font-size:
+    clamp(
+      2.4rem,
+      6vw,
+      4.8rem
+    );
 
-    color:
-        var(--muted);
+  line-height: .95;
 
-    margin-bottom:
-        38px;
+  letter-spacing: -.065em;
+
+  margin-bottom: 20px;
+}
+
+.section-heading p {
+
+  color: var(--muted);
+
+  max-width: 720px;
+
+  font-size: 1.05rem;
 }
 
 
-/* ============================================================
-   GLASS
-   ============================================================ */
+/* =========================================================
+   GLASS CARDS
+   ========================================================= */
 
 .glass {
 
-    border:
-        1px solid
-        var(--border);
+  position: relative;
 
-    background:
-        linear-gradient(
-            145deg,
-            var(--surface-2),
-            rgba(255,255,255,.025)
-        );
+  border:
+    1px solid
+    var(--border);
 
-    box-shadow:
-        var(--shadow);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.09),
+      rgba(255,255,255,.025)
+    );
 
-    backdrop-filter:
-        blur(25px)
-        saturate(140%);
+  box-shadow:
+    var(--glass-shadow);
 
-    -webkit-backdrop-filter:
-        blur(25px)
-        saturate(140%);
+  backdrop-filter:
+    blur(25px)
+    saturate(140%);
 
-    border-radius:
-        var(--radius);
+  -webkit-backdrop-filter:
+    blur(25px)
+    saturate(140%);
 
-    position:
-        relative;
-
-    overflow:
-        hidden;
+  overflow: hidden;
 }
 
 .glass::before {
 
-    content:
-        "";
+  content: "";
 
-    position:
-        absolute;
+  position: absolute;
 
-    inset:
-        0;
+  inset: 0;
 
-    pointer-events:
-        none;
+  pointer-events: none;
 
-    background:
-        linear-gradient(
-            115deg,
-            rgba(255,255,255,.12),
-            transparent 24%,
-            transparent 70%,
-            rgba(92,238,224,.045)
-        );
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255,255,255,.12),
+      transparent 30%
+    );
 
-    opacity:
-        .8;
+  opacity: .5;
+}
+
+.glass-card {
+
+  border-radius:
+    var(--radius);
+
+  padding:
+    30px;
+
+  transition:
+    transform .5s var(--ease),
+    border-color .4s ease,
+    box-shadow .4s ease;
+}
+
+.glass-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    var(--border-bright);
+
+  box-shadow:
+    0 30px 90px
+    rgba(0,0,0,.30);
 }
 
 
-/* ============================================================
-   METRICS
-   ============================================================ */
+/* =========================================================
+   ABOUT
+   ========================================================= */
 
-.metrics {
+.about-grid {
 
-    display:
-        grid;
+  display: grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
+  grid-template-columns:
+    1fr 1fr;
 
-    gap:
-        13px;
+  gap: 20px;
 }
 
-.metric {
+.about-card h3 {
 
-    padding:
-        24px;
+  font-size: 1.35rem;
 
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        21px;
-
-    background:
-        var(--surface);
-
-    backdrop-filter:
-        blur(20px);
-
-    transition:
-        transform .35s var(--ease),
-        border .35s ease;
+  margin-bottom: 15px;
 }
 
-.metric:hover {
+.about-card p {
 
-    transform:
-        translateY(-9px)
-        rotateX(3deg);
+  color: var(--muted);
 
-    border-color:
-        rgba(92,238,224,.38);
+  line-height: 1.8;
 }
 
-.metric-icon {
+.stat-grid {
 
-    font-size:
-        1.4rem;
+  display: grid;
 
-    margin-bottom:
-        18px;
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap: 14px;
+
+  margin-top: 25px;
 }
 
-.metric-value {
+.stat {
 
-    font-size:
-        1.5rem;
+  padding: 18px;
 
-    font-weight:
-        900;
+  border:
+    1px solid
+    var(--border);
 
-    letter-spacing:
-        -.04em;
+  border-radius: 18px;
+
+  background:
+    rgba(255,255,255,.035);
 }
 
-.metric-name {
+.stat strong {
 
-    color:
-        var(--muted);
+  display: block;
 
-    font-size:
-        .69rem;
+  font-size: 1.5rem;
+
+  color: var(--text);
+}
+
+.stat span {
+
+  color: var(--muted-2);
+
+  font-size: .78rem;
 }
 
 
-/* ============================================================
+/* =========================================================
+   EXPERTISE
+   ========================================================= */
+
+.expertise-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap: 18px;
+}
+
+.expertise {
+
+  min-height: 230px;
+}
+
+.expertise-icon {
+
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 16px;
+
+  margin-bottom: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
+
+  color: #07101a;
+
+  font-weight: 950;
+
+  box-shadow:
+    0 12px 35px
+    rgba(124,140,255,.18);
+}
+
+.expertise h3 {
+
+  margin-bottom: 10px;
+
+  font-size: 1.15rem;
+}
+
+.expertise p {
+
+  color: var(--muted);
+
+  font-size: .9rem;
+}
+
+
+/* =========================================================
    KAGGRICULTURE
-   ============================================================ */
+   ========================================================= */
 
-.project {
+.kagg-wrap {
 
-    padding:
-        34px;
+  display: grid;
+
+  grid-template-columns:
+    1.1fr
+    .9fr;
+
+  gap: 20px;
 }
 
-.project-top {
+.kagg-main {
 
-    display:
-        flex;
+  min-height: 540px;
 
-    align-items:
-        flex-start;
+  padding: 40px;
 
-    justify-content:
-        space-between;
+  border-radius:
+    32px;
 
-    gap:
-        25px;
+  background:
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(94,231,223,.12),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(124,140,255,.12),
+      rgba(255,255,255,.035)
+    );
 }
 
-.project-tag {
+.kagg-badge {
 
-    display:
-        inline-flex;
+  display: inline-flex;
 
-    padding:
-        7px 11px;
+  padding:
+    7px 12px;
 
-    border:
-        1px solid
-        rgba(114,135,255,.28);
+  border:
+    1px solid
+    rgba(103,232,165,.25);
 
-    background:
-        rgba(114,135,255,.09);
+  border-radius:
+    999px;
 
-    color:
-        #aebaff;
+  color:
+    var(--success);
 
-    border-radius:
-        999px;
+  background:
+    rgba(103,232,165,.07);
 
-    font-size:
-        .62rem;
+  font-size: .7rem;
 
-    font-weight:
-        850;
+  font-weight: 850;
 
-    margin-bottom:
-        15px;
+  letter-spacing: .08em;
 }
 
-.project h3 {
+.kagg-main h3 {
 
-    font-size:
-        clamp(
-            2rem,
-            5vw,
-            3.5rem
-        );
+  margin-top: 24px;
 
-    line-height:
-        .95;
+  font-size:
+    clamp(2rem,4vw,3.2rem);
 
-    letter-spacing:
-        -.065em;
+  line-height: 1;
+
+  letter-spacing: -.05em;
 }
 
-.project-intro {
+.kagg-main > p {
 
-    max-width:
-        850px;
+  margin-top: 20px;
 
-    color:
-        var(--muted);
+  color: var(--muted);
 
-    margin:
-        15px 0 35px;
+  line-height: 1.8;
 }
 
-.project-columns {
+.kagg-points {
 
-    display:
-        grid;
+  display: grid;
 
-    grid-template-columns:
-        1.1fr
-        .9fr;
+  grid-template-columns:
+    repeat(2,1fr);
 
-    gap:
-        16px;
+  gap: 12px;
+
+  margin-top: 30px;
 }
 
-.project-panel {
+.kagg-point {
 
-    padding:
-        23px;
+  padding: 16px;
 
-    border:
-        1px solid
-        var(--border-soft);
+  border:
+    1px solid
+    var(--border);
 
-    border-radius:
-        20px;
+  border-radius: 17px;
 
-    background:
-        rgba(0,0,0,.12);
+  background:
+    rgba(255,255,255,.035);
 }
 
-body.light .project-panel {
+.kagg-point strong {
 
-    background:
-        rgba(255,255,255,.35);
+  display: block;
+
+  font-size: .85rem;
+
+  margin-bottom: 5px;
 }
 
-.project-panel h4 {
+.kagg-point span {
 
-    margin-bottom:
-        12px;
+  color: var(--muted-2);
 
-    font-size:
-        .86rem;
-}
-
-.project-panel p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        .76rem;
+  font-size: .75rem;
 }
 
 
-/* ============================================================
-   ARCHITECTURE
-   ============================================================ */
+/* KAGG SIDE */
+
+.kagg-side {
+
+  display: grid;
+
+  gap: 20px;
+}
+
+.kagg-side-card {
+
+  padding: 28px;
+
+  border-radius:
+    var(--radius);
+}
+
+.kagg-side-card h4 {
+
+  margin-bottom: 14px;
+
+  font-size: 1.1rem;
+}
+
+.kagg-side-card p {
+
+  color: var(--muted);
+
+  font-size: .9rem;
+
+  line-height: 1.75;
+}
+
+
+/* ARCHITECTURE */
 
 .architecture {
 
-    display:
-        grid;
+  display: flex;
 
-    grid-template-columns:
-        repeat(6,1fr);
+  flex-wrap: wrap;
 
-    gap:
-        9px;
+  gap: 8px;
 
-    margin-top:
-        16px;
+  margin-top: 20px;
 }
 
-.architecture button {
+.arch-node {
 
-    min-height:
-        132px;
+  padding:
+    8px 11px;
 
-    border:
-        1px solid
-        var(--border);
+  border:
+    1px solid
+    var(--border);
 
-    border-radius:
-        18px;
+  border-radius:
+    10px;
 
-    background:
-        var(--surface);
+  background:
+    rgba(255,255,255,.035);
 
-    color:
-        var(--text);
+  color: var(--muted);
 
-    padding:
-        13px;
-
-    text-align:
-        center;
-
-    transition:
-        transform .35s var(--ease),
-        border .35s ease,
-        box-shadow .35s ease;
+  font-size: .7rem;
 }
 
-.architecture button:hover,
-.architecture button.active {
+.arch-node.active {
 
-    transform:
-        translateY(-8px)
-        scale(1.025);
+  color: var(--text);
 
-    border-color:
-        rgba(92,238,224,.5);
+  border-color:
+    rgba(124,140,255,.45);
 
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.3),
-        0 0 35px
-        rgba(92,238,224,.06);
-}
-
-.architecture-number {
-
-    display:
-        block;
-
-    color:
-        var(--cyan);
-
-    font:
-        900 .6rem
-        ui-monospace,
-        monospace;
-
-    margin-bottom:
-        9px;
-}
-
-.architecture b {
-
-    display:
-        block;
-
-    font-size:
-        .72rem;
-}
-
-.architecture small {
-
-    display:
-        block;
-
-    color:
-        var(--muted);
-
-    font-size:
-        .59rem;
-
-    margin-top:
-        6px;
-}
-
-.inspector {
-
-    margin-top:
-        12px;
-
-    min-height:
-        70px;
-
-    padding:
-        17px;
-
-    border:
-        1px solid
-        var(--border-soft);
-
-    border-radius:
-        16px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        .74rem;
-
-    background:
-        rgba(0,0,0,.13);
+  background:
+    rgba(124,140,255,.09);
 }
 
 
-/* ============================================================
-   TERMINAL
-   ============================================================ */
-
-.terminal {
-
-    overflow:
-        hidden;
-}
-
-.terminal-header {
-
-    height:
-        47px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        7px;
-
-    padding:
-        0 16px;
-
-    border-bottom:
-        1px solid
-        var(--border-soft);
-
-    background:
-        rgba(0,0,0,.12);
-}
-
-.terminal-dot {
-
-    width:
-        9px;
-
-    height:
-        9px;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--muted-2);
-}
-
-.terminal-title {
-
-    margin-left:
-        8px;
-
-    color:
-        var(--muted);
-
-    font:
-        600 .66rem
-        ui-monospace,
-        monospace;
-}
-
-.terminal-body {
-
-    padding:
-        22px;
-
-    font:
-        12px/1.8
-        ui-monospace,
-        SFMono-Regular,
-        Menlo,
-        monospace;
-}
-
-.terminal-output {
-
-    min-height:
-        235px;
-
-    white-space:
-        pre-wrap;
-
-    color:
-        var(--text);
-}
-
-.prompt {
-
-    color:
-        var(--green);
-}
-
-.terminal-row {
-
-    display:
-        flex;
-
-    gap:
-        8px;
-
-    padding-top:
-        15px;
-
-    border-top:
-        1px solid
-        var(--border-soft);
-}
-
-.terminal-input {
-
-    flex:
-        1;
-
-    border:
-        0;
-
-    outline:
-        0;
-
-    background:
-        transparent;
-
-    color:
-        var(--text);
-
-    font:
-        inherit;
-}
-
-
-/* ============================================================
-   SKILLS
-   ============================================================ */
-
-.skills {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:
-        12px;
-}
-
-.skill {
-
-    padding:
-        22px;
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius:
-        19px;
-
-    background:
-        var(--surface);
-
-    transition:
-        transform .35s var(--ease),
-        border .35s ease;
-}
-
-.skill:hover {
-
-    transform:
-        translateY(-7px);
-
-    border-color:
-        rgba(114,135,255,.4);
-}
-
-.skill-icon {
-
-    font-size:
-        1.2rem;
-
-    margin-bottom:
-        13px;
-}
-
-.skill strong {
-
-    display:
-        block;
-
-    margin-bottom:
-        6px;
-
-    font-size:
-        .84rem;
-}
-
-.skill span {
-
-    color:
-        var(--muted);
-
-    font-size:
-        .68rem;
-}
-
-
-/* ============================================================
+/* =========================================================
    ETERNAL
-   ============================================================ */
+   ========================================================= */
 
 .eternal {
 
-    display:
-        grid;
+  position: relative;
 
-    grid-template-columns:
-        1.15fr
-        .85fr;
+  overflow: hidden;
 
-    gap:
-        16px;
+  padding: 45px;
+
+  border-radius:
+    34px;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(124,140,255,.17),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(94,231,223,.12),
+      transparent 35%
+    );
 }
 
-.community-card {
+.eternal-title {
 
-    padding:
-        29px;
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
 }
 
-.community-card h3 {
+.eternal-title h3 {
 
-    font-size:
-        1.2rem;
+  font-size:
+    clamp(2.4rem,6vw,5rem);
 
-    margin-bottom:
-        8px;
+  letter-spacing:
+    -.07em;
+
+  line-height: .9;
 }
 
-.community-description {
+.eternal-symbol {
 
-    color:
-        var(--muted);
+  width: 48px;
+  height: 48px;
 
-    font-size:
-        .78rem;
+  display: grid;
+  place-items: center;
 
-    margin-bottom:
-        20px;
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
+
+  color: #07101a;
+
+  font-weight: 950;
+}
+
+.eternal > p {
+
+  max-width: 800px;
+
+  margin-top: 22px;
+
+  color: var(--muted);
+
+  line-height: 1.85;
+}
+
+.community-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap: 12px;
+
+  margin-top: 35px;
 }
 
 .member {
 
-    display:
-        flex;
+  padding: 20px;
 
-    align-items:
-        center;
+  border:
+    1px solid
+    var(--border);
 
-    gap:
-        13px;
+  border-radius: 19px;
 
-    padding:
-        15px 0;
+  background:
+    rgba(255,255,255,.035);
 
-    border-bottom:
-        1px solid
-        var(--border-soft);
+  transition:
+    transform .4s var(--ease),
+    background .3s ease;
 }
 
-.member:last-child {
+.member:hover {
 
-    border-bottom:
-        0;
+  transform:
+    translateY(-7px);
+
+  background:
+    rgba(255,255,255,.075);
 }
 
-.avatar {
+.member-avatar {
 
-    width:
-        45px;
+  width: 42px;
+  height: 42px;
 
-    height:
-        45px;
+  display: grid;
+  place-items: center;
 
-    display:
-        grid;
+  border-radius: 50%;
 
-    place-items:
-        center;
+  margin-bottom: 14px;
 
-    border-radius:
-        50%;
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
 
-    background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--cyan)
-        );
+  color: #07101a;
 
-    color:
-        #05070d;
-
-    font-weight:
-        950;
-
-    box-shadow:
-        0 10px 25px
-        rgba(92,238,224,.12);
+  font-weight: 900;
 }
 
-.member-name {
+.member strong {
 
-    font-weight:
-        800;
+  display: block;
 
-    font-size:
-        .78rem;
+  margin-bottom: 4px;
+
+  font-size: .88rem;
 }
 
-.member-role {
+.member span {
 
-    color:
-        var(--muted);
+  color: var(--muted-2);
 
-    font-size:
-        .64rem;
-}
-
-.eternal-badge {
-
-    display:
-        inline-flex;
-
-    padding:
-        8px 12px;
-
-    border:
-        1px solid
-        rgba(183,140,255,.3);
-
-    color:
-        var(--purple);
-
-    border-radius:
-        999px;
-
-    font-size:
-        .62rem;
-
-    font-weight:
-        850;
-
-    margin-bottom:
-        15px;
+  font-size: .7rem;
 }
 
 
-/* ============================================================
+/* =========================================================
    CONTACT
-   ============================================================ */
+   ========================================================= */
 
-.contact {
+.contact-grid {
 
-    padding:
-        65px 25px;
+  display: grid;
 
-    text-align:
-        center;
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 20px;
 }
 
-.contact p {
+.contact-card {
 
-    max-width:
-        650px;
+  padding: 34px;
 
-    margin:
-        12px auto 25px;
+  border-radius:
+    var(--radius);
+}
 
-    color:
-        var(--muted);
+.contact-card h3 {
+
+  font-size: 1.7rem;
+
+  margin-bottom: 12px;
+}
+
+.contact-card p {
+
+  color: var(--muted);
+
+  margin-bottom: 25px;
 }
 
 .contact-links {
 
-    display:
-        flex;
+  display: grid;
 
-    justify-content:
-        center;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        9px;
-
-    margin-bottom:
-        24px;
+  gap: 10px;
 }
 
 .contact-link {
 
-    padding:
-        10px 14px;
+  display: flex;
 
-    border:
-        1px solid
-        var(--border);
+  align-items: center;
 
-    border-radius:
-        13px;
+  justify-content: space-between;
 
-    background:
-        var(--surface);
+  padding:
+    16px 18px;
 
-    font-size:
-        .7rem;
+  border:
+    1px solid
+    var(--border);
 
-    transition:
-        transform .3s var(--ease);
+  border-radius:
+    15px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  transition:
+    transform .35s var(--ease),
+    border-color .3s ease;
 }
 
 .contact-link:hover {
 
-    transform:
-        translateY(-4px);
+  transform:
+    translateX(6px);
+
+  border-color:
+    var(--border-bright);
+}
+
+.contact-link small {
+
+  display: block;
+
+  color: var(--muted-2);
+
+  font-size: .68rem;
+}
+
+.contact-link strong {
+
+  font-size: .86rem;
 }
 
 
-/* ============================================================
+/* =========================================================
    FOOTER
-   ============================================================ */
+   ========================================================= */
 
 footer {
 
-    padding:
-        38px 0;
+  width: min(92%, var(--max));
 
-    border-top:
-        1px solid
-        var(--border-soft);
+  margin:
+    auto;
 
-    color:
-        var(--muted);
+  padding:
+    50px 0 80px;
 
-    font-size:
-        .68rem;
+  border-top:
+    1px solid
+    var(--border);
+
+  color: var(--muted);
+
+  font-size: .78rem;
 }
 
 .footer-inner {
 
-    display:
-        flex;
+  display: flex;
 
-    justify-content:
-        space-between;
+  justify-content: space-between;
 
-    gap:
-        20px;
+  gap: 20px;
+
+  flex-wrap: wrap;
 }
 
 
-/* ============================================================
-   REVEAL
-   ============================================================ */
+/* =========================================================
+   REVEAL ENGINE
+   ========================================================= */
 
 .reveal {
 
-    opacity:
-        0;
+  opacity: 0;
 
-    transform:
-        translateY(28px);
+  transform:
+    translate3d(0,35px,0)
+    scale(.985);
 
-    transition:
-        opacity .8s var(--ease),
-        transform .8s var(--ease);
+  transition:
+    opacity .8s var(--ease),
+    transform .8s var(--ease);
 }
 
-.reveal.visible {
+.reveal.is-visible {
 
-    opacity:
-        1;
+  opacity: 1;
 
-    transform:
-        translateY(0);
-}
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-
-@media (max-width: 1050px) {
-
-    .hero-layout {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .core-stage {
-
-        height:
-            430px;
-    }
-
-    .metrics {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .skills {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .architecture {
-
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
-    .project-columns {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .eternal {
-
-        grid-template-columns:
-            1fr;
-    }
+  transform:
+    translate3d(0,0,0)
+    scale(1);
 }
 
 
-@media (max-width: 700px) {
+.reveal-group > * {
 
-    .navlinks {
+  opacity: 0;
 
-        display:
-            none;
+  transform:
+    translate3d(0,25px,0);
 
-        position:
-            absolute;
-
-        left:
-            4%;
-
-        right:
-            4%;
-
-        top:
-            72px;
-
-        padding:
-            12px;
-
-        flex-direction:
-            column;
-
-        gap:
-            2px;
-
-        border:
-            1px solid
-            var(--border);
-
-        border-radius:
-            17px;
-
-        background:
-            rgba(5,8,15,.96);
-
-        backdrop-filter:
-            blur(25px);
-    }
-
-    body.light .navlinks {
-
-        background:
-            rgba(248,250,255,.96);
-    }
-
-    .navlinks.open {
-
-        display:
-            flex;
-    }
-
-    .navlinks a {
-
-        width:
-            100%;
-
-        padding:
-            10px;
-    }
-
-    .menu {
-
-        display:
-            grid;
-    }
-
-    .hero {
-
-        padding-top:
-            120px;
-    }
-
-    .hero h1 {
-
-        font-size:
-            clamp(
-                3.3rem,
-                16vw,
-                5.5rem
-            );
-    }
-
-    .core-stage {
-
-        height:
-            350px;
-    }
-
-    .core-scene {
-
-        transform:
-            scale(.72);
-    }
-
-    .metrics,
-    .skills {
-
-        grid-template-columns:
-            1fr;
-    }
-
-    .architecture {
-
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .project {
-
-        padding:
-            22px;
-    }
-
-    .project-top {
-
-        display:
-            block;
-    }
-
-    section {
-
-        padding:
-            80px 0;
-    }
-
-    .footer-inner {
-
-        flex-direction:
-            column;
-    }
+  transition:
+    opacity .7s var(--ease),
+    transform .7s var(--ease);
 }
 
+.reveal-group.is-visible > * {
+
+  opacity: 1;
+
+  transform:
+    translate3d(0,0,0);
+}
+
+.reveal-group.is-visible > *:nth-child(1) {
+  transition-delay: .05s;
+}
+
+.reveal-group.is-visible > *:nth-child(2) {
+  transition-delay: .12s;
+}
+
+.reveal-group.is-visible > *:nth-child(3) {
+  transition-delay: .19s;
+}
+
+.reveal-group.is-visible > *:nth-child(4) {
+  transition-delay: .26s;
+}
+
+.reveal-group.is-visible > *:nth-child(5) {
+  transition-delay: .33s;
+}
+
+
+/* =========================================================
+   MAGNETIC FLOATING ETERNAL BUTTON
+   ========================================================= */
+
+.eternal-fab {
+
+  position: fixed;
+
+  right: 25px;
+  bottom: 25px;
+
+  z-index: 9999;
+
+  width: 59px;
+  height: 59px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  border:
+    1px solid
+    var(--border-bright);
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124,140,255,.30),
+      rgba(94,231,223,.20)
+    );
+
+  color: var(--text);
+
+  backdrop-filter:
+    blur(22px)
+    saturate(150%);
+
+  -webkit-backdrop-filter:
+    blur(22px)
+    saturate(150%);
+
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.18);
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transform:
+    translate3d(0,30px,0)
+    scale(.75);
+
+  transition:
+    width .55s var(--ease),
+    border-radius .55s var(--ease),
+    opacity .4s ease,
+    transform .18s var(--ease),
+    box-shadow .35s ease;
+}
+
+.eternal-fab.fab-visible {
+
+  opacity: 1;
+
+  pointer-events: auto;
+
+  transform:
+    translate3d(0,0,0)
+    scale(1);
+}
+
+.eternal-fab:hover,
+.eternal-fab.fab-expanded {
+
+  width: 155px;
+
+  border-radius:
+    999px;
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.45),
+    0 0 40px rgba(124,140,255,.20);
+}
+
+.fab-icon {
+
+  width: 35px;
+  height: 35px;
+
+  flex: 0 0 auto;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
+
+  color: #07101a;
+
+  font-weight: 950;
+
+  transition:
+    transform .5s var(--ease);
+}
+
+.eternal-fab:hover .fab-icon {
+
+  transform:
+    rotate(180deg)
+    scale(1.08);
+}
+
+.fab-label {
+
+  max-width: 0;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+
+  font-size: .72rem;
+
+  font-weight: 900;
+
+  letter-spacing: .12em;
+
+  transition:
+    max-width .5s var(--ease),
+    opacity .3s ease;
+}
+
+.eternal-fab:hover .fab-label,
+.eternal-fab.fab-expanded .fab-label {
+
+  max-width: 80px;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-button {
+    display: grid;
+  }
+
+  .hero-inner {
+
+    grid-template-columns:
+      1fr;
+
+    text-align: center;
+  }
+
+  .hero-description {
+
+    margin-inline: auto;
+  }
+
+  .actions {
+
+    justify-content: center;
+  }
+
+  .scene {
+
+    max-width: 480px;
+  }
+
+  .about-grid,
+  .kagg-wrap,
+  .contact-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+  .expertise-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .community-grid {
+
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  :root {
+    --nav-height: 68px;
+  }
+
+  section {
+
+    padding:
+      90px 0;
+  }
+
+  .hero {
+
+    min-height:
+      auto;
+
+    padding-top:
+      130px;
+
+    padding-bottom:
+      80px;
+  }
+
+  .hero h1 {
+
+    font-size:
+      clamp(
+        3.5rem,
+        18vw,
+        5.3rem
+      );
+  }
+
+  .hero-description {
+
+    font-size:
+      .96rem;
+
+    line-height:
+      1.75;
+  }
+
+  .actions {
+
+    flex-direction:
+      column;
+  }
+
+  .btn {
+
+    width: 100%;
+  }
+
+  .scene {
+
+    width: 100%;
+  }
+
+  .core {
+
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbit.one {
+
+    width: 280px;
+    height: 115px;
+  }
+
+  .orbit.two {
+
+    width: 300px;
+    height: 125px;
+  }
+
+  .orbit.three {
+
+    width: 240px;
+    height: 240px;
+  }
+
+  .floor {
+
+    width: 330px;
+  }
+
+  .about-grid,
+  .expertise-grid,
+  .community-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+  .kagg-main,
+  .eternal,
+  .contact-card {
+
+    padding:
+      25px;
+  }
+
+  .kagg-points {
+
+    grid-template-columns:
+      1fr;
+  }
+
+  .eternal-fab {
+
+    right: 17px;
+    bottom: 17px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    *,
-    *::before,
-    *::after {
+  html {
+    scroll-behavior: auto;
+  }
 
-        animation:
-            none !important;
+  *,
+  *::before,
+  *::after {
 
-        transition:
-            none !important;
+    animation-duration:
+      .01ms !important;
 
-        scroll-behavior:
-            auto !important;
-    }
+    animation-iteration-count:
+      1 !important;
 
-    #particleCanvas {
+    transition-duration:
+      .01ms !important;
+  }
 
-        display:
-            none;
-    }
+  .reveal,
+  .reveal-group > * {
 
-    .reveal {
+    opacity: 1;
 
-        opacity:
-            1;
-
-        transform:
-            none;
-    }
+    transform:
+      none;
+  }
 }
 
 </style>
@@ -2547,1800 +2451,1863 @@ footer {
 
 <body>
 
-<canvas id="particleCanvas"></canvas>
 
-<div class="ambient one"></div>
-<div class="ambient two"></div>
-<div class="ambient three"></div>
+<!-- =======================================================
+     BACKGROUND
+     ======================================================= -->
 
-<div class="world-grid"></div>
+<div class="background">
 
-<div class="noise"></div>
+  <div class="grid"></div>
+
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <canvas id="particles"></canvas>
+
+</div>
 
 
-<!-- =========================================================
+<!-- =======================================================
      NAVIGATION
-     ========================================================= -->
+     ======================================================= -->
 
-<header class="navbar">
+<nav class="navbar">
 
-<div class="container nav">
+  <div class="nav-inner">
 
-<a href="#home" class="logo">
-R<span>AGHAVAN</span>
-</a>
+    <a
+      href="#home"
+      class="brand"
+      aria-label="Raghavan home"
+    >
 
-<nav class="navlinks" id="navlinks">
+      <span class="brand-name">
+        RAGHAVAN
+      </span>
 
-<a href="#home">Home</a>
-<a href="#system">System</a>
-<a href="#kaggriculture">Kaggriculture</a>
-<a href="#skills">Skills</a>
-<a href="#eternal">ETERNAL</a>
-<a href="#terminal">Terminal</a>
-<a href="#contact">Contact</a>
+      <span class="brand-dot"></span>
+
+    </a>
+
+
+    <div class="nav-links">
+
+      <a href="#about">
+        About
+      </a>
+
+      <a href="#expertise">
+        Expertise
+      </a>
+
+      <a href="#kaggriculture">
+        Kaggriculture
+      </a>
+
+      <a href="#eternal">
+        ETERNAL
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
+    </div>
+
+
+    <div class="nav-controls">
+
+      <button
+        class="icon-button"
+        id="themeToggle"
+        type="button"
+        aria-label="Toggle theme"
+      >
+        ☼
+      </button>
+
+      <button
+        class="icon-button menu-button"
+        id="mobileMenu"
+        type="button"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+    </div>
+
+  </div>
 
 </nav>
 
-<div class="nav-actions">
 
-<button
-    class="icon-button"
-    id="themeToggle"
-    aria-label="Toggle theme"
->
-🌙
-</button>
-
-<button
-    class="icon-button menu"
-    id="menuButton"
-    aria-label="Open menu"
->
-☰
-</button>
-
-</div>
-
-</div>
-
-</header>
-
+<!-- =======================================================
+     HERO
+     ======================================================= -->
 
 <main>
 
-
-<!-- =========================================================
-     HERO
-     ========================================================= -->
-
-<section id="home" class="hero">
-
-<div class="container hero-layout">
-
-
-<div class="reveal">
-
-<div class="eyebrow">
-
-<span class="status-dot"></span>
-
-RAGHAVAN • ENGINEERING PORTFOLIO • ONLINE
-
-</div>
-
-
-<h1>
-
-Building
-<span class="gradient">
-intelligent
-</span>
-
-systems.
-
-</h1>
-
-
-<p class="hero-description">
-
-AI-focused developer working with Python,
-intelligent architectures, autonomous agents,
-machine learning concepts and advanced software
-engineering systems.
-
-</p>
-
-
-<div class="actions">
-
-<a
-    href="#kaggriculture"
-    class="btn primary"
->
-Explore Kaggriculture
-</a>
-
-<a
-    href="#terminal"
-    class="btn"
->
-Open Terminal
-</a>
-
-</div>
-
-</div>
-
-
-<!-- =========================================================
-     3D CORE
-     ========================================================= -->
-
-<div class="core-stage reveal">
-
-<div
-    class="core-scene"
-    id="coreScene"
+<section
+  class="hero"
+  id="home"
 >
 
-<div class="core-glow"></div>
+  <div class="hero-inner">
 
-<div class="orbit one"></div>
-<div class="orbit two"></div>
-<div class="orbit three"></div>
-<div class="orbit four"></div>
 
-<div class="core-sphere"></div>
+    <div class="hero-content reveal">
 
-<div class="node a"></div>
-<div class="node b"></div>
-<div class="node c"></div>
-<div class="node d"></div>
-<div class="node e"></div>
-<div class="node f"></div>
+      <div class="status">
 
-<div class="core-label">
-RAGHAVAN • INTELLIGENCE CORE
-</div>
+        <span class="status-dot"></span>
 
-</div>
+        Building • Learning • Engineering
 
-</div>
+      </div>
 
-</div>
+
+      <h1>
+
+        <span class="hero-raghavan">
+          RAGHAVAN
+        </span>
+
+        <span class="hero-title">
+          builds
+        </span>
+
+        <span class="hero-gradient">
+          intelligence.
+        </span>
+
+      </h1>
+
+
+      <p class="hero-description">
+
+        Developer focused on Python, intelligent systems,
+        software engineering, automation, machine learning,
+        experimental architectures and real-world problem solving.
+
+      </p>
+
+
+      <div class="actions">
+
+        <a
+          href="#kaggriculture"
+          class="btn primary magnetic"
+        >
+          Explore Kaggriculture
+          <span>↗</span>
+        </a>
+
+        <a
+          href="#expertise"
+          class="btn magnetic"
+        >
+          Explore Expertise
+          <span>↓</span>
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         3D ENVIRONMENT
+         ================================================= -->
+
+    <div
+      class="scene reveal"
+      id="scene"
+      aria-label="Interactive 3D technology environment"
+    >
+
+      <div class="floor"></div>
+
+      <div class="orbit one"></div>
+
+      <div class="orbit two"></div>
+
+      <div class="orbit three"></div>
+
+      <div class="core"></div>
+
+      <span class="node a"></span>
+      <span class="node b"></span>
+      <span class="node c"></span>
+
+      <div class="scene-label">
+        SYSTEM • ENGINEERING • ACTIVE
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- =========================================================
-     SYSTEM
-     ========================================================= -->
+<!-- =======================================================
+     ABOUT
+     ======================================================= -->
 
-<section id="system">
+<section id="about">
 
-<div class="container">
+  <div class="section-heading reveal">
 
-<div class="reveal">
+    <span class="eyebrow">
+      About
+    </span>
 
-<div class="section-label">
-01 / ENGINEERING PROFILE
-</div>
+    <h2>
+      Engineering with curiosity.
+    </h2>
 
-<h2 class="section-title">
-Systems I Build.
-</h2>
+    <p>
+      Raghavan is building a practical engineering path
+      around Python, intelligent software, experimentation,
+      problem solving and continuous technical growth.
+    </p>
 
-<p class="section-description">
-
-A technical profile centered around programming,
-artificial intelligence, autonomous systems,
-experimentation and modular engineering.
-
-</p>
-
-</div>
+  </div>
 
 
-<div class="metrics">
+  <div class="about-grid reveal-group">
 
 
-<div class="metric reveal">
-<div class="metric-icon">🐍</div>
-<div class="metric-value">Python</div>
-<div class="metric-name">
-Primary development language
-</div>
-</div>
+    <article class="glass glass-card about-card">
+
+      <h3>
+        Who is RAGHAVAN?
+      </h3>
+
+      <p>
+
+        A developer interested in understanding how software
+        systems work from the inside — from clean Python
+        architecture and algorithms to intelligent decision
+        systems and experimental projects.
+
+      </p>
+
+      <div class="stat-grid">
+
+        <div class="stat">
+          <strong>Python</strong>
+          <span>Primary language</span>
+        </div>
+
+        <div class="stat">
+          <strong>AI/ML</strong>
+          <span>Core interest</span>
+        </div>
+
+        <div class="stat">
+          <strong>GitHub</strong>
+          <span>Engineering workflow</span>
+        </div>
+
+        <div class="stat">
+          <strong>Build</strong>
+          <span>Learn by creating</span>
+        </div>
+
+      </div>
+
+    </article>
 
 
-<div class="metric reveal">
-<div class="metric-icon">🧠</div>
-<div class="metric-value">AI</div>
-<div class="metric-name">
-Intelligent system architecture
-</div>
-</div>
+    <article class="glass glass-card about-card">
 
+      <h3>
+        Engineering philosophy
+      </h3>
 
-<div class="metric reveal">
-<div class="metric-icon">🤖</div>
-<div class="metric-value">Agents</div>
-<div class="metric-name">
-Autonomous decision systems
-</div>
-</div>
+      <p>
 
+        Build systems that are understandable, testable,
+        extensible and useful. Experiment aggressively,
+        learn from failures and improve the architecture
+        instead of simply adding complexity.
 
-<div class="metric reveal">
-<div class="metric-icon">⚙️</div>
-<div class="metric-value">Systems</div>
-<div class="metric-name">
-Modular software engineering
-</div>
-</div>
+      </p>
 
+      <div class="architecture">
 
-</div>
+        <span class="arch-node active">
+          THINK
+        </span>
 
-</div>
+        <span class="arch-node">
+          DESIGN
+        </span>
+
+        <span class="arch-node">
+          BUILD
+        </span>
+
+        <span class="arch-node">
+          TEST
+        </span>
+
+        <span class="arch-node">
+          MEASURE
+        </span>
+
+        <span class="arch-node active">
+          IMPROVE
+        </span>
+
+      </div>
+
+    </article>
+
+  </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =======================================================
+     EXPERTISE
+     ======================================================= -->
+
+<section id="expertise">
+
+  <div class="section-heading reveal">
+
+    <span class="eyebrow">
+      Expertise
+    </span>
+
+    <h2>
+      More than one technology.
+    </h2>
+
+    <p>
+      Kaggriculture is the featured project, but the
+      engineering foundation extends across multiple areas.
+    </p>
+
+  </div>
+
+
+  <div class="expertise-grid reveal-group">
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        Py
+      </div>
+
+      <h3>
+        Python Development
+      </h3>
+
+      <p>
+        Modular programming, automation, data processing,
+        application logic and engineering-oriented Python.
+      </p>
+
+    </article>
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        AI
+      </div>
+
+      <h3>
+        AI & Machine Learning
+      </h3>
+
+      <p>
+        Intelligent decision systems, experimentation,
+        learning workflows and practical AI architectures.
+      </p>
+
+    </article>
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        SE
+      </div>
+
+      <h3>
+        Software Engineering
+      </h3>
+
+      <p>
+        Architecture, modularity, interfaces, testing,
+        maintainability and systematic development.
+      </p>
+
+    </article>
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        GH
+      </div>
+
+      <h3>
+        Git & GitHub
+      </h3>
+
+      <p>
+        Version control, repositories, branches,
+        commits, collaboration and deployment workflows.
+      </p>
+
+    </article>
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        AU
+      </div>
+
+      <h3>
+        Automation
+      </h3>
+
+      <p>
+        Designing repeatable workflows that reduce manual
+        work and improve engineering consistency.
+      </p>
+
+    </article>
+
+
+    <article class="glass glass-card expertise">
+
+      <div class="expertise-icon">
+        CY
+      </div>
+
+      <h3>
+        Cybersecurity Concepts
+      </h3>
+
+      <p>
+        Ethical security learning, defensive thinking,
+        secure development and cybersecurity community work.
+      </p>
+
+    </article>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
      KAGGRICULTURE
-     ========================================================= -->
+     ======================================================= -->
 
 <section id="kaggriculture">
 
-<div class="container">
+  <div class="section-heading reveal">
 
-<div class="reveal">
+    <span class="eyebrow">
+      Featured Project
+    </span>
 
-<div class="section-label">
-02 / FLAGSHIP PROJECT
-</div>
+    <h2>
+      Crop Coders —
+      Kaggriculture.
+    </h2>
 
-<h2 class="section-title">
-Crop Coders
-Kaggriculture.
-</h2>
+    <p>
+      The primary project currently featured on this portfolio.
+      A serious engineering project built around an intelligent
+      agent operating inside a simulated agricultural environment.
+    </p>
 
-<p class="section-description">
+  </div>
 
-The flagship project currently showcased on this portfolio.
-Kaggriculture is a simulation-based farming environment
-where an intelligent agent must observe the environment,
-reason about available options, make strategic decisions,
-execute actions and continuously improve its behavior.
 
-</p>
+  <div class="kagg-wrap reveal-group">
 
-</div>
 
+    <article class="glass kagg-main">
 
-<article class="glass project reveal">
+      <span class="kagg-badge">
+        CROP CODERS • KAGGRICULTURE
+      </span>
 
+      <h3>
+        Intelligent agricultural
+        decision system.
+      </h3>
 
-<div class="project-top">
+      <p>
 
-<div>
+        Kaggriculture is a simulation-based environment where
+        an agent must make decisions across a season while
+        managing resources, actions, planning, learning and
+        economic trade-offs.
 
-<div class="project-tag">
-CROP CODERS • KAGGRICULTURE
-</div>
+      </p>
 
-<h3>
-Autonomous
-Farming Intelligence
-</h3>
+      <div class="kagg-points">
 
-</div>
+        <div class="kagg-point">
 
+          <strong>
+            Decision Engine
+          </strong>
 
-<div class="eyebrow">
-<span class="status-dot"></span>
-ACTIVE PROJECT
-</div>
+          <span>
+            Strategy generation and decision selection
+          </span>
 
-</div>
+        </div>
 
 
-<p class="project-intro">
+        <div class="kagg-point">
 
-The architecture is designed around a continuous
-intelligence loop. Instead of treating every action
-as an isolated command, the system can connect
-environment observations, prediction, constraints,
-strategy generation, action execution and feedback.
+          <strong>
+            Planning
+          </strong>
 
-The goal is a modular architecture where individual
-intelligence components can evolve independently
-and later operate together as one larger system.
+          <span>
+            Optimization and multi-step reasoning
+          </span>
 
-</p>
+        </div>
 
 
-<div class="project-columns">
+        <div class="kagg-point">
 
+          <strong>
+            Feedback
+          </strong>
 
-<div class="project-panel">
+          <span>
+            Observation and adaptive learning loops
+          </span>
 
-<h4>
-What Kaggriculture Does
-</h4>
+        </div>
 
-<p>
 
-The agent operates inside a simulated agricultural
-environment. It must reason about resources,
-economic conditions, crops, actions, timing and
-future consequences.
+        <div class="kagg-point">
 
-A strong solution therefore requires more than simply
-choosing an action. It requires a structured process
-for understanding the current state, predicting
-possible outcomes and selecting a strategy.
+          <strong>
+            Testing
+          </strong>
 
-</p>
+          <span>
+            Unit, integration and system validation
+          </span>
 
-</div>
+        </div>
 
+      </div>
 
-<div class="project-panel">
 
-<h4>
-Engineering Philosophy
-</h4>
+      <div class="architecture">
 
-<p>
+        <span class="arch-node active">
+          ENVIRONMENT
+        </span>
 
-Modular architecture, independent components,
-clear interfaces, evaluation, feedback loops and
-continuous improvement.
+        <span class="arch-node">
+          OBSERVE
+        </span>
 
-The project is designed so that individual modules
-can be tested and improved without forcing the entire
-system to be rewritten.
+        <span class="arch-node">
+          PLAN
+        </span>
 
-</p>
+        <span class="arch-node">
+          DECIDE
+        </span>
 
-</div>
+        <span class="arch-node">
+          ACT
+        </span>
 
+        <span class="arch-node">
+          EVALUATE
+        </span>
 
-</div>
+        <span class="arch-node active">
+          ADAPT
+        </span>
 
+      </div>
 
-<!-- ARCHITECTURE -->
+    </article>
 
-<div style="margin-top:28px">
 
-<div class="section-label">
-INTELLIGENCE PIPELINE
-</div>
+    <div class="kagg-side">
 
 
-<div class="architecture">
+      <article class="glass kagg-side-card">
 
+        <h4>
+          Engineering approach
+        </h4>
 
-<button data-module="environment">
+        <p>
 
-<span class="architecture-number">
-01
-</span>
+          The architecture focuses on separating state,
+          actions, evaluation, integration, memory and
+          decision logic so that complex behavior can evolve
+          without destroying the system foundation.
 
-<b>
-Environment
-</b>
+        </p>
 
-<small>
-Observe state
-</small>
+      </article>
 
-</button>
 
+      <article class="glass kagg-side-card">
 
-<button data-module="prediction">
+        <h4>
+          Current focus
+        </h4>
 
-<span class="architecture-number">
-02
-</span>
+        <p>
 
-<b>
-Prediction
-</b>
+          Raghavan's contribution focuses on decision engines,
+          feedback and learning loops, testing systems,
+          integration boundaries and performance-oriented
+          engineering.
 
-<small>
-Estimate future
-</small>
+        </p>
 
-</button>
+      </article>
 
 
-<button data-module="constraints">
+      <article class="glass kagg-side-card">
 
-<span class="architecture-number">
-03
-</span>
+        <h4>
+          Project mindset
+        </h4>
 
-<b>
-Constraints
-</b>
+        <p>
 
-<small>
-Guard decisions
-</small>
+          Build → validate → measure → improve.
 
-</button>
+          The goal is not simply to make an agent run,
+          but to build an architecture that can be studied,
+          tested and improved systematically.
 
+        </p>
 
-<button data-module="decision">
+      </article>
 
-<span class="architecture-number">
-04
-</span>
+    </div>
 
-<b>
-Decision
-</b>
-
-<small>
-Generate strategy
-</small>
-
-</button>
-
-
-<button data-module="action">
-
-<span class="architecture-number">
-05
-</span>
-
-<b>
-Action
-</b>
-
-<small>
-Execute policy
-</small>
-
-</button>
-
-
-<button data-module="feedback">
-
-<span class="architecture-number">
-06
-</span>
-
-<b>
-Feedback
-</b>
-
-<small>
-Improve system
-</small>
-
-</button>
-
-
-</div>
-
-
-<div
-    class="inspector"
-    id="inspector"
->
-
-Select an architecture component to inspect it.
-
-</div>
-
-</div>
-
-
-<br>
-
-
-<a
-    class="btn primary"
-    href="https://github.com/ragavan994463-max/kaggriculture-agent"
-    target="_blank"
-    rel="noopener noreferrer"
->
-Open Kaggriculture Repository →
-</a>
-
-
-</article>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================================================
-     SKILLS
-     ========================================================= -->
-
-<section id="skills">
-
-<div class="container">
-
-<div class="reveal">
-
-<div class="section-label">
-03 / ENGINEERING DNA
-</div>
-
-<h2 class="section-title">
-Technical Capabilities.
-</h2>
-
-<p class="section-description">
-
-The engineering stack represented throughout
-Raghavan's projects and experimentation.
-
-</p>
-
-</div>
-
-
-<div class="skills">
-
-
-<div class="skill reveal">
-<div class="skill-icon">🐍</div>
-<strong>Python</strong>
-<span>
-Core development, automation and intelligent systems
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">🧠</div>
-<strong>Artificial Intelligence</strong>
-<span>
-Architecture for intelligent software
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">📈</div>
-<strong>Machine Learning</strong>
-<span>
-Prediction and learning systems
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">🤖</div>
-<strong>Agent Architecture</strong>
-<span>
-Autonomous decision-making systems
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">🎯</div>
-<strong>Reinforcement Learning</strong>
-<span>
-Learning through environment interaction
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">🏗️</div>
-<strong>System Design</strong>
-<span>
-Modular and scalable architectures
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">🔀</div>
-<strong>Git & GitHub</strong>
-<span>
-Version control and engineering workflow
-</span>
-</div>
-
-
-<div class="skill reveal">
-<div class="skill-icon">⚡</div>
-<strong>Automation</strong>
-<span>
-Developer tooling and repeatable workflows
-</span>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =======================================================
      ETERNAL
-     ========================================================= -->
+     ======================================================= -->
 
 <section id="eternal">
 
-<div class="container">
+  <div class="glass eternal reveal">
 
-<div class="reveal">
+    <div class="eternal-title">
 
-<div class="section-label">
-04 / TECHNICAL COMMUNITY
-</div>
+      <div class="eternal-symbol">
+        ∞
+      </div>
 
-<h2 class="section-title">
-ETERNAL.
-</h2>
+      <h3>
+        ETERNAL
+      </h3>
 
-<p class="section-description">
+    </div>
 
-A technical community centered around learning,
-building, experimentation, collaboration and
-responsible exploration of technology.
 
-</p>
+    <p>
 
-</div>
+      ETERNAL is a new cybersecurity and hacking community
+      focused on learning, ethical security thinking,
+      technical exploration, responsible experimentation
+      and building a strong developer-security mindset.
 
+      The community is intended for ethical and educational
+      cybersecurity work — not malicious activity.
 
-<div class="eternal">
+    </p>
 
 
-<div class="glass community-card reveal">
+    <div class="community-grid">
 
-<div class="eternal-badge">
-ETERNAL • COMMUNITY
-</div>
 
-<h3>
-Core Team
-</h3>
+      <article class="member">
 
-<p class="community-description">
+        <div class="member-avatar">
+          R
+        </div>
 
-A collaborative technical community where members
-can explore ideas, build projects and develop their
-engineering skills.
+        <strong>
+          Raghavan
+        </strong>
 
-</p>
+        <span>
+          Technical Leader
+        </span>
 
+      </article>
 
-<div class="member">
 
-<div class="avatar">
-R
-</div>
+      <article class="member">
 
-<div>
+        <div class="member-avatar">
+          S
+        </div>
 
-<div class="member-name">
-Raghavan
-</div>
+        <strong>
+          Shanmugam
+        </strong>
 
-<div class="member-role">
-Technical Leader
-</div>
+        <span>
+          Creator
+        </span>
 
-</div>
+      </article>
 
-</div>
 
+      <article class="member">
 
-<div class="member">
+        <div class="member-avatar">
+          S
+        </div>
 
-<div class="avatar">
-S
-</div>
+        <strong>
+          Sithananthan
+        </strong>
 
-<div>
+        <span>
+          Team Member
+        </span>
 
-<div class="member-name">
-Shanmugam
-</div>
+      </article>
 
-<div class="member-role">
-Creator
-</div>
 
-</div>
+      <article class="member">
 
-</div>
+        <div class="member-avatar">
+          S
+        </div>
 
+        <strong>
+          Sumaiyah
+        </strong>
 
-<div class="member">
+        <span>
+          Team Coordinator
+        </span>
 
-<div class="avatar">
-S
-</div>
+      </article>
 
-<div>
 
-<div class="member-name">
-Sithananthan
-</div>
+      <article class="member">
 
-<div class="member-role">
-Technical Contributor
-</div>
+        <div class="member-avatar">
+          D
+        </div>
 
-</div>
+        <strong>
+          Dhanvanthraj
+        </strong>
 
-</div>
+        <span>
+          Team Member
+        </span>
 
+      </article>
 
-<div class="member">
 
-<div class="avatar">
-S
-</div>
+    </div>
 
-<div>
-
-<div class="member-name">
-Sumaiyah
-</div>
-
-<div class="member-role">
-Team Coordinator / Manager
-</div>
-
-</div>
-
-</div>
-
-
-<div class="member">
-
-<div class="avatar">
-D
-</div>
-
-<div>
-
-<div class="member-name">
-Dhanvanthraj
-</div>
-
-<div class="member-role">
-Technical Contributor
-</div>
-
-</div>
-
-</div>
-
-
-</div>
-
-
-<div class="glass community-card reveal">
-
-<div class="eternal-badge">
-MISSION
-</div>
-
-<h3>
-Build. Learn. Explore.
-</h3>
-
-<p class="community-description">
-
-ETERNAL is designed around a simple philosophy:
-learn technology deeply, build real systems,
-experiment responsibly and collaborate with
-other technical minds.
-
-</p>
-
-
-<div class="project-panel">
-
-<h4>
-Community Principles
-</h4>
-
-<p>
-
-01 — Learn continuously<br>
-02 — Build real projects<br>
-03 — Share knowledge<br>
-04 — Experiment responsibly<br>
-05 — Collaborate<br>
-06 — Keep improving
-
-</p>
-
-</div>
-
-</div>
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- =========================================================
-     TERMINAL
-     ========================================================= -->
-
-<section id="terminal">
-
-<div class="container">
-
-<div class="reveal">
-
-<div class="section-label">
-05 / INTERACTIVE SYSTEM
-</div>
-
-<h2 class="section-title">
-Raghavan Terminal.
-</h2>
-
-<p class="section-description">
-
-A small interactive command interface built directly
-into the portfolio using JavaScript.
-
-</p>
-
-</div>
-
-
-<div class="glass terminal reveal">
-
-
-<div class="terminal-header">
-
-<span class="terminal-dot"></span>
-<span class="terminal-dot"></span>
-<span class="terminal-dot"></span>
-
-<span class="terminal-title">
-raghavan@portfolio
-</span>
-
-</div>
-
-
-<div class="terminal-body">
-
-<div
-    class="terminal-output"
-    id="terminalOutput"
->
-RAGHAVAN PORTFOLIO TERMINAL
-
-System initialization complete.
-
-Visual engine ........ ONLINE
-3D environment ...... ONLINE
-Portfolio ........... ONLINE
-Kaggriculture ...... ONLINE
-ETERNAL ............. ONLINE
-
-Type "help" to see available commands.
-</div>
-
-
-<div class="terminal-row">
-
-<span class="prompt">
-visitor@raghavan:~$
-</span>
-
-<input
-    id="terminalInput"
-    class="terminal-input"
-    autocomplete="off"
-    spellcheck="false"
-    placeholder="type help..."
->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================================================
+<!-- =======================================================
      CONTACT
-     ========================================================= -->
+     ======================================================= -->
 
 <section id="contact">
 
-<div class="container">
+  <div class="section-heading reveal">
 
-<div class="glass contact reveal">
+    <span class="eyebrow">
+      Contact
+    </span>
 
-<div class="section-label">
-06 / CONNECT
-</div>
+    <h2>
+      Let's connect.
+    </h2>
 
-<h2 class="section-title">
-Let's Build Something.
-</h2>
+    <p>
+      Interested in software, projects, collaboration or
+      technical communities? Reach out.
+    </p>
 
-<p>
-
-For technical collaboration, networking,
-projects and professional opportunities.
-
-</p>
+  </div>
 
 
-<div class="contact-links">
-
-<a
-    class="contact-link"
-    href="tel:+919626638296"
->
-📞 9626638296
-</a>
+  <div class="contact-grid reveal-group">
 
 
-<a
-    class="contact-link"
-    href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-    target="_blank"
-    rel="noopener noreferrer"
->
-💼 Raghavan Ganesan — LinkedIn
-</a>
+    <article class="glass contact-card">
+
+      <h3>
+        Direct contact
+      </h3>
+
+      <p>
+        Connect with Raghavan directly.
+      </p>
 
 
-<a
-    class="contact-link"
-    href="https://github.com/ragavan994463-max"
-    target="_blank"
-    rel="noopener noreferrer"
->
-◈ GitHub
-</a>
+      <div class="contact-links">
 
-</div>
+        <a
+          class="contact-link magnetic"
+          href="tel:+919626638296"
+        >
+
+          <div>
+
+            <small>
+              Phone
+            </small>
+
+            <strong>
+              +91 96266 38296
+            </strong>
+
+          </div>
+
+          <span>
+            ↗
+          </span>
+
+        </a>
 
 
-<div class="actions" style="justify-content:center">
+        <a
+          class="contact-link magnetic"
+          href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
 
-<a
-    class="btn primary"
-    href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-    target="_blank"
-    rel="noopener noreferrer"
->
-Connect on LinkedIn
-</a>
+          <div>
+
+            <small>
+              LinkedIn
+            </small>
+
+            <strong>
+              Raghavan Ganesan
+            </strong>
+
+          </div>
+
+          <span>
+            ↗
+          </span>
+
+        </a>
+
+      </div>
+
+    </article>
 
 
-<a
-    class="btn"
-    href="https://github.com/ragavan994463-max"
-    target="_blank"
-    rel="noopener noreferrer"
->
-View GitHub
-</a>
+    <article class="glass contact-card">
 
-</div>
+      <h3>
+        What I'm building
+      </h3>
 
-</div>
+      <p>
 
-</div>
+        Kaggriculture is currently the featured engineering
+        project, while ETERNAL represents the cybersecurity
+        community direction.
+
+      </p>
+
+
+      <a
+        href="#kaggriculture"
+        class="btn primary magnetic"
+      >
+        View Kaggriculture
+        <span>↗</span>
+      </a>
+
+    </article>
+
+
+  </div>
 
 </section>
-
 
 </main>
 
 
-<!-- =========================================================
+<!-- =======================================================
      FOOTER
-     ========================================================= -->
+     ======================================================= -->
 
 <footer>
 
-<div class="container footer-inner">
+  <div class="footer-inner">
 
-<span>
-© 2026 Raghavan
-</span>
+    <span>
+      © 2026 RAGHAVAN
+    </span>
 
-<span>
-AI • Python • Systems • Engineering • ETERNAL
-</span>
+    <span>
+      Built with HTML • CSS • JavaScript
+    </span>
 
-</div>
+    <span>
+      Engineering • Learning • Building
+    </span>
+
+  </div>
 
 </footer>
 
 
+<!-- =======================================================
+     ETERNAL FLOATING ACTION
+     ======================================================= -->
+
+<button
+  class="eternal-fab"
+  id="eternalFab"
+  type="button"
+  aria-label="Open ETERNAL"
+  data-target="#eternal"
+>
+
+  <span class="fab-icon">
+    ∞
+  </span>
+
+  <span class="fab-label">
+    ETERNAL
+  </span>
+
+</button>
+
+
 <script>
 
-/* ============================================================
-   THEME ENGINE
-   ============================================================ */
+/* =========================================================
+   RAGHAVAN PORTFOLIO ENGINE
+   No external libraries
+   ========================================================= */
 
-const themeButton =
+(() => {
+
+  "use strict";
+
+
+  /* =======================================================
+     THEME ENGINE
+     ======================================================= */
+
+  const body =
+    document.body;
+
+  const themeToggle =
     document.getElementById("themeToggle");
 
-const savedTheme =
-    localStorage.getItem("raghavan-theme");
 
-if (savedTheme === "light") {
-
-    document.body.classList.add("light");
-
-    themeButton.textContent = "☀️";
-
-}
+  const savedTheme =
+    localStorage.getItem(
+      "raghavan-theme"
+    );
 
 
-function updateThemeIcon() {
+  if (savedTheme === "light") {
 
-    themeButton.textContent =
-        document.body.classList.contains("light")
-            ? "☀️"
-            : "🌙";
-}
+    body.classList.add("light");
+
+    themeToggle.textContent = "☾";
+
+  }
 
 
-themeButton.addEventListener(
+  themeToggle.addEventListener(
     "click",
     () => {
 
-        document.body.classList.toggle("light");
+      body.classList.toggle("light");
 
-        const theme =
-            document.body.classList.contains("light")
-                ? "light"
-                : "dark";
+      const light =
+        body.classList.contains("light");
 
-        localStorage.setItem(
-            "raghavan-theme",
-            theme
-        );
+      localStorage.setItem(
+        "raghavan-theme",
+        light
+          ? "light"
+          : "dark"
+      );
 
-        updateThemeIcon();
-
-    }
-);
-
-
-/* ============================================================
-   MOBILE NAVIGATION
-   ============================================================ */
-
-const menuButton =
-    document.getElementById("menuButton");
-
-const navlinks =
-    document.getElementById("navlinks");
-
-
-menuButton.addEventListener(
-    "click",
-    () => {
-
-        navlinks.classList.toggle("open");
+      themeToggle.textContent =
+        light
+          ? "☾"
+          : "☼";
 
     }
-);
+  );
 
 
-navlinks
-    .querySelectorAll("a")
-    .forEach(
-        link => {
+  /* =======================================================
+     INTERSECTION OBSERVER
+     ======================================================= */
 
-            link.addEventListener(
-                "click",
-                () => {
+  const revealItems =
+    document.querySelectorAll(
+      ".reveal, .reveal-group"
+    );
 
-                    navlinks.classList.remove(
-                        "open"
-                    );
 
-                }
+  const observer =
+    new IntersectionObserver(
+      (entries, obs) => {
+
+        entries.forEach(
+          (entry) => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add(
+              "is-visible"
             );
 
-        }
+            obs.unobserve(
+              entry.target
+            );
+
+          }
+        );
+
+      },
+      {
+        threshold: .12,
+
+        rootMargin:
+          "0px 0px -50px 0px"
+      }
     );
 
 
-/* ============================================================
-   SCROLL REVEAL
-   ============================================================ */
+  revealItems.forEach(
+    (element) => {
 
-const revealElements =
-    document.querySelectorAll(".reveal");
+      observer.observe(
+        element
+      );
+
+    }
+  );
 
 
-if ("IntersectionObserver" in window) {
+  /* =======================================================
+     MAGNETIC ELEMENTS
+     ======================================================= */
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
+  const magneticElements =
+    document.querySelectorAll(
+      ".magnetic"
+    );
 
-                entries.forEach(
-                    entry => {
 
-                        if (
-                            entry.isIntersecting
-                        ) {
+  const supportsFinePointer =
+    window.matchMedia(
+      "(pointer:fine)"
+    ).matches;
 
-                            entry.target.classList.add(
-                                "visible"
-                            );
 
-                            observer.unobserve(
-                                entry.target
-                            );
+  if (supportsFinePointer) {
 
-                        }
+    magneticElements.forEach(
+      (element) => {
 
-                    }
+        let frame = null;
+
+
+        element.addEventListener(
+          "pointermove",
+          (event) => {
+
+            const rect =
+              element.getBoundingClientRect();
+
+
+            const x =
+              event.clientX -
+              (rect.left + rect.width / 2);
+
+
+            const y =
+              event.clientY -
+              (rect.top + rect.height / 2);
+
+
+            const strength =
+              .12;
+
+
+            if (frame) {
+
+              cancelAnimationFrame(
+                frame
+              );
+
+            }
+
+
+            frame =
+              requestAnimationFrame(
+                () => {
+
+                  element.style.transform =
+                    `translate3d(
+                      ${x * strength}px,
+                      ${y * strength}px,
+                      0
+                    )`;
+
+                }
+              );
+
+          },
+          {
+            passive: true
+          }
+        );
+
+
+        element.addEventListener(
+          "pointerleave",
+          () => {
+
+            if (frame) {
+
+              cancelAnimationFrame(
+                frame
+              );
+
+            }
+
+            element.style.transform =
+              "translate3d(0,0,0)";
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     3D SCENE MOUSE PARALLAX
+     ======================================================= */
+
+  const scene =
+    document.getElementById(
+      "scene"
+    );
+
+
+  if (
+    scene &&
+    supportsFinePointer
+  ) {
+
+    let frame = null;
+
+
+    scene.addEventListener(
+      "pointermove",
+      (event) => {
+
+        const rect =
+          scene.getBoundingClientRect();
+
+
+        const x =
+          (
+            event.clientX -
+            rect.left
+          ) /
+          rect.width -
+          .5;
+
+
+        const y =
+          (
+            event.clientY -
+            rect.top
+          ) /
+          rect.height -
+          .5;
+
+
+        if (frame) {
+
+          cancelAnimationFrame(
+            frame
+          );
+
+        }
+
+
+        frame =
+          requestAnimationFrame(
+            () => {
+
+              scene.style.transform =
+                `rotateX(${y * -4}deg)
+                 rotateY(${x * 5}deg)`;
+
+            }
+          );
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    scene.addEventListener(
+      "pointerleave",
+      () => {
+
+        if (frame) {
+
+          cancelAnimationFrame(
+            frame
+          );
+
+        }
+
+        scene.style.transform =
+          "rotateX(0deg) rotateY(0deg)";
+
+      }
+    );
+
+  }
+
+
+  /* =======================================================
+     ETERNAL FLOATING BUTTON
+     ======================================================= */
+
+  const fab =
+    document.getElementById(
+      "eternalFab"
+    );
+
+
+  const hero =
+    document.getElementById(
+      "home"
+    );
+
+
+  if (fab && hero) {
+
+    const fabObserver =
+      new IntersectionObserver(
+        (entries) => {
+
+          entries.forEach(
+            (entry) => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                fab.classList.remove(
+                  "fab-visible"
                 );
 
-            },
-            {
-                threshold: .10
+              } else {
+
+                fab.classList.add(
+                  "fab-visible"
+                );
+
+              }
+
             }
+          );
+
+        },
+        {
+          threshold: 0
+        }
+      );
+
+
+    fabObserver.observe(
+      hero
+    );
+
+
+    /* MAGNETIC FAB */
+
+    if (supportsFinePointer) {
+
+      let fabFrame = null;
+
+
+      fab.addEventListener(
+        "pointermove",
+        (event) => {
+
+          const rect =
+            fab.getBoundingClientRect();
+
+
+          const x =
+            event.clientX -
+            (rect.left + rect.width / 2);
+
+
+          const y =
+            event.clientY -
+            (rect.top + rect.height / 2);
+
+
+          if (fabFrame) {
+
+            cancelAnimationFrame(
+              fabFrame
+            );
+
+          }
+
+
+          fabFrame =
+            requestAnimationFrame(
+              () => {
+
+                fab.style.transform =
+                  `translate3d(
+                    ${x * .18}px,
+                    ${y * .18}px,
+                    0
+                  )`;
+
+              }
+            );
+
+        },
+        {
+          passive: true
+        }
+      );
+
+
+      fab.addEventListener(
+        "pointerleave",
+        () => {
+
+          if (fabFrame) {
+
+            cancelAnimationFrame(
+              fabFrame
+            );
+
+          }
+
+          fab.style.transform =
+            "translate3d(0,0,0)";
+
+        }
+      );
+
+    }
+
+
+    /* CLICK */
+
+    fab.addEventListener(
+      "click",
+      () => {
+
+        const target =
+          document.querySelector(
+            fab.dataset.target
+          );
+
+
+        if (!target) {
+          return;
+        }
+
+
+        fab.classList.add(
+          "fab-expanded"
         );
 
 
-    revealElements.forEach(
-        element =>
-            observer.observe(element)
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+
+        window.setTimeout(
+          () => {
+
+            fab.classList.remove(
+              "fab-expanded"
+            );
+
+          },
+          900
+        );
+
+      }
     );
 
-} else {
+  }
 
-    revealElements.forEach(
-        element =>
-            element.classList.add(
-                "visible"
-            )
+
+  /* =======================================================
+     SMOOTH ANCHOR NAVIGATION
+     ======================================================= */
+
+  document
+    .querySelectorAll(
+      'a[href^="#"]'
+    )
+    .forEach(
+      (link) => {
+
+        link.addEventListener(
+          "click",
+          (event) => {
+
+            const id =
+              link.getAttribute(
+                "href"
+              );
+
+
+            if (
+              !id ||
+              id === "#"
+            ) {
+              return;
+            }
+
+
+            const target =
+              document.querySelector(
+                id
+              );
+
+
+            if (!target) {
+              return;
+            }
+
+
+            event.preventDefault();
+
+
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          }
+        );
+
+      }
     );
 
-}
 
+  /* =======================================================
+     MOBILE MENU
+     ======================================================= */
 
-/* ============================================================
-   3D MOUSE PARALLAX
-   ============================================================ */
-
-const coreScene =
-    document.getElementById("coreScene");
-
-
-let mouseX = 0;
-let mouseY = 0;
-
-let targetX = 0;
-let targetY = 0;
-
-
-window.addEventListener(
-    "pointermove",
-    event => {
-
-        mouseX =
-            (event.clientX /
-                window.innerWidth -
-                .5);
-
-        mouseY =
-            (event.clientY /
-                window.innerHeight -
-                .5);
-
-    }
-);
-
-
-function animateCore() {
-
-    targetX +=
-        (mouseX * 18 - targetX) *
-        .055;
-
-    targetY +=
-        (mouseY * 18 - targetY) *
-        .055;
-
-
-    if (
-        window.innerWidth > 700
-    ) {
-
-        coreScene.style.transform =
-            `rotateX(${-targetY}deg)
-             rotateY(${targetX}deg)`;
-
-    }
-
-
-    requestAnimationFrame(
-        animateCore
-    );
-
-}
-
-
-animateCore();
-
-
-/* ============================================================
-   PARTICLE FIELD
-   ============================================================ */
-
-const canvas =
+  const mobileMenu =
     document.getElementById(
-        "particleCanvas"
+      "mobileMenu"
     );
 
-const context =
-    canvas.getContext("2d");
+
+  const navLinks =
+    document.querySelector(
+      ".nav-links"
+    );
 
 
-let width = 0;
-let height = 0;
+  if (
+    mobileMenu &&
+    navLinks
+  ) {
 
-let devicePixelRatio =
-    Math.min(
+    mobileMenu.addEventListener(
+      "click",
+      () => {
+
+        const open =
+          navLinks.dataset.open === "true";
+
+
+        if (!open) {
+
+          navLinks.dataset.open =
+            "true";
+
+          navLinks.style.display =
+            "flex";
+
+          navLinks.style.position =
+            "absolute";
+
+          navLinks.style.top =
+            "calc(100% + 8px)";
+
+          navLinks.style.left =
+            "4%";
+
+          navLinks.style.right =
+            "4%";
+
+          navLinks.style.padding =
+            "12px";
+
+          navLinks.style.flexDirection =
+            "column";
+
+          navLinks.style.alignItems =
+            "stretch";
+
+          navLinks.style.border =
+            "1px solid var(--border)";
+
+          navLinks.style.borderRadius =
+            "20px";
+
+          navLinks.style.background =
+            "rgba(7,11,20,.88)";
+
+          navLinks.style.backdropFilter =
+            "blur(25px)";
+
+          navLinks.style.boxShadow =
+            "0 25px 80px rgba(0,0,0,.4)";
+
+          mobileMenu.textContent =
+            "×";
+
+        } else {
+
+          navLinks.dataset.open =
+            "false";
+
+          navLinks.style.display =
+            "";
+
+          navLinks.style.position =
+            "";
+
+          mobileMenu.textContent =
+            "☰";
+
+        }
+
+      }
+    );
+
+
+    navLinks
+      .querySelectorAll("a")
+      .forEach(
+        (link) => {
+
+          link.addEventListener(
+            "click",
+            () => {
+
+              navLinks.dataset.open =
+                "false";
+
+              navLinks.style.display =
+                "";
+
+              navLinks.style.position =
+                "";
+
+              mobileMenu.textContent =
+                "☰";
+
+            }
+          );
+
+        }
+      );
+
+  }
+
+
+  /* =======================================================
+     PARTICLE ENGINE
+     ======================================================= */
+
+  const canvas =
+    document.getElementById(
+      "particles"
+    );
+
+
+  const context =
+    canvas.getContext(
+      "2d"
+    );
+
+
+  const particles = [];
+
+
+  let width = 0;
+  let height = 0;
+
+
+  const isMobile =
+    window.matchMedia(
+      "(max-width:600px)"
+    ).matches;
+
+
+  const particleCount =
+    isMobile
+      ? 38
+      : 72;
+
+
+  function resizeCanvas() {
+
+    const ratio =
+      Math.min(
         window.devicePixelRatio || 1,
         2
-    );
+      );
 
-
-let particles = [];
-
-
-function resizeCanvas() {
 
     width =
-        window.innerWidth;
+      window.innerWidth;
 
     height =
-        window.innerHeight;
-
-    devicePixelRatio =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
+      window.innerHeight;
 
 
     canvas.width =
-        width * devicePixelRatio;
+      width * ratio;
 
     canvas.height =
-        height * devicePixelRatio;
+      height * ratio;
 
 
     canvas.style.width =
-        width + "px";
+      width + "px";
 
     canvas.style.height =
-        height + "px";
+      height + "px";
 
 
     context.setTransform(
-        devicePixelRatio,
-        0,
-        0,
-        devicePixelRatio,
-        0,
-        0
+      ratio,
+      0,
+      0,
+      ratio,
+      0,
+      0
     );
 
-
-    const amount =
-        Math.min(
-            140,
-            Math.max(
-                50,
-                Math.floor(
-                    width * height /
-                    11000
-                )
-            )
-        );
+  }
 
 
-    particles =
-        Array.from(
-            {
-                length: amount
-            },
-            () => ({
+  function createParticles() {
 
-                x:
-                    Math.random() *
-                    width,
-
-                y:
-                    Math.random() *
-                    height,
-
-                size:
-                    .4 +
-                    Math.random() *
-                    1.4,
-
-                speed:
-                    .05 +
-                    Math.random() *
-                    .25,
-
-                depth:
-                    .2 +
-                    Math.random() *
-                    .9
-
-            })
-        );
-
-}
+    particles.length = 0;
 
 
-function drawParticles() {
+    for (
+      let i = 0;
+      i < particleCount;
+      i++
+    ) {
+
+      particles.push({
+
+        x:
+          Math.random() *
+          width,
+
+        y:
+          Math.random() *
+          height,
+
+        radius:
+          Math.random() *
+          1.5 + .4,
+
+        velocity:
+          Math.random() *
+          .25 + .05,
+
+        phase:
+          Math.random() *
+          Math.PI * 2
+
+      });
+
+    }
+
+  }
+
+
+  function drawParticles(
+    time
+  ) {
 
     context.clearRect(
-        0,
-        0,
-        width,
-        height
+      0,
+      0,
+      width,
+      height
     );
 
 
     const light =
-        document.body.classList.contains(
-            "light"
+      body.classList.contains(
+        "light"
+      );
+
+
+    for (
+      const particle of particles
+    ) {
+
+      particle.y -=
+        particle.velocity;
+
+
+      if (
+        particle.y < -10
+      ) {
+
+        particle.y =
+          height + 10;
+
+        particle.x =
+          Math.random() * width;
+
+      }
+
+
+      const alpha =
+        (
+          .20 +
+          Math.sin(
+            time * .001 +
+            particle.phase
+          ) * .12
         );
 
 
-    particles.forEach(
-        particle => {
-
-            particle.y -=
-                particle.speed *
-                particle.depth;
+      context.beginPath();
 
 
-            if (
-                particle.y < -5
-            ) {
-
-                particle.y =
-                    height + 5;
-
-                particle.x =
-                    Math.random() *
-                    width;
-
-            }
+      context.arc(
+        particle.x,
+        particle.y,
+        particle.radius,
+        0,
+        Math.PI * 2
+      );
 
 
-            context.globalAlpha =
-                light
-                    ? .15 +
-                      particle.depth * .25
-                    : .18 +
-                      particle.depth * .55;
+      context.fillStyle =
+        light
+          ? `rgba(70,90,170,${alpha})`
+          : `rgba(130,180,255,${alpha})`;
 
 
-            context.fillStyle =
-                particle.depth > .65
-                    ? "#5ceee0"
-                    : "#8192ff";
+      context.fill();
 
-
-            context.beginPath();
-
-            context.arc(
-                particle.x,
-                particle.y,
-                particle.size *
-                    particle.depth,
-                0,
-                Math.PI * 2
-            );
-
-            context.fill();
-
-        }
-    );
-
-
-    context.globalAlpha = 1;
+    }
 
 
     requestAnimationFrame(
-        drawParticles
+      drawParticles
     );
 
-}
+  }
 
 
-window.addEventListener(
+  resizeCanvas();
+
+  createParticles();
+
+  window.addEventListener(
     "resize",
-    resizeCanvas
-);
+    () => {
 
+      resizeCanvas();
 
-resizeCanvas();
-drawParticles();
+      createParticles();
 
-
-/* ============================================================
-   KAGGRICULTURE INSPECTOR
-   ============================================================ */
-
-const architectureData = {
-
-    environment:
-        "ENVIRONMENT — The agent observes the current farming state, available resources, actions, market conditions and other relevant information.",
-
-    prediction:
-        "PREDICTION — The system estimates possible future outcomes so decisions can consider consequences instead of only the current state.",
-
-    constraints:
-        "CONSTRAINTS — Dynamic guardrails restrict invalid or strategically poor actions while preserving flexibility.",
-
-    decision:
-        "DECISION — Strategy generation and optimization convert observations, predictions and constraints into a selected course of action.",
-
-    action:
-        "ACTION — The selected strategy becomes an executable operation inside the simulation environment.",
-
-    feedback:
-        "FEEDBACK — Outcomes are evaluated and useful information is returned to the intelligence loop for improvement."
-
-};
-
-
-const inspector =
-    document.getElementById(
-        "inspector"
-    );
-
-
-document
-    .querySelectorAll(
-        "[data-module]"
-    )
-    .forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    document
-                        .querySelectorAll(
-                            "[data-module]"
-                        )
-                        .forEach(
-                            item =>
-                                item.classList.remove(
-                                    "active"
-                                )
-                        );
-
-
-                    button.classList.add(
-                        "active"
-                    );
-
-
-                    inspector.textContent =
-                        architectureData[
-                            button.dataset.module
-                        ];
-
-                }
-            );
-
-        }
-    );
-
-
-/* ============================================================
-   TERMINAL
-   ============================================================ */
-
-const terminalInput =
-    document.getElementById(
-        "terminalInput"
-    );
-
-const terminalOutput =
-    document.getElementById(
-        "terminalOutput"
-    );
-
-
-const commands = {
-
-    help:
-`AVAILABLE COMMANDS
-
-about
-skills
-project
-architecture
-eternal
-github
-contact
-status
-clear`,
-
-    about:
-`RAGHAVAN
-
-AI-focused developer working with Python,
-intelligent systems, autonomous agents and
-advanced software architecture.
-
-FLAGSHIP PROJECT:
-Crop Coders — Kaggriculture`,
-
-    skills:
-`TECHNICAL CAPABILITIES
-
-Python
-Artificial Intelligence
-Machine Learning
-Agent Architecture
-Reinforcement Learning
-System Design
-Git & GitHub
-Automation`,
-
-    project:
-`CROP CODERS — KAGGRICULTURE
-
-Autonomous farming intelligence.
-
-Environment
-    ↓
-Prediction
-    ↓
-Constraints
-    ↓
-Decision
-    ↓
-Action
-    ↓
-Feedback`,
-
-    architecture:
-`KAGGRICULTURE INTELLIGENCE PIPELINE
-
-01 Environment
-02 Prediction
-03 Constraints
-04 Decision
-05 Action
-06 Feedback`,
-
-    eternal:
-`ETERNAL
-
-Creator:
-Shanmugam
-
-Technical Leader:
-Raghavan
-
-Members:
-Sithananthan
-Sumaiyah
-Dhanvanthraj`,
-
-    github:
-`GITHUB
-
-Profile:
-ragavan994463-max
-
-Flagship:
-kaggriculture-agent`,
-
-    contact:
-`CONTACT
-
-Phone:
-9626638296
-
-LinkedIn:
-Raghavan Ganesan`,
-
-    status:
-`SYSTEM STATUS
-
-3D CORE ............... ONLINE
-PARTICLE FIELD ......... ONLINE
-GLASS ENGINE ........... ONLINE
-THEME ENGINE ........... ONLINE
-KAGGRICULTURE .......... ONLINE
-ETERNAL ................ ONLINE
-RESPONSIVE UI .......... ONLINE
-
-STATUS: NOMINAL`
-
-};
-
-
-function executeCommand(
-    value
-) {
-
-    const command =
-        value
-            .trim()
-            .toLowerCase();
-
-
-    if (
-        command === "clear"
-    ) {
-
-        terminalOutput.textContent =
-            "";
-
-        return;
-
+    },
+    {
+      passive: true
     }
+  );
 
 
-    if (
-        !command
-    ) {
-
-        return;
-
-    }
+  requestAnimationFrame(
+    drawParticles
+  );
 
 
-    const result =
-        commands[command];
-
-
-    if (result) {
-
-        terminalOutput.textContent =
-            "> " +
-            command +
-            "\n\n" +
-            result;
-
-    } else {
-
-        terminalOutput.textContent =
-            "> " +
-            command +
-            "\n\n" +
-            "COMMAND NOT FOUND.\n" +
-            'Type "help".';
-
-    }
-
-}
-
-
-terminalInput.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Enter"
-        ) {
-
-            executeCommand(
-                terminalInput.value
-            );
-
-            terminalInput.value =
-                "";
-
-        }
-
-    }
-);
-
-
-/* ============================================================
-   KEYBOARD SHORTCUT
-   ============================================================ */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "/" &&
-            document.activeElement !==
-                terminalInput
-        ) {
-
-            event.preventDefault();
-
-            terminalInput.focus();
-
-        }
-
-    }
-);
-
-
-/* ============================================================
-   EXTERNAL LINK FEEDBACK
-   ============================================================ */
-
-document
-    .querySelectorAll(
-        'a[target="_blank"]'
-    )
-    .forEach(
-        link => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    document.title =
-                        "Opening • Raghavan";
-
-                    setTimeout(
-                        () => {
-
-                            document.title =
-                                "Raghavan | AI & Systems Engineer";
-
-                        },
-                        1200
-                    );
-
-                }
-            );
-
-        }
-    );
-
-
-/* ============================================================
-   INITIAL STATE
-   ============================================================ */
-
-updateThemeIcon();
+})();
 
 </script>
 
