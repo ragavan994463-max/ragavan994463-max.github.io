@@ -3,4561 +3,5130 @@
 <head>
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-<meta name="theme-color" content="#070b16">
+<meta
+  name="description"
+  content="Raghavan — AI, Python, software engineering, autonomous systems and Crop Coders Kaggriculture."
+>
+
+<meta name="author" content="Raghavan">
+
+<meta
+  name="theme-color"
+  content="#07111f"
+  id="themeColorMeta"
+>
+
 <meta name="color-scheme" content="dark light">
-
-<meta name="description"
-      content="RAGHAVAN — software engineering, Python, intelligent systems and Crop Coders Kaggriculture.">
-
-<meta name="author" content="RAGHAVAN">
 
 <title>RAGHAVAN — Engineering Intelligence</title>
 
 <style>
-/* ============================================================
-   RAGHAVAN PORTFOLIO — ULTRA ADVANCED SINGLE FILE
-   ============================================================
-
-   ENGINE:
-   • Responsive glassmorphism
-   • Dark / light visual system
-   • 3D scene
-   • WebGL shader layer
-   • Canvas particle engine
-   • Magnetic interaction
-   • Intersection Observer visibility
-   • Scroll velocity physics
-   • SVG direction morph
-   • Audio micro-interactions
-   • Holographic shimmer
-   • Liquid morphing
-   • Progressive scroll ring
-   • Mobile-first fallback architecture
-
-   No framework required.
-   ============================================================ */
-
 
 /* ============================================================
-   01 — DESIGN TOKENS
+   RAGHAVAN ENGINEERING PORTFOLIO
+   Ultra Advanced Edition
+   ZERO external libraries
+   ZERO CDN
+   ZERO external assets
    ============================================================ */
 
 :root {
-    --bg: #050811;
-    --bg-2: #091020;
-    --surface: rgba(255,255,255,.055);
-    --surface-2: rgba(255,255,255,.085);
-    --surface-3: rgba(255,255,255,.12);
 
-    --border: rgba(255,255,255,.13);
-    --border-strong: rgba(255,255,255,.22);
+  --bg:
+    #050914;
 
-    --text: #f7f9ff;
-    --muted: #aeb8cc;
-    --muted-2: #7e899f;
+  --bg-2:
+    #091221;
 
-    --blue: #728cff;
-    --cyan: #53e7df;
-    --violet: #a77cff;
-    --green: #67e8a5;
+  --surface:
+    rgba(255,255,255,.065);
 
-    --danger: #ff7187;
+  --surface-strong:
+    rgba(255,255,255,.105);
 
-    --glass-blur: 24px;
-    --radius: 28px;
+  --surface-light:
+    rgba(255,255,255,.16);
 
-    --shadow:
-        0 30px 100px rgba(0,0,0,.38);
+  --border:
+    rgba(255,255,255,.13);
 
-    --max: 1180px;
+  --border-bright:
+    rgba(120,180,255,.35);
 
-    --ease:
-        cubic-bezier(.16,1,.3,1);
+  --text:
+    #f6f8ff;
 
-    --spring:
-        cubic-bezier(.175,.885,.32,1.275);
+  --muted:
+    #aeb9ce;
+
+  --accent:
+    #7d8cff;
+
+  --accent-2:
+    #45e6dc;
+
+  --accent-3:
+    #b06cff;
+
+  --cyan:
+    #50efff;
+
+  --success:
+    #69efae;
+
+  --danger:
+    #ff6584;
+
+  --shadow:
+    0 30px 100px rgba(0,0,0,.42);
+
+  --radius:
+    28px;
+
+  --max:
+    1180px;
+
+  --header:
+    76px;
+
+  --progress:
+    0%;
+
+  --scroll-speed:
+    0;
+
+  --mouse-x:
+    0;
+
+  --mouse-y:
+    0;
 }
+
+/* LIGHT MODE */
 
 html[data-theme="light"] {
 
-    --bg: #eef3ff;
-    --bg-2: #ffffff;
+  --bg:
+    #edf4ff;
 
-    --surface: rgba(255,255,255,.58);
-    --surface-2: rgba(255,255,255,.76);
-    --surface-3: rgba(255,255,255,.9);
+  --bg-2:
+    #dce8fa;
 
-    --border: rgba(20,30,60,.12);
-    --border-strong: rgba(20,30,60,.22);
+  --surface:
+    rgba(255,255,255,.58);
 
-    --text: #10162a;
-    --muted: #56627a;
-    --muted-2: #778197;
+  --surface-strong:
+    rgba(255,255,255,.76);
 
-    --blue: #526cff;
-    --cyan: #00a99d;
-    --violet: #7c51d9;
+  --surface-light:
+    rgba(255,255,255,.92);
 
-    --shadow:
-        0 30px 80px rgba(48,65,120,.18);
+  --border:
+    rgba(40,65,100,.16);
+
+  --border-bright:
+    rgba(70,100,180,.35);
+
+  --text:
+    #111827;
+
+  --muted:
+    #53617a;
+
+  --accent:
+    #5967ff;
+
+  --accent-2:
+    #0baaa0;
+
+  --accent-3:
+    #8647d9;
+
+  --cyan:
+    #079db0;
+
+  --shadow:
+    0 30px 80px rgba(30,60,110,.16);
 }
 
+/* RESET */
 
-/* ============================================================
-   02 — RESET
-   ============================================================ */
+* {
+  box-sizing:
+    border-box;
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+  margin:
+    0;
+
+  padding:
+    0;
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 90px;
+  scroll-behavior:
+    smooth;
+
+  scroll-padding-top:
+    90px;
 }
 
 body {
-    margin: 0;
-    min-height: 100vh;
 
-    background:
-        radial-gradient(
-            circle at 12% 8%,
-            rgba(114,140,255,.16),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 88% 18%,
-            rgba(83,231,223,.10),
-            transparent 28%
-        ),
-        var(--bg);
+  min-height:
+    100vh;
 
-    color: var(--text);
+  overflow-x:
+    hidden;
 
-    font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+  color:
+    var(--text);
 
-    line-height: 1.6;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(80,110,255,.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 20%,
+      rgba(50,230,220,.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      var(--bg),
+      var(--bg-2)
+    );
 
-    overflow-x: hidden;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 
-    transition:
-        background .6s ease,
-        color .4s ease;
+  line-height:
+    1.6;
+
+  transition:
+    background .6s ease,
+    color .4s ease;
 }
 
-body::selection {
-    background: var(--cyan);
-    color: #061016;
+body::before {
+
+  content:
+    "";
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  pointer-events:
+    none;
+
+  z-index:
+    -10;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255,255,255,.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    42px 42px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 88%
+    );
+}
+
+body::after {
+
+  content:
+    "";
+
+  position:
+    fixed;
+
+  width:
+    420px;
+
+  height:
+    420px;
+
+  border-radius:
+    50%;
+
+  left:
+    50%;
+
+  top:
+    20%;
+
+  transform:
+    translate(-50%,-50%);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(95,110,255,.09),
+      transparent 68%
+    );
+
+  filter:
+    blur(35px);
+
+  pointer-events:
+    none;
+
+  z-index:
+    -9;
+}
+
+a {
+  color:
+    inherit;
+
+  text-decoration:
+    none;
 }
 
 button,
-a {
-    -webkit-tap-highlight-color: transparent;
+input {
+  font:
+    inherit;
 }
 
 button {
-    font: inherit;
-}
+  border:
+    0;
 
-a {
-    color: inherit;
-    text-decoration: none;
+  cursor:
+    pointer;
 }
 
 img,
 svg,
 canvas {
-    max-width: 100%;
+  max-width:
+    100%;
 }
+
+::selection {
+  background:
+    var(--accent);
+
+  color:
+    white;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width:
+    9px;
+}
+
+::-webkit-scrollbar-track {
+  background:
+    var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+
+  background:
+    linear-gradient(
+      var(--accent),
+      var(--accent-2)
+    );
+
+  border-radius:
+    999px;
+}
+
+/* ============================================================
+   GLOBAL
+   ============================================================ */
 
 .container {
-    width: min(92%, var(--max));
-    margin-inline: auto;
+
+  width:
+    min(92%, var(--max));
+
+  margin:
+    auto;
 }
 
-.hidden {
-    display: none !important;
+.section {
+
+  padding:
+    110px 0;
+
+  position:
+    relative;
 }
 
+.section-label {
+
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    9px;
+
+  padding:
+    8px 13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--surface);
+
+  backdrop-filter:
+    blur(18px);
+
+  color:
+    var(--muted);
+
+  font-size:
+    .76rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    .14em;
+
+  text-transform:
+    uppercase;
+}
+
+.section-label::before {
+
+  content:
+    "";
+
+  width:
+    7px;
+
+  height:
+    7px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--success);
+
+  box-shadow:
+    0 0 14px var(--success);
+
+  animation:
+    biosPulse 1.8s ease-in-out infinite;
+}
+
+.section-title {
+
+  margin-top:
+    22px;
+
+  max-width:
+    850px;
+
+  font-size:
+    clamp(2.2rem,7vw,5.5rem);
+
+  line-height:
+    .96;
+
+  letter-spacing:
+    -.055em;
+}
+
+.section-description {
+
+  max-width:
+    720px;
+
+  margin-top:
+    24px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    clamp(1rem,2vw,1.25rem);
+}
 
 /* ============================================================
-   03 — BACKGROUND GRID
+   HEADER
    ============================================================ */
 
-.background-grid {
-    position: fixed;
-    inset: 0;
-    z-index: -10;
-    pointer-events: none;
+.header {
 
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.025) 1px,
-            transparent 1px
-        );
+  position:
+    fixed;
 
-    background-size: 48px 48px;
+  top:
+    0;
 
-    mask-image:
-        linear-gradient(
-            to bottom,
-            black,
-            transparent 88%
-        );
+  left:
+    0;
+
+  right:
+    0;
+
+  z-index:
+    900;
+
+  height:
+    var(--header);
+
+  border-bottom:
+    1px solid var(--border);
+
+  background:
+    rgba(5,9,20,.62);
+
+  backdrop-filter:
+    blur(24px) saturate(140%);
+
+  -webkit-backdrop-filter:
+    blur(24px) saturate(140%);
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1);
 }
 
-html[data-theme="light"] .background-grid {
-    background-image:
-        linear-gradient(
-            rgba(40,55,100,.045) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(40,55,100,.045) 1px,
-            transparent 1px
-        );
+html[data-theme="light"] .header {
+
+  background:
+    rgba(238,244,255,.68);
 }
 
+.header.hidden {
+  transform:
+    translateY(-110%);
+}
+
+.header-inner {
+
+  height:
+    100%;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+}
+
+.logo {
+
+  font-size:
+    1.35rem;
+
+  font-weight:
+    950;
+
+  letter-spacing:
+    -.04em;
+
+  background:
+    linear-gradient(
+      100deg,
+      #8b76ff,
+      #48e8dc,
+      #a873ff
+    );
+
+  background-size:
+    220%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  color:
+    transparent;
+
+  animation:
+    logoFlow 6s ease-in-out infinite;
+}
+
+.header-actions {
+
+  display:
+    flex;
+
+  gap:
+    12px;
+}
+
+.icon-button {
+
+  width:
+    58px;
+
+  height:
+    58px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    20px;
+
+  color:
+    var(--text);
+
+  background:
+    var(--surface);
+
+  backdrop-filter:
+    blur(20px);
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    border .3s ease;
+}
+
+.icon-button:hover {
+
+  transform:
+    translateY(-3px)
+    scale(1.04);
+
+  background:
+    var(--surface-strong);
+
+  border-color:
+    var(--border-bright);
+}
+
+.menu-lines {
+
+  width:
+    23px;
+
+  display:
+    grid;
+
+  gap:
+    5px;
+}
+
+.menu-lines span {
+
+  height:
+    2px;
+
+  width:
+    100%;
+
+  background:
+    currentColor;
+
+  border-radius:
+    5px;
+}
 
 /* ============================================================
-   04 — AMBIENT ORBS
+   MOBILE MENU
    ============================================================ */
 
-.ambient-orb {
-    position: fixed;
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
+.mobile-menu {
 
-    filter: blur(100px);
-    opacity: .11;
+  position:
+    fixed;
 
-    pointer-events: none;
-    z-index: -8;
+  inset:
+    var(--header) 0 auto 0;
 
-    animation:
-        orbFloat 12s ease-in-out infinite alternate;
+  z-index:
+    850;
+
+  padding:
+    20px;
+
+  display:
+    grid;
+
+  gap:
+    10px;
+
+  background:
+    rgba(5,9,20,.92);
+
+  backdrop-filter:
+    blur(30px);
+
+  border-bottom:
+    1px solid var(--border);
+
+  transform:
+    translateY(-130%);
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1);
 }
 
-.orb-a {
-    left: -160px;
-    top: 12%;
-    background: var(--blue);
+.mobile-menu.open {
+  transform:
+    translateY(0);
 }
 
-.orb-b {
-    right: -160px;
-    top: 48%;
-    background: var(--cyan);
-    animation-delay: -4s;
+.mobile-menu a {
+
+  padding:
+    15px 17px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    15px;
+
+  background:
+    var(--surface);
+
+  color:
+    var(--muted);
 }
-
-.orb-c {
-    left: 40%;
-    bottom: -220px;
-    background: var(--violet);
-    animation-delay: -7s;
-}
-
-@keyframes orbFloat {
-
-    from {
-        transform:
-            translate3d(0,0,0)
-            scale(1);
-    }
-
-    to {
-        transform:
-            translate3d(25px,-35px,0)
-            scale(1.12);
-    }
-}
-
 
 /* ============================================================
-   05 — NAVIGATION
-   ============================================================ */
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-
-    z-index: 900;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(5,8,17,.84),
-            rgba(5,8,17,.55)
-        );
-
-    border-bottom:
-        1px solid var(--border);
-
-    backdrop-filter:
-        blur(22px) saturate(150%);
-
-    -webkit-backdrop-filter:
-        blur(22px) saturate(150%);
-
-    transition:
-        transform .45s var(--ease),
-        background .4s ease;
-}
-
-html[data-theme="light"] .navbar {
-    background:
-        rgba(245,248,255,.72);
-}
-
-.nav-inner {
-    min-height: 76px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 20px;
-}
-
-.brand {
-    position: relative;
-
-    font-size: 1.12rem;
-    font-weight: 900;
-    letter-spacing: -.04em;
-
-    display: inline-flex;
-    align-items: center;
-}
-
-.brand-name {
-    background:
-        linear-gradient(
-            100deg,
-            var(--blue),
-            var(--cyan),
-            var(--violet),
-            var(--blue)
-        );
-
-    background-size: 300% 100%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    animation:
-        brandFlow 7s linear infinite;
-}
-
-@keyframes brandFlow {
-    to {
-        background-position: 300% 0;
-    }
-}
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.icon-btn {
-    width: 46px;
-    height: 46px;
-
-    display: grid;
-    place-items: center;
-
-    border: 1px solid var(--border);
-    border-radius: 15px;
-
-    background: var(--surface);
-
-    color: var(--text);
-
-    cursor: pointer;
-
-    backdrop-filter: blur(15px);
-
-    transition:
-        transform .35s var(--spring),
-        background .3s ease,
-        border-color .3s ease;
-}
-
-.icon-btn:hover {
-    transform:
-        translateY(-3px)
-        rotateX(5deg)
-        rotateY(-5deg);
-
-    background: var(--surface-2);
-    border-color: var(--border-strong);
-}
-
-.menu-button {
-    display: none;
-}
-
-.nav-links {
-    display: flex;
-    gap: 26px;
-    align-items: center;
-}
-
-.nav-links a {
-    color: var(--muted);
-    font-size: .9rem;
-    font-weight: 700;
-
-    transition:
-        color .25s ease,
-        transform .25s ease;
-}
-
-.nav-links a:hover {
-    color: var(--text);
-    transform: translateY(-2px);
-}
-
-
-/* ============================================================
-   06 — HERO
+   HERO
    ============================================================ */
 
 .hero {
-    position: relative;
 
-    min-height: 100svh;
+  min-height:
+    100svh;
 
-    display: grid;
-    align-items: center;
+  padding-top:
+    calc(var(--header) + 45px);
 
-    padding:
-        130px 0
-        70px;
+  display:
+    flex;
 
-    overflow: hidden;
+  align-items:
+    center;
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
 }
 
-.hero-layout {
-    display: grid;
+.hero-grid {
 
-    grid-template-columns:
-        minmax(0,1.05fr)
-        minmax(320px,.95fr);
+  display:
+    grid;
 
-    align-items: center;
+  grid-template-columns:
+    1.05fr .95fr;
 
-    gap: 60px;
-}
+  gap:
+    35px;
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 8px 13px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    background: var(--surface);
-
-    color: var(--muted);
-
-    font-size: .78rem;
-    font-weight: 800;
-
-    backdrop-filter: blur(16px);
-
-    margin-bottom: 24px;
-}
-
-.eyebrow-dot {
-    width: 8px;
-    height: 8px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            var(--green),
-            var(--cyan)
-        );
-
-    box-shadow:
-        0 0 18px var(--cyan);
-
-    animation:
-        pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-
-    0%,100% {
-        transform: scale(.8);
-        opacity: .6;
-    }
-
-    50% {
-        transform: scale(1.15);
-        opacity: 1;
-    }
-}
-
-.hero h1 {
-    margin: 0;
-
-    font-size:
-        clamp(
-            3.6rem,
-            9vw,
-            7.7rem
-        );
-
-    line-height: .86;
-
-    letter-spacing: -.075em;
-
-    max-width: 900px;
-}
-
-.hero-title-gradient {
-    display: block;
-
-    background:
-        linear-gradient(
-            100deg,
-            #8296ff 5%,
-            #55e7df 48%,
-            #bb8dff 90%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-
-    background-size: 220% 100%;
-
-    animation:
-        titleFlow 8s ease-in-out infinite alternate;
-}
-
-@keyframes titleFlow {
-
-    from {
-        background-position: 0 50%;
-    }
-
-    to {
-        background-position: 100% 50%;
-    }
+  align-items:
+    center;
 }
 
 .hero-copy {
-    max-width: 720px;
+  position:
+    relative;
 
-    margin-top: 30px;
-
-    color: var(--muted);
-
-    font-size:
-        clamp(
-            1rem,
-            2vw,
-            1.28rem
-        );
-
-    line-height: 1.75;
+  z-index:
+    4;
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
+.eyebrow {
 
-    margin-top: 34px;
+  display:
+    inline-flex;
+
+  align-items:
+    center;
+
+  gap:
+    10px;
+
+  padding:
+    8px 13px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    999px;
+
+  background:
+    var(--surface);
+
+  backdrop-filter:
+    blur(20px);
+
+  color:
+    var(--muted);
+
+  font-size:
+    .78rem;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    .11em;
+
+  text-transform:
+    uppercase;
 }
 
+.eyebrow-dot {
+
+  width:
+    8px;
+
+  height:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--accent-2);
+
+  box-shadow:
+    0 0 18px var(--accent-2);
+
+  animation:
+    biosPulse 1.5s infinite;
+}
+
+.hero h1 {
+
+  margin-top:
+    25px;
+
+  max-width:
+    850px;
+
+  font-size:
+    clamp(3.2rem,9vw,8.5rem);
+
+  line-height:
+    .88;
+
+  letter-spacing:
+    -.075em;
+}
+
+.gradient-text {
+
+  background:
+    linear-gradient(
+      100deg,
+      #8c7bff 0%,
+      #54e9de 45%,
+      #b077ff 80%,
+      #8c7bff 100%
+    );
+
+  background-size:
+    250%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  color:
+    transparent;
+
+  animation:
+    gradientFlow 7s ease-in-out infinite;
+}
+
+.hero-description {
+
+  margin-top:
+    28px;
+
+  max-width:
+    680px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    clamp(1.05rem,2.2vw,1.35rem);
+}
+
+.hero-actions {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    13px;
+
+  margin-top:
+    32px;
+}
+
+/* BUTTON */
+
+.magnetic {
+
+  --mx:
+    0px;
+
+  --my:
+    0px;
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  padding:
+    15px 20px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    17px;
+
+  background:
+    var(--surface);
+
+  color:
+    var(--text);
+
+  font-weight:
+    800;
+
+  transition:
+    transform .22s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease,
+    border .3s ease;
+}
+
+.magnetic::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    -100%;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 40%,
+      rgba(255,255,255,.42),
+      transparent 60%
+    );
+
+  transform:
+    translateX(-70%);
+
+  animation:
+    shimmer 5s ease-in-out infinite;
+}
+
+.magnetic:hover {
+
+  transform:
+    translate(var(--mx),var(--my))
+    translateY(-4px);
+
+  border-color:
+    var(--border-bright);
+
+  box-shadow:
+    0 18px 55px rgba(90,120,255,.18);
+}
+
+.magnetic.primary {
+
+  border-color:
+    rgba(120,210,255,.4);
+
+  background:
+    linear-gradient(
+      110deg,
+      #7385ff,
+      #43ded6
+    );
+
+  color:
+    #06101a;
+
+  box-shadow:
+    0 15px 55px rgba(76,220,220,.18);
+}
 
 /* ============================================================
-   07 — GLASS BUTTON SYSTEM
+   3D CORE
    ============================================================ */
 
-.glass-button {
-    position: relative;
+.core-stage {
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+  min-height:
+    590px;
 
-    min-height: 54px;
+  display:
+    grid;
 
-    padding: 0 23px;
+  place-items:
+    center;
 
-    border:
-        1px solid var(--border);
+  position:
+    relative;
 
-    border-radius: 18px;
-
-    color: var(--text);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.11),
-            rgba(255,255,255,.035)
-        );
-
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.12),
-        0 14px 35px rgba(0,0,0,.18);
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    isolation: isolate;
-
-    transition:
-        transform .35s var(--spring),
-        border-color .3s ease,
-        background .3s ease,
-        box-shadow .3s ease;
+  perspective:
+    1200px;
 }
 
-.glass-button:hover {
-    border-color:
-        rgba(83,231,223,.45);
+/*
+   IMPORTANT:
+   No three elliptical orbit rings.
+   The core uses radar circles instead.
+*/
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(114,140,255,.2),
-            rgba(83,231,223,.08)
-        );
+.core {
 
-    box-shadow:
-        inset 0 1px rgba(255,255,255,.2),
-        0 20px 50px rgba(83,231,223,.11);
+  width:
+    min(390px,75vw);
+
+  aspect-ratio:
+    1;
+
+  position:
+    relative;
+
+  transform-style:
+    preserve-3d;
+
+  animation:
+    coreFloat 7s ease-in-out infinite;
+
+  filter:
+    drop-shadow(0 35px 60px rgba(45,100,255,.2));
 }
 
-.glass-button.primary {
-    border-color: transparent;
+.core::before {
 
-    color: #071019;
+  content:
+    "";
 
-    background:
-        linear-gradient(
-            105deg,
-            #788eff,
-            #59e7df
-        );
+  position:
+    absolute;
 
-    font-weight: 900;
+  inset:
+    4%;
 
-    box-shadow:
-        0 18px 45px rgba(83,231,223,.17);
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255,255,255,.8),
+      rgba(100,130,255,.35) 9%,
+      rgba(52,90,220,.22) 30%,
+      rgba(10,20,50,.96) 68%
+    );
+
+  box-shadow:
+    inset -35px -45px 70px rgba(0,0,0,.7),
+    inset 18px 15px 40px rgba(255,255,255,.08),
+    0 0 70px rgba(80,100,255,.32),
+    0 0 150px rgba(55,225,220,.10);
+
+  transform:
+    translateZ(20px);
 }
 
-.glass-button.primary:hover {
-    box-shadow:
-        0 24px 65px rgba(83,231,223,.26);
+.core::after {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    14%;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(90,130,255,.3),
+      transparent 65%
+    );
+
+  filter:
+    blur(25px);
+
+  animation:
+    biosCore 3.5s ease-in-out infinite;
 }
 
-.glass-button span {
-    position: relative;
-    z-index: 3;
+/* RADAR */
+
+.radar {
+
+  position:
+    absolute;
+
+  inset:
+    50% auto auto 50%;
+
+  width:
+    115%;
+
+  aspect-ratio:
+    1;
+
+  transform:
+    translate(-50%,-50%);
+
+  border:
+    1px solid rgba(92,151,255,.42);
+
+  border-radius:
+    50%;
+
+  pointer-events:
+    none;
 }
 
+.radar.r1 {
+  animation:
+    radarPulse 3.2s cubic-bezier(.18,.8,.25,1) infinite;
+}
 
-/* Holographic shimmer */
+.radar.r2 {
+  animation:
+    radarPulse 3.2s cubic-bezier(.18,.8,.25,1) .85s infinite;
+}
 
-.glass-button::after {
-    content: "";
+.radar.r3 {
+  animation:
+    radarPulse 3.2s cubic-bezier(.18,.8,.25,1) 1.7s infinite;
+}
 
-    position: absolute;
+.radar::after {
 
-    top: -80%;
-    left: -50%;
+  content:
+    "";
 
-    width: 35%;
-    height: 260%;
+  position:
+    absolute;
 
-    transform: rotate(25deg)
-               translateX(-260%);
+  inset:
+    20%;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,.65),
-            transparent
-        );
+  border:
+    1px solid rgba(73,235,222,.18);
 
-    filter: blur(2px);
+  border-radius:
+    50%;
+}
 
-    pointer-events: none;
+/* NEON BIOS */
 
-    animation:
-        shimmer 5s ease-in-out infinite;
+.bios-core {
+
+  position:
+    absolute;
+
+  width:
+    24px;
+
+  height:
+    24px;
+
+  left:
+    35%;
+
+  top:
+    28%;
+
+  z-index:
+    5;
+
+  border-radius:
+    50%;
+
+  background:
+    #dbe9ff;
+
+  box-shadow:
+    0 0 10px #fff,
+    0 0 28px #7697ff,
+    0 0 65px #4ce7df;
+
+  animation:
+    biosPulse 2.2s ease-in-out infinite;
+}
+
+.core-status {
+
+  position:
+    absolute;
+
+  left:
+    50%;
+
+  bottom:
+    -30px;
+
+  transform:
+    translateX(-50%);
+
+  padding:
+    11px 20px;
+
+  border:
+    1px solid rgba(130,160,255,.28);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(3,8,18,.7);
+
+  backdrop-filter:
+    blur(18px);
+
+  color:
+    #d9e3ff;
+
+  white-space:
+    nowrap;
+
+  font-size:
+    .78rem;
+
+  font-weight:
+    850;
+
+  letter-spacing:
+    .18em;
+}
+
+/* floating particles */
+
+.core-particle {
+
+  position:
+    absolute;
+
+  width:
+    6px;
+
+  height:
+    6px;
+
+  border-radius:
+    50%;
+
+  background:
+    var(--cyan);
+
+  box-shadow:
+    0 0 15px var(--cyan);
+
+  animation:
+    particleFloat 5s ease-in-out infinite;
+}
+
+.cp1 {
+  left: 7%;
+  top: 35%;
+}
+
+.cp2 {
+  right: 7%;
+  top: 48%;
+  animation-delay: 1.2s;
+}
+
+.cp3 {
+  left: 20%;
+  bottom: 15%;
+  animation-delay: 2s;
+}
+
+.cp4 {
+  right: 18%;
+  bottom: 25%;
+  animation-delay: 3s;
+}
+
+/* ============================================================
+   ABOUT / EXPERTISE
+   ============================================================ */
+
+.expertise-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:
+    15px;
+
+  margin-top:
+    45px;
+}
+
+.glass-card {
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  padding:
+    24px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    var(--radius);
+
+  background:
+    linear-gradient(
+      145deg,
+      var(--surface-strong),
+      rgba(255,255,255,.025)
+    );
+
+  backdrop-filter:
+    blur(24px) saturate(140%);
+
+  box-shadow:
+    var(--shadow);
+
+  transform-style:
+    preserve-3d;
+
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    border .3s ease,
+    background .3s ease;
+}
+
+.glass-card::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  width:
+    180px;
+
+  height:
+    180px;
+
+  top:
+    -100px;
+
+  right:
+    -100px;
+
+  border-radius:
+    50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(120,150,255,.18),
+      transparent 70%
+    );
+
+  pointer-events:
+    none;
+}
+
+.glass-card:hover {
+
+  transform:
+    translateY(-8px);
+
+  border-color:
+    var(--border-bright);
+
+  background:
+    var(--surface-strong);
+}
+
+.glass-card h3 {
+
+  margin-bottom:
+    10px;
+
+  font-size:
+    1.12rem;
+}
+
+.glass-card p {
+
+  color:
+    var(--muted);
+
+  font-size:
+    .92rem;
+}
+
+.skill-index {
+
+  color:
+    var(--accent-2);
+
+  font-size:
+    .72rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .16em;
+}
+
+/* ============================================================
+   KAGGRICULTURE
+   ============================================================ */
+
+.project-section {
+
+  overflow:
+    hidden;
+}
+
+.project-shell {
+
+  margin-top:
+    50px;
+
+  position:
+    relative;
+
+  min-height:
+    780px;
+}
+
+/* 3D SCROLL RAIL */
+
+.project-rail {
+
+  position:
+    absolute;
+
+  left:
+    8%;
+
+  top:
+    0;
+
+  width:
+    84%;
+
+  height:
+    100%;
+
+  pointer-events:
+    none;
+
+  opacity:
+    .55;
+}
+
+.project-rail path {
+
+  fill:
+    none;
+
+  stroke:
+    url(#railGradient);
+
+  stroke-width:
+    2;
+
+  stroke-dasharray:
+    8 12;
+
+  filter:
+    drop-shadow(0 0 8px rgba(80,180,255,.5));
+}
+
+.project-card {
+
+  position:
+    relative;
+
+  width:
+    min(100%,960px);
+
+  margin:
+    auto;
+
+  min-height:
+    650px;
+
+  padding:
+    48px;
+
+  border:
+    1px solid rgba(125,155,255,.28);
+
+  border-radius:
+    36px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.035)
+    );
+
+  backdrop-filter:
+    blur(28px) saturate(140%);
+
+  box-shadow:
+    0 40px 120px rgba(0,0,0,.38);
+
+  transform-style:
+    preserve-3d;
+
+  overflow:
+    hidden;
+
+  --project-x:
+    0px;
+
+  --project-y:
+    0px;
+
+  --project-r:
+    0deg;
+
+  transform:
+    translate3d(
+      var(--project-x),
+      var(--project-y),
+      0
+    )
+    rotateY(var(--project-r));
+}
+
+.project-card::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    0;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 25%,
+      rgba(255,255,255,.08),
+      transparent 55%
+    );
+
+  transform:
+    translateX(-120%);
+
+  animation:
+    projectShimmer 8s ease-in-out infinite;
+}
+
+.project-top {
+
+  display:
+    flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    flex-start;
+
+  gap:
+    20px;
+
+  position:
+    relative;
+
+  z-index:
+    2;
+}
+
+.project-number {
+
+  color:
+    var(--accent-2);
+
+  font-size:
+    .78rem;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    .18em;
+}
+
+.project-card h3 {
+
+  margin-top:
+    12px;
+
+  max-width:
+    700px;
+
+  font-size:
+    clamp(2.4rem,7vw,5rem);
+
+  line-height:
+    .92;
+
+  letter-spacing:
+    -.06em;
+}
+
+.project-card p {
+
+  margin-top:
+    22px;
+
+  max-width:
+    760px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    1.08rem;
+}
+
+.project-system {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    12px;
+
+  margin-top:
+    35px;
+}
+
+.system-node {
+
+  padding:
+    18px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(0,0,0,.12);
+}
+
+.system-node strong {
+
+  display:
+    block;
+
+  color:
+    var(--accent-2);
+
+  font-size:
+    .75rem;
+
+  letter-spacing:
+    .1em;
+
+  text-transform:
+    uppercase;
+}
+
+.system-node span {
+
+  display:
+    block;
+
+  margin-top:
+    6px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    .86rem;
+}
+
+.project-tags {
+
+  display:
+    flex;
+
+  flex-wrap:
+    wrap;
+
+  gap:
+    8px;
+
+  margin-top:
+    28px;
+}
+
+.tag {
+
+  padding:
+    7px 11px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,.045);
+
+  color:
+    var(--muted);
+
+  font-size:
+    .76rem;
+}
+
+/* ============================================================
+   TEAM
+   ============================================================ */
+
+.team-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(5,1fr);
+
+  gap:
+    13px;
+
+  margin-top:
+    45px;
+}
+
+.team-card {
+
+  padding:
+    20px;
+
+  min-height:
+    160px;
+}
+
+.team-card .initial {
+
+  width:
+    46px;
+
+  height:
+    46px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--accent),
+      var(--accent-2)
+    );
+
+  color:
+    #06101a;
+
+  font-weight:
+    950;
+}
+
+.team-card h3 {
+  margin-top:
+    18px;
+}
+
+.team-card p {
+
+  margin-top:
+    3px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    .8rem;
+}
+
+/* ============================================================
+   ETERNAL
+   ============================================================ */
+
+.eternal {
+
+  position:
+    relative;
+
+  overflow:
+    hidden;
+
+  padding:
+    50px;
+
+  border:
+    1px solid rgba(150,120,255,.25);
+
+  border-radius:
+    35px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(120,70,255,.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(110,80,255,.09),
+      rgba(40,220,210,.04)
+    );
+
+  backdrop-filter:
+    blur(28px);
+
+  box-shadow:
+    var(--shadow);
+}
+
+.eternal h3 {
+
+  font-size:
+    clamp(2.5rem,7vw,5.5rem);
+
+  letter-spacing:
+    -.07em;
+
+  background:
+    linear-gradient(
+      100deg,
+      #a67cff,
+      #52e9dd
+    );
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  color:
+    transparent;
+}
+
+.eternal p {
+
+  max-width:
+    750px;
+
+  margin-top:
+    18px;
+
+  color:
+    var(--muted);
+}
+
+.eternal-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:
+    12px;
+
+  margin-top:
+    30px;
+}
+
+.eternal-node {
+
+  padding:
+    18px;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    17px;
+
+  background:
+    rgba(255,255,255,.045);
+}
+
+.eternal-node strong {
+
+  display:
+    block;
+
+  color:
+    var(--accent-2);
+
+  font-size:
+    .76rem;
+}
+
+.eternal-node span {
+
+  color:
+    var(--muted);
+
+  font-size:
+    .82rem;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-grid {
+
+  display:
+    grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap:
+    18px;
+
+  margin-top:
+    45px;
+}
+
+.contact-card {
+
+  min-height:
+    180px;
+
+  display:
+    flex;
+
+  flex-direction:
+    column;
+
+  justify-content:
+    space-between;
+}
+
+.contact-value {
+
+  margin-top:
+    8px;
+
+  font-size:
+    clamp(1.1rem,3vw,1.7rem);
+
+  font-weight:
+    850;
+
+  word-break:
+    break-word;
+}
+
+/* ============================================================
+   TERMINAL
+   ============================================================ */
+
+.terminal {
+
+  position:
+    fixed;
+
+  left:
+    50%;
+
+  bottom:
+    20px;
+
+  width:
+    min(850px,92%);
+
+  z-index:
+    1200;
+
+  transform:
+    translate(-50%,140%);
+
+  transition:
+    transform .45s cubic-bezier(.2,.8,.2,1);
+
+  border:
+    1px solid rgba(100,180,255,.28);
+
+  border-radius:
+    22px;
+
+  background:
+    rgba(5,10,20,.91);
+
+  backdrop-filter:
+    blur(28px);
+
+  box-shadow:
+    0 40px 100px rgba(0,0,0,.55);
+
+  overflow:
+    hidden;
+}
+
+.terminal.open {
+
+  transform:
+    translate(-50%,0);
+}
+
+.terminal-head {
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  padding:
+    12px 15px;
+
+  border-bottom:
+    1px solid var(--border);
+
+  color:
+    #aebbd0;
+
+  font-size:
+    .76rem;
+}
+
+.terminal-body {
+
+  height:
+    250px;
+
+  padding:
+    16px;
+
+  overflow:
+    auto;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+
+  font-size:
+    .82rem;
+
+  color:
+    #bfefff;
+}
+
+.terminal-line {
+  margin-bottom:
+    7px;
+}
+
+.terminal-input-row {
+
+  display:
+    flex;
+
+  border-top:
+    1px solid var(--border);
+}
+
+.terminal-input-row span {
+
+  padding:
+    13px;
+
+  color:
+    var(--accent-2);
+
+  font-family:
+    monospace;
+}
+
+#terminalInput {
+
+  flex:
+    1;
+
+  min-width:
+    0;
+
+  padding:
+    13px 13px 13px 0;
+
+  background:
+    transparent;
+
+  border:
+    0;
+
+  outline:
+    none;
+
+  color:
+    white;
+
+  font-family:
+    monospace;
+}
+
+/* ============================================================
+   CONTEXT MENU
+   ============================================================ */
+
+.context-menu {
+
+  position:
+    fixed;
+
+  z-index:
+    1500;
+
+  width:
+    230px;
+
+  padding:
+    8px;
+
+  display:
+    none;
+
+  border:
+    1px solid var(--border);
+
+  border-radius:
+    18px;
+
+  background:
+    rgba(8,13,25,.94);
+
+  backdrop-filter:
+    blur(25px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.48);
+}
+
+.context-menu.open {
+  display:
+    grid;
+}
+
+.context-menu button {
+
+  padding:
+    11px;
+
+  text-align:
+    left;
+
+  color:
+    var(--muted);
+
+  background:
+    transparent;
+
+  border-radius:
+    10px;
+}
+
+.context-menu button:hover {
+
+  background:
+    rgba(120,140,255,.12);
+
+  color:
+    white;
+}
+
+/* ============================================================
+   ADVANCED SCROLL BUTTON
+   ============================================================ */
+
+.scroll-orb {
+
+  position:
+    fixed;
+
+  right:
+    22px;
+
+  bottom:
+    22px;
+
+  width:
+    76px;
+
+  height:
+    76px;
+
+  z-index:
+    1000;
+
+  border:
+    1px solid rgba(120,160,255,.32);
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(8,16,31,.72);
+
+  backdrop-filter:
+    blur(20px);
+
+  transform:
+    scaleX(calc(1 + min(var(--scroll-speed),1) * .08));
+
+  transition:
+    transform .18s ease;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.35);
+}
+
+.scroll-orb::before {
+
+  content:
+    "";
+
+  position:
+    absolute;
+
+  inset:
+    5px;
+
+  border-radius:
+    50%;
+
+  background:
+    conic-gradient(
+      var(--accent-2) var(--progress),
+      rgba(255,255,255,.07) var(--progress)
+    );
+
+  mask:
+    radial-gradient(
+      transparent 58%,
+      black 60%
+    );
+}
+
+.scroll-orb button {
+
+  position:
+    absolute;
+
+  inset:
+    8px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(8,18,38,.9);
+
+  color:
+    white;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+}
+
+.scroll-arrow {
+
+  width:
+    15px;
+
+  height:
+    15px;
+
+  border-left:
+    3px solid currentColor;
+
+  border-top:
+    3px solid currentColor;
+
+  transform:
+    rotate(45deg)
+    translate(2px,2px);
+
+  transition:
+    transform .35s ease;
+}
+
+.scroll-orb[data-top="true"] .scroll-arrow {
+
+  transform:
+    rotate(225deg)
+    translate(-2px,-2px);
+}
+
+/* ============================================================
+   CANVAS
+   ============================================================ */
+
+#particleCanvas {
+
+  position:
+    fixed;
+
+  inset:
+    0;
+
+  width:
+    100%;
+
+  height:
+    100%;
+
+  pointer-events:
+    none;
+
+  z-index:
+    999;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+footer {
+
+  padding:
+    60px 0 100px;
+
+  color:
+    var(--muted);
+
+  text-align:
+    center;
+}
+
+.footer-name {
+
+  color:
+    var(--text);
+
+  font-weight:
+    900;
+}
+
+/* ============================================================
+   REVEAL
+   ============================================================ */
+
+.reveal {
+
+  opacity:
+    0;
+
+  transform:
+    translateY(35px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible {
+
+  opacity:
+    1;
+
+  transform:
+    translateY(0);
+}
+
+/* ============================================================
+   LOW BATTERY
+   ============================================================ */
+
+body.low-battery *,
+body.low-battery *::before,
+body.low-battery *::after {
+
+  animation-duration:
+    0.001ms !important;
+
+  animation-iteration-count:
+    1 !important;
+
+  transition-duration:
+    .01ms !important;
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+
+@keyframes biosPulse {
+
+  0%,100% {
+    opacity:
+      .55;
+
+    transform:
+      scale(.88);
+  }
+
+  50% {
+    opacity:
+      1;
+
+    transform:
+      scale(1.08);
+  }
+}
+
+@keyframes biosCore {
+
+  0%,100% {
+    opacity:
+      .35;
+
+    transform:
+      scale(.85);
+  }
+
+  50% {
+    opacity:
+      .9;
+
+    transform:
+      scale(1.15);
+  }
+}
+
+@keyframes radarPulse {
+
+  0% {
+    opacity:
+      .75;
+
+    transform:
+      translate(-50%,-50%)
+      scale(.48);
+  }
+
+  70% {
+    opacity:
+      .18;
+  }
+
+  100% {
+    opacity:
+      0;
+
+    transform:
+      translate(-50%,-50%)
+      scale(1.65);
+  }
+}
+
+@keyframes coreFloat {
+
+  0%,100% {
+    transform:
+      translateY(0)
+      rotateX(0deg)
+      rotateY(0deg);
+  }
+
+  50% {
+    transform:
+      translateY(-13px)
+      rotateX(2deg)
+      rotateY(-3deg);
+  }
+}
+
+@keyframes particleFloat {
+
+  0%,100% {
+    transform:
+      translate3d(0,0,0);
+  }
+
+  50% {
+    transform:
+      translate3d(12px,-30px,20px);
+  }
 }
 
 @keyframes shimmer {
 
-    0%,50% {
-        transform:
-            rotate(25deg)
-            translateX(-260%);
-    }
+  0%,65% {
+    transform:
+      translateX(-100%);
+  }
 
-    70%,100% {
-        transform:
-            rotate(25deg)
-            translateX(620%);
-    }
+  85%,100% {
+    transform:
+      translateX(100%);
+  }
 }
 
+@keyframes projectShimmer {
+
+  0%,60% {
+    transform:
+      translateX(-120%);
+  }
+
+  80%,100% {
+    transform:
+      translateX(120%);
+  }
+}
+
+@keyframes gradientFlow {
+
+  0%,100% {
+    background-position:
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      100% 50%;
+  }
+}
+
+@keyframes logoFlow {
+
+  0%,100% {
+    background-position:
+      0% 50%;
+  }
+
+  50% {
+    background-position:
+      100% 50%;
+  }
+}
 
 /* ============================================================
-   08 — 3D HERO ENGINE
+   RESPONSIVE
    ============================================================ */
 
-.scene {
-    position: relative;
+@media (max-width:900px) {
 
-    min-height: 520px;
-
-    perspective: 1200px;
-
-    display: grid;
-    place-items: center;
-}
-
-.webgl-shell {
-    position: absolute;
-
-    width: min(500px,90vw);
-    aspect-ratio: 1;
-
-    border-radius: 50%;
-
-    transform-style: preserve-3d;
-
-    filter:
-        drop-shadow(
-            0 45px 90px
-            rgba(50,90,255,.25)
-        );
-
-    animation:
-        heroFloat 7s ease-in-out infinite;
-}
-
-@keyframes heroFloat {
-
-    0%,100% {
-        transform:
-            translateY(0)
-            rotateX(0deg)
-            rotateY(0deg);
-    }
-
-    50% {
-        transform:
-            translateY(-16px)
-            rotateX(4deg)
-            rotateY(-7deg);
-    }
-}
-
-#shaderCanvas {
-    width: 100%;
-    height: 100%;
-
-    border-radius: 50%;
-
-    display: block;
-
-    opacity: .96;
-}
-
-.scene-ring {
-    position: absolute;
-
-    width: 75%;
-    height: 25%;
-
-    border:
-        1px solid
-        rgba(110,145,255,.7);
-
-    border-radius: 50%;
-
-    transform:
-        rotateX(68deg)
-        rotateZ(-14deg)
-        translateZ(50px);
-
-    box-shadow:
-        0 0 30px rgba(100,140,255,.16);
-
-    animation:
-        ringSpin 12s linear infinite;
-}
-
-.scene-ring.r2 {
-    width: 88%;
-    height: 32%;
-
-    transform:
-        rotateX(68deg)
-        rotateZ(35deg)
-        translateZ(30px);
-
-    animation-duration: 18s;
-    animation-direction: reverse;
-}
-
-.scene-ring.r3 {
-    width: 68%;
-    height: 21%;
-
-    transform:
-        rotateX(72deg)
-        rotateZ(95deg)
-        translateZ(70px);
-
-    animation-duration: 14s;
-}
-
-@keyframes ringSpin {
-    to {
-        rotate: 360deg;
-    }
-}
-
-.core-glow {
-    position: absolute;
-
-    width: 42%;
-    aspect-ratio: 1;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 25%,
-            rgba(255,255,255,.85),
-            rgba(114,140,255,.65) 8%,
-            rgba(40,50,130,.8) 42%,
-            rgba(3,7,25,.95) 72%
-        );
-
-    box-shadow:
-        0 0 90px rgba(114,140,255,.45),
-        inset -30px -40px 80px rgba(0,0,0,.7);
-
-    transform:
-        translateZ(100px);
-
-    animation:
-        corePulse 5s ease-in-out infinite;
-}
-
-@keyframes corePulse {
-
-    0%,100% {
-        scale: 1;
-    }
-
-    50% {
-        scale: 1.045;
-    }
-}
-
-.scene-label {
-    position: absolute;
-
-    bottom: 7%;
-
-    padding: 10px 18px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    background:
-        rgba(4,8,20,.65);
-
-    color: var(--muted);
-
-    font-size: .7rem;
-    font-weight: 900;
-
-    letter-spacing: .12em;
-
-    backdrop-filter: blur(15px);
-
-    transform:
-        translateZ(120px);
-}
-
-
-/* ============================================================
-   09 — STATUS STRIP
-   ============================================================ */
-
-.status-grid {
-    display: grid;
-
+  .hero-grid {
     grid-template-columns:
-        repeat(3,1fr);
+      1fr;
+  }
 
-    gap: 14px;
+  .core-stage {
+    min-height:
+      520px;
+  }
 
-    margin-top: 48px;
-}
-
-.status-card {
-    padding: 20px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 20px;
-
-    background: var(--surface);
-
-    backdrop-filter: blur(18px);
-
-    box-shadow:
-        var(--shadow);
-
-    transition:
-        transform .35s var(--spring),
-        background .3s ease;
-}
-
-.status-card:hover {
-    transform:
-        translateY(-7px)
-        rotateX(3deg)
-        rotateY(-3deg);
-
-    background: var(--surface-2);
-}
-
-.status-number {
-    font-size: 1.35rem;
-    font-weight: 900;
-}
-
-.status-label {
-    margin-top: 4px;
-
-    color: var(--muted);
-
-    font-size: .82rem;
-}
-
-
-/* ============================================================
-   10 — SECTION SYSTEM
-   ============================================================ */
-
-section {
-    position: relative;
-    padding: 110px 0;
-}
-
-.section-heading {
-    max-width: 760px;
-
-    margin-bottom: 46px;
-}
-
-.section-kicker {
-    color: var(--cyan);
-
-    font-size: .75rem;
-    font-weight: 900;
-
-    letter-spacing: .16em;
-    text-transform: uppercase;
-
-    margin-bottom: 12px;
-}
-
-.section-heading h2 {
-    margin: 0;
-
-    font-size:
-        clamp(
-            2.2rem,
-            5vw,
-            4.5rem
-        );
-
-    line-height: .98;
-
-    letter-spacing: -.06em;
-}
-
-.section-heading p {
-    margin-top: 18px;
-
-    color: var(--muted);
-
-    font-size: 1.03rem;
-}
-
-
-/* ============================================================
-   11 — GLASS CARDS
-   ============================================================ */
-
-.glass-card {
-    position: relative;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: var(--radius);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.085),
-            rgba(255,255,255,.025)
-        );
-
-    backdrop-filter:
-        blur(var(--glass-blur))
-        saturate(145%);
-
-    -webkit-backdrop-filter:
-        blur(var(--glass-blur))
-        saturate(145%);
-
-    box-shadow:
-        var(--shadow);
-
-    overflow: hidden;
-
-    transition:
-        transform .45s var(--spring),
-        border-color .3s ease,
-        background .3s ease;
-}
-
-.glass-card::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            125deg,
-            rgba(255,255,255,.10),
-            transparent 30%
-        );
-
-    pointer-events: none;
-}
-
-.glass-card:hover {
-    border-color:
-        rgba(114,140,255,.28);
-
-    transform:
-        translateY(-7px);
-}
-
-
-/* ============================================================
-   12 — EXPERTISE
-   ============================================================ */
-
-.expertise-grid {
-    display: grid;
-
+  .expertise-grid {
     grid-template-columns:
-        repeat(4,1fr);
+      repeat(2,1fr);
+  }
 
-    gap: 16px;
-}
-
-.expertise-card {
-    min-height: 190px;
-
-    padding: 26px;
-}
-
-.expertise-icon {
-    width: 48px;
-    height: 48px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(114,140,255,.25),
-            rgba(83,231,223,.13)
-        );
-
-    border:
-        1px solid var(--border);
-
-    font-size: 1.25rem;
-
-    margin-bottom: 22px;
-}
-
-.expertise-card h3 {
-    font-size: 1.05rem;
-}
-
-.expertise-card p {
-    color: var(--muted);
-
-    font-size: .86rem;
-
-    margin-top: 8px;
-}
-
-
-/* ============================================================
-   13 — KAGGRICULTURE
-   ============================================================ */
-
-.project-shell {
-    display: grid;
-
+  .team-grid {
     grid-template-columns:
-        minmax(0,.9fr)
-        minmax(0,1.1fr);
+      repeat(2,1fr);
+  }
 
-    gap: 18px;
-}
-
-.project-visual {
-    min-height: 560px;
-
-    display: grid;
-    place-items: center;
-
-    padding: 35px;
-
-    overflow: hidden;
-}
-
-.project-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(83,231,223,.24),
-            transparent 68%
-        );
-
-    filter: blur(30px);
-
-    animation:
-        projectGlow 7s ease-in-out infinite alternate;
-}
-
-@keyframes projectGlow {
-    from {
-        transform:
-            translate(-35px,20px)
-            scale(.9);
-    }
-
-    to {
-        transform:
-            translate(35px,-20px)
-            scale(1.12);
-    }
-}
-
-.farm-3d {
-    position: relative;
-
-    width: min(390px,90%);
-
-    aspect-ratio: 1;
-
-    transform-style: preserve-3d;
-
-    perspective: 1000px;
-
-    transform:
-        rotateX(55deg)
-        rotateZ(-28deg);
-
-    animation:
-        farmFloat 7s ease-in-out infinite;
-}
-
-@keyframes farmFloat {
-
-    0%,100% {
-        translate: 0 0;
-    }
-
-    50% {
-        translate: 0 -13px;
-    }
-}
-
-.farm-plane {
-    position: absolute;
-    inset: 8%;
-
-    border-radius: 30px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #193b35,
-            #0c2522
-        );
-
-    border:
-        1px solid
-        rgba(94,231,223,.35);
-
-    box-shadow:
-        0 35px 70px rgba(0,0,0,.35);
-
-    transform:
-        translateZ(0);
-}
-
-.farm-grid {
-    position: absolute;
-    inset: 12%;
-
-    display: grid;
-
+  .project-system {
     grid-template-columns:
-        repeat(5,1fr);
+      1fr;
+  }
 
-    gap: 7px;
-
-    transform:
-        translateZ(30px);
-}
-
-.farm-cell {
-    border-radius: 7px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #31735b,
-            #183f34
-        );
-
-    border:
-        1px solid
-        rgba(100,240,180,.16);
-
-    box-shadow:
-        inset 0 2px rgba(255,255,255,.08);
-}
-
-.farm-cell:nth-child(3n) {
-    background:
-        linear-gradient(
-            145deg,
-            #558a4d,
-            #24533c
-        );
-}
-
-.farm-orb {
-    position: absolute;
-
-    width: 70px;
-    aspect-ratio: 1;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 25%,
-            white,
-            #58e8df 12%,
-            #4555ce 48%,
-            #10132f 72%
-        );
-
-    box-shadow:
-        0 0 40px rgba(83,231,223,.4);
-
-    transform:
-        translateZ(90px);
-
-    animation:
-        farmOrb 5s ease-in-out infinite alternate;
-}
-
-@keyframes farmOrb {
-    from {
-        translate: -40px -15px;
-    }
-
-    to {
-        translate: 50px 35px;
-    }
-}
-
-.project-content {
-    padding: 38px;
-}
-
-.project-tag {
-    display: inline-flex;
-
-    padding: 7px 11px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    color: var(--cyan);
-
-    font-size: .72rem;
-    font-weight: 900;
-
-    background: var(--surface);
-}
-
-.project-content h3 {
-    margin-top: 18px;
-
-    font-size:
-        clamp(
-            2rem,
-            5vw,
-            3.7rem
-        );
-
-    line-height: .98;
-
-    letter-spacing: -.06em;
-}
-
-.project-content > p {
-    margin-top: 22px;
-
-    color: var(--muted);
-
-    font-size: 1rem;
-
-    line-height: 1.8;
-}
-
-.project-features {
-    display: grid;
-
+  .eternal-grid {
     grid-template-columns:
-        repeat(2,1fr);
+      1fr;
+  }
 
-    gap: 10px;
-
-    margin-top: 26px;
-}
-
-.feature {
-    padding: 14px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 15px;
-
-    background: rgba(255,255,255,.035);
-
-    color: var(--muted);
-
-    font-size: .82rem;
-}
-
-.feature strong {
-    display: block;
-
-    color: var(--text);
-
-    margin-bottom: 4px;
-}
-
-
-/* ============================================================
-   14 — TEAM
-   ============================================================ */
-
-.team-grid {
-    display: grid;
-
+  .contact-grid {
     grid-template-columns:
-        repeat(5,1fr);
-
-    gap: 12px;
+      1fr;
+  }
 }
 
-.team-card {
-    min-height: 180px;
+@media (max-width:600px) {
 
-    padding: 24px;
-}
-
-.team-avatar {
-    width: 55px;
-    height: 55px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--blue),
-            var(--cyan)
-        );
-
-    color: #071019;
-
-    font-weight: 1000;
-
-    box-shadow:
-        0 15px 30px rgba(83,231,223,.13);
-
-    margin-bottom: 22px;
-}
-
-.team-card h3 {
-    font-size: 1rem;
-}
-
-.team-role {
-    color: var(--muted);
-
-    font-size: .76rem;
-
-    margin-top: 5px;
-}
-
-
-/* ============================================================
-   15 — ETERNAL COMMUNITY
-   ============================================================ */
-
-.eternal {
-    padding-top: 60px;
-}
-
-.eternal-card {
-    position: relative;
-
-    padding: 55px;
-
-    overflow: hidden;
-}
-
-.eternal-card::before {
-    content: "ETERNAL";
-
-    position: absolute;
-
-    right: -30px;
-    bottom: -65px;
-
-    font-size:
-        clamp(
-            5rem,
-            18vw,
-            13rem
-        );
-
-    font-weight: 1000;
-
-    letter-spacing: -.08em;
-
-    color: rgba(255,255,255,.025);
-
-    pointer-events: none;
-}
-
-.eternal-logo {
-    font-size:
-        clamp(
-            3rem,
-            8vw,
-            6rem
-        );
-
-    line-height: .9;
-
-    font-weight: 1000;
-
-    letter-spacing: -.08em;
-
-    background:
-        linear-gradient(
-            100deg,
-            var(--blue),
-            var(--cyan),
-            var(--violet)
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.eternal-card p {
-    max-width: 750px;
-
-    margin-top: 22px;
-
-    color: var(--muted);
-
-    font-size: 1rem;
-}
-
-.eternal-meta {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin-top: 28px;
-}
-
-.meta-pill {
-    padding: 8px 12px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 999px;
-
-    background: var(--surface);
-
-    color: var(--muted);
-
-    font-size: .75rem;
-}
-
-
-/* ============================================================
-   16 — CONTACT
-   ============================================================ */
-
-.contact-grid {
-    display: grid;
-
-    grid-template-columns:
-        1fr 1fr;
-
-    gap: 18px;
-}
-
-.contact-card {
-    padding: 35px;
-}
-
-.contact-card h3 {
-    font-size: 1.8rem;
-
-    letter-spacing: -.04em;
-}
-
-.contact-card p {
-    color: var(--muted);
-
-    margin-top: 10px;
-}
-
-.contact-links {
-    display: grid;
-
-    gap: 10px;
-
-    margin-top: 25px;
-}
-
-.contact-link {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 17px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius: 16px;
-
-    background: var(--surface);
-
-    transition:
-        transform .3s var(--spring),
-        background .3s ease;
-}
-
-.contact-link:hover {
-    transform: translateX(6px);
-
-    background: var(--surface-2);
-}
-
-.contact-label {
-    color: var(--muted);
-
-    font-size: .75rem;
-}
-
-.contact-value {
-    font-weight: 800;
-
-    margin-top: 3px;
-}
-
-
-/* ============================================================
-   17 — FOOTER
-   ============================================================ */
-
-footer {
+  .section {
     padding:
-        55px 0
-        120px;
+      80px 0;
+  }
 
-    color: var(--muted);
+  .hero {
+    padding-top:
+      calc(var(--header) + 25px);
+  }
 
-    text-align: center;
+  .hero h1 {
+    font-size:
+      clamp(3rem,16vw,5rem);
+  }
 
-    border-top:
-        1px solid var(--border);
+  .expertise-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .team-grid {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .project-card {
+    padding:
+      25px;
+
+    min-height:
+      650px;
+
+    border-radius:
+      27px;
+  }
+
+  .eternal {
+    padding:
+      28px;
+  }
+
+  .core-stage {
+    min-height:
+      470px;
+  }
+
+  .core {
+    width:
+      300px;
+  }
+
+  .scroll-orb {
+    width:
+      65px;
+
+    height:
+      65px;
+
+    right:
+      15px;
+
+    bottom:
+      15px;
+  }
+
+  .hero-actions {
+    flex-direction:
+      column;
+  }
+
+  .hero-actions .magnetic {
+    width:
+      100%;
+  }
 }
 
-.footer-name {
-    color: var(--text);
+@media (prefers-reduced-motion:reduce) {
 
-    font-weight: 900;
-}
+  *,
+  *::before,
+  *::after {
 
+    animation-duration:
+      .001ms !important;
 
-/* ============================================================
-   18 — ADVANCED SCROLL ACTION
-   ============================================================ */
+    animation-iteration-count:
+      1 !important;
 
-.scroll-action {
-    --progress: 0deg;
+    scroll-behavior:
+      auto !important;
 
-    position: fixed;
-
-    right: 22px;
-    bottom: 22px;
-
-    z-index: 1000;
-
-    width: 58px;
-    height: 58px;
-
-    border-radius: 50%;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        rgba(7,11,20,.58);
-
-    color: var(--text);
-
-    display: grid;
-    place-items: center;
-
-    cursor: pointer;
-
-    backdrop-filter:
-        blur(18px)
-        saturate(150%);
-
-    box-shadow:
-        0 18px 50px rgba(0,0,0,.25);
-
-    transform:
-        translateY(120px)
-        scale(.82);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity .35s ease,
-        transform .45s var(--spring),
-        width .45s var(--spring),
-        border-radius .45s var(--spring);
-}
-
-.scroll-action.visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-    pointer-events: auto;
-}
-
-.scroll-action:hover {
-    width: 148px;
-
-    border-radius: 999px;
-}
-
-.scroll-action-label {
-    position: absolute;
-
-    right: 50px;
-
-    width: 0;
-
-    opacity: 0;
-
-    white-space: nowrap;
-
-    overflow: hidden;
-
-    font-size: .75rem;
-    font-weight: 900;
-
-    transition:
-        width .4s var(--ease),
-        opacity .25s ease;
-}
-
-.scroll-action:hover
-.scroll-action-label {
-    width: 82px;
-    opacity: 1;
-}
-
-.progress-ring {
-    position: absolute;
-    inset: 0;
-
-    transform: rotate(-90deg);
-}
-
-.progress-ring circle {
-    fill: none;
-
-    stroke-width: 2;
-
-    stroke-linecap: round;
-}
-
-.progress-track {
-    stroke:
-        rgba(255,255,255,.08);
-}
-
-.progress-value {
-    stroke:
-        url(#progressGradient);
-
-    stroke-dasharray: 163;
-    stroke-dashoffset:
-        calc(
-            163 - (163 * var(--scroll-progress,0))
-        );
-
-    transition:
-        stroke-dashoffset .1s linear;
-}
-
-
-/* ============================================================
-   19 — CANVAS TRAIL
-   ============================================================ */
-
-#trailCanvas {
-    position: fixed;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    z-index: 999;
-
-    pointer-events: none;
-}
-
-
-/* ============================================================
-   20 — PARTICLES
-   ============================================================ */
-
-.spark {
-    position: fixed;
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 2px;
-
-    pointer-events: none;
-
-    z-index: 1200;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--cyan),
-            var(--blue)
-        );
-
-    box-shadow:
-        0 0 14px var(--cyan);
-}
-
-
-/* ============================================================
-   21 — REVEAL ENGINE
-   ============================================================ */
-
-.reveal {
-    opacity: 0;
-
-    transform:
-        translateY(28px)
-        scale(.985);
-
-    filter: blur(5px);
-
-    transition:
-        opacity .8s var(--ease),
-        transform .8s var(--ease),
-        filter .8s var(--ease);
-}
-
-.reveal.is-visible {
-    opacity: 1;
-
-    transform:
-        translateY(0)
-        scale(1);
-
-    filter: blur(0);
-}
-
-
-/* ============================================================
-   22 — REDUCED MOTION
-   ============================================================ */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-    }
-
-    #trailCanvas {
-        display: none;
-    }
-}
-
-
-/* ============================================================
-   23 — TABLET
-   ============================================================ */
-
-@media (max-width: 1000px) {
-
-    .hero-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .scene {
-        min-height: 470px;
-    }
-
-    .expertise-grid {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .team-grid {
-        grid-template-columns:
-            repeat(3,1fr);
-    }
-
-    .project-shell {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-
-/* ============================================================
-   24 — MOBILE
-   ============================================================ */
-
-@media (max-width: 700px) {
-
-    .nav-links {
-        position: fixed;
-
-        top: 78px;
-        left: 4%;
-
-        width: 92%;
-
-        padding: 15px;
-
-        display: grid;
-
-        gap: 5px;
-
-        background:
-            rgba(8,12,24,.82);
-
-        border:
-            1px solid var(--border);
-
-        border-radius: 20px;
-
-        backdrop-filter: blur(24px);
-
-        transform:
-            translateY(-15px)
-            scale(.98);
-
-        opacity: 0;
-        pointer-events: none;
-
-        transition:
-            opacity .3s ease,
-            transform .3s var(--spring);
-    }
-
-    html[data-theme="light"] .nav-links {
-        background:
-            rgba(255,255,255,.82);
-    }
-
-    .nav-links.open {
-        opacity: 1;
-
-        transform:
-            translateY(0)
-            scale(1);
-
-        pointer-events: auto;
-    }
-
-    .nav-links a {
-        padding: 14px;
-
-        border-radius: 13px;
-    }
-
-    .nav-links a:hover {
-        background: var(--surface);
-    }
-
-    .menu-button {
-        display: grid;
-    }
-
-    .hero {
-        padding-top: 120px;
-    }
-
-    .hero h1 {
-        font-size:
-            clamp(
-                3.1rem,
-                18vw,
-                5.5rem
-            );
-    }
-
-    .hero-copy {
-        font-size: .98rem;
-    }
-
-    .hero-buttons {
-        display: grid;
-        grid-template-columns: 1fr;
-    }
-
-    .glass-button {
-        width: 100%;
-    }
-
-    .scene {
-        min-height: 390px;
-    }
-
-    .webgl-shell {
-        width: 330px;
-    }
-
-    .status-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .expertise-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-visual {
-        min-height: 390px;
-    }
-
-    .project-content {
-        padding: 27px;
-    }
-
-    .project-features {
-        grid-template-columns: 1fr;
-    }
-
-    .team-grid {
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-
-    .eternal-card {
-        padding: 30px;
-    }
-
-    .contact-card {
-        padding: 27px;
-    }
-
-    section {
-        padding: 80px 0;
-    }
-
-    .scroll-action {
-        right: 15px;
-        bottom: 15px;
-    }
-}
-
-
-/* ============================================================
-   25 — VERY SMALL DEVICES
-   ============================================================ */
-
-@media (max-width: 390px) {
-
-    .container {
-        width: 90%;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .scene {
-        min-height: 340px;
-    }
-
-    .webgl-shell {
-        width: 290px;
-    }
+    transition-duration:
+      .001ms !important;
+  }
 }
 
 </style>
 </head>
 
-
 <body>
 
-<!-- ============================================================
-     BACKGROUND
-     ============================================================ -->
+<!-- =========================================================
+     CANVAS PARTICLE ENGINE
+     ========================================================= -->
 
-<div class="background-grid"></div>
+<canvas id="particleCanvas"></canvas>
 
-<div class="ambient-orb orb-a"></div>
-<div class="ambient-orb orb-b"></div>
-<div class="ambient-orb orb-c"></div>
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
 
-<canvas id="trailCanvas"></canvas>
+<header class="header" id="header">
 
+  <div class="container header-inner">
 
-<!-- ============================================================
-     NAVIGATION
-     ============================================================ -->
+    <a href="#home" class="logo">
+      RAGHAVAN
+    </a>
 
-<header class="navbar" id="navbar">
+    <div class="header-actions">
 
-    <div class="container nav-inner">
+      <button
+        class="icon-button"
+        id="themeToggle"
+        aria-label="Toggle theme"
+      >
+        ◐
+      </button>
 
-        <a
-            class="brand"
-            href="#top"
-            aria-label="RAGHAVAN home"
-        >
-            <span class="brand-name">RAGHAVAN</span>
-        </a>
-
-        <nav
-            class="nav-links"
-            id="navLinks"
-            aria-label="Main navigation"
-        >
-
-            <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#project">Project</a>
-            <a href="#eternal">ETERNAL</a>
-            <a href="#team">Team</a>
-            <a href="#contact">Contact</a>
-
-        </nav>
-
-        <div class="nav-actions">
-
-            <button
-                class="icon-btn"
-                id="themeButton"
-                aria-label="Toggle light and dark mode"
-                title="Toggle theme"
-            >
-                ◐
-            </button>
-
-            <button
-                class="icon-btn menu-button"
-                id="menuButton"
-                aria-label="Open menu"
-                aria-expanded="false"
-            >
-                ☰
-            </button>
-
-        </div>
+      <button
+        class="icon-button"
+        id="menuToggle"
+        aria-label="Open navigation"
+      >
+        <span class="menu-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </button>
 
     </div>
+
+  </div>
 
 </header>
 
+<!-- =========================================================
+     MOBILE MENU
+     ========================================================= -->
 
-<!-- ============================================================
+<nav class="mobile-menu" id="mobileMenu">
+
+  <a href="#home">Home</a>
+  <a href="#expertise">Expertise</a>
+  <a href="#project">Kaggriculture</a>
+  <a href="#eternal">ETERNAL</a>
+  <a href="#contact">Contact</a>
+
+</nav>
+
+<!-- =========================================================
      HERO
-     ============================================================ -->
+     ========================================================= -->
 
-<main id="top">
+<main>
 
-<section class="hero" id="about">
+<section class="hero" id="home">
 
-    <div class="container hero-layout">
+  <div class="container hero-grid">
 
-        <div class="hero-content reveal">
+    <div class="hero-copy reveal">
 
-            <div class="eyebrow">
+      <div class="eyebrow">
 
-                <span class="eyebrow-dot"></span>
+        <span class="eyebrow-dot"></span>
 
-                ENGINEERING • SOFTWARE • INTELLIGENT SYSTEMS
+        SYSTEM ONLINE · ENGINEERING INTELLIGENCE
 
-            </div>
+      </div>
 
-            <h1>
+      <h1>
 
-                Building
-                <span class="hero-title-gradient">
-                    intelligent
-                </span>
+        Building
+        <span class="gradient-text">
+          intelligent
+        </span>
+        systems.
 
-                systems.
+      </h1>
 
-            </h1>
+      <p class="hero-description">
 
-            <p class="hero-copy">
+        Raghavan is an engineering-focused developer exploring
+        Python systems, autonomous-agent architectures,
+        intelligent decision systems and experimental software
+        engineering.
 
-                RAGHAVAN is a software-focused developer exploring
-                Python, intelligent decision systems, automation,
-                machine learning concepts and advanced software
-                architecture — with a focus on building systems
-                that are practical, adaptive and engineered to scale.
+      </p>
 
-            </p>
+      <div class="hero-actions">
 
-            <div class="hero-buttons">
-
-                <a
-                    class="glass-button primary magnetic"
-                    href="#project"
-                    data-audio="click"
-                >
-                    <span>Explore Kaggriculture →</span>
-                </a>
-
-                <a
-                    class="glass-button magnetic"
-                    href="#contact"
-                    data-audio="click"
-                >
-                    <span>Connect with RAGHAVAN</span>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- 3D ENGINE -->
-
-        <div
-            class="scene reveal"
-            id="heroScene"
+        <a
+          class="magnetic primary"
+          href="#project"
+          data-magnetic
         >
+          Explore Kaggriculture
+        </a>
 
-            <div class="webgl-shell">
+        <button
+          class="magnetic"
+          id="openTerminal"
+          data-magnetic
+        >
+          Open Engineering Terminal
+        </button>
 
-                <canvas id="shaderCanvas"></canvas>
-
-            </div>
-
-            <div class="core-glow"></div>
-
-            <div class="scene-ring"></div>
-            <div class="scene-ring r2"></div>
-            <div class="scene-ring r3"></div>
-
-            <div class="scene-label">
-                SYSTEM • ACTIVE
-            </div>
-
-        </div>
+      </div>
 
     </div>
 
+    <!-- 3D CORE -->
 
-    <div class="container">
+    <div class="core-stage reveal">
 
-        <div class="status-grid">
+      <div class="core">
 
-            <div class="status-card reveal">
+        <!-- THREE RADAR WAVES -->
+        <div class="radar r1"></div>
+        <div class="radar r2"></div>
+        <div class="radar r3"></div>
 
-                <div class="status-number">
-                    Python
-                </div>
+        <!-- NEON BIOS CORE -->
+        <div class="bios-core"></div>
 
-                <div class="status-label">
-                    Primary engineering language
-                </div>
+        <!-- CORE -->
+        <span class="core-particle cp1"></span>
+        <span class="core-particle cp2"></span>
+        <span class="core-particle cp3"></span>
+        <span class="core-particle cp4"></span>
 
-            </div>
-
-            <div class="status-card reveal">
-
-                <div class="status-number">
-                    Kaggriculture
-                </div>
-
-                <div class="status-label">
-                    Featured engineering project
-                </div>
-
-            </div>
-
-            <div class="status-card reveal">
-
-                <div class="status-number">
-                    ETERNAL
-                </div>
-
-                <div class="status-label">
-                    Technical community
-                </div>
-
-            </div>
-
+        <div class="core-status">
+          BIOS · ACTIVE
         </div>
 
+      </div>
+
     </div>
+
+  </div>
 
 </section>
 
-
-<!-- ============================================================
+<!-- =========================================================
      EXPERTISE
-     ============================================================ -->
+     ========================================================= -->
 
-<section id="expertise">
+<section class="section" id="expertise">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-heading reveal">
+    <span class="section-label">
+      Engineering Stack
+    </span>
 
-            <div class="section-kicker">
-                Capability Matrix
-            </div>
+    <h2 class="section-title reveal">
+      Expertise beyond
+      the interface.
+    </h2>
 
-            <h2>
-                Engineering across multiple layers.
-            </h2>
+    <p class="section-description reveal">
 
-            <p>
-                A broad technical foundation spanning programming,
-                intelligent systems, data-driven development,
-                automation and software engineering.
-            </p>
+      A broad engineering foundation focused on building,
+      understanding and improving intelligent software systems.
 
-        </div>
+    </p>
 
+    <div class="expertise-grid">
 
-        <div class="expertise-grid">
+      <article class="glass-card reveal">
+        <span class="skill-index">01 · PYTHON</span>
+        <h3>Python Engineering</h3>
+        <p>
+          Modular software, automation, data pipelines,
+          experimentation and system architecture.
+        </p>
+      </article>
 
-            <article class="glass-card expertise-card reveal">
+      <article class="glass-card reveal">
+        <span class="skill-index">02 · AI</span>
+        <h3>Artificial Intelligence</h3>
+        <p>
+          Intelligent agents, decision systems,
+          experimentation and adaptive architectures.
+        </p>
+      </article>
 
-                <div class="expertise-icon">⌘</div>
+      <article class="glass-card reveal">
+        <span class="skill-index">03 · SOFTWARE</span>
+        <h3>Software Engineering</h3>
+        <p>
+          Clean architecture, testing, interfaces,
+          integration and maintainable systems.
+        </p>
+      </article>
 
-                <h3>Python Engineering</h3>
-
-                <p>
-                    Modular software, automation, data processing,
-                    system logic and engineering workflows.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">◈</div>
-
-                <h3>Intelligent Systems</h3>
-
-                <p>
-                    Decision systems, adaptive logic, agents and
-                    experimental intelligent architectures.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">◉</div>
-
-                <h3>Machine Learning</h3>
-
-                <p>
-                    Learning pipelines, evaluation concepts,
-                    experimentation and model-driven systems.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">⚙</div>
-
-                <h3>Software Architecture</h3>
-
-                <p>
-                    Modular design, testing, interfaces, Git,
-                    integration and maintainable engineering.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">▣</div>
-
-                <h3>Data Engineering</h3>
-
-                <p>
-                    Structured data, pipelines, analysis and
-                    reliable data-oriented workflows.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">↗</div>
-
-                <h3>Automation</h3>
-
-                <p>
-                    Engineering repetitive workflows into efficient,
-                    measurable and reusable systems.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">⌘</div>
-
-                <h3>Git & GitHub</h3>
-
-                <p>
-                    Version control, collaborative development,
-                    branches, commits and project delivery.
-                </p>
-
-            </article>
-
-
-            <article class="glass-card expertise-card reveal">
-
-                <div class="expertise-icon">◇</div>
-
-                <h3>Experimental Engineering</h3>
-
-                <p>
-                    Turning ideas into prototypes and progressively
-                    refining them into stronger systems.
-                </p>
-
-            </article>
-
-        </div>
+      <article class="glass-card reveal">
+        <span class="skill-index">04 · SYSTEMS</span>
+        <h3>Autonomous Systems</h3>
+        <p>
+          Feedback loops, planning, optimization,
+          learning and system-level reasoning.
+        </p>
+      </article>
 
     </div>
 
+  </div>
+
 </section>
 
-
-<!-- ============================================================
+<!-- =========================================================
      KAGGRICULTURE
-     ============================================================ -->
+     ========================================================= -->
 
-<section id="project">
+<section class="section project-section" id="project">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-heading reveal">
+    <span class="section-label">
+      Featured Project · 01
+    </span>
 
-            <div class="section-kicker">
-                Featured Project
-            </div>
+    <h2 class="section-title reveal">
+      Crop Coders —
+      Kaggriculture.
+    </h2>
 
-            <h2>
-                Crop Coders — Kaggriculture.
-            </h2>
+    <p class="section-description reveal">
 
-            <p>
-                The current flagship project showcased on this
-                portfolio.
-            </p>
+      The current flagship project showcased on this portfolio:
+      an engineering-focused intelligent agent architecture
+      designed for the Kaggriculture simulation environment.
+
+    </p>
+
+    <div class="project-shell">
+
+      <!-- SCROLL DRIVEN SVG GEOMETRY -->
+
+      <svg
+        class="project-rail"
+        viewBox="0 0 1000 900"
+        preserveAspectRatio="none"
+        aria-hidden="true"
+      >
+
+        <defs>
+
+          <linearGradient
+            id="railGradient"
+            x1="0"
+            y1="0"
+            x2="1"
+            y2="1"
+          >
+            <stop
+              offset="0"
+              stop-color="#7d8cff"
+            />
+
+            <stop
+              offset=".5"
+              stop-color="#45e6dc"
+            />
+
+            <stop
+              offset="1"
+              stop-color="#b06cff"
+            />
+
+          </linearGradient>
+
+        </defs>
+
+        <path
+          id="timelinePath"
+          d="
+            M500 0
+            C160 130 840 220 500 360
+            C150 500 850 620 500 900
+          "
+        />
+
+      </svg>
+
+      <article
+        class="project-card reveal"
+        data-color="#273f8f"
+        id="kaggricultureCard"
+      >
+
+        <div class="project-top">
+
+          <div>
+
+            <span class="project-number">
+              CROP CODERS · KAGGRICULTURE
+            </span>
+
+            <h3>
+              Intelligent
+              Agriculture
+              Agent.
+            </h3>
+
+          </div>
+
+        </div>
+
+        <p>
+
+          Kaggriculture is a simulation-based environment where
+          an intelligent agent must make decisions across a
+          changing agricultural economy. The Crop Coders
+          architecture focuses on observation, decision making,
+          optimization, adaptation, testing and continuous
+          improvement.
+
+        </p>
+
+        <div class="project-system">
+
+          <div class="system-node">
+            <strong>Observe</strong>
+            <span>
+              Environment and state understanding
+            </span>
+          </div>
+
+          <div class="system-node">
+            <strong>Decide</strong>
+            <span>
+              Strategy generation and planning
+            </span>
+          </div>
+
+          <div class="system-node">
+            <strong>Adapt</strong>
+            <span>
+              Feedback and learning loops
+            </span>
+          </div>
+
+          <div class="system-node">
+            <strong>Evaluate</strong>
+            <span>
+              Metrics and performance analysis
+            </span>
+          </div>
+
+          <div class="system-node">
+            <strong>Test</strong>
+            <span>
+              Unit, integration and system validation
+            </span>
+          </div>
+
+          <div class="system-node">
+            <strong>Improve</strong>
+            <span>
+              Iterative engineering and optimization
+            </span>
+          </div>
 
         </div>
 
+        <div class="project-tags">
 
-        <div class="project-shell">
-
-            <div class="glass-card project-visual reveal">
-
-                <div class="farm-3d">
-
-                    <div class="farm-plane"></div>
-
-                    <div class="farm-grid">
-
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-                        <div class="farm-cell"></div>
-
-                    </div>
-
-                    <div class="farm-orb"></div>
-
-                </div>
-
-            </div>
-
-
-            <article class="glass-card project-content reveal">
-
-                <span class="project-tag">
-                    CROP CODERS
-                </span>
-
-                <h3>
-                    Kaggriculture
-                </h3>
-
-                <p>
-                    Crop Coders — Kaggriculture is an engineering
-                    project focused on building an intelligent
-                    decision-making system for a simulated farming
-                    environment.
-                </p>
-
-                <p>
-                    The architecture explores environment
-                    observation, strategic decision-making,
-                    optimization, feedback, learning, validation,
-                    testing and system-level evaluation.
-                </p>
-
-
-                <div class="project-features">
-
-                    <div class="feature">
-                        <strong>Decision Engine</strong>
-                        Strategy generation and planning.
-                    </div>
-
-                    <div class="feature">
-                        <strong>Learning Loop</strong>
-                        Observation, feedback and adaptation.
-                    </div>
-
-                    <div class="feature">
-                        <strong>Testing Engine</strong>
-                        Unit, integration and system validation.
-                    </div>
-
-                    <div class="feature">
-                        <strong>Architecture</strong>
-                        Modular engineering with clear boundaries.
-                    </div>
-
-                </div>
-
-
-                <div style="margin-top:28px">
-
-                    <a
-                        class="glass-button primary magnetic"
-                        href="https://github.com/sidhudumi-web/crop-coders-kaggriculture"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        data-audio="click"
-                    >
-                        <span>View Project on GitHub ↗</span>
-                    </a>
-
-                </div>
-
-            </article>
+          <span class="tag">Python</span>
+          <span class="tag">AI Agents</span>
+          <span class="tag">Decision Systems</span>
+          <span class="tag">Optimization</span>
+          <span class="tag">Planning</span>
+          <span class="tag">Testing</span>
+          <span class="tag">Adaptive Systems</span>
 
         </div>
+
+      </article>
 
     </div>
 
-</section>
-
-
-<!-- ============================================================
-     ETERNAL
-     ============================================================ -->
-
-<section id="eternal" class="eternal">
-
-    <div class="container">
-
-        <div class="glass-card eternal-card reveal">
-
-            <div class="section-kicker">
-                Technical Community
-            </div>
-
-            <div class="eternal-logo">
-                ETERNAL
-            </div>
-
-            <p>
-                ETERNAL is a technical community created around
-                learning, engineering, cybersecurity awareness,
-                experimentation and collaboration. The community
-                is designed to encourage responsible technical
-                exploration, problem-solving and knowledge sharing.
-            </p>
-
-            <p>
-                Its goal is not simply to use technology, but to
-                understand how systems work, how they can be
-                engineered responsibly, and how developers can
-                continuously improve their technical skills.
-            </p>
-
-
-            <div class="eternal-meta">
-
-                <span class="meta-pill">
-                    Responsible Security
-                </span>
-
-                <span class="meta-pill">
-                    Software Engineering
-                </span>
-
-                <span class="meta-pill">
-                    Technical Learning
-                </span>
-
-                <span class="meta-pill">
-                    Collaboration
-                </span>
-
-                <span class="meta-pill">
-                    Research & Experimentation
-                </span>
-
-            </div>
-
-
-            <div style="margin-top:32px">
-
-                <div class="team-role">
-                    Creator
-                </div>
-
-                <strong>
-                    Shanmugam
-                </strong>
-
-                <div
-                    class="team-role"
-                    style="margin-top:14px"
-                >
-                    Technical Leader
-                </div>
-
-                <strong>
-                    RAGHAVAN
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
-
-<!-- ============================================================
+<!-- =========================================================
      TEAM
-     ============================================================ -->
+     ========================================================= -->
 
-<section id="team">
+<section class="section">
 
-    <div class="container">
+  <div class="container">
 
-        <div class="section-heading reveal">
+    <span class="section-label">
+      Crop Coders Team
+    </span>
 
-            <div class="section-kicker">
-                Crop Coders
-            </div>
+    <h2 class="section-title reveal">
+      Built by a team.
+    </h2>
 
-            <h2>
-                The team behind the project.
-            </h2>
+    <div class="team-grid">
 
-        </div>
+      <article class="glass-card team-card reveal">
 
+        <div class="initial">R</div>
 
-        <div class="team-grid">
+        <h3>Raghavan</h3>
 
-            <article class="glass-card team-card reveal">
+        <p>
+          Engineering · Technical Leadership
+        </p>
 
-                <div class="team-avatar">R</div>
+      </article>
 
-                <h3>Raghavan</h3>
+      <article class="glass-card team-card reveal">
 
-                <div class="team-role">
-                    Technical Engineering
-                </div>
+        <div class="initial">S</div>
 
-            </article>
+        <h3>Shanmugam</h3>
 
+        <p>
+          Team · Creator
+        </p>
 
-            <article class="glass-card team-card reveal">
+      </article>
 
-                <div class="team-avatar">S</div>
+      <article class="glass-card team-card reveal">
 
-                <h3>Shanmugam</h3>
+        <div class="initial">S</div>
 
-                <div class="team-role">
-                    Team Member
-                </div>
+        <h3>Sithananthan</h3>
 
-            </article>
+        <p>
+          Strategy Research
+        </p>
 
+      </article>
 
-            <article class="glass-card team-card reveal">
+      <article class="glass-card team-card reveal">
 
-                <div class="team-avatar">S</div>
+        <div class="initial">S</div>
 
-                <h3>Sithananthan</h3>
+        <h3>Sumaiyah</h3>
 
-                <div class="team-role">
-                    Strategy Research
-                </div>
+        <p>
+          Team Coordination
+        </p>
 
-            </article>
+      </article>
 
+      <article class="glass-card team-card reveal">
 
-            <article class="glass-card team-card reveal">
+        <div class="initial">D</div>
 
-                <div class="team-avatar">S</div>
+        <h3>Dhanvanthraj</h3>
 
-                <h3>Sumaiyah</h3>
+        <p>
+          Engineering · Development
+        </p>
 
-                <div class="team-role">
-                    Coordination & Evaluation
-                </div>
-
-            </article>
-
-
-            <article class="glass-card team-card reveal">
-
-                <div class="team-avatar">D</div>
-
-                <h3>Dhanvanthraj</h3>
-
-                <div class="team-role">
-                    Engineering Team
-                </div>
-
-            </article>
-
-        </div>
+      </article>
 
     </div>
+
+  </div>
 
 </section>
 
+<!-- =========================================================
+     ETERNAL
+     ========================================================= -->
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
+<section class="section" id="eternal">
 
-<section id="contact">
+  <div class="container">
 
-    <div class="container">
+    <div class="eternal reveal">
 
-        <div class="section-heading reveal">
+      <span class="section-label">
+        New Community
+      </span>
 
-            <div class="section-kicker">
-                Contact
-            </div>
+      <h3>
+        ETERNAL
+      </h3>
 
-            <h2>
-                Let's build something meaningful.
-            </h2>
+      <p>
 
-            <p>
-                Connect through the professional profile below.
-            </p>
+        ETERNAL is a new cybersecurity and ethical-hacking
+        community concept focused on learning, responsible
+        security research, technical experimentation and
+        building a strong engineering-minded community.
 
+      </p>
+
+      <div class="eternal-grid">
+
+        <div class="eternal-node">
+          <strong>CREATOR</strong>
+          <span>Shanmugam</span>
         </div>
 
-
-        <div class="contact-grid">
-
-            <article class="glass-card contact-card reveal">
-
-                <h3>
-                    Professional network
-                </h3>
-
-                <p>
-                    Find RAGHAVAN on LinkedIn.
-                </p>
-
-
-                <div class="contact-links">
-
-                    <a
-                        class="contact-link magnetic"
-                        href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-
-                        <div>
-
-                            <div class="contact-label">
-                                LinkedIn
-                            </div>
-
-                            <div class="contact-value">
-                                Raghavan Ganesan
-                            </div>
-
-                        </div>
-
-                        <span>↗</span>
-
-                    </a>
-
-                </div>
-
-            </article>
-
-
-            <article class="glass-card contact-card reveal">
-
-                <h3>
-                    Current focus
-                </h3>
-
-                <p>
-                    Building stronger software engineering,
-                    intelligent systems and experimental projects.
-                </p>
-
-
-                <div class="contact-links">
-
-                    <a
-                        class="contact-link"
-                        href="#project"
-                    >
-
-                        <div>
-
-                            <div class="contact-label">
-                                Featured
-                            </div>
-
-                            <div class="contact-value">
-                                Crop Coders — Kaggriculture
-                            </div>
-
-                        </div>
-
-                        <span>→</span>
-
-                    </a>
-
-
-                    <a
-                        class="contact-link"
-                        href="#eternal"
-                    >
-
-                        <div>
-
-                            <div class="contact-label">
-                                Community
-                            </div>
-
-                            <div class="contact-value">
-                                ETERNAL
-                            </div>
-
-                        </div>
-
-                        <span>→</span>
-
-                    </a>
-
-                </div>
-
-            </article>
-
+        <div class="eternal-node">
+          <strong>TECHNICAL LEADER</strong>
+          <span>Raghavan</span>
         </div>
+
+        <div class="eternal-node">
+          <strong>COMMUNITY</strong>
+          <span>
+            Ethical security · learning · research
+          </span>
+        </div>
+
+      </div>
+
+      <div style="margin-top:28px">
+
+        <button
+          class="magnetic primary"
+          data-magnetic
+          id="eternalInvite"
+        >
+          Request ETERNAL Invitation
+        </button>
+
+      </div>
 
     </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     CONTACT
+     ========================================================= -->
+
+<section class="section" id="contact">
+
+  <div class="container">
+
+    <span class="section-label">
+      Connect
+    </span>
+
+    <h2 class="section-title reveal">
+      Connect with
+      RAGHAVAN.
+    </h2>
+
+    <div class="contact-grid">
+
+      <a
+        class="glass-card contact-card reveal"
+        href="tel:+919626638296"
+      >
+
+        <div>
+          <span class="skill-index">
+            PHONE
+          </span>
+
+          <div class="contact-value">
+            +91 96266 38296
+          </div>
+        </div>
+
+        <span class="tag">
+          Call Raghavan
+        </span>
+
+      </a>
+
+      <a
+        class="glass-card contact-card reveal"
+        href="https://www.linkedin.com/in/raghavan-ganesan-3800a8421/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div>
+          <span class="skill-index">
+            LINKEDIN
+          </span>
+
+          <div class="contact-value">
+            Raghavan Ganesan
+          </div>
+        </div>
+
+        <span class="tag">
+          Open LinkedIn
+        </span>
+
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
 </main>
 
-
-<!-- ============================================================
+<!-- =========================================================
      FOOTER
-     ============================================================ -->
+     ========================================================= -->
 
 <footer>
 
-    <div class="container">
+  <div class="container">
 
-        <div class="footer-name">
-            RAGHAVAN
-        </div>
+    <p>
 
-        <div style="margin-top:7px">
-            Engineering intelligence through software.
-        </div>
+      Designed and engineered by
+      <span class="footer-name">
+        RAGHAVAN
+      </span>
 
-        <div style="margin-top:18px;font-size:.75rem">
-            © <span id="year"></span> RAGHAVAN. Built with HTML,
-            CSS and JavaScript.
-        </div>
+    </p>
 
-    </div>
+    <p style="margin-top:8px">
+
+      Crop Coders · Kaggriculture · ETERNAL
+
+    </p>
+
+  </div>
 
 </footer>
 
+<!-- =========================================================
+     ADVANCED SCROLL ORB
+     ========================================================= -->
 
-<!-- ============================================================
-     ADVANCED SCROLL BUTTON
-     ============================================================ -->
-
-<button
-    class="scroll-action"
-    id="scrollAction"
-    aria-label="Scroll to top"
-    title="Back to top"
+<div
+  class="scroll-orb"
+  id="scrollOrb"
+  aria-label="Scroll navigation"
 >
 
-    <svg
-        class="progress-ring"
-        width="58"
-        height="58"
-        viewBox="0 0 58 58"
-        aria-hidden="true"
-    >
+  <button id="scrollButton">
 
-        <defs>
+    <span class="scroll-arrow"></span>
 
-            <linearGradient
-                id="progressGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-            >
+  </button>
 
-                <stop
-                    offset="0%"
-                    stop-color="#728cff"
-                />
+</div>
 
-                <stop
-                    offset="50%"
-                    stop-color="#53e7df"
-                />
+<!-- =========================================================
+     TERMINAL
+     ========================================================= -->
 
-                <stop
-                    offset="100%"
-                    stop-color="#a77cff"
-                />
+<section
+  class="terminal"
+  id="terminal"
+  aria-label="Engineering terminal"
+>
 
-            </linearGradient>
+  <div class="terminal-head">
 
-        </defs>
-
-        <circle
-            class="progress-track"
-            cx="29"
-            cy="29"
-            r="26"
-        ></circle>
-
-        <circle
-            class="progress-value"
-            cx="29"
-            cy="29"
-            r="26"
-        ></circle>
-
-    </svg>
-
-
-    <svg
-        id="directionIcon"
-        width="22"
-        height="22"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2.2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-    >
-
-        <path
-            id="directionPath"
-            d="M6 9l6 6 6-6"
-        ></path>
-
-    </svg>
-
-    <span class="scroll-action-label">
-        Back to top
+    <span>
+      RAGHAVAN_ENGINEERING_TERMINAL
     </span>
 
-</button>
+    <button id="closeTerminal">
+      ×
+    </button>
 
+  </div>
 
-<!-- ============================================================
-     JAVASCRIPT ENGINE
-     ============================================================ -->
+  <div
+    class="terminal-body"
+    id="terminalOutput"
+  >
+
+    <div class="terminal-line">
+      RAGHAVAN SYSTEM v2.0
+    </div>
+
+    <div class="terminal-line">
+      Type <strong>help</strong> for available commands.
+    </div>
+
+  </div>
+
+  <div class="terminal-input-row">
+
+    <span>›</span>
+
+    <input
+      id="terminalInput"
+      autocomplete="off"
+      spellcheck="false"
+      aria-label="Terminal command"
+    >
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     CUSTOM CONTEXT MENU
+     ========================================================= -->
+
+<div
+  class="context-menu"
+  id="contextMenu"
+>
+
+  <button data-command="terminal">
+    Open Engineering Terminal
+  </button>
+
+  <button data-command="kaggriculture">
+    Open Kaggriculture
+  </button>
+
+  <button data-command="eternal">
+    Open ETERNAL
+  </button>
+
+  <button data-command="contact">
+    Open Contact
+  </button>
+
+  <button data-command="theme">
+    Toggle Theme
+  </button>
+
+  <button data-command="audio">
+    Toggle UI Audio
+  </button>
+
+</div>
+
+<!-- =========================================================
+     JAVASCRIPT
+     ========================================================= -->
 
 <script>
 
-/* ============================================================
-   01 — SAFE HELPERS
-   ============================================================ */
-
 "use strict";
 
-const $ = (selector, root = document) =>
-    root.querySelector(selector);
-
-const $$ = (selector, root = document) =>
-    [...root.querySelectorAll(selector)];
-
-
 /* ============================================================
-   02 — YEAR
+   CORE STATE
    ============================================================ */
 
-$("#year").textContent =
-    new Date().getFullYear();
+const state = {
 
+  theme:
+    localStorage.getItem("raghavan-theme") ||
+    "dark",
+
+  audio:
+    localStorage.getItem("raghavan-audio") !== "off",
+
+  scrollY:
+    window.scrollY,
+
+  previousScroll:
+    window.scrollY,
+
+  velocity:
+    0,
+
+  lastTime:
+    performance.now(),
+
+  lastSound:
+    0
+
+};
 
 /* ============================================================
-   03 — THEME ENGINE
+   THEME ENGINE
    ============================================================ */
 
-const themeButton = $("#themeButton");
+const themeMeta =
+  document.getElementById("themeColorMeta");
 
-const savedTheme =
-    localStorage.getItem("raghavan-theme");
+function applyTheme(theme) {
 
-if (savedTheme === "light") {
-    document.documentElement.dataset.theme = "light";
+  state.theme =
+    theme === "light"
+      ? "light"
+      : "dark";
+
+  document.documentElement
+    .setAttribute(
+      "data-theme",
+      state.theme
+    );
+
+  themeMeta.setAttribute(
+    "content",
+    state.theme === "light"
+      ? "#edf4ff"
+      : "#07111f"
+  );
+
+  localStorage.setItem(
+    "raghavan-theme",
+    state.theme
+  );
 }
 
-function updateThemeIcon() {
-
-    const light =
-        document.documentElement.dataset.theme === "light";
-
-    themeButton.textContent =
-        light ? "☀" : "◐";
-}
-
-updateThemeIcon();
-
-themeButton.addEventListener("click", () => {
-
-    const root =
-        document.documentElement;
-
-    const light =
-        root.dataset.theme === "light";
-
-    root.dataset.theme =
-        light ? "dark" : "light";
-
-    localStorage.setItem(
-        "raghavan-theme",
-        root.dataset.theme
-    );
-
-    updateThemeIcon();
-
-    playAudio("click");
-});
-
-
-/* ============================================================
-   04 — MOBILE NAV
-   ============================================================ */
-
-const menuButton = $("#menuButton");
-const navLinks = $("#navLinks");
-
-menuButton.addEventListener("click", () => {
-
-    const open =
-        navLinks.classList.toggle("open");
-
-    menuButton.setAttribute(
-        "aria-expanded",
-        String(open)
-    );
-
-    menuButton.textContent =
-        open ? "×" : "☰";
-});
-
-$$(".nav-links a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navLinks.classList.remove("open");
-
-        menuButton.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        menuButton.textContent = "☰";
-    });
-
-});
-
-
-/* ============================================================
-   05 — INTERSECTION OBSERVER
-   No heavy scroll visibility listeners.
-   ============================================================ */
-
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add(
-                        "is-visible"
-                    );
-
-                    revealObserver.unobserve(
-                        entry.target
-                    );
-                }
-
-            });
-
-        },
-        {
-            threshold: .12,
-            rootMargin: "0px 0px -45px 0px"
-        }
-    );
-
-$$(".reveal").forEach(element => {
-
-    revealObserver.observe(element);
-
-});
-
-
-/* ============================================================
-   06 — AUDIO ENGINE
-   Web Audio API.
-   ============================================================ */
-
-let audioContext = null;
-
-function getAudioContext() {
-
-    if (!audioContext) {
-
-        const AudioCtx =
-            window.AudioContext ||
-            window.webkitAudioContext;
-
-        if (!AudioCtx) {
-            return null;
-        }
-
-        audioContext =
-            new AudioCtx();
-    }
-
-    if (audioContext.state === "suspended") {
-        audioContext.resume().catch(() => {});
-    }
-
-    return audioContext;
-}
-
-function playAudio(type = "click") {
-
-    const ctx =
-        getAudioContext();
-
-    if (!ctx) return;
-
-    const oscillator =
-        ctx.createOscillator();
-
-    const gain =
-        ctx.createGain();
-
-    oscillator.connect(gain);
-    gain.connect(ctx.destination);
-
-    const now =
-        ctx.currentTime;
-
-    if (type === "hover") {
-
-        oscillator.type = "sine";
-
-        oscillator.frequency.setValueAtTime(
-            520,
-            now
-        );
-
-        oscillator.frequency.exponentialRampToValueAtTime(
-            690,
-            now + .055
-        );
-
-        gain.gain.setValueAtTime(
-            .0001,
-            now
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .035,
-            now + .008
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            now + .065
-        );
-
-        oscillator.start(now);
-        oscillator.stop(now + .07);
-
-    } else {
-
-        oscillator.type = "triangle";
-
-        oscillator.frequency.setValueAtTime(
-            180,
-            now
-        );
-
-        oscillator.frequency.exponentialRampToValueAtTime(
-            90,
-            now + .09
-        );
-
-        gain.gain.setValueAtTime(
-            .0001,
-            now
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .045,
-            now + .006
-        );
-
-        gain.gain.exponentialRampToValueAtTime(
-            .0001,
-            now + .11
-        );
-
-        oscillator.start(now);
-        oscillator.stop(now + .12);
-    }
-}
-
-
-/* ============================================================
-   07 — BUTTON AUDIO
-   ============================================================ */
-
-$$("[data-audio]").forEach(button => {
-
-    let hoverPlayed = false;
-
-    button.addEventListener(
-        "mouseenter",
-        () => {
-
-            if (!hoverPlayed) {
-
-                playAudio("hover");
-
-                hoverPlayed = true;
-            }
-
-        }
-    );
-
-    button.addEventListener(
-        "mouseleave",
-        () => {
-
-            hoverPlayed = false;
-
-        }
-    );
-
-    button.addEventListener(
-        "click",
-        () => playAudio("click")
-    );
-
-});
-
-
-/* ============================================================
-   08 — MAGNETIC HOVER
-   ============================================================ */
-
-function activateMagnetic(element) {
-
-    let raf = 0;
-
-    function move(event) {
-
-        const rect =
-            element.getBoundingClientRect();
-
-        const centerX =
-            rect.left + rect.width / 2;
-
-        const centerY =
-            rect.top + rect.height / 2;
-
-        const dx =
-            event.clientX - centerX;
-
-        const dy =
-            event.clientY - centerY;
-
-        const strength = 0.16;
-
-        cancelAnimationFrame(raf);
-
-        raf = requestAnimationFrame(() => {
-
-            element.style.transform =
-                `translate3d(${dx * strength}px,
-                              ${dy * strength}px,
-                              0)
-                 scale(1.025)`;
-
-        });
-    }
-
-    function reset() {
-
-        cancelAnimationFrame(raf);
-
-        element.style.transform = "";
-
-    }
-
-    element.addEventListener(
-        "mousemove",
-        move
-    );
-
-    element.addEventListener(
-        "mouseleave",
-        reset
-    );
-}
-
-$$(".magnetic").forEach(activateMagnetic);
-
-
-/* ============================================================
-   09 — 3D TILT
-   ============================================================ */
-
-$$(".glass-card").forEach(card => {
-
-    card.addEventListener(
-        "pointermove",
-        event => {
-
-            if (event.pointerType === "touch") {
-                return;
-            }
-
-            const rect =
-                card.getBoundingClientRect();
-
-            const x =
-                (event.clientX - rect.left)
-                / rect.width;
-
-            const y =
-                (event.clientY - rect.top)
-                / rect.height;
-
-            const rotateY =
-                (x - .5) * 8;
-
-            const rotateX =
-                (.5 - y) * 7;
-
-            card.style.transform =
-                `perspective(900px)
-                 translateY(-5px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)`;
-        }
-    );
-
-    card.addEventListener(
-        "pointerleave",
-        () => {
-
-            card.style.transform = "";
-
-        }
-    );
-
-});
-
-
-/* ============================================================
-   10 — SCROLL PHYSICS
-   ============================================================ */
-
-const scrollAction =
-    $("#scrollAction");
-
-let lastScrollY =
-    window.scrollY;
-
-let scrollVelocity = 0;
-
-let velocityTarget = 0;
-
-function updateScrollPhysics() {
-
-    const y =
-        window.scrollY;
-
-    velocityTarget =
-        y - lastScrollY;
-
-    scrollVelocity +=
-        (velocityTarget - scrollVelocity)
-        * .18;
-
-    lastScrollY = y;
-
-    const speed =
-        Math.min(
-            Math.abs(scrollVelocity),
-            45
-        );
-
-    const scaleY =
-        1 + speed * .006;
-
-    const scaleX =
-        1 - speed * .0015;
-
-    scrollAction.style.scale =
-        `${scaleX} ${scaleY}`;
-
-    requestAnimationFrame(
-        updateScrollPhysics
-    );
-}
-
-requestAnimationFrame(
-    updateScrollPhysics
-);
-
-
-/* ============================================================
-   11 — SCROLL PROGRESS + DIRECTION
-   ============================================================ */
-
-let previousScroll =
-    window.scrollY;
-
-function updateScrollUI() {
-
-    const doc =
-        document.documentElement;
-
-    const max =
-        doc.scrollHeight -
-        window.innerHeight;
-
-    const progress =
-        max > 0
-            ? Math.min(
-                Math.max(
-                    window.scrollY / max,
-                    0
-                ),
-                1
-            )
-            : 0;
-
-    scrollAction.style
-        .setProperty(
-            "--scroll-progress",
-            progress
-        );
-
-    const goingUp =
-        window.scrollY < previousScroll;
-
-    const shouldShow =
-        window.scrollY > 260;
-
-    if (shouldShow) {
-
-        scrollAction.classList.add(
-            "visible"
-        );
-
-    } else {
-
-        scrollAction.classList.remove(
-            "visible"
-        );
-    }
-
-    const path =
-        $("#directionPath");
-
-    if (goingUp) {
-
-        path.setAttribute(
-            "d",
-            "M6 15l6-6 6 6"
-        );
-
-        scrollAction
-            .setAttribute(
-                "aria-label",
-                "Back to top"
-            );
-
-    } else {
-
-        path.setAttribute(
-            "d",
-            "M6 9l6 6 6-6"
-        );
-
-        scrollAction
-            .setAttribute(
-                "aria-label",
-                "Scroll down"
-            );
-    }
-
-    previousScroll =
-        window.scrollY;
-}
-
-
-/*
-   Lightweight scroll listener only updates numeric UI state.
-   Visibility of sections is handled by IntersectionObserver.
-*/
-
-let scrollTick = false;
-
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (!scrollTick) {
-
-            scrollTick = true;
-
-            requestAnimationFrame(() => {
-
-                updateScrollUI();
-
-                scrollTick = false;
-
-            });
-        }
-
-    },
-    { passive: true }
-);
-
-updateScrollUI();
-
-
-/* ============================================================
-   12 — SCROLL BUTTON
-   ============================================================ */
-
-scrollAction.addEventListener(
+applyTheme(state.theme);
+
+document
+  .getElementById("themeToggle")
+  .addEventListener(
     "click",
     () => {
 
-        playAudio("click");
+      applyTheme(
+        state.theme === "dark"
+          ? "light"
+          : "dark"
+      );
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        particleBlast(
-            window.innerWidth - 50,
-            window.innerHeight - 50
-        );
+      playTone(
+        520,
+        .045,
+        "sine"
+      );
     }
-);
-
+  );
 
 /* ============================================================
-   13 — CANVAS PARTICLE ENGINE
+   MOBILE MENU
    ============================================================ */
 
-const trailCanvas =
-    $("#trailCanvas");
+const menu =
+  document.getElementById("mobileMenu");
 
-const trailContext =
-    trailCanvas.getContext(
-        "2d",
-        {
-            alpha: true
-        }
-    );
+document
+  .getElementById("menuToggle")
+  .addEventListener(
+    "click",
+    () => {
 
-let trailParticles = [];
+      menu.classList.toggle(
+        "open"
+      );
 
-function resizeTrailCanvas() {
-
-    const dpr =
-        Math.min(
-            window.devicePixelRatio || 1,
-            2
-        );
-
-    trailCanvas.width =
-        Math.floor(
-            window.innerWidth * dpr
-        );
-
-    trailCanvas.height =
-        Math.floor(
-            window.innerHeight * dpr
-        );
-
-    trailContext.setTransform(
-        dpr,
-        0,
-        0,
-        dpr,
-        0,
-        0
-    );
-}
-
-resizeTrailCanvas();
-
-window.addEventListener(
-    "resize",
-    resizeTrailCanvas,
-    {
-        passive: true
+      playTone(
+        380,
+        .04,
+        "triangle"
+      );
     }
-);
+  );
 
+menu
+  .querySelectorAll("a")
+  .forEach(
+    link => {
 
-function particleBlast(x,y) {
-
-    const count =
-        window.innerWidth < 600
-            ? 18
-            : 32;
-
-    for (
-        let i = 0;
-        i < count;
-        i++
-    ) {
-
-        const angle =
-            Math.random()
-            * Math.PI
-            * 2;
-
-        const speed =
-            1.5 +
-            Math.random() * 5;
-
-        trailParticles.push({
-
-            x,
-            y,
-
-            vx:
-                Math.cos(angle)
-                * speed,
-
-            vy:
-                Math.sin(angle)
-                * speed
-                - 1.5,
-
-            life: 1,
-
-            size:
-                1 +
-                Math.random() * 3,
-
-            rotation:
-                Math.random()
-                * Math.PI,
-
-            spin:
-                (Math.random()-.5)
-                * .2
-        });
-    }
-}
-
-
-function renderParticles() {
-
-    trailContext.clearRect(
-        0,
-        0,
-        window.innerWidth,
-        window.innerHeight
-    );
-
-    trailParticles =
-        trailParticles.filter(
-            particle =>
-                particle.life > 0
-        );
-
-    for (
-        const particle
-        of trailParticles
-    ) {
-
-        particle.x +=
-            particle.vx;
-
-        particle.y +=
-            particle.vy;
-
-        particle.vy += .045;
-
-        particle.life -= .022;
-
-        particle.rotation +=
-            particle.spin;
-
-        trailContext.save();
-
-        trailContext.translate(
-            particle.x,
-            particle.y
-        );
-
-        trailContext.rotate(
-            particle.rotation
-        );
-
-        trailContext.globalAlpha =
-            Math.max(
-                particle.life,
-                0
-            );
-
-        trailContext.fillStyle =
-            "rgba(83,231,223,.9)";
-
-        trailContext.fillRect(
-            -particle.size / 2,
-            -particle.size / 2,
-            particle.size,
-            particle.size
-        );
-
-        trailContext.restore();
-    }
-
-    requestAnimationFrame(
-        renderParticles
-    );
-}
-
-requestAnimationFrame(
-    renderParticles
-);
-
-
-/* ============================================================
-   14 — BUTTON PARTICLE BLAST
-   ============================================================ */
-
-$$(".glass-button").forEach(button => {
-
-    button.addEventListener(
+      link.addEventListener(
         "click",
-        event => {
-
-            particleBlast(
-                event.clientX,
-                event.clientY
-            );
-
+        () => {
+          menu.classList.remove(
+            "open"
+          );
         }
-    );
+      );
 
-});
-
+    }
+  );
 
 /* ============================================================
-   15 — POINTER TRAIL
+   INTERSECTION OBSERVER
    ============================================================ */
 
-let lastPointerTime = 0;
+const revealObserver =
+  new IntersectionObserver(
+    entries => {
 
-window.addEventListener(
-    "pointermove",
-    event => {
+      entries.forEach(
+        entry => {
 
-        if (
-            event.pointerType !== "mouse"
-        ) {
-            return;
+          if (
+            entry.isIntersecting
+          ) {
+
+            entry.target
+              .classList
+              .add("visible");
+
+            revealObserver
+              .unobserve(
+                entry.target
+              );
+
+          }
+
         }
-
-        const now =
-            performance.now();
-
-        if (
-            now - lastPointerTime < 45
-        ) {
-            return;
-        }
-
-        lastPointerTime = now;
-
-        trailParticles.push({
-
-            x: event.clientX,
-            y: event.clientY,
-
-            vx: 0,
-            vy: .2,
-
-            life: .28,
-
-            size:
-                .7 +
-                Math.random() * 1.7,
-
-            rotation: 0,
-            spin: 0
-        });
+      );
 
     },
     {
-        passive: true
+      threshold:
+        .12
     }
-);
+  );
 
+document
+  .querySelectorAll(".reveal")
+  .forEach(
+    element =>
+      revealObserver.observe(
+        element
+      )
+  );
 
 /* ============================================================
-   16 — WEBGL SHADER ENGINE
-   Lightweight liquid / holographic surface.
+   DYNAMIC THEME COLOR
    ============================================================ */
 
-const shaderCanvas =
-    $("#shaderCanvas");
+const projectObserver =
+  new IntersectionObserver(
+    entries => {
 
-const gl =
-    shaderCanvas.getContext(
-        "webgl",
-        {
-            alpha: true,
-            antialias: true,
-            premultipliedAlpha: false
+      entries.forEach(
+        entry => {
+
+          if (
+            entry.isIntersecting
+          ) {
+
+            const color =
+              entry.target
+                .dataset
+                .color;
+
+            if (color) {
+
+              themeMeta
+                .setAttribute(
+                  "content",
+                  color
+                );
+
+            }
+
+          }
+
         }
+      );
+
+    },
+    {
+      threshold:
+        .35
+    }
+  );
+
+document
+  .querySelectorAll(
+    "[data-color]"
+  )
+  .forEach(
+    element =>
+      projectObserver.observe(
+        element
+      )
+  );
+
+/* ============================================================
+   MAGNETIC BUTTON SYSTEM
+   ============================================================ */
+
+document
+  .querySelectorAll(
+    "[data-magnetic]"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "pointermove",
+        event => {
+
+          if (
+            window.matchMedia(
+              "(pointer:coarse)"
+            ).matches
+          ) {
+            return;
+          }
+
+          const rect =
+            button.getBoundingClientRect();
+
+          const x =
+            event.clientX -
+            (rect.left + rect.width / 2);
+
+          const y =
+            event.clientY -
+            (rect.top + rect.height / 2);
+
+          button.style.setProperty(
+            "--mx",
+            `${x * .12}px`
+          );
+
+          button.style.setProperty(
+            "--my",
+            `${y * .12}px`
+          );
+
+        }
+      );
+
+      button.addEventListener(
+        "pointerleave",
+        () => {
+
+          button.style.setProperty(
+            "--mx",
+            "0px"
+          );
+
+          button.style.setProperty(
+            "--my",
+            "0px"
+          );
+
+        }
+      );
+
+      button.addEventListener(
+        "mouseenter",
+        () => {
+
+          playTone(
+            650,
+            .025,
+            "sine"
+          );
+
+        }
+      );
+
+    }
+  );
+
+/* ============================================================
+   3D CARD TILT
+   ============================================================ */
+
+document
+  .querySelectorAll(".glass-card")
+  .forEach(
+    card => {
+
+      card.addEventListener(
+        "pointermove",
+        event => {
+
+          if (
+            window.matchMedia(
+              "(pointer:coarse)"
+            ).matches
+          ) {
+            return;
+          }
+
+          const rect =
+            card.getBoundingClientRect();
+
+          const px =
+            (event.clientX - rect.left)
+            / rect.width;
+
+          const py =
+            (event.clientY - rect.top)
+            / rect.height;
+
+          const rx =
+            (0.5 - py) * 7;
+
+          const ry =
+            (px - 0.5) * 7;
+
+          card.style.transform =
+            `
+            perspective(900px)
+            rotateX(${rx}deg)
+            rotateY(${ry}deg)
+            translateY(-5px)
+            `;
+
+        }
+      );
+
+      card.addEventListener(
+        "pointerleave",
+        () => {
+
+          card.style.transform =
+            "";
+
+        }
+      );
+
+    }
+  );
+
+/* ============================================================
+   SCROLL ENGINE
+   ============================================================ */
+
+let scrollTick =
+  false;
+
+function updateScroll() {
+
+  const current =
+    window.scrollY;
+
+  const max =
+    Math.max(
+      1,
+      document.documentElement
+        .scrollHeight -
+      window.innerHeight
     );
 
+  const progress =
+    Math.min(
+      1,
+      Math.max(
+        0,
+        current / max
+      )
+    );
 
-if (gl) {
+  const now =
+    performance.now();
 
-    const vertexSource = `
-        attribute vec2 position;
+  const dt =
+    Math.max(
+      16,
+      now - state.lastTime
+    );
 
-        void main() {
+  const rawVelocity =
+    Math.abs(
+      current -
+      state.previousScroll
+    ) / dt;
 
-            gl_Position =
-                vec4(position,0.0,1.0);
+  state.velocity =
+    state.velocity * .8 +
+    rawVelocity * .2;
 
-        }
-    `;
+  document.documentElement
+    .style
+    .setProperty(
+      "--progress",
+      `${progress * 100}%`
+    );
 
+  document.documentElement
+    .style
+    .setProperty(
+      "--scroll-speed",
+      Math.min(
+        1,
+        state.velocity * 4
+      )
+    );
 
-    const fragmentSource = `
-        precision highp float;
+  const orb =
+    document.getElementById(
+      "scrollOrb"
+    );
 
-        uniform float uTime;
-        uniform vec2 uResolution;
-        uniform vec2 uPointer;
+  orb.dataset.top =
+    current > 500
+      ? "true"
+      : "false";
 
-        float hash(vec2 p) {
+  /* header direction */
 
-            return fract(
-                sin(
-                    dot(
-                        p,
-                        vec2(
-                            127.1,
-                            311.7
-                        )
-                    )
-                )
-                * 43758.5453123
-            );
-        }
+  const header =
+    document.getElementById(
+      "header"
+    );
 
-        float noise(vec2 p) {
+  if (
+    current > state.previousScroll &&
+    current > 140
+  ) {
 
-            vec2 i =
-                floor(p);
+    header.classList.add(
+      "hidden"
+    );
 
-            vec2 f =
-                fract(p);
+  } else {
 
-            f =
-                f*f*(3.0-2.0*f);
+    header.classList.remove(
+      "hidden"
+    );
 
-            return mix(
-                mix(
-                    hash(i),
-                    hash(i+vec2(1.0,0.0)),
-                    f.x
-                ),
-                mix(
-                    hash(i+vec2(0.0,1.0)),
-                    hash(i+vec2(1.0,1.0)),
-                    f.x
-                ),
-                f.y
-            );
-        }
+  }
 
-        void main() {
+  /* scroll-driven project rotation */
 
-            vec2 uv =
-                gl_FragCoord.xy
-                / uResolution.xy;
+  const card =
+    document.getElementById(
+      "kaggricultureCard"
+    );
 
-            vec2 centered =
-                uv - .5;
+  if (card) {
 
-            centered.x *=
-                uResolution.x
-                / uResolution.y;
+    const rect =
+      card.getBoundingClientRect();
 
-            float dist =
-                length(centered);
+    const center =
+      window.innerHeight / 2;
 
-            float pointerDistance =
-                distance(
-                    uv,
-                    uPointer
-                );
+    const distance =
+      (rect.top + rect.height / 2)
+      - center;
 
-            float ripple =
-                sin(
-                    dist * 18.0
-                    - uTime * 1.5
-                    - pointerDistance * 12.0
-                );
+    const normalized =
+      Math.max(
+        -1,
+        Math.min(
+          1,
+          distance /
+          window.innerHeight
+        )
+      );
 
-            float n =
-                noise(
-                    centered * 4.0
-                    + uTime * .08
-                );
+    card.style.setProperty(
+      "--project-r",
+      `${normalized * -4}deg`
+    );
 
-            vec3 blue =
-                vec3(
-                    .16,
-                    .25,
-                    .95
-                );
+    card.style.setProperty(
+      "--project-y",
+      `${normalized * 12}px`
+    );
 
-            vec3 cyan =
-                vec3(
-                    .15,
-                    .88,
-                    .84
-                );
+  }
 
-            vec3 violet =
-                vec3(
-                    .54,
-                    .28,
-                    .95
-                );
+  state.previousScroll =
+    current;
 
-            float mixA =
-                smoothstep(
-                    -.8,
-                    .8,
-                    ripple
-                );
+  state.lastTime =
+    now;
 
-            vec3 color =
-                mix(
-                    blue,
-                    cyan,
-                    mixA
-                );
+  scrollTick =
+    false;
+}
 
-            color =
-                mix(
-                    color,
-                    violet,
-                    n * .35
-                );
+window.addEventListener(
+  "scroll",
+  () => {
 
-            float glow =
-                smoothstep(
-                    .82,
-                    .05,
-                    dist
-                );
+    if (!scrollTick) {
 
-            float edge =
-                smoothstep(
-                    .52,
-                    .18,
-                    dist
-                );
+      requestAnimationFrame(
+        updateScroll
+      );
 
-            color *=
-                .32
-                + glow * .75
-                + edge * .2;
-
-            float alpha =
-                smoothstep(
-                    .55,
-                    .34,
-                    dist
-                );
-
-            gl_FragColor =
-                vec4(
-                    color,
-                    alpha * .95
-                );
-        }
-    `;
-
-
-    function compileShader(
-        type,
-        source
-    ) {
-
-        const shader =
-            gl.createShader(type);
-
-        gl.shaderSource(
-            shader,
-            source
-        );
-
-        gl.compileShader(
-            shader
-        );
-
-        if (
-            !gl.getShaderParameter(
-                shader,
-                gl.COMPILE_STATUS
-            )
-        ) {
-
-            gl.deleteShader(shader);
-
-            return null;
-        }
-
-        return shader;
+      scrollTick =
+        true;
     }
 
+  },
+  {
+    passive:
+      true
+  }
+);
 
-    const vertexShader =
-        compileShader(
-            gl.VERTEX_SHADER,
-            vertexSource
+updateScroll();
+
+/* ============================================================
+   SCROLL BUTTON
+   ============================================================ */
+
+document
+  .getElementById(
+    "scrollButton"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      if (
+        window.scrollY > 500
+      ) {
+
+        window.scrollTo({
+          top:
+            0,
+
+          behavior:
+            "smooth"
+        });
+
+      } else {
+
+        document
+          .getElementById(
+            "expertise"
+          )
+          .scrollIntoView({
+            behavior:
+              "smooth"
+          });
+
+      }
+
+      particleBlast(
+        window.innerWidth - 60,
+        window.innerHeight - 60
+      );
+
+      playTone(
+        460,
+        .07,
+        "triangle"
+      );
+
+    }
+  );
+
+/* ============================================================
+   WEB AUDIO ENGINE
+   ============================================================ */
+
+let audioContext =
+  null;
+
+function ensureAudio() {
+
+  if (!state.audio) {
+    return null;
+  }
+
+  if (!audioContext) {
+
+    const AudioCtx =
+      window.AudioContext ||
+      window.webkitAudioContext;
+
+    if (!AudioCtx) {
+      return null;
+    }
+
+    audioContext =
+      new AudioCtx();
+
+  }
+
+  if (
+    audioContext.state ===
+    "suspended"
+  ) {
+
+    audioContext.resume();
+
+  }
+
+  return audioContext;
+}
+
+function playTone(
+  frequency = 440,
+  duration = .05,
+  type = "sine"
+) {
+
+  const now =
+    performance.now();
+
+  if (
+    now - state.lastSound < 35
+  ) {
+    return;
+  }
+
+  state.lastSound =
+    now;
+
+  const ctx =
+    ensureAudio();
+
+  if (!ctx) {
+    return;
+  }
+
+  const oscillator =
+    ctx.createOscillator();
+
+  const gain =
+    ctx.createGain();
+
+  oscillator.type =
+    type;
+
+  oscillator.frequency.value =
+    frequency;
+
+  gain.gain.setValueAtTime(
+    .0001,
+    ctx.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .045,
+    ctx.currentTime + .008
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .0001,
+    ctx.currentTime + duration
+  );
+
+  oscillator
+    .connect(gain)
+    .connect(ctx.destination);
+
+  oscillator.start();
+
+  oscillator.stop(
+    ctx.currentTime +
+    duration +
+    .01
+  );
+}
+
+/* ============================================================
+   AUDIO TOGGLE THROUGH TERMINAL
+   ============================================================ */
+
+function toggleAudio() {
+
+  state.audio =
+    !state.audio;
+
+  localStorage.setItem(
+    "raghavan-audio",
+    state.audio
+      ? "on"
+      : "off"
+  );
+
+  if (state.audio) {
+
+    playTone(
+      620,
+      .06,
+      "sine"
+    );
+
+  }
+}
+
+/* ============================================================
+   PARTICLE BLAST
+   ============================================================ */
+
+const canvas =
+  document.getElementById(
+    "particleCanvas"
+  );
+
+const ctx =
+  canvas.getContext(
+    "2d"
+  );
+
+let particles =
+  [];
+
+function resizeCanvas() {
+
+  const dpr =
+    Math.min(
+      2,
+      window.devicePixelRatio || 1
+    );
+
+  canvas.width =
+    window.innerWidth * dpr;
+
+  canvas.height =
+    window.innerHeight * dpr;
+
+  canvas.style.width =
+    window.innerWidth + "px";
+
+  canvas.style.height =
+    window.innerHeight + "px";
+
+  ctx.setTransform(
+    dpr,
+    0,
+    0,
+    dpr,
+    0,
+    0
+  );
+}
+
+window.addEventListener(
+  "resize",
+  resizeCanvas
+);
+
+resizeCanvas();
+
+function particleBlast(
+  x,
+  y
+) {
+
+  for (
+    let i = 0;
+    i < 30;
+    i++
+  ) {
+
+    const angle =
+      Math.random() *
+      Math.PI *
+      2;
+
+    const speed =
+      1.2 +
+      Math.random() * 4;
+
+    particles.push({
+
+      x,
+      y,
+
+      vx:
+        Math.cos(angle) *
+        speed,
+
+      vy:
+        Math.sin(angle) *
+        speed,
+
+      life:
+        1,
+
+      size:
+        1 +
+        Math.random() * 3
+
+    });
+
+  }
+}
+
+function particleLoop() {
+
+  ctx.clearRect(
+    0,
+    0,
+    window.innerWidth,
+    window.innerHeight
+  );
+
+  particles =
+    particles.filter(
+      p =>
+        p.life > 0
+    );
+
+  particles.forEach(
+    p => {
+
+      p.x +=
+        p.vx;
+
+      p.y +=
+        p.vy;
+
+      p.vy +=
+        .025;
+
+      p.life -=
+        .025;
+
+      ctx.globalAlpha =
+        Math.max(
+          0,
+          p.life
         );
 
-    const fragmentShader =
-        compileShader(
-            gl.FRAGMENT_SHADER,
-            fragmentSource
-        );
+      ctx.fillStyle =
+        "rgba(90,230,220,1)";
 
+      ctx.fillRect(
+        p.x,
+        p.y,
+        p.size,
+        p.size
+      );
+
+    }
+  );
+
+  ctx.globalAlpha =
+    1;
+
+  requestAnimationFrame(
+    particleLoop
+  );
+}
+
+particleLoop();
+
+/* ============================================================
+   CLICK PARTICLES
+   ============================================================ */
+
+document.addEventListener(
+  "click",
+  event => {
 
     if (
-        vertexShader &&
-        fragmentShader
+      event.target.closest(
+        "button,.magnetic"
+      )
     ) {
 
-        const program =
-            gl.createProgram();
+      particleBlast(
+        event.clientX,
+        event.clientY
+      );
 
-        gl.attachShader(
-            program,
-            vertexShader
-        );
-
-        gl.attachShader(
-            program,
-            fragmentShader
-        );
-
-        gl.linkProgram(program);
-
-
-        if (
-            gl.getProgramParameter(
-                program,
-                gl.LINK_STATUS
-            )
-        ) {
-
-            gl.useProgram(program);
-
-
-            const buffer =
-                gl.createBuffer();
-
-            gl.bindBuffer(
-                gl.ARRAY_BUFFER,
-                buffer
-            );
-
-            gl.bufferData(
-                gl.ARRAY_BUFFER,
-                new Float32Array([
-                    -1,-1,
-                     1,-1,
-                    -1, 1,
-                    -1, 1,
-                     1,-1,
-                     1, 1
-                ]),
-                gl.STATIC_DRAW
-            );
-
-
-            const position =
-                gl.getAttribLocation(
-                    program,
-                    "position"
-                );
-
-            gl.enableVertexAttribArray(
-                position
-            );
-
-            gl.vertexAttribPointer(
-                position,
-                2,
-                gl.FLOAT,
-                false,
-                0,
-                0
-            );
-
-
-            const timeLocation =
-                gl.getUniformLocation(
-                    program,
-                    "uTime"
-                );
-
-            const resolutionLocation =
-                gl.getUniformLocation(
-                    program,
-                    "uResolution"
-                );
-
-            const pointerLocation =
-                gl.getUniformLocation(
-                    program,
-                    "uPointer"
-                );
-
-
-            let pointerX = .5;
-            let pointerY = .5;
-
-
-            shaderCanvas.addEventListener(
-                "pointermove",
-                event => {
-
-                    const rect =
-                        shaderCanvas
-                            .getBoundingClientRect();
-
-                    pointerX =
-                        (
-                            event.clientX
-                            - rect.left
-                        )
-                        / rect.width;
-
-                    pointerY =
-                        1 -
-                        (
-                            event.clientY
-                            - rect.top
-                        )
-                        / rect.height;
-
-                },
-                {
-                    passive: true
-                }
-            );
-
-
-            function resizeShader() {
-
-                const rect =
-                    shaderCanvas
-                        .getBoundingClientRect();
-
-                const dpr =
-                    Math.min(
-                        window.devicePixelRatio || 1,
-                        2
-                    );
-
-                shaderCanvas.width =
-                    Math.max(
-                        1,
-                        Math.floor(
-                            rect.width * dpr
-                        )
-                    );
-
-                shaderCanvas.height =
-                    Math.max(
-                        1,
-                        Math.floor(
-                            rect.height * dpr
-                        )
-                    );
-
-                gl.viewport(
-                    0,
-                    0,
-                    shaderCanvas.width,
-                    shaderCanvas.height
-                );
-            }
-
-
-            resizeShader();
-
-            window.addEventListener(
-                "resize",
-                resizeShader,
-                {
-                    passive: true
-                }
-            );
-
-
-            const start =
-                performance.now();
-
-
-            function renderShader() {
-
-                const time =
-                    (
-                        performance.now()
-                        - start
-                    )
-                    / 1000;
-
-
-                gl.useProgram(program);
-
-                gl.uniform1f(
-                    timeLocation,
-                    time
-                );
-
-                gl.uniform2f(
-                    resolutionLocation,
-                    shaderCanvas.width,
-                    shaderCanvas.height
-                );
-
-                gl.uniform2f(
-                    pointerLocation,
-                    pointerX,
-                    pointerY
-                );
-
-                gl.drawArrays(
-                    gl.TRIANGLES,
-                    0,
-                    6
-                );
-
-                requestAnimationFrame(
-                    renderShader
-                );
-            }
-
-
-            renderShader();
-
-        }
+      playTone(
+        500,
+        .055,
+        "triangle"
+      );
 
     }
+
+  }
+);
+
+/* ============================================================
+   TERMINAL
+   ============================================================ */
+
+const terminal =
+  document.getElementById(
+    "terminal"
+  );
+
+const terminalInput =
+  document.getElementById(
+    "terminalInput"
+  );
+
+const terminalOutput =
+  document.getElementById(
+    "terminalOutput"
+  );
+
+function openTerminal() {
+
+  terminal.classList.add(
+    "open"
+  );
+
+  setTimeout(
+    () =>
+      terminalInput.focus(),
+    100
+  );
 
 }
 
+function closeTerminal() {
 
-/* ============================================================
-   17 — HERO 3D MOUSE PARALLAX
-   ============================================================ */
+  terminal.classList.remove(
+    "open"
+  );
 
-const heroScene =
-    $("#heroScene");
+}
 
-let heroRaf = 0;
+document
+  .getElementById(
+    "openTerminal"
+  )
+  .addEventListener(
+    "click",
+    openTerminal
+  );
 
-heroScene.addEventListener(
-    "pointermove",
-    event => {
+document
+  .getElementById(
+    "closeTerminal"
+  )
+  .addEventListener(
+    "click",
+    closeTerminal
+  );
 
-        if (
-            event.pointerType === "touch"
-        ) {
-            return;
-        }
+function terminalPrint(
+  text
+) {
 
-        const rect =
-            heroScene.getBoundingClientRect();
-
-        const x =
-            (
-                event.clientX
-                - rect.left
-            )
-            / rect.width
-            - .5;
-
-        const y =
-            (
-                event.clientY
-                - rect.top
-            )
-            / rect.height
-            - .5;
-
-        cancelAnimationFrame(heroRaf);
-
-        heroRaf =
-            requestAnimationFrame(
-                () => {
-
-                    heroScene.style.transform =
-                        `perspective(1200px)
-                         rotateX(${y * -4}deg)
-                         rotateY(${x * 5}deg)`;
-
-                }
-            );
-    }
-);
-
-
-heroScene.addEventListener(
-    "pointerleave",
-    () => {
-
-        heroScene.style.transform = "";
-
-    }
-);
-
-
-/* ============================================================
-   18 — KEYBOARD ACCESSIBILITY
-   ============================================================ */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            navLinks.classList.remove(
-                "open"
-            );
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
-            menuButton.textContent =
-                "☰";
-        }
-
-    }
-);
-
-
-/* ============================================================
-   19 — INITIAL PARTICLE BURST
-   ============================================================ */
-
-setTimeout(() => {
-
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-        return;
-    }
-
-    const rect =
-        $("#heroScene")
-            .getBoundingClientRect();
-
-    particleBlast(
-        rect.left + rect.width / 2,
-        rect.top + rect.height / 2
+  const line =
+    document.createElement(
+      "div"
     );
 
-}, 900);
+  line.className =
+    "terminal-line";
 
+  line.textContent =
+    text;
+
+  terminalOutput.appendChild(
+    line
+  );
+
+  terminalOutput.scrollTop =
+    terminalOutput.scrollHeight;
+}
+
+function runCommand(
+  command
+) {
+
+  const cmd =
+    command
+      .trim()
+      .toLowerCase();
+
+  if (!cmd) {
+    return;
+  }
+
+  terminalPrint(
+    "› " + command
+  );
+
+  switch (cmd) {
+
+    case "help":
+
+      terminalPrint(
+        "help · home · expertise · kaggriculture · eternal · contact · theme · audio · clear · close"
+      );
+
+      break;
+
+    case "home":
+
+      document
+        .getElementById(
+          "home"
+        )
+        .scrollIntoView({
+          behavior:
+            "smooth"
+        });
+
+      break;
+
+    case "expertise":
+
+      document
+        .getElementById(
+          "expertise"
+        )
+        .scrollIntoView({
+          behavior:
+            "smooth"
+        });
+
+      break;
+
+    case "kaggriculture":
+
+      document
+        .getElementById(
+          "project"
+        )
+        .scrollIntoView({
+          behavior:
+            "smooth"
+        });
+
+      break;
+
+    case "eternal":
+
+      document
+        .getElementById(
+          "eternal"
+        )
+        .scrollIntoView({
+          behavior:
+            "smooth"
+        });
+
+      break;
+
+    case "contact":
+
+      document
+        .getElementById(
+          "contact"
+        )
+        .scrollIntoView({
+          behavior:
+            "smooth"
+        });
+
+      break;
+
+    case "theme":
+
+      applyTheme(
+        state.theme === "dark"
+          ? "light"
+          : "dark"
+      );
+
+      terminalPrint(
+        "Theme switched."
+      );
+
+      break;
+
+    case "audio":
+
+      toggleAudio();
+
+      terminalPrint(
+        state.audio
+          ? "UI audio enabled."
+          : "UI audio disabled."
+      );
+
+      break;
+
+    case "clear":
+
+      terminalOutput.innerHTML =
+        "";
+
+      break;
+
+    case "close":
+
+      closeTerminal();
+
+      break;
+
+    default:
+
+      terminalPrint(
+        "Unknown command. Type help."
+      );
+
+  }
+
+  terminalInput.value =
+    "";
+
+}
+
+terminalInput.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Enter"
+    ) {
+
+      runCommand(
+        terminalInput.value
+      );
+
+    }
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      closeTerminal();
+
+    }
+
+  }
+);
 
 /* ============================================================
-   20 — PERFORMANCE SAFETY
+   KEYBOARD TERMINAL
    ============================================================ */
 
 document.addEventListener(
-    "visibilitychange",
-    () => {
+  "keydown",
+  event => {
 
-        if (
-            document.hidden
-        ) {
+    if (
+      event.key === "`" ||
+      (
+        event.ctrlKey &&
+        event.key === "/"
+      )
+    ) {
 
-            trailParticles.length = 0;
+      event.preventDefault();
 
-        }
+      terminal.classList.contains(
+        "open"
+      )
+        ? closeTerminal()
+        : openTerminal();
 
     }
+
+    if (
+      event.key === "Escape"
+    ) {
+
+      closeTerminal();
+
+      document
+        .getElementById(
+          "contextMenu"
+        )
+        .classList.remove(
+          "open"
+        );
+
+    }
+
+  }
+);
+
+/* ============================================================
+   CUSTOM CONTEXT MENU
+   ============================================================ */
+
+const contextMenu =
+  document.getElementById(
+    "contextMenu"
+  );
+
+document.addEventListener(
+  "contextmenu",
+  event => {
+
+    event.preventDefault();
+
+    const menuWidth =
+      230;
+
+    const menuHeight =
+      330;
+
+    const x =
+      Math.min(
+        event.clientX,
+        window.innerWidth -
+        menuWidth -
+        10
+      );
+
+    const y =
+      Math.min(
+        event.clientY,
+        window.innerHeight -
+        menuHeight -
+        10
+      );
+
+    contextMenu.style.left =
+      `${Math.max(10,x)}px`;
+
+    contextMenu.style.top =
+      `${Math.max(10,y)}px`;
+
+    contextMenu.classList.add(
+      "open"
+    );
+
+  }
+);
+
+document.addEventListener(
+  "click",
+  event => {
+
+    if (
+      !event.target.closest(
+        "#contextMenu"
+      )
+    ) {
+
+      contextMenu.classList.remove(
+        "open"
+      );
+
+    }
+
+  }
+);
+
+contextMenu
+  .querySelectorAll(
+    "button"
+  )
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const command =
+            button.dataset.command;
+
+          contextMenu.classList.remove(
+            "open"
+          );
+
+          switch (command) {
+
+            case "terminal":
+              openTerminal();
+              break;
+
+            case "kaggriculture":
+
+              document
+                .getElementById(
+                  "project"
+                )
+                .scrollIntoView({
+                  behavior:
+                    "smooth"
+                });
+
+              break;
+
+            case "eternal":
+
+              document
+                .getElementById(
+                  "eternal"
+                )
+                .scrollIntoView({
+                  behavior:
+                    "smooth"
+                });
+
+              break;
+
+            case "contact":
+
+              document
+                .getElementById(
+                  "contact"
+                )
+                .scrollIntoView({
+                  behavior:
+                    "smooth"
+                });
+
+              break;
+
+            case "theme":
+
+              applyTheme(
+                state.theme === "dark"
+                  ? "light"
+                  : "dark"
+              );
+
+              break;
+
+            case "audio":
+
+              toggleAudio();
+
+              break;
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+/* ============================================================
+   ENVIRONMENT ADAPTER
+   ============================================================ */
+
+function environmentAdapter() {
+
+  const hour =
+    new Date()
+      .getHours();
+
+  let message =
+    "SYSTEM ONLINE";
+
+  if (
+    hour >= 0 &&
+    hour < 6
+  ) {
+
+    message =
+      "LATE-NIGHT ENGINEERING MODE";
+
+  } else if (
+    hour >= 6 &&
+    hour < 12
+  ) {
+
+    message =
+      "MORNING BUILD MODE";
+
+  } else if (
+    hour >= 12 &&
+    hour < 18
+  ) {
+
+    message =
+      "DAYTIME ENGINEERING MODE";
+
+  } else {
+
+    message =
+      "EVENING BUILD MODE";
+
+  }
+
+  document
+    .querySelector(
+      ".eyebrow"
+    )
+    .setAttribute(
+      "title",
+      message
+    );
+
+}
+
+environmentAdapter();
+
+/* ============================================================
+   BATTERY ADAPTER
+   ============================================================ */
+
+async function batteryAdapter() {
+
+  try {
+
+    if (
+      !navigator.getBattery
+    ) {
+      return;
+    }
+
+    const battery =
+      await navigator.getBattery();
+
+    function updateBattery() {
+
+      if (
+        battery.level < .15 &&
+        !battery.charging
+      ) {
+
+        document.body
+          .classList
+          .add(
+            "low-battery"
+          );
+
+      } else {
+
+        document.body
+          .classList
+          .remove(
+            "low-battery"
+          );
+
+      }
+
+    }
+
+    updateBattery();
+
+    battery.addEventListener(
+      "levelchange",
+      updateBattery
+    );
+
+    battery.addEventListener(
+      "chargingchange",
+      updateBattery
+    );
+
+  } catch (
+    error
+  ) {
+
+    /* Battery API unavailable.
+       Site continues normally. */
+
+  }
+
+}
+
+batteryAdapter();
+
+/* ============================================================
+   ETERNAL INVITATION
+   ============================================================ */
+
+document
+  .getElementById(
+    "eternalInvite"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      openTerminal();
+
+      terminalPrint(
+        "ETERNAL invitation request initialized."
+      );
+
+      terminalPrint(
+        "Creator: Shanmugam."
+      );
+
+      terminalPrint(
+        "Technical Leader: Raghavan."
+      );
+
+      terminalPrint(
+        "Community focus: ethical cybersecurity, learning and responsible research."
+      );
+
+    }
+  );
+
+/* ============================================================
+   POINTER RIPPLE
+   ============================================================ */
+
+document.addEventListener(
+  "pointerdown",
+  event => {
+
+    const ripple =
+      document.createElement(
+        "span"
+      );
+
+    ripple.style.position =
+      "fixed";
+
+    ripple.style.left =
+      `${event.clientX}px`;
+
+    ripple.style.top =
+      `${event.clientY}px`;
+
+    ripple.style.width =
+      "8px";
+
+    ripple.style.height =
+      "8px";
+
+    ripple.style.border =
+      "1px solid rgba(100,220,255,.8)";
+
+    ripple.style.borderRadius =
+      "50%";
+
+    ripple.style.pointerEvents =
+      "none";
+
+    ripple.style.zIndex =
+      "998";
+
+    ripple.style.transform =
+      "translate(-50%,-50%)";
+
+    ripple.style.transition =
+      "transform .7s ease, opacity .7s ease";
+
+    document.body.appendChild(
+      ripple
+    );
+
+    requestAnimationFrame(
+      () => {
+
+        ripple.style.transform =
+          "translate(-50%,-50%) scale(14)";
+
+        ripple.style.opacity =
+          "0";
+
+      }
+    );
+
+    setTimeout(
+      () =>
+        ripple.remove(),
+      750
+    );
+
+  }
+);
+
+/* ============================================================
+   FINAL SYSTEM READY
+   ============================================================ */
+
+console.log(
+  "%c RAGHAVAN ENGINEERING SYSTEM ONLINE ",
+  "background:#111c35;color:#64e8dc;font-weight:900;padding:8px;border-radius:6px;"
+);
+
+console.log(
+  "Commands: help, kaggriculture, eternal, contact, theme, audio"
 );
 
 </script>
